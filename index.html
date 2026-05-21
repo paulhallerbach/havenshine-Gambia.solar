@@ -631,6 +631,7 @@ const CAT = {
 // qty = Stückzahl, ps = Leistung pro Stück (W), gzf = Gleichzeitigkeitsfaktor (aus Excel Nutzungszeiten),
 // p = effektive Spitzenlast (= qty×ps×gzf), w = Energie/Tag (Wh = p×b), b = Betriebsstunden/Tag.
 // Lampenanzahl gemäß Schätzung. Nähmaschinen ergänzt (6×100W, GZF 1,0).
+// Backofen GZF 0,66 (rev.), Backofen/Erdnussbutter/Ölpresse 2h, Nähmaschinen 3h, Laptops 4h, Beamer 3h (rev.).
 // Handyladestation und Wasserpumpe: eigene separate Solarsysteme, NICHT Teil dieser Hauptanlage.
 const C = [
   {n:"Außenbeleuchtung",      c:"Beleuchtung",   qty:4, ps:15,   gzf:1.0, p:60,   w:780,  b:13,  t:"19–08",h:[60,60,60,60,60,60,60,60,0,0,0,0,0,0,0,0,0,0,0,60,60,60,60,60]},
@@ -649,14 +650,14 @@ const C = [
   {n:"Ventilator Medical",    c:"Klimatisierung",qty:1, ps:75,   gzf:1.0, p:75,   w:750,  b:10,  t:"07–17",h:[0,0,0,0,0,0,0,75,75,75,75,75,75,75,75,75,75,0,0,0,0,0,0,0]},
   {n:"Kühlschrank",           c:"Küche",         qty:1, ps:80,   gzf:1.0, p:80,   w:1920, b:24,  t:"00–24",h:[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]},
   {n:"Küchenmaschine/Mixer",  c:"Küche",         qty:2, ps:500,  gzf:0.5, p:500,  w:1000, b:2,   t:"07–15",h:[0,0,0,0,0,0,0,500,500,500,500,500,500,500,500,0,0,0,0,0,0,0,0,0]},
-  {n:"Erdnussbuttermaschine", c:"Küche",         qty:2, ps:1100, gzf:1.0, p:2200, w:8800, b:4,   t:"07–15",h:[0,0,0,0,0,0,0,2200,2200,2200,2200,2200,2200,2200,2200,0,0,0,0,0,0,0,0,0]},
-  {n:"Ölpresse",              c:"Küche",         qty:1, ps:1800, gzf:1.0, p:1800, w:7200, b:4,   t:"07–15",h:[0,0,0,0,0,0,0,1800,1800,1800,1800,1800,1800,1800,1800,0,0,0,0,0,0,0,0,0]},
-  {n:"Backofen",              c:"Küche",         qty:3, ps:2000, gzf:0.8, p:4800, w:14400,b:3,   t:"07–15",h:[0,0,0,0,0,0,0,4800,4800,4800,4800,4800,4800,4800,4800,0,0,0,0,0,0,0,0,0]},
-  {n:"Nähmaschine (6×)",      c:"Küche",         qty:6, ps:100,  gzf:1.0, p:600,  w:2400, b:4,   t:"07–15",h:[0,0,0,0,0,0,0,600,600,600,600,600,600,600,600,0,0,0,0,0,0,0,0,0]},
+  {n:"Erdnussbuttermaschine", c:"Küche",         qty:2, ps:1100, gzf:1.0, p:2200, w:4400, b:2,   t:"07–15",h:[0,0,0,0,0,0,0,2200,2200,2200,2200,2200,2200,2200,2200,0,0,0,0,0,0,0,0,0]},
+  {n:"Ölpresse",              c:"Küche",         qty:1, ps:1800, gzf:1.0, p:1800, w:3600, b:2,   t:"07–15",h:[0,0,0,0,0,0,0,1800,1800,1800,1800,1800,1800,1800,1800,0,0,0,0,0,0,0,0,0]},
+  {n:"Backofen",              c:"Küche",         qty:3, ps:2000, gzf:0.66,p:3960, w:7920, b:2,   t:"07–15",h:[0,0,0,0,0,0,0,3960,3960,3960,3960,3960,3960,3960,3960,0,0,0,0,0,0,0,0,0]},
+  {n:"Nähmaschine (6×)",      c:"Küche",         qty:6, ps:100,  gzf:1.0, p:600,  w:1800, b:3,   t:"07–15",h:[0,0,0,0,0,0,0,600,600,600,600,600,600,600,600,0,0,0,0,0,0,0,0,0]},
   {n:"Wasserkocher",          c:"Küche",         qty:1, ps:1500, gzf:1.0, p:1500, w:750,  b:0.5, t:"07–15",h:[0,0,0,0,0,0,0,1500,1500,1500,1500,1500,1500,1500,1500,0,0,0,0,0,0,0,0,0]},
-  {n:"Laptop (8×)",           c:"Büro & Bildung",qty:8, ps:65,   gzf:0.5, p:260,  w:1820, b:7,   t:"08–15",h:[0,0,0,0,0,0,0,0,260,260,260,260,260,260,260,0,0,0,0,0,0,0,0,0]},
+  {n:"Laptop (8×)",           c:"Büro & Bildung",qty:8, ps:65,   gzf:0.5, p:260,  w:1040, b:4,   t:"08–15",h:[0,0,0,0,0,0,0,0,260,260,260,260,260,260,260,0,0,0,0,0,0,0,0,0]},
   {n:"Drucker",               c:"Büro & Bildung",qty:1, ps:30,   gzf:1.0, p:30,   w:15,   b:0.5, t:"08–15",h:[0,0,0,0,0,0,0,0,30,30,30,30,30,30,30,0,0,0,0,0,0,0,0,0]},
-  {n:"Beamer/Projektor",      c:"Büro & Bildung",qty:1, ps:350,  gzf:1.0, p:350,  w:1400, b:4,   t:"19–23",h:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,350,350,350,350,0]},
+  {n:"Beamer/Projektor",      c:"Büro & Bildung",qty:1, ps:350,  gzf:1.0, p:350,  w:1050, b:3,   t:"19–23",h:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,350,350,350,350,0]},
 ];
 
 const hrs = Array.from({length:24},(_,i)=>i);
