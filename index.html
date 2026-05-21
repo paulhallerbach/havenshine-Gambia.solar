@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HavenShine Academy — Solar Planung</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --ink:#1a1a18;
+  --ink2:#4a4a44;
+  --ink3:#8a8a80;
+  --paper:#f7f5f0;
+  --paper2:#edeae2;
+  --paper3:#e2dfd6;
+  --sun:#c8720a;
+  --sun-light:#f5e6ce;
+  --moon:#3d4f8a;
+  --moon-light:#dde3f5;
+  --green:#2a6b4a;
+  --green-light:#d4ead9;
+  --red:#a03020;
+  --red-light:#f0ddd8;
+  --amber:#8a6010;
+  --amber-light:#f0e4c0;
+  --r:8px;
+
+  /* dark theme vars for Schatten page */
+  --bg:#0f1117;
+  --bg2:#161b25;
+  --bg3:#1e2535;
+  --border:rgba(255,255,255,0.08);
+  --border2:rgba(255,255,255,0.14);
+  --text:#e8eaf0;
+  --text2:#8b91a8;
+  --text3:#555d74;
+  --accent:#f5a623;
+  --accent2:#3b8ef0;
+  --g-green:#2dca8c;
+  --g-red:#f06060;
+  --module:#1e5fa8;
+  --radius:10px;
+  --radius-lg:16px;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.6;min-height:100vh}
+
+/* ── SITE HEADER ── */
+.site-header{
+  background:var(--ink);color:var(--paper);
+  padding:48px 60px 40px;
+  position:relative;overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;right:-80px;top:-80px;
+  width:400px;height:400px;border-radius:50%;
+  border:1px solid rgba(247,245,240,.06);
+}
+.site-header::after{
+  content:'';position:absolute;right:60px;top:40px;
+  width:200px;height:200px;border-radius:50%;
+  border:1px solid rgba(247,245,240,.08);
+}
+.header-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,245,240,.45);margin-bottom:16px}
+.header-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,50px);line-height:1.05;margin-bottom:12px;position:relative;z-index:1}
+.header-title em{font-style:italic;color:#d4a85a}
+.header-sub{font-size:15px;color:rgba(247,245,240,.55);font-weight:300;max-width:560px;position:relative;z-index:1}
+
+/* ── TOP NAV (pages) ── */
+.top-nav{
+  background:var(--ink);
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:0 60px;
+  position:sticky;top:0;z-index:200;
+}
+.top-nav-inner{display:flex;gap:0;overflow-x:auto}
+.page-btn{
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:14px 22px;background:none;border:none;border-bottom:2px solid transparent;
+  color:rgba(247,245,240,.45);cursor:pointer;white-space:nowrap;
+  transition:color .2s,border-color .2s;display:flex;align-items:center;gap:8px;
+}
+.page-btn:hover{color:rgba(247,245,240,.8)}
+.page-btn.active{color:#d4a85a;border-bottom-color:#d4a85a}
+.page-btn .pg-icon{font-size:14px}
+
+/* ── PAGE CONTAINERS ── */
+.page{display:none}
+.page.active{display:block}
+
+/* ════════════════════════════════════════════════════════════════
+   PAGE 1 — LASTPROFIL  (light theme)
+═══════════════════════════════════════════════════════════════════ */
+#page-lastprofil{background:var(--paper)}
+
+/* sub-nav */
+.sub-nav{
+  background:var(--paper);
+  border-bottom:1px solid var(--paper3);
+  padding:0 60px;
+  position:sticky;top:43px;z-index:100;
+}
+.sub-nav-inner{display:flex;gap:0;overflow-x:auto}
+.nav-btn{
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  padding:14px 20px;background:none;border:none;border-bottom:2px solid transparent;
+  color:var(--ink3);cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s;
+}
+.nav-btn:hover{color:var(--ink)}
+.nav-btn.active{color:var(--ink);border-bottom-color:var(--ink)}
+
+.lp-main{max-width:1100px;margin:0 auto;padding:0 60px 80px}
+
+.section{padding:56px 0;border-bottom:1px solid var(--paper3);animation:fadeIn .4s ease}
+.section:last-child{border-bottom:none}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.section-header{display:flex;align-items:baseline;gap:20px;margin-bottom:8px}
+.section-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.1em}
+.section-title-lp{font-family:'DM Serif Display',serif;font-size:28px;color:var(--ink)}
+.section-desc{font-size:14px;color:var(--ink3);margin-bottom:32px;max-width:640px;line-height:1.7;font-weight:300}
+
+.kpi-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:32px}
+.kpi{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:16px 18px}
+.kpi-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.kpi-value{font-size:26px;font-weight:500;line-height:1;color:var(--ink);margin-bottom:3px}
+.kpi-unit{font-size:11px;color:var(--ink3)}
+.kpi.c-sun .kpi-value{color:var(--sun)}
+.kpi.c-moon .kpi-value{color:var(--moon)}
+.kpi.c-red .kpi-value{color:var(--red)}
+
+.dn-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+@media(max-width:600px){.dn-grid{grid-template-columns:1fr}}
+.dn-card{border-radius:12px;padding:24px 26px;position:relative;overflow:hidden}
+.dn-card.day{background:var(--sun-light);border:1px solid #e8c896}
+.dn-card.night{background:var(--moon-light);border:1px solid #b8c4e0}
+.dn-icon{font-size:28px;margin-bottom:12px;display:block}
+.dn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.dn-card.day .dn-label{color:var(--amber)}
+.dn-card.night .dn-label{color:var(--moon)}
+.dn-time{font-size:12px;font-weight:300;margin-bottom:14px}
+.dn-card.day .dn-time{color:var(--amber)}
+.dn-card.night .dn-time{color:var(--moon)}
+.dn-kwh{font-family:'DM Serif Display',serif;font-size:42px;line-height:1;margin-bottom:4px}
+.dn-card.day .dn-kwh{color:var(--sun)}
+.dn-card.night .dn-kwh{color:var(--moon)}
+.dn-pct{font-size:13px;font-weight:300}
+.dn-card.day .dn-pct{color:var(--amber)}
+.dn-card.night .dn-pct{color:var(--moon)}
+
+.chart-wrap{background:var(--paper2);border:1px solid var(--paper3);border-radius:12px;padding:24px;margin-bottom:16px}
+.chart-wrap canvas{display:block}
+
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink2)}
+.leg-sq{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+.con-table{width:100%;border-collapse:collapse;font-size:13px}
+.con-table thead th{
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink3);padding:6px 12px 10px;border-bottom:1px solid var(--paper3);text-align:left;font-weight:500
+}
+.con-table td{padding:8px 12px;border-bottom:1px solid var(--paper3);color:var(--ink)}
+.con-table tr:last-child td{border-bottom:none}
+.con-table tr:hover td{background:var(--paper2)}
+.cat-hdr td{
+  background:var(--paper2);font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);padding:6px 12px;font-weight:500
+}
+.mini-bar{height:4px;border-radius:2px;display:inline-block;vertical-align:middle}
+td.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
+
+/* ════════════════════════════════════════════════════════════════
+   PAGE 2 — SCHATTENSIMULATION  (dark theme)
+═══════════════════════════════════════════════════════════════════ */
+#page-schatten{background:var(--bg);color:var(--text)}
+
+.schatten-main{
+  max-width:1100px;
+  margin:0 auto;
+  padding:40px 40px 80px;
+  display:grid;
+  gap:32px;
+}
+
+.s-section-title{
+  font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text3);margin-bottom:14px;
+}
+
+.s-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:24px 28px;
+}
+.s-card-title{font-size:13px;font-weight:500;color:var(--text2);margin-bottom:6px;letter-spacing:.2px}
+.s-card-value{font-family:'DM Mono',monospace;font-size:26px;font-weight:500;color:var(--text);line-height:1.2}
+.s-card-value.ok{color:var(--g-green)}
+.s-card-value.warn{color:var(--accent)}
+.s-card-value.bad{color:var(--g-red)}
+.s-card-sub{font-size:12px;color:var(--text3);margin-top:2px;font-family:'DM Mono',monospace}
+
+.s-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+
+.tab-group{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tab-btn{
+  background:none;border:1px solid var(--border2);border-radius:var(--radius);
+  padding:6px 16px;cursor:pointer;font-size:13px;font-family:'DM Sans',sans-serif;
+  color:var(--text2);transition:all .15s;
+}
+.tab-btn:hover{border-color:rgba(255,255,255,.25);color:var(--text)}
+.tab-btn.on{background:rgba(59,142,240,.12);color:var(--accent2);border-color:rgba(59,142,240,.4);font-weight:500}
+.tab-btn.day-btn.on{background:rgba(245,166,35,.1);color:var(--accent);border-color:rgba(245,166,35,.35)}
+
+.ctrl-row{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.ctrl-label{font-size:13px;color:var(--text2);min-width:100px}
+.ctrl-value{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:80px;text-align:right}
+input[type=range]{
+  flex:1;height:4px;appearance:none;background:var(--bg3);border-radius:2px;outline:none;cursor:pointer;
+}
+input[type=range]::-webkit-slider-thumb{
+  appearance:none;width:16px;height:16px;border-radius:50%;
+  background:var(--accent2);border:2px solid var(--bg);box-shadow:0 0 0 1px var(--accent2);
+}
+input[type=range]::-moz-range-thumb{
+  width:16px;height:16px;border-radius:50%;background:var(--accent2);border:2px solid var(--bg);
+}
+
+#simCanvas{width:100%;display:block;border-radius:var(--radius);margin:4px 0 0}
+
+.compare-table{width:100%;border-collapse:collapse;font-size:13px}
+.compare-table th{
+  text-align:left;font-weight:500;font-size:11px;letter-spacing:.8px;text-transform:uppercase;
+  color:var(--text3);padding:0 16px 10px 0;border-bottom:1px solid var(--border);
+}
+.compare-table td{padding:12px 16px 12px 0;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:first-child{color:var(--text);font-weight:500}
+.compare-table .highlight{color:var(--g-green);font-weight:500}
+.compare-table .winner-row td{background:rgba(45,202,140,.04)}
+.winner-badge{
+  display:inline-block;font-size:10px;font-family:'DM Mono',monospace;
+  background:rgba(45,202,140,.12);color:var(--g-green);border:1px solid rgba(45,202,140,.3);
+  padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle;
+  letter-spacing:.5px;text-transform:uppercase;
+}
+
+.conclusion-box{
+  background:linear-gradient(135deg,rgba(45,202,140,.06) 0%,rgba(59,142,240,.06) 100%);
+  border:1px solid rgba(45,202,140,.2);border-radius:var(--radius-lg);padding:28px 32px;
+}
+.conclusion-box h2{font-size:18px;font-weight:600;color:var(--g-green);margin-bottom:14px;letter-spacing:-.3px}
+.conclusion-box p{color:var(--text2);margin-bottom:10px;line-height:1.7}
+.conclusion-box p:last-child{margin-bottom:0}
+.conclusion-box strong{color:var(--text);font-weight:500}
+
+.spec-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:10px 0;border-bottom:1px solid var(--border);gap:16px;
+}
+.spec-key{font-size:13px;color:var(--text2)}
+.spec-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--text);text-align:right}
+
+/* ── SHARED FOOTER ── */
+footer{
+  background:var(--ink);color:rgba(247,245,240,.35);
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;
+  padding:24px 60px;text-align:center;
+}
+
+@media(max-width:700px){
+  .site-header{padding:28px 20px 24px}
+  .top-nav{padding:0 20px}
+  .sub-nav{padding:0 20px}
+  .lp-main{padding:0 20px 60px}
+  .schatten-main{padding:24px 20px 60px}
+  .s-card{padding:18px 20px}
+  .ctrl-label{min-width:72px;font-size:12px}
+  footer{padding:20px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ SITE HEADER ══════════════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-eyebrow">Solaranlage · Vorplanung · Gambia 2026</div>
+  <h1 class="header-title">HavenShine Academy<br><em>Solar Planungsportal</em></h1>
+  <p class="header-sub">Energielastprofil · Schattensimulation · Kindergarten Brikama, Gambia (13°N)</p>
+</header>
+
+<!-- ══ TOP NAVIGATION (pages) ═══════════════════════════════════════════════ -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <button class="page-btn active" onclick="switchPage('lastprofil',this)">
+      <span class="pg-icon">⚡</span> Energielastprofil
+    </button>
+    <button class="page-btn" onclick="switchPage('schatten',this)">
+      <span class="pg-icon">☀</span> Schattensimulation
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE 1 — LASTPROFIL
+═════════════════════════════════════════════════════════════════════════ -->
+<div id="page-lastprofil" class="page active">
+
+  <!-- sub-nav -->
+  <nav class="sub-nav">
+    <div class="sub-nav-inner">
+      <button class="nav-btn active" onclick="lpShow('dn',this)">Tag &amp; Nacht</button>
+      <button class="nav-btn" onclick="lpShow('tv',this)">Tagesverlauf</button>
+      <button class="nav-btn" onclick="lpShow('el',this)">Energielast</button>
+      <button class="nav-btn" onclick="lpShow('vl',this)">Verbraucher</button>
+    </div>
+  </nav>
+
+  <main class="lp-main">
+
+    <!-- TAG & NACHT -->
+    <section class="section" id="s-dn">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title-lp">Tag &amp; Nacht</h2>
+      </div>
+      <p class="section-desc">Aufteilung des täglichen Energiebedarfs nach Sonnenstunden. Solar produziert zwischen 07:00 und 19:00 Uhr (Worst-Case für Banjul, Gambia, 13°N). Alles außerhalb dieser Fenster muss aus dem Batteriespeicher gedeckt werden.</p>
+      <div class="kpi-strip">
+        <div class="kpi c-sun"><div class="kpi-label">Energie tagsüber</div><div class="kpi-value" id="kv-dw">–</div><div class="kpi-unit" id="ku-dw">–</div></div>
+        <div class="kpi c-moon"><div class="kpi-label">Energie nachts</div><div class="kpi-value" id="kv-nw">–</div><div class="kpi-unit" id="ku-nw">–</div></div>
+        <div class="kpi c-red"><div class="kpi-label">Spitzenlast</div><div class="kpi-value" id="kv-pk">–</div><div class="kpi-unit">W · alle Geräte gleichzeitig</div></div>
+        <div class="kpi"><div class="kpi-label">Gesamtenergie/Tag</div><div class="kpi-value" id="kv-tot">–</div><div class="kpi-unit">kWh effektiv</div></div>
+      </div>
+      <div class="dn-grid">
+        <div class="dn-card day">
+          <span class="dn-icon">☀</span>
+          <div class="dn-label">Tagsüber</div>
+          <div class="dn-time">07:00 – 19:00 Uhr · Solar verfügbar</div>
+          <div class="dn-kwh" id="d-kwh">–</div>
+          <div class="dn-pct" id="d-pct">–</div>
+        </div>
+        <div class="dn-card night">
+          <span class="dn-icon">☽</span>
+          <div class="dn-label">Nachts</div>
+          <div class="dn-time">19:00 – 07:00 Uhr · Nur Speicher</div>
+          <div class="dn-kwh" id="n-kwh">–</div>
+          <div class="dn-pct" id="n-pct">–</div>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <div class="legend">
+          <span class="leg-item"><span class="leg-sq" style="background:#c8720a"></span>Tagsüber (07–19 Uhr)</span>
+          <span class="leg-item"><span class="leg-sq" style="background:#3d4f8a"></span>Nachts (19–07 Uhr)</span>
+        </div>
+        <div style="position:relative;height:260px">
+          <canvas id="c-dn" role="img" aria-label="Energiebedarf Tag vs Nacht je Kategorie"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAGESVERLAUF -->
+    <section class="section" id="s-tv" style="display:none">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title-lp">Tagesverlauf</h2>
+      </div>
+      <p class="section-desc">Stündliche Spitzenlast über 24 Stunden, aufgeteilt nach Kategorie. Zeigt wann welche Verbraucher aktiv sind. Hover über eine Stunde für Details.</p>
+      <div class="chart-wrap">
+        <div class="legend" id="lg-tv"></div>
+        <div style="position:relative;height:340px">
+          <canvas id="c-tv" role="img" aria-label="Gestapeltes Balkendiagramm stündliche Last nach Kategorie"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENERGIELAST -->
+    <section class="section" id="s-el" style="display:none">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title-lp">Energielast</h2>
+      </div>
+      <p class="section-desc">Täglicher Energieverbrauch je Verbraucher in Wh, basierend auf tatsächlichen Betriebsstunden. Zeigt wo die reale Energielast liegt.</p>
+      <div class="chart-wrap">
+        <div class="legend" id="lg-el"></div>
+        <div id="el-wrap" style="position:relative;height:760px">
+          <canvas id="c-el" role="img" aria-label="Horizontales Balkendiagramm Tagesenergie je Verbraucher"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- VERBRAUCHER -->
+    <section class="section" id="s-vl" style="display:none">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title-lp">Verbraucher</h2>
+      </div>
+      <p class="section-desc">Vollständige Liste aller 24 Verbraucher der Hauptanlage mit Zeitfenster, Spitzenlast, täglichen Betriebsstunden und Energieverbrauch. Handyladestation und Wasserpumpe laufen über eigene, separate Solarsysteme und sind hier nicht enthalten.</p>
+      <table class="con-table" id="ct-vl"></table>
+    </section>
+
+  </main>
+</div><!-- /page-lastprofil -->
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE 2 — SCHATTENSIMULATION
+═════════════════════════════════════════════════════════════════════════ -->
+<div id="page-schatten" class="page">
+  <main class="schatten-main">
+
+    <!-- SIMULATION -->
+    <div>
+      <p class="s-section-title">Interaktive Schattensimulation</p>
+      <div class="s-card" style="padding:24px 28px">
+        <div class="tab-group" id="ot">
+          <button class="tab-btn on" onclick="sO(0)">Portrait 15° — 1,575 m nach Süden</button>
+          <button class="tab-btn" onclick="sO(1)">Querformat 15° — 0,826 m nach Süden</button>
+        </div>
+        <div class="tab-group" id="dt">
+          <button class="tab-btn day-btn on" onclick="sD(0)">21. Dez — meister Schatten</button>
+          <button class="tab-btn day-btn" onclick="sD(1)">17. Aug — wenigster Schatten</button>
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">Uhrzeit</span>
+          <input type="range" id="sl-t" min="0" max="44" value="8" step="1">
+          <span class="ctrl-value" id="dsp-t">—</span>
+        </div>
+        <div class="ctrl-row">
+          <span class="ctrl-label">Freier Abstand</span>
+          <input type="range" id="sl-g" min="0" max="150" value="45" step="5">
+          <span class="ctrl-value" id="dsp-g">45 cm</span>
+        </div>
+        <canvas id="simCanvas"></canvas>
+        <div class="s-stat-grid" style="margin-top:16px">
+          <div class="s-card" style="padding:14px 18px;background:var(--bg3);border-color:var(--border)">
+            <div class="s-card-title">Sonnenhöhe</div>
+            <div class="s-card-value" id="i-alt" style="font-size:20px">—</div>
+          </div>
+          <div class="s-card" style="padding:14px 18px;background:var(--bg3);border-color:var(--border)">
+            <div class="s-card-title">Reihen × Module/Reihe</div>
+            <div class="s-card-value" id="i-layout" style="font-size:20px">—</div>
+          </div>
+          <div class="s-card" style="padding:14px 18px;background:var(--bg3);border-color:var(--border)">
+            <div class="s-card-title">Module / Leistung</div>
+            <div class="s-card-value" id="i-total" style="font-size:20px">—</div>
+          </div>
+          <div class="s-card" style="padding:14px 18px;background:var(--bg3);border-color:var(--border)">
+            <div class="s-card-title">Schatten je Modul</div>
+            <div class="s-card-value" id="i-shade" style="font-size:16px;padding-top:3px">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VARIANTENVERGLEICH -->
+    <div>
+      <p class="s-section-title">Variantenvergleich — Portrait vs. Querformat, 15° vs. 17°</p>
+      <div class="s-card">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Variante</th><th>Module</th><th>Leistung</th>
+              <th>Reihen × Mod./Reihe</th><th>Freier Abstand</th>
+              <th>Jahresstrahlung</th><th>Modulhöhe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner-row">
+              <td>Portrait 15°<span class="winner-badge">Empfehlung</span></td>
+              <td class="highlight">60</td><td class="highlight">9,9 kWp</td>
+              <td>5 × 12</td><td>45 cm</td><td>2.298 kWh/m²/a</td><td>40,8 cm</td>
+            </tr>
+            <tr>
+              <td>Portrait 17°</td><td>48</td><td>7,9 kWp</td>
+              <td>4 × 12</td><td>51 cm</td><td>2.302 kWh/m²/a</td><td>46,1 cm</td>
+            </tr>
+            <tr>
+              <td>Querformat 15°</td><td>54</td><td>8,9 kWp</td>
+              <td>9 × 6</td><td>24 cm</td><td>2.298 kWh/m²/a</td><td>21,4 cm</td>
+            </tr>
+            <tr>
+              <td>Querformat 17°</td><td>54</td><td>8,9 kWp</td>
+              <td>9 × 6</td><td>27 cm</td><td>2.302 kWh/m²/a</td><td>24,2 cm</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- MODULE SPECS -->
+    <div>
+      <p class="s-section-title">Modul — Sharp NEQ5E3E</p>
+      <div class="s-card">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px">
+          <div>
+            <div class="spec-row"><span class="spec-key">Typ</span><span class="spec-val">Polykristallin, 72 Zellen</span></div>
+            <div class="spec-row"><span class="spec-key">Nennleistung</span><span class="spec-val">165 W</span></div>
+            <div class="spec-row"><span class="spec-key">Abmessungen</span><span class="spec-val">1.575 × 826 × 46 mm</span></div>
+            <div class="spec-row"><span class="spec-key">Gewicht</span><span class="spec-val">17 kg</span></div>
+            <div class="spec-row"><span class="spec-key">Modul-Wirkungsgrad</span><span class="spec-val">12,7 %</span></div>
+          </div>
+          <div>
+            <div class="spec-row"><span class="spec-key">Leerlaufspannung V<sub>OC</sub></span><span class="spec-val">43,1 V</span></div>
+            <div class="spec-row"><span class="spec-key">MPP-Spannung V<sub>pm</sub></span><span class="spec-val">34,6 V</span></div>
+            <div class="spec-row"><span class="spec-key">Kurzschlussstrom I<sub>SC</sub></span><span class="spec-val">5,46 A</span></div>
+            <div class="spec-row"><span class="spec-key">Bypass-Dioden</span><span class="spec-val">3 × 24 Zellen</span></div>
+            <div class="spec-row"><span class="spec-key">Temp.-Koeff. P<sub>max</sub></span><span class="spec-val">−0,485 %/°C</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOCATION & CLIMATE -->
+    <div>
+      <p class="s-section-title">Standort & Klimadaten</p>
+      <div class="s-stat-grid">
+        <div class="s-card"><div class="s-card-title">Jahresstrahlung (opt. Neigung)</div><div class="s-card-value">2.302</div><div class="s-card-sub">kWh/m²/Jahr @ 17°</div></div>
+        <div class="s-card"><div class="s-card-title">Optimaler Neigungswinkel</div><div class="s-card-value">15 – 17°</div><div class="s-card-sub">PVGIS / Global Solar Atlas</div></div>
+        <div class="s-card"><div class="s-card-title">Performance Ratio (PR)</div><div class="s-card-value warn">52 – 56 %</div><div class="s-card-sub">Hitze + Staub (Worst Case)</div></div>
+        <div class="s-card"><div class="s-card-title">Ertrag/Jahr (60 Module, PR 54%)</div><div class="s-card-value ok">~13.900</div><div class="s-card-sub">kWh/Jahr · ~38 kWh/Tag</div></div>
+        <div class="s-card"><div class="s-card-title">Sonnenstunden (schlechtester Tag)</div><div class="s-card-value">10,5 h</div><div class="s-card-sub">21. Dez · >20° Sonnenhöhe</div></div>
+        <div class="s-card"><div class="s-card-title">Montagehöhe Konstruktion</div><div class="s-card-value">2,5 – 3,0 m</div><div class="s-card-sub">Schattenspende darunter</div></div>
+      </div>
+    </div>
+
+    <!-- PORTRAIT VS QUERFORMAT -->
+    <div>
+      <p class="s-section-title">Warum Portrait? — Bypassdioden & Streifenlage</p>
+      <div class="s-card">
+        <p style="color:var(--text2);font-size:13px;line-height:1.7;margin-bottom:18px">
+          Das Sharp NEQ5E3E hat <strong style="color:var(--text)">3 Bypass-Dioden</strong>, die das Modul in drei horizontale Streifen à 24 Zellen aufteilen. Entscheidend ist, wie diese Streifen im Verhältnis zum Schatten der Vorderreihe liegen.
+        </p>
+        <svg width="100%" viewBox="0 0 680 420" role="img" style="display:block">
+          <title>Portrait vs Querformat — Streifenlage bei Reihenverschattung</title>
+          <defs>
+            <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+          <text x="155" y="28" text-anchor="middle" style="font-size:13px;font-weight:500;fill:#e8eaf0;font-family:'DM Sans',sans-serif">Portrait</text>
+          <text x="155" y="44" text-anchor="middle" style="font-size:12px;fill:#8b91a8;font-family:'DM Sans',sans-serif">lange Seite zeigt Nord–Süd</text>
+          <text x="520" y="28" text-anchor="middle" style="font-size:13px;font-weight:500;fill:#e8eaf0;font-family:'DM Sans',sans-serif">Querformat</text>
+          <text x="520" y="44" text-anchor="middle" style="font-size:12px;fill:#8b91a8;font-family:'DM Sans',sans-serif">lange Seite zeigt Ost–West</text>
+          <line x1="340" y1="20" x2="340" y2="400" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+          <rect x="85" y="60" width="140" height="268" rx="5" fill="#1a2a4a" stroke="#2a4a8a" stroke-width="1.5"/>
+          <rect x="91" y="66"  width="128" height="82" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <rect x="91" y="154" width="128" height="82" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <rect x="91" y="242" width="128" height="80" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <text x="155" y="111" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Streifen 1</text>
+          <text x="155" y="199" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Streifen 2</text>
+          <text x="155" y="285" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Streifen 3</text>
+          <rect x="91" y="302" width="128" height="20" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
+          <text x="155" y="346" text-anchor="middle" style="font-size:12px;fill:rgba(120,140,200,0.9);font-family:'DM Sans',sans-serif">↑ Schatten trifft</text>
+          <text x="155" y="361" text-anchor="middle" style="font-size:12px;fill:rgba(120,140,200,0.9);font-family:'DM Sans',sans-serif">nur Streifen 3</text>
+          <line x1="85" y1="350" x2="225" y2="350" stroke="rgba(255,255,255,0.25)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+          <text x="155" y="364" text-anchor="middle" style="font-size:11px;fill:rgba(255,255,255,0.4);font-family:'DM Mono',monospace">826 mm (O–W)</text>
+          <line x1="52" y1="60" x2="52" y2="328" stroke="rgba(255,255,255,0.25)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+          <text x="46" y="200" text-anchor="middle" style="font-size:11px;fill:rgba(255,255,255,0.4);font-family:'DM Mono',monospace" transform="rotate(-90,46,200)">1.575 mm (N–S)</text>
+          <rect x="75" y="375" width="160" height="34" rx="6" fill="rgba(45,202,140,0.1)" stroke="rgba(45,202,140,0.35)" stroke-width="1"/>
+          <text x="155" y="397" text-anchor="middle" style="font-size:12px;font-weight:500;fill:#2dca8c;font-family:'DM Sans',sans-serif">✓ Nur 1 Streifen aus → 110 W</text>
+          <rect x="390" y="110" width="268" height="140" rx="5" fill="#1a2a4a" stroke="#2a4a8a" stroke-width="1.5"/>
+          <rect x="396" y="116" width="82"  height="128" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <rect x="484" y="116" width="82"  height="128" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <rect x="572" y="116" width="80"  height="128" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <text x="437" y="184" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 1</text>
+          <text x="525" y="184" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 2</text>
+          <text x="612" y="184" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 3</text>
+          <rect x="396" y="220" width="82"  height="24" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
+          <rect x="484" y="220" width="82"  height="24" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
+          <rect x="572" y="220" width="80"  height="24" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
+          <text x="524" y="268" text-anchor="middle" style="font-size:12px;fill:rgba(120,140,200,0.9);font-family:'DM Sans',sans-serif">↑ Schatten trifft alle 3 Streifen gleichzeitig</text>
+          <line x1="390" y1="300" x2="658" y2="300" stroke="rgba(255,255,255,0.25)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+          <text x="524" y="314" text-anchor="middle" style="font-size:11px;fill:rgba(255,255,255,0.4);font-family:'DM Mono',monospace">1.575 mm (O–W)</text>
+          <line x1="668" y1="110" x2="668" y2="250" stroke="rgba(255,255,255,0.25)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+          <text x="676" y="186" text-anchor="middle" style="font-size:11px;fill:rgba(255,255,255,0.4);font-family:'DM Mono',monospace" transform="rotate(90,676,186)">826 mm (N–S)</text>
+          <rect x="390" y="330" width="268" height="34" rx="6" fill="rgba(240,96,96,0.1)" stroke="rgba(240,96,96,0.35)" stroke-width="1"/>
+          <text x="524" y="352" text-anchor="middle" style="font-size:12px;font-weight:500;fill:#f06060;font-family:'DM Sans',sans-serif">✗ Alle 3 Streifen aus → 0 W</text>
+        </svg>
+        <p style="color:var(--text3);font-size:12px;margin-top:14px;line-height:1.6;font-family:'DM Mono',monospace">
+          Im Querformat liegen die Streifen nebeneinander (O–W) — Schatten von unten trifft alle drei gleichzeitig. Im Portrait liegen sie übereinander (N–S) — Schatten trifft immer nur den untersten Streifen.
+        </p>
+      </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="conclusion-box">
+      <h2>Empfehlung: Portrait 15°, 45 cm Abstand, 60 Module</h2>
+      <p>
+        Die <strong>lange Modulseite (1,575 m) zeigt nach Süden</strong> — so trifft das Sonnenlicht senkrecht auf die größtmögliche Fläche. Querformat scheidet aus zwei Gründen aus: Erstens halbiert es die Module pro Reihe von 12 auf 6. Zweitens liegen die drei Bypass-Dioden-Streifen dann nebeneinander statt übereinander, sodass der Morgenschatten alle drei Streifen gleichzeitig trifft und das Modul auf 0 W bringt statt auf 110 W.
+      </p>
+      <p>
+        <strong>15° statt 17°</strong> kostet nur 0,2 % Jahresertrag (≈ 15 kWh/Jahr). Dafür sinkt die Modulhöhe von 46 cm auf 41 cm, der Mindestabstand schrumpft von 51 cm auf 45 cm — und damit passen <strong>5 Reihen statt 4</strong> auf die 10 m: 60 statt 48 Module, 1,98 kWp mehr.
+      </p>
+      <p>
+        Mit <strong>45 cm freiem Abstand</strong> sind die Module ab ca. 10:30 – 11:00 Uhr am 21. Dezember vollständig schattenfrei. Gleichzeitig ist der Abstand groß genug für die manuelle Reinigung zwischen den Reihen.
+      </p>
+    </div>
+
+  </main>
+</div><!-- /page-schatten -->
+
+<footer>HavenShine Academy Gambia · Solaranlage Vorplanung · Solar Planungsportal · 2026</footer>
+
+
+<script>
+/* ══════════════════════════════════════════════════════════════════════
+   PAGE SWITCHING
+══════════════════════════════════════════════════════════════════════ */
+function switchPage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (id === 'schatten' && !simInit) { setTimeout(resize, 50); simInit = true; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   LASTPROFIL DATA & CHARTS
+══════════════════════════════════════════════════════════════════════ */
+const CAT = {
+  "Beleuchtung":    { col: "#c8720a", light: "#f5e6ce" },
+  "Klimatisierung": { col: "#2a6b4a", light: "#d4ead9" },
+  "Küche":          { col: "#a03020", light: "#f0ddd8" },
+  "Büro & Bildung": { col: "#3d4f8a", light: "#dde3f5" },
+};
+
+// Werte konservativ OHNE Gleichzeitigkeitsfaktor (volle Anschlussleistung).
+// Lampenanzahl gemäß Schätzung (3/3/3/4/4/3/4/2/2). Nähmaschinen ergänzt (6×100W).
+// Handyladestation und Wasserpumpe: eigene separate Solarsysteme, NICHT Teil dieser Hauptanlage.
+// qty = Stückzahl, ps = Leistung pro Stück (W), p = Spitzenlast gesamt (= qty×ps),
+// w = Energie/Tag (Wh), b = Betriebsstunden/Tag
+const C = [
+  {n:"Außenbeleuchtung",      c:"Beleuchtung",   qty:4, ps:15,   p:60,   w:780,  b:13,  t:"19–08",h:[60,60,60,60,60,60,60,60,0,0,0,0,0,0,0,0,0,0,0,60,60,60,60,60]},
+  {n:"LED Nursery 1",         c:"Beleuchtung",   qty:3, ps:10,   p:30,   w:90,   b:3,   t:"06–09",h:[0,0,0,0,0,0,30,30,30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},
+  {n:"LED Nursery 2",         c:"Beleuchtung",   qty:3, ps:10,   p:30,   w:90,   b:3,   t:"06–09",h:[0,0,0,0,0,0,30,30,30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},
+  {n:"LED Nursery 3",         c:"Beleuchtung",   qty:3, ps:10,   p:30,   w:90,   b:3,   t:"06–09",h:[0,0,0,0,0,0,30,30,30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},
+  {n:"LED Medical",           c:"Beleuchtung",   qty:4, ps:10,   p:40,   w:120,  b:3,   t:"06–09",h:[0,0,0,0,0,0,40,40,40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},
+  {n:"LED Kitchen",           c:"Beleuchtung",   qty:4, ps:10,   p:40,   w:120,  b:3,   t:"06–09",h:[0,0,0,0,0,0,40,40,40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},
+  {n:"LED Library",           c:"Beleuchtung",   qty:3, ps:10,   p:30,   w:150,  b:5,   t:"19–00",h:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,30,30,30,30,30]},
+  {n:"LED Skill/Meeting",     c:"Beleuchtung",   qty:4, ps:10,   p:40,   w:200,  b:5,   t:"19–00",h:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,40,40,40,40,40]},
+  {n:"LED Storage",           c:"Beleuchtung",   qty:2, ps:10,   p:20,   w:40,   b:2,   t:"19–21",h:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,20,0,0,0]},
+  {n:"LED Shop",              c:"Beleuchtung",   qty:2, ps:10,   p:20,   w:40,   b:2,   t:"19–21",h:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,20,0,0,0]},
+  {n:"Ventilator Nursery 1",  c:"Klimatisierung",qty:1, ps:75,   p:75,   w:600,  b:8,   t:"08–16",h:[0,0,0,0,0,0,0,0,75,75,75,75,75,75,75,75,0,0,0,0,0,0,0,0]},
+  {n:"Ventilator Nursery 2",  c:"Klimatisierung",qty:1, ps:75,   p:75,   w:600,  b:8,   t:"08–16",h:[0,0,0,0,0,0,0,0,75,75,75,75,75,75,75,75,0,0,0,0,0,0,0,0]},
+  {n:"Ventilator Nursery 3",  c:"Klimatisierung",qty:1, ps:75,   p:75,   w:600,  b:8,   t:"08–16",h:[0,0,0,0,0,0,0,0,75,75,75,75,75,75,75,75,0,0,0,0,0,0,0,0]},
+  {n:"Ventilator Medical",    c:"Klimatisierung",qty:1, ps:75,   p:75,   w:750,  b:10,  t:"07–17",h:[0,0,0,0,0,0,0,75,75,75,75,75,75,75,75,75,75,0,0,0,0,0,0,0]},
+  {n:"Kühlschrank",           c:"Küche",         qty:1, ps:80,   p:80,   w:1920, b:24,  t:"00–24",h:[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]},
+  {n:"Küchenmaschine/Mixer",  c:"Küche",         qty:2, ps:500,  p:1000, w:2000, b:2,   t:"07–15",h:[0,0,0,0,0,0,0,1000,1000,1000,1000,1000,1000,1000,1000,0,0,0,0,0,0,0,0,0]},
+  {n:"Erdnussbuttermaschine", c:"Küche",         qty:2, ps:1100, p:2200, w:8800, b:4,   t:"07–15",h:[0,0,0,0,0,0,0,2200,2200,2200,2200,2200,2200,2200,2200,0,0,0,0,0,0,0,0,0]},
+  {n:"Ölpresse",              c:"Küche",         qty:1, ps:1800, p:1800, w:7200, b:4,   t:"07–15",h:[0,0,0,0,0,0,0,1800,1800,1800,1800,1800,1800,1800,1800,0,0,0,0,0,0,0,0,0]},
+  {n:"Backofen",              c:"Küche",         qty:3, ps:2000, p:6000, w:18000,b:3,   t:"07–15",h:[0,0,0,0,0,0,0,6000,6000,6000,6000,6000,6000,6000,6000,0,0,0,0,0,0,0,0,0]},
+  {n:"Nähmaschine (6×)",      c:"Küche",         qty:6, ps:100,  p:600,  w:2400, b:4,   t:"07–15",h:[0,0,0,0,0,0,0,600,600,600,600,600,600,600,600,0,0,0,0,0,0,0,0,0]},
+  {n:"Wasserkocher",          c:"Küche",         qty:1, ps:1500, p:1500, w:750,  b:0.5, t:"07–15",h:[0,0,0,0,0,0,0,1500,1500,1500,1500,1500,1500,1500,1500,0,0,0,0,0,0,0,0,0]},
+  {n:"Laptop (8×)",           c:"Büro & Bildung",qty:8, ps:65,   p:520,  w:3640, b:7,   t:"08–15",h:[0,0,0,0,0,0,0,0,520,520,520,520,520,520,520,0,0,0,0,0,0,0,0,0]},
+  {n:"Drucker",               c:"Büro & Bildung",qty:1, ps:30,   p:30,   w:15,   b:0.5, t:"08–15",h:[0,0,0,0,0,0,0,0,30,30,30,30,30,30,30,0,0,0,0,0,0,0,0,0]},
+  {n:"Beamer/Projektor",      c:"Büro & Bildung",qty:1, ps:350,  p:350,  w:1400, b:4,   t:"19–23",h:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,350,350,350,350,0]},
+];
+
+const hrs = Array.from({length:24},(_,i)=>i);
+const lbl = hrs.map(h=>String(h).padStart(2,'0')+':00');
+const tot = hrs.map(h=>C.reduce((s,c)=>s+c.h[h],0));
+const totWh = C.reduce((s,c)=>s+c.w,0);
+const peakAll = C.reduce((s,c)=>s+c.p,0);
+const dayH = hrs.filter(h=>h>=7&&h<19);
+const nightH = hrs.filter(h=>h<7||h>=19);
+
+function split(c){
+  const ah=hrs.filter(h=>c.h[h]>0);
+  if(!ah.length)return{d:0,n:0};
+  const wph=c.w/ah.length;
+  return{d:Math.round(ah.filter(h=>dayH.includes(h)).length*wph),
+         n:Math.round(ah.filter(h=>nightH.includes(h)).length*wph)};
+}
+const sp = C.map(c=>({...c,...split(c)}));
+const dWh = sp.reduce((s,c)=>s+c.d,0);
+const nWh = sp.reduce((s,c)=>s+c.n,0);
+const cats = Object.keys(CAT);
+
+Chart.defaults.font.family = "'DM Sans',sans-serif";
+const gc = 'rgba(26,26,24,0.06)';
+const tc = '#8a8a80';
+
+function initDN(){
+  document.getElementById('kv-dw').textContent=(dWh/1000).toFixed(1)+' kWh';
+  document.getElementById('ku-dw').textContent='07:00–19:00 · '+Math.round(dWh/totWh*100)+'% des Tagesbedarfs';
+  document.getElementById('kv-nw').textContent=(nWh/1000).toFixed(1)+' kWh';
+  document.getElementById('ku-nw').textContent='19:00–07:00 · '+Math.round(nWh/totWh*100)+'% des Tagesbedarfs';
+  document.getElementById('kv-pk').textContent=peakAll.toLocaleString('de');
+  document.getElementById('kv-tot').textContent=(totWh/1000).toFixed(1);
+  document.getElementById('d-kwh').textContent=(dWh/1000).toFixed(1)+' kWh';
+  document.getElementById('d-pct').textContent=Math.round(dWh/totWh*100)+'% der Gesamtenergie';
+  document.getElementById('n-kwh').textContent=(nWh/1000).toFixed(1)+' kWh';
+  document.getElementById('n-pct').textContent=Math.round(nWh/totWh*100)+'% der Gesamtenergie';
+
+  new Chart(document.getElementById('c-dn'),{
+    type:'bar',
+    data:{labels:cats,datasets:[
+      {label:'Tagsüber (07–19)',data:cats.map(k=>sp.filter(c=>c.c===k).reduce((s,c)=>s+c.d,0)),backgroundColor:'#c8720a99',borderColor:'#c8720a',borderWidth:1,borderRadius:4},
+      {label:'Nachts (19–07)', data:cats.map(k=>sp.filter(c=>c.c===k).reduce((s,c)=>s+c.n,0)),backgroundColor:'#3d4f8a99',borderColor:'#3d4f8a',borderWidth:1,borderRadius:4},
+    ]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,labels:{color:tc,font:{size:12},boxWidth:10,boxHeight:10,padding:16}},
+        tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString('de')} Wh`}}},
+      scales:{
+        x:{grid:{color:gc},ticks:{color:tc,font:{size:12}}},
+        y:{grid:{color:gc},ticks:{color:tc,callback:v=>v>=1000?(v/1000).toFixed(1)+'k':v},title:{display:true,text:'Wh pro Tag',color:tc,font:{size:11}}}
+      }
+    }
+  });
+}
+
+let tvDone=false;
+function initTV(){
+  if(tvDone)return; tvDone=true;
+  document.getElementById('lg-tv').innerHTML=cats.map(k=>
+    `<span class="leg-item"><span class="leg-sq" style="background:${CAT[k].col}"></span>${k}</span>`
+  ).join('');
+  new Chart(document.getElementById('c-tv'),{
+    type:'bar',
+    data:{labels:lbl,datasets:cats.map(cat=>({
+      label:cat,stack:'s',
+      data:hrs.map(h=>C.filter(c=>c.c===cat).reduce((s,c)=>s+c.h[h],0)),
+      backgroundColor:CAT[cat].col+'99',borderColor:CAT[cat].col,borderWidth:0.5,
+    }))},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{
+        afterBody:items=>{
+          const i=items[0].dataIndex;
+          const active=C.filter(c=>c.h[i]>0).sort((a,b)=>b.h[i]-a.h[i]);
+          return['',...active.map(c=>`  ${c.n}: ${c.h[i].toLocaleString('de')} W`),'','  Gesamt: '+tot[i].toLocaleString('de')+' W'];
+        }
+      }}},
+      scales:{
+        x:{stacked:true,grid:{color:gc},ticks:{color:tc,maxTicksLimit:12,autoSkip:true,maxRotation:0}},
+        y:{stacked:true,grid:{color:gc},ticks:{color:tc,callback:v=>v>=1000?(v/1000).toFixed(0)+'k':v},title:{display:true,text:'Watt (W)',color:tc,font:{size:11}}}
+      }
+    }
+  });
+}
+
+let elDone=false;
+function initEL(){
+  if(elDone)return; elDone=true;
+  document.getElementById('lg-el').innerHTML=cats.map(k=>
+    `<span class="leg-item"><span class="leg-sq" style="background:${CAT[k].col}"></span>${k}</span>`
+  ).join('');
+  const sorted=[...C].sort((a,b)=>b.w-a.w);
+  const h=Math.max(sorted.length*36+80,400);
+  document.getElementById('el-wrap').style.height=h+'px';
+  new Chart(document.getElementById('c-el'),{
+    type:'bar',
+    data:{labels:sorted.map(c=>c.n),datasets:[{
+      data:sorted.map(c=>c.w),
+      backgroundColor:sorted.map(c=>CAT[c.c].col+'99'),
+      borderColor:sorted.map(c=>CAT[c.c].col),borderWidth:0.5,borderRadius:3,
+    }]},
+    options:{
+      indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{
+        label:ctx=>{
+          const c=sorted[ctx.dataIndex];
+          return ` ${c.w.toLocaleString('de')} Wh  ·  ${c.b}h × ${c.p} W  ·  ${Math.round(c.w/totWh*100)}% des Tagesbedarfs`;
+        }
+      }}},
+      scales:{
+        x:{grid:{color:gc},ticks:{color:tc,callback:v=>v>=1000?(v/1000).toFixed(1)+'k':v},title:{display:true,text:'Wh pro Tag',color:tc,font:{size:11}}},
+        y:{grid:{display:false},ticks:{color:tc,font:{size:12}}}
+      }
+    }
+  });
+}
+
+let vlDone=false;
+function initVL(){
+  if(vlDone)return; vlDone=true;
+  const mx=Math.max(...C.map(c=>c.w));
+  let h=`<thead><tr>
+    <th>Verbraucher</th>
+    <th>Zeitfenster</th>
+    <th style="text-align:right">W / Stück</th>
+    <th style="text-align:right">Spitzenlast</th>
+    <th style="text-align:right">h / Tag</th>
+    <th style="text-align:right">Energie / Tag</th>
+    <th style="min-width:110px">Anteil</th>
+  </tr></thead><tbody>`;
+  cats.forEach(cat=>{
+    h+=`<tr class="cat-hdr"><td colspan="7"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${CAT[cat].col};margin-right:8px;vertical-align:middle"></span>${cat}</td></tr>`;
+    C.filter(c=>c.c===cat).sort((a,b)=>b.w-a.w).forEach(c=>{
+      const pct=Math.round(c.w/totWh*100);
+      const bw=Math.round(c.w/mx*90);
+      const nameLabel = c.qty>1 ? `${c.n} <span style="font-size:11px;color:var(--ink3);font-family:'DM Mono',monospace">×${c.qty}</span>` : c.n;
+      h+=`<tr>
+        <td>${nameLabel}</td>
+        <td style="color:var(--ink3);font-size:12px">${c.t} Uhr</td>
+        <td class="num">${c.ps.toLocaleString('de')} W</td>
+        <td class="num">${c.p.toLocaleString('de')} W</td>
+        <td class="num">${c.b} h</td>
+        <td class="num">${c.w.toLocaleString('de')} Wh</td>
+        <td><span class="mini-bar" style="width:${bw}px;background:${CAT[cat].col}"></span><span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-left:6px">${pct}%</span></td>
+      </tr>`;
+    });
+  });
+  h+='</tbody>';
+  document.getElementById('ct-vl').innerHTML=h;
+}
+
+const secMap={dn:'s-dn',tv:'s-tv',el:'s-el',vl:'s-vl'};
+function lpShow(id,btn){
+  Object.values(secMap).forEach(s=>document.getElementById(s).style.display='none');
+  document.getElementById(secMap[id]).style.display='block';
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(id==='tv')initTV();
+  if(id==='el')initEL();
+  if(id==='vl')initVL();
+  window.scrollTo({top:document.querySelector('.sub-nav').offsetTop-43,behavior:'smooth'});
+}
+
+initDN();
+
+/* ══════════════════════════════════════════════════════════════════════
+   SCHATTENSIMULATION
+══════════════════════════════════════════════════════════════════════ */
+const DAYS=[
+  {l:'21. Dez',d:[
+    {t:'07:30',a:.77},{t:'07:45',a:3.85},{t:'08:00',a:7.06},{t:'08:15',a:10.28},
+    {t:'08:30',a:13.49},{t:'08:45',a:16.66},{t:'09:00',a:19.79},{t:'09:15',a:22.88},
+    {t:'09:30',a:25.9},{t:'09:45',a:28.87},{t:'10:00',a:31.75},{t:'10:15',a:34.54},
+    {t:'10:30',a:37.23},{t:'10:45',a:39.79},{t:'11:00',a:42.21},{t:'11:15',a:44.47},
+    {t:'11:30',a:46.53},{t:'11:45',a:48.38},{t:'12:00',a:49.97},{t:'12:15',a:51.28},
+    {t:'12:30',a:52.28},{t:'12:45',a:52.94},{t:'13:00',a:53.24},{t:'13:15',a:53.18},
+    {t:'13:30',a:52.76},{t:'13:45',a:51.99},{t:'14:00',a:50.89},{t:'14:15',a:49.48},
+    {t:'14:30',a:47.81},{t:'14:45',a:45.89},{t:'15:00',a:43.76},{t:'15:15',a:41.45},
+    {t:'15:30',a:38.98},{t:'15:45',a:36.37},{t:'16:00',a:33.65},{t:'16:15',a:30.83},
+    {t:'16:30',a:27.92},{t:'16:45',a:24.93},{t:'17:00',a:21.89},{t:'17:15',a:18.79},
+    {t:'17:30',a:15.64},{t:'17:45',a:12.46},{t:'18:00',a:9.24},{t:'18:15',a:6.02},
+    {t:'18:30',a:2.83}
+  ]},
+  {l:'17. Aug',d:[
+    {t:'07:00',a:.85},{t:'07:15',a:4.16},{t:'07:30',a:7.65},{t:'07:45',a:11.19},
+    {t:'08:00',a:14.75},{t:'08:15',a:18.33},{t:'08:30',a:21.92},{t:'08:45',a:25.52},
+    {t:'09:00',a:29.13},{t:'09:15',a:32.74},{t:'09:30',a:36.36},{t:'09:45',a:39.98},
+    {t:'10:00',a:43.6},{t:'10:15',a:47.23},{t:'10:30',a:50.87},{t:'10:45',a:54.5},
+    {t:'11:00',a:58.14},{t:'11:15',a:61.78},{t:'11:30',a:65.43},{t:'11:45',a:69.07},
+    {t:'12:00',a:72.72},{t:'12:15',a:76.36},{t:'12:30',a:80.01},{t:'12:45',a:83.66},
+    {t:'13:00',a:87.31},{t:'13:15',a:89.04},{t:'13:30',a:85.39},{t:'13:45',a:81.75},
+    {t:'14:00',a:78.1},{t:'14:15',a:74.45},{t:'14:30',a:70.8},{t:'14:45',a:67.16},
+    {t:'15:00',a:63.51},{t:'15:15',a:59.87},{t:'15:30',a:56.23},{t:'15:45',a:52.59},
+    {t:'16:00',a:48.96},{t:'16:15',a:45.32},{t:'16:30',a:41.69},{t:'16:45',a:38.07},
+    {t:'17:00',a:34.45},{t:'17:15',a:30.83},{t:'17:30',a:27.22},{t:'17:45',a:23.61},
+    {t:'18:00',a:20.02},{t:'18:15',a:16.43},{t:'18:30',a:12.86},{t:'18:45',a:9.3},
+    {t:'19:00',a:5.78},{t:'19:15',a:2.35}
+  ]}
+];
+const OR=[{ns:1.575,ew:.826},{ns:.826,ew:1.575}];
+let cD=0,cO=0,simInit=false;
+const canvas=document.getElementById('simCanvas');
+const ctx2=canvas.getContext('2d');
+
+function render(){
+  const W=canvas.width,H=canvas.height;
+  const SC=W/680*44;
+  const GY=H*.80,SX=W*.092;
+  const MOUNT=2.75,TILT=15*Math.PI/180,THICK=SC*.11;
+  const o=OR[cO];
+  const da=DAYS[cD].d;
+  const ti=Math.min(+document.getElementById('sl-t').value,da.length-1);
+  const gM=+document.getElementById('sl-g').value/100;
+  const sun=da[ti];
+  document.getElementById('dsp-t').textContent=sun.t+' Uhr';
+  document.getElementById('dsp-g').textContent=Math.round(gM*100)+' cm';
+  const aR=sun.a*Math.PI/180;
+  const tanA=sun.a>0.4?Math.tan(aR):null;
+  const dH=o.ns*Math.cos(TILT),hV=o.ns*Math.sin(TILT);
+  const pitch=dH+gM;
+  const mpr=Math.floor(10/o.ew);
+  const rows=Math.max(1,Math.floor(10/pitch));
+  const dP=dH*SC,hP=hV*SC,mP=MOUNT*SC,pP=pitch*SC;
+  const tnx=-Math.sin(TILT)*THICK,tny=Math.cos(TILT)*THICK;
+  let sf=0;
+  if(tanA&&rows>1)sf=Math.max(0,Math.min(1,(hV-gM*tanA)/(hV+dH*tanA)));
+
+  ctx2.clearRect(0,0,W,H);
+  ctx2.fillStyle='rgba(255,255,255,0.12)';
+  ctx2.beginPath();ctx2.roundRect(SX,GY,10*SC+8,4,2);ctx2.fill();
+  ctx2.fillStyle='rgba(255,255,255,0.25)';ctx2.font=`${Math.round(SC*.25)}px DM Mono,monospace`;
+  ctx2.textAlign='left';ctx2.fillText('SÜD',SX,GY+16);
+  ctx2.textAlign='right';ctx2.fillText('NORD',SX+10*SC+8,GY+16);
+  ctx2.strokeStyle='rgba(255,255,255,0.12)';ctx2.setLineDash([3,3]);ctx2.lineWidth=.5;
+  ctx2.beginPath();ctx2.moveTo(SX-10,GY);ctx2.lineTo(SX-10,GY-mP);ctx2.stroke();
+  ctx2.setLineDash([]);
+  ctx2.fillStyle='rgba(255,255,255,0.25)';ctx2.font=`${Math.round(SC*.24)}px DM Mono,monospace`;
+  ctx2.textAlign='right';ctx2.fillText('2,75m',SX-13,GY-mP/2+4);
+
+  if(tanA){
+    const offC_x=MOUNT/tanA*SC,offC_y=mP;
+    const offD_x=(MOUNT+hV)/tanA*SC,offD_y=mP-hP;
+    for(let r=0;r<rows;r++){
+      const btx=SX+r*pP+dP,bby=GY-mP;
+      ctx2.fillStyle='rgba(120,125,140,0.15)';
+      ctx2.beginPath();
+      ctx2.moveTo(btx,bby-hP);ctx2.lineTo(btx,bby);
+      ctx2.lineTo(btx+offC_x,bby+offC_y);ctx2.lineTo(btx+offD_x,bby+offD_y);
+      ctx2.closePath();ctx2.fill();
+    }
+  }
+
+  for(let r=0;r<rows;r++){
+    const fx=SX+r*pP,bx=fx+dP,by=GY-mP,ty=GY-mP-hP;
+    ctx2.strokeStyle='rgba(255,255,255,0.28)';ctx2.lineWidth=1.5;ctx2.setLineDash([]);
+    ctx2.beginPath();ctx2.moveTo(fx+dP*.45,GY);ctx2.lineTo(fx+dP*.45,by);ctx2.stroke();
+    ctx2.fillStyle='#2a72c3';ctx2.globalAlpha=1.0;
+    ctx2.beginPath();ctx2.moveTo(fx,by);ctx2.lineTo(bx,ty);ctx2.lineTo(bx+tnx,ty+tny);ctx2.lineTo(fx+tnx,by+tny);ctx2.closePath();ctx2.fill();
+    ctx2.strokeStyle='#0d3d74';ctx2.lineWidth=.5;
+    ctx2.beginPath();ctx2.moveTo(fx,by);ctx2.lineTo(bx,ty);ctx2.lineTo(bx+tnx,ty+tny);ctx2.lineTo(fx+tnx,by+tny);ctx2.closePath();ctx2.stroke();
+    ctx2.strokeStyle='rgba(13,61,116,0.5)';ctx2.lineWidth=.4;
+    for(let i=1;i<3;i++){
+      const t=i/3;
+      ctx2.beginPath();ctx2.moveTo(fx+t*dP,by-t*hP);ctx2.lineTo(fx+t*dP+tnx,by-t*hP+tny);ctx2.stroke();
+    }
+    ctx2.fillStyle='rgba(255,255,255,0.55)';
+    ctx2.font=`${Math.round(SC*.23)}px DM Mono,monospace`;
+    ctx2.textAlign='center';
+    ctx2.fillText('R'+(r+1),fx+dP*.44,ty-6);
+  }
+
+  if(sf>.004){
+    const bsx=sf*dP,bsy=-sf*hP;
+    for(let r=1;r<rows;r++){
+      const fx=SX+r*pP,by=GY-mP;
+      ctx2.fillStyle='rgba(5,18,55,0.72)';
+      ctx2.beginPath();
+      ctx2.moveTo(fx,by);ctx2.lineTo(fx+bsx,by+bsy);ctx2.lineTo(fx+bsx+tnx,by+bsy+tny);ctx2.lineTo(fx+tnx,by+tny);
+      ctx2.closePath();ctx2.fill();
+      ctx2.strokeStyle='rgba(100,160,255,0.25)';ctx2.lineWidth=.8;
+      ctx2.beginPath();ctx2.moveTo(fx+bsx,by+bsy);ctx2.lineTo(fx+bsx+tnx,by+bsy+tny);ctx2.stroke();
+    }
+  }
+
+  if(sun.a>1){
+    const r0bx=SX+dP,r0ty=GY-mP-hP;
+    const rl=54,rdx=-rl*Math.cos(aR),rdy=rl*Math.sin(aR);
+    ctx2.strokeStyle='#f5a623';ctx2.lineWidth=2;ctx2.setLineDash([]);
+    ctx2.beginPath();ctx2.moveTo(r0bx+rdx,r0ty-rdy);ctx2.lineTo(r0bx,r0ty);ctx2.stroke();
+    const ang=Math.atan2(r0ty-(r0ty-rdy),r0bx-(r0bx+rdx));
+    ctx2.fillStyle='#f5a623';
+    ctx2.beginPath();ctx2.moveTo(r0bx,r0ty);
+    ctx2.lineTo(r0bx-9*Math.cos(ang-.35),r0ty-9*Math.sin(ang-.35));
+    ctx2.lineTo(r0bx-9*Math.cos(ang+.35),r0ty-9*Math.sin(ang+.35));
+    ctx2.closePath();ctx2.fill();
+    ctx2.fillStyle='rgba(245,166,35,0.8)';
+    ctx2.font=`${Math.round(SC*.24)}px DM Mono,monospace`;
+    ctx2.textAlign='right';
+    ctx2.fillText(sun.a.toFixed(1)+'°',r0bx+rdx-6,r0ty-rdy-8);
+  }
+
+  if(gM>.01&&rows>=2){
+    const gx1=SX+dP,gx2=SX+pP,gy2=GY-(MOUNT-.4)*SC;
+    ctx2.strokeStyle='#2dca8c';ctx2.lineWidth=.5;
+    ctx2.beginPath();ctx2.moveTo(gx1,gy2);ctx2.lineTo(gx2,gy2);ctx2.stroke();
+    ctx2.fillStyle='#2dca8c';
+    ctx2.beginPath();ctx2.moveTo(gx1,gy2);ctx2.lineTo(gx1+6,gy2-3);ctx2.lineTo(gx1+6,gy2+3);ctx2.closePath();ctx2.fill();
+    ctx2.beginPath();ctx2.moveTo(gx2,gy2);ctx2.lineTo(gx2-6,gy2-3);ctx2.lineTo(gx2-6,gy2+3);ctx2.closePath();ctx2.fill();
+    ctx2.fillStyle='rgba(45,202,140,0.8)';
+    ctx2.font=`${Math.round(SC*.23)}px DM Mono,monospace`;
+    ctx2.textAlign='center';
+    ctx2.fillText(Math.round(gM*100)+'cm',(gx1+gx2)/2,gy2-7);
+  }
+
+  ctx2.strokeStyle='rgba(255,255,255,0.15)';ctx2.lineWidth=.5;ctx2.setLineDash([]);
+  ctx2.beginPath();ctx2.moveTo(SX,GY+22);ctx2.lineTo(SX+10*SC,GY+22);ctx2.stroke();
+  ctx2.fillStyle='rgba(255,255,255,0.15)';
+  ctx2.beginPath();ctx2.moveTo(SX,GY+22);ctx2.lineTo(SX+7,GY+19);ctx2.lineTo(SX+7,GY+25);ctx2.closePath();ctx2.fill();
+  ctx2.beginPath();ctx2.moveTo(SX+10*SC,GY+22);ctx2.lineTo(SX+10*SC-7,GY+19);ctx2.lineTo(SX+10*SC-7,GY+25);ctx2.closePath();ctx2.fill();
+  ctx2.fillStyle='rgba(255,255,255,0.3)';
+  ctx2.font=`${Math.round(SC*.23)}px DM Mono,monospace`;
+  ctx2.textAlign='center';
+  ctx2.fillText('10,0 m (N–S)',SX+5*SC,GY+33);
+
+  ctx2.fillStyle='rgba(255,255,255,0.35)';
+  ctx2.font=`500 ${Math.round(SC*.26)}px DM Sans,sans-serif`;
+  ctx2.textAlign='right';
+  ctx2.fillText(cO===0?'Portrait 15°':'Querformat 15°',W-8,18);
+  ctx2.fillStyle='rgba(255,255,255,0.2)';
+  ctx2.font=`${Math.round(SC*.23)}px DM Mono,monospace`;
+  ctx2.fillText(DAYS[cD].l,W-8,32);
+
+  const tot2=rows*mpr;
+  document.getElementById('i-alt').textContent=sun.t+' / '+sun.a.toFixed(1)+'°';
+  document.getElementById('i-layout').textContent=rows+' × '+mpr;
+  document.getElementById('i-total').textContent=tot2+' Mod. / '+(tot2*.165).toFixed(1)+' kWp';
+  const iv=document.getElementById('i-shade');
+  if(!tanA||sun.a<.4){iv.textContent='Keine Sonne';iv.className='s-card-value';}
+  else if(sf<.004){iv.textContent='✓ Keine Verschattung';iv.className='s-card-value ok';}
+  else{
+    const p=Math.round(sf*100),g=p>66?3:p>33?2:1;
+    iv.textContent=`${p}% → ${g} Grp. aus → ~${165-g*55} W`;
+    iv.className='s-card-value warn';
+  }
+  iv.style.fontSize='16px';
+}
+
+function sO(i){
+  cO=i;
+  document.querySelectorAll('#ot .tab-btn').forEach((b,j)=>b.classList.toggle('on',j===i));
+  render();
+}
+function sD(i){
+  cD=i;
+  document.querySelectorAll('#dt .tab-btn').forEach((b,j)=>b.classList.toggle('on',j===i));
+  const s=document.getElementById('sl-t');
+  s.max=DAYS[i].d.length-1;
+  s.value=Math.min(+s.value,DAYS[i].d.length-1);
+  render();
+}
+
+function resize(){
+  const w=canvas.parentElement.clientWidth||680;
+  canvas.width=w;
+  canvas.height=Math.round(w*.50);
+  render();
+}
+
+window.addEventListener('resize',()=>{
+  if(document.getElementById('page-schatten').classList.contains('active'))resize();
+});
+document.getElementById('sl-t').addEventListener('input',render);
+document.getElementById('sl-g').addEventListener('input',render);
+</script>
+</body>
+</html>
