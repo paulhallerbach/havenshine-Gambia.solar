@@ -175,39 +175,42 @@ body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;f
 td.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
 
 /* ════════════════════════════════════════════════════════════════
-   PAGE 2 — SCHATTENSIMULATION  (dark theme)
+   PAGE 2 — SCHATTENSIMULATION  (light theme, matching Lastprofil)
 ═══════════════════════════════════════════════════════════════════ */
-#page-schatten{background:var(--bg);color:var(--text)}
+#page-schatten{background:var(--paper)}
 
-.schatten-main{
-  max-width:1100px;
-  margin:0 auto;
-  padding:40px 40px 80px;
-  display:grid;
-  gap:32px;
-}
+.schatten-main{max-width:1100px;margin:0 auto;padding:0 60px 80px}
 
-.s-section-title{
-  font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--text3);margin-bottom:14px;
-}
+.s-section{padding:56px 0;border-bottom:1px solid var(--paper3);animation:fadeIn .4s ease}
+.s-section:last-child{border-bottom:none}
 
-.s-card{
-  background:var(--bg2);border:1px solid var(--border);
-  border-radius:var(--radius-lg);padding:24px 28px;
-}
-.s-card-title{font-size:13px;font-weight:500;color:var(--text2);margin-bottom:6px;letter-spacing:.2px}
-.s-card-value{font-family:'DM Mono',monospace;font-size:26px;font-weight:500;color:var(--text);line-height:1.2}
-.s-card-value.ok{color:var(--g-green)}
-.s-card-value.warn{color:var(--accent)}
-.s-card-value.bad{color:var(--g-red)}
-.s-card-sub{font-size:12px;color:var(--text3);margin-top:2px;font-family:'DM Mono',monospace}
+.s-section-header{display:flex;align-items:baseline;gap:20px;margin-bottom:8px}
+.s-section-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.1em}
+.s-section-title{font-family:'DM Serif Display',serif;font-size:28px;color:var(--ink)}
+.s-section-desc{font-size:14px;color:var(--ink3);margin-bottom:32px;max-width:640px;line-height:1.7;font-weight:300}
+
+.s-card{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:24px 28px}
+.s-card-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.s-card-value{font-size:26px;font-weight:500;color:var(--ink);line-height:1.2}
+.s-card-value.ok{color:var(--green)}
+.s-card-value.warn{color:var(--sun)}
+.s-card-value.bad{color:var(--red)}
+.s-card-sub{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-top:2px}
 
 .s-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
 
+/* simulation canvas card stays dark */
+.s-sim-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:24px 28px}
+.s-sim-stat{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px}
+.s-sim-stat .s-card-title{color:var(--text3)}
+.s-sim-stat .s-card-value{color:var(--text);font-family:'DM Mono',monospace}
+.s-sim-stat .s-card-value.ok{color:var(--g-green)}
+.s-sim-stat .s-card-value.warn{color:var(--accent)}
+.s-sim-stat .s-card-value.bad{color:var(--g-red)}
+
 .tab-group{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
 .tab-btn{
-  background:none;border:1px solid var(--border2);border-radius:var(--radius);
+  background:none;border:1px solid var(--border2);border-radius:var(--r);
   padding:6px 16px;cursor:pointer;font-size:13px;font-family:'DM Sans',sans-serif;
   color:var(--text2);transition:all .15s;
 }
@@ -218,9 +221,7 @@ td.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
 .ctrl-row{display:flex;align-items:center;gap:14px;margin-bottom:10px}
 .ctrl-label{font-size:13px;color:var(--text2);min-width:100px}
 .ctrl-value{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:80px;text-align:right}
-input[type=range]{
-  flex:1;height:4px;appearance:none;background:var(--bg3);border-radius:2px;outline:none;cursor:pointer;
-}
+input[type=range]{flex:1;height:4px;appearance:none;background:var(--bg3);border-radius:2px;outline:none;cursor:pointer}
 input[type=range]::-webkit-slider-thumb{
   appearance:none;width:16px;height:16px;border-radius:50%;
   background:var(--accent2);border:2px solid var(--bg);box-shadow:0 0 0 1px var(--accent2);
@@ -229,40 +230,37 @@ input[type=range]::-moz-range-thumb{
   width:16px;height:16px;border-radius:50%;background:var(--accent2);border:2px solid var(--bg);
 }
 
-#simCanvas{width:100%;display:block;border-radius:var(--radius);margin:4px 0 0}
+#simCanvas{width:100%;display:block;border-radius:var(--r);margin:4px 0 0}
 
 .compare-table{width:100%;border-collapse:collapse;font-size:13px}
 .compare-table th{
-  text-align:left;font-weight:500;font-size:11px;letter-spacing:.8px;text-transform:uppercase;
-  color:var(--text3);padding:0 16px 10px 0;border-bottom:1px solid var(--border);
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink3);padding:6px 12px 10px 0;border-bottom:1px solid var(--paper3);text-align:left;font-weight:500
 }
-.compare-table td{padding:12px 16px 12px 0;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+.compare-table td{padding:10px 12px 10px 0;border-bottom:1px solid var(--paper3);color:var(--ink);vertical-align:top}
 .compare-table tr:last-child td{border-bottom:none}
-.compare-table td:first-child{color:var(--text);font-weight:500}
-.compare-table .highlight{color:var(--g-green);font-weight:500}
-.compare-table .winner-row td{background:rgba(45,202,140,.04)}
+.compare-table tr:hover td{background:var(--paper2)}
+.compare-table td:first-child{color:var(--ink);font-weight:500}
+.compare-table .highlight{color:var(--green);font-weight:500}
+.compare-table .winner-row td{background:var(--green-light)}
 .winner-badge{
   display:inline-block;font-size:10px;font-family:'DM Mono',monospace;
-  background:rgba(45,202,140,.12);color:var(--g-green);border:1px solid rgba(45,202,140,.3);
+  background:var(--green-light);color:var(--green);border:1px solid rgba(42,107,74,.3);
   padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle;
   letter-spacing:.5px;text-transform:uppercase;
 }
 
 .conclusion-box{
-  background:linear-gradient(135deg,rgba(45,202,140,.06) 0%,rgba(59,142,240,.06) 100%);
-  border:1px solid rgba(45,202,140,.2);border-radius:var(--radius-lg);padding:28px 32px;
+  background:var(--green-light);border:1px solid rgba(42,107,74,.2);border-radius:var(--r);padding:28px 32px;
 }
-.conclusion-box h2{font-size:18px;font-weight:600;color:var(--g-green);margin-bottom:14px;letter-spacing:-.3px}
-.conclusion-box p{color:var(--text2);margin-bottom:10px;line-height:1.7}
+.conclusion-box h2{font-family:'DM Serif Display',serif;font-size:24px;color:var(--green);margin-bottom:14px}
+.conclusion-box p{color:var(--ink2);margin-bottom:10px;line-height:1.7;font-size:14px}
 .conclusion-box p:last-child{margin-bottom:0}
-.conclusion-box strong{color:var(--text);font-weight:500}
+.conclusion-box strong{color:var(--ink);font-weight:500}
 
-.spec-row{
-  display:flex;justify-content:space-between;align-items:baseline;
-  padding:10px 0;border-bottom:1px solid var(--border);gap:16px;
-}
-.spec-key{font-size:13px;color:var(--text2)}
-.spec-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--text);text-align:right}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--paper3);gap:16px}
+.spec-key{font-size:13px;color:var(--ink2)}
+.spec-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--ink);text-align:right}
 
 /* ── SHARED FOOTER ── */
 footer{
@@ -276,7 +274,8 @@ footer{
   .top-nav{padding:0 20px}
   .sub-nav{padding:0 20px}
   .lp-main{padding:0 20px 60px}
-  .schatten-main{padding:24px 20px 60px}
+  .schatten-main{padding:0 20px 60px}
+  .s-section{padding:36px 0}
   .s-card{padding:18px 20px}
   .ctrl-label{min-width:72px;font-size:12px}
   footer{padding:20px 24px}
@@ -411,10 +410,14 @@ footer{
 <div id="page-schatten" class="page">
   <main class="schatten-main">
 
-    <!-- SIMULATION -->
-    <div>
-      <p class="s-section-title">Interaktive Schattensimulation</p>
-      <div class="s-card" style="padding:24px 28px">
+    <!-- 01 SIMULATION -->
+    <section class="s-section">
+      <div class="s-section-header">
+        <span class="s-section-num">01</span>
+        <h2 class="s-section-title">Schattensimulation</h2>
+      </div>
+      <p class="s-section-desc">Interaktive Darstellung der Reihenverschattung über den Tagesverlauf. Vergleich Portrait- und Querformat-Montage mit variablem Reihenabstand.</p>
+      <div class="s-sim-card">
         <div class="tab-group" id="ot">
           <button class="tab-btn on" onclick="sO(0)">Portrait 15° — 1,575 m nach Süden</button>
           <button class="tab-btn" onclick="sO(1)">Querformat 15° — 0,826 m nach Süden</button>
@@ -435,29 +438,33 @@ footer{
         </div>
         <canvas id="simCanvas"></canvas>
         <div class="s-stat-grid" style="margin-top:16px">
-          <div class="s-card" style="padding:14px 18px;background:var(--bg3);border-color:var(--border)">
+          <div class="s-sim-stat">
             <div class="s-card-title">Sonnenhöhe</div>
             <div class="s-card-value" id="i-alt" style="font-size:20px">—</div>
           </div>
-          <div class="s-card" style="padding:14px 18px;background:var(--bg3);border-color:var(--border)">
+          <div class="s-sim-stat">
             <div class="s-card-title">Reihen × Module/Reihe</div>
             <div class="s-card-value" id="i-layout" style="font-size:20px">—</div>
           </div>
-          <div class="s-card" style="padding:14px 18px;background:var(--bg3);border-color:var(--border)">
+          <div class="s-sim-stat">
             <div class="s-card-title">Module / Leistung</div>
             <div class="s-card-value" id="i-total" style="font-size:20px">—</div>
           </div>
-          <div class="s-card" style="padding:14px 18px;background:var(--bg3);border-color:var(--border)">
+          <div class="s-sim-stat">
             <div class="s-card-title">Schatten je Modul</div>
             <div class="s-card-value" id="i-shade" style="font-size:16px;padding-top:3px">—</div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- VARIANTENVERGLEICH -->
-    <div>
-      <p class="s-section-title">Variantenvergleich — Portrait vs. Querformat, 15° vs. 17°</p>
+    <!-- 02 VARIANTENVERGLEICH -->
+    <section class="s-section">
+      <div class="s-section-header">
+        <span class="s-section-num">02</span>
+        <h2 class="s-section-title">Variantenvergleich</h2>
+      </div>
+      <p class="s-section-desc">Portrait vs. Querformat, 15° vs. 17° — Vergleich von Modulanzahl, Leistung, Mindestabstand und Jahresstrahlung.</p>
       <div class="s-card">
         <table class="compare-table">
           <thead>
@@ -488,11 +495,14 @@ footer{
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
 
-    <!-- MODULE SPECS -->
-    <div>
-      <p class="s-section-title">Modul — Sharp NEQ5E3E</p>
+    <!-- 03 MODULE SPECS -->
+    <section class="s-section">
+      <div class="s-section-header">
+        <span class="s-section-num">03</span>
+        <h2 class="s-section-title">Modul — Sharp NEQ5E3E</h2>
+      </div>
       <div class="s-card">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px">
           <div>
@@ -511,11 +521,14 @@ footer{
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- LOCATION & CLIMATE -->
-    <div>
-      <p class="s-section-title">Standort & Klimadaten</p>
+    <!-- 04 LOCATION & CLIMATE -->
+    <section class="s-section">
+      <div class="s-section-header">
+        <span class="s-section-num">04</span>
+        <h2 class="s-section-title">Standort &amp; Klimadaten</h2>
+      </div>
       <div class="s-stat-grid">
         <div class="s-card"><div class="s-card-title">Jahresstrahlung (opt. Neigung)</div><div class="s-card-value">2.302</div><div class="s-card-sub">kWh/m²/Jahr @ 17°</div></div>
         <div class="s-card"><div class="s-card-title">Optimaler Neigungswinkel</div><div class="s-card-value">15 – 17°</div><div class="s-card-sub">PVGIS / Global Solar Atlas</div></div>
@@ -524,14 +537,18 @@ footer{
         <div class="s-card"><div class="s-card-title">Sonnenstunden (schlechtester Tag)</div><div class="s-card-value">10,5 h</div><div class="s-card-sub">21. Dez · >20° Sonnenhöhe</div></div>
         <div class="s-card"><div class="s-card-title">Montagehöhe Konstruktion</div><div class="s-card-value">2,5 – 3,0 m</div><div class="s-card-sub">Schattenspende darunter</div></div>
       </div>
-    </div>
+    </section>
 
-    <!-- PORTRAIT VS QUERFORMAT -->
-    <div>
-      <p class="s-section-title">Warum Portrait? — Bypassdioden & Streifenlage</p>
+    <!-- 05 PORTRAIT VS QUERFORMAT -->
+    <section class="s-section">
+      <div class="s-section-header">
+        <span class="s-section-num">05</span>
+        <h2 class="s-section-title">Warum Portrait?</h2>
+      </div>
+      <p class="s-section-desc">Bypassdioden &amp; Streifenlage bei Reihenverschattung — warum Portrait die bessere Wahl ist.</p>
       <div class="s-card">
-        <p style="color:var(--text2);font-size:13px;line-height:1.7;margin-bottom:18px">
-          Das Sharp NEQ5E3E hat <strong style="color:var(--text)">3 Bypass-Dioden</strong>, die das Modul in drei horizontale Streifen à 24 Zellen aufteilen. Entscheidend ist, wie diese Streifen im Verhältnis zum Schatten der Vorderreihe liegen.
+        <p style="font-size:13px;line-height:1.7;margin-bottom:18px;color:var(--ink2)">
+          Das Sharp NEQ5E3E hat <strong>3 Bypass-Dioden</strong>, die das Modul in drei horizontale Streifen à 24 Zellen aufteilen. Entscheidend ist, wie diese Streifen im Verhältnis zum Schatten der Vorderreihe liegen.
         </p>
         <svg width="100%" viewBox="0 0 680 420" role="img" style="display:block">
           <title>Portrait vs Querformat — Streifenlage bei Reihenverschattung</title>
@@ -540,11 +557,11 @@ footer{
               <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </marker>
           </defs>
-          <text x="155" y="28" text-anchor="middle" style="font-size:13px;font-weight:500;fill:#e8eaf0;font-family:'DM Sans',sans-serif">Portrait</text>
-          <text x="155" y="44" text-anchor="middle" style="font-size:12px;fill:#8b91a8;font-family:'DM Sans',sans-serif">lange Seite zeigt Nord–Süd</text>
-          <text x="520" y="28" text-anchor="middle" style="font-size:13px;font-weight:500;fill:#e8eaf0;font-family:'DM Sans',sans-serif">Querformat</text>
-          <text x="520" y="44" text-anchor="middle" style="font-size:12px;fill:#8b91a8;font-family:'DM Sans',sans-serif">lange Seite zeigt Ost–West</text>
-          <line x1="340" y1="20" x2="340" y2="400" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 4"/>
+          <text x="155" y="28" text-anchor="middle" style="font-size:13px;font-weight:500;fill:#1a1a18;font-family:'DM Sans',sans-serif">Portrait</text>
+          <text x="155" y="44" text-anchor="middle" style="font-size:12px;fill:#8a8a80;font-family:'DM Sans',sans-serif">lange Seite zeigt Nord–Süd</text>
+          <text x="520" y="28" text-anchor="middle" style="font-size:13px;font-weight:500;fill:#1a1a18;font-family:'DM Sans',sans-serif">Querformat</text>
+          <text x="520" y="44" text-anchor="middle" style="font-size:12px;fill:#8a8a80;font-family:'DM Sans',sans-serif">lange Seite zeigt Ost–West</text>
+          <line x1="340" y1="20" x2="340" y2="400" stroke="rgba(0,0,0,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
           <rect x="85" y="60" width="140" height="268" rx="5" fill="#1a2a4a" stroke="#2a4a8a" stroke-width="1.5"/>
           <rect x="91" y="66"  width="128" height="82" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
           <rect x="91" y="154" width="128" height="82" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
@@ -553,12 +570,12 @@ footer{
           <text x="155" y="199" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Streifen 2</text>
           <text x="155" y="285" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Streifen 3</text>
           <rect x="91" y="302" width="128" height="20" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
-          <text x="155" y="346" text-anchor="middle" style="font-size:12px;fill:rgba(120,140,200,0.9);font-family:'DM Sans',sans-serif">↑ Schatten trifft</text>
-          <text x="155" y="361" text-anchor="middle" style="font-size:12px;fill:rgba(120,140,200,0.9);font-family:'DM Sans',sans-serif">nur Streifen 3</text>
-          <line x1="85" y1="350" x2="225" y2="350" stroke="rgba(255,255,255,0.25)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
-          <text x="155" y="364" text-anchor="middle" style="font-size:11px;fill:rgba(255,255,255,0.4);font-family:'DM Mono',monospace">826 mm (O–W)</text>
-          <line x1="52" y1="60" x2="52" y2="328" stroke="rgba(255,255,255,0.25)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
-          <text x="46" y="200" text-anchor="middle" style="font-size:11px;fill:rgba(255,255,255,0.4);font-family:'DM Mono',monospace" transform="rotate(-90,46,200)">1.575 mm (N–S)</text>
+          <text x="155" y="346" text-anchor="middle" style="font-size:12px;fill:#4a4a44;font-family:'DM Sans',sans-serif">↑ Schatten trifft</text>
+          <text x="155" y="361" text-anchor="middle" style="font-size:12px;fill:#4a4a44;font-family:'DM Sans',sans-serif">nur Streifen 3</text>
+          <line x1="85" y1="350" x2="225" y2="350" stroke="rgba(0,0,0,0.3)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+          <text x="155" y="364" text-anchor="middle" style="font-size:11px;fill:#8a8a80;font-family:'DM Mono',monospace">826 mm (O–W)</text>
+          <line x1="52" y1="60" x2="52" y2="328" stroke="rgba(0,0,0,0.3)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+          <text x="46" y="200" text-anchor="middle" style="font-size:11px;fill:#8a8a80;font-family:'DM Mono',monospace" transform="rotate(-90,46,200)">1.575 mm (N–S)</text>
           <rect x="75" y="375" width="160" height="34" rx="6" fill="rgba(45,202,140,0.1)" stroke="rgba(45,202,140,0.35)" stroke-width="1"/>
           <text x="155" y="397" text-anchor="middle" style="font-size:12px;font-weight:500;fill:#2dca8c;font-family:'DM Sans',sans-serif">✓ Nur 1 Streifen aus → 110 W</text>
           <rect x="390" y="110" width="268" height="140" rx="5" fill="#1a2a4a" stroke="#2a4a8a" stroke-width="1.5"/>
@@ -571,33 +588,39 @@ footer{
           <rect x="396" y="220" width="82"  height="24" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
           <rect x="484" y="220" width="82"  height="24" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
           <rect x="572" y="220" width="80"  height="24" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
-          <text x="524" y="268" text-anchor="middle" style="font-size:12px;fill:rgba(120,140,200,0.9);font-family:'DM Sans',sans-serif">↑ Schatten trifft alle 3 Streifen gleichzeitig</text>
-          <line x1="390" y1="300" x2="658" y2="300" stroke="rgba(255,255,255,0.25)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
-          <text x="524" y="314" text-anchor="middle" style="font-size:11px;fill:rgba(255,255,255,0.4);font-family:'DM Mono',monospace">1.575 mm (O–W)</text>
-          <line x1="668" y1="110" x2="668" y2="250" stroke="rgba(255,255,255,0.25)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
-          <text x="676" y="186" text-anchor="middle" style="font-size:11px;fill:rgba(255,255,255,0.4);font-family:'DM Mono',monospace" transform="rotate(90,676,186)">826 mm (N–S)</text>
+          <text x="524" y="268" text-anchor="middle" style="font-size:12px;fill:#4a4a44;font-family:'DM Sans',sans-serif">↑ Schatten trifft alle 3 Streifen gleichzeitig</text>
+          <line x1="390" y1="300" x2="658" y2="300" stroke="rgba(0,0,0,0.3)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+          <text x="524" y="314" text-anchor="middle" style="font-size:11px;fill:#8a8a80;font-family:'DM Mono',monospace">1.575 mm (O–W)</text>
+          <line x1="668" y1="110" x2="668" y2="250" stroke="rgba(0,0,0,0.3)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+          <text x="676" y="186" text-anchor="middle" style="font-size:11px;fill:#8a8a80;font-family:'DM Mono',monospace" transform="rotate(90,676,186)">826 mm (N–S)</text>
           <rect x="390" y="330" width="268" height="34" rx="6" fill="rgba(240,96,96,0.1)" stroke="rgba(240,96,96,0.35)" stroke-width="1"/>
           <text x="524" y="352" text-anchor="middle" style="font-size:12px;font-weight:500;fill:#f06060;font-family:'DM Sans',sans-serif">✗ Alle 3 Streifen aus → 0 W</text>
         </svg>
-        <p style="color:var(--text3);font-size:12px;margin-top:14px;line-height:1.6;font-family:'DM Mono',monospace">
+        <p style="color:var(--ink3);font-size:12px;margin-top:14px;line-height:1.6;font-family:'DM Mono',monospace">
           Im Querformat liegen die Streifen nebeneinander (O–W) — Schatten von unten trifft alle drei gleichzeitig. Im Portrait liegen sie übereinander (N–S) — Schatten trifft immer nur den untersten Streifen.
         </p>
       </div>
-    </div>
+    </section>
 
-    <!-- CONCLUSION -->
-    <div class="conclusion-box">
-      <h2>Empfehlung: Portrait 15°, 45 cm Abstand, 60 Module</h2>
-      <p>
-        Die <strong>lange Modulseite (1,575 m) zeigt nach Süden</strong> — so trifft das Sonnenlicht senkrecht auf die größtmögliche Fläche. Querformat scheidet aus zwei Gründen aus: Erstens halbiert es die Module pro Reihe von 12 auf 6. Zweitens liegen die drei Bypass-Dioden-Streifen dann nebeneinander statt übereinander, sodass der Morgenschatten alle drei Streifen gleichzeitig trifft und das Modul auf 0 W bringt statt auf 110 W.
-      </p>
-      <p>
-        <strong>15° statt 17°</strong> kostet nur 0,2 % Jahresertrag (≈ 15 kWh/Jahr). Dafür sinkt die Modulhöhe von 46 cm auf 41 cm, der Mindestabstand schrumpft von 51 cm auf 45 cm — und damit passen <strong>5 Reihen statt 4</strong> auf die 10 m: 60 statt 48 Module, 1,98 kWp mehr.
-      </p>
-      <p>
-        Mit <strong>45 cm freiem Abstand</strong> sind die Module ab ca. 10:30 – 11:00 Uhr am 21. Dezember vollständig schattenfrei. Gleichzeitig ist der Abstand groß genug für die manuelle Reinigung zwischen den Reihen.
-      </p>
-    </div>
+    <!-- 06 EMPFEHLUNG -->
+    <section class="s-section">
+      <div class="s-section-header">
+        <span class="s-section-num">06</span>
+        <h2 class="s-section-title">Empfehlung</h2>
+      </div>
+      <div class="conclusion-box">
+        <h2>Portrait 15°, 45 cm Abstand, 60 Module</h2>
+        <p>
+          Die <strong>lange Modulseite (1,575 m) zeigt nach Süden</strong> — so trifft das Sonnenlicht senkrecht auf die größtmögliche Fläche. Querformat scheidet aus zwei Gründen aus: Erstens halbiert es die Module pro Reihe von 12 auf 6. Zweitens liegen die drei Bypass-Dioden-Streifen dann nebeneinander statt übereinander, sodass der Morgenschatten alle drei Streifen gleichzeitig trifft und das Modul auf 0 W bringt statt auf 110 W.
+        </p>
+        <p>
+          <strong>15° statt 17°</strong> kostet nur 0,2 % Jahresertrag (≈ 15 kWh/Jahr). Dafür sinkt die Modulhöhe von 46 cm auf 41 cm, der Mindestabstand schrumpft von 51 cm auf 45 cm — und damit passen <strong>5 Reihen statt 4</strong> auf die 10 m: 60 statt 48 Module, 1,98 kWp mehr.
+        </p>
+        <p>
+          Mit <strong>45 cm freiem Abstand</strong> sind die Module ab ca. 10:30 – 11:00 Uhr am 21. Dezember vollständig schattenfrei. Gleichzeitig ist der Abstand groß genug für die manuelle Reinigung zwischen den Reihen.
+        </p>
+      </div>
+    </section>
 
   </main>
 </div><!-- /page-schatten -->
