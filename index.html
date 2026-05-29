@@ -199,38 +199,37 @@ td.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
 
 .s-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
 
-/* simulation canvas card stays dark */
-.s-sim-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:24px 28px}
-.s-sim-stat{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px}
-.s-sim-stat .s-card-title{color:var(--text3)}
-.s-sim-stat .s-card-value{color:var(--text);font-family:'DM Mono',monospace}
-.s-sim-stat .s-card-value.ok{color:var(--g-green)}
-.s-sim-stat .s-card-value.warn{color:var(--accent)}
-.s-sim-stat .s-card-value.bad{color:var(--g-red)}
+.s-sim-card{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:24px 28px}
+.s-sim-stat{background:var(--paper);border:1px solid var(--paper3);border-radius:var(--r);padding:14px 18px}
+.s-sim-stat .s-card-title{color:var(--ink3)}
+.s-sim-stat .s-card-value{color:var(--ink);font-family:'DM Mono',monospace}
+.s-sim-stat .s-card-value.ok{color:var(--green)}
+.s-sim-stat .s-card-value.warn{color:var(--sun)}
+.s-sim-stat .s-card-value.bad{color:var(--red)}
 
 .tab-group{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
 .tab-btn{
-  background:none;border:1px solid var(--border2);border-radius:var(--r);
+  background:none;border:1px solid var(--paper3);border-radius:var(--r);
   padding:6px 16px;cursor:pointer;font-size:13px;font-family:'DM Sans',sans-serif;
-  color:var(--text2);transition:all .15s;
+  color:var(--ink2);transition:all .15s;
 }
-.tab-btn:hover{border-color:rgba(255,255,255,.25);color:var(--text)}
-.tab-btn.on{background:rgba(59,142,240,.12);color:var(--accent2);border-color:rgba(59,142,240,.4);font-weight:500}
-.tab-btn.day-btn.on{background:rgba(245,166,35,.1);color:var(--accent);border-color:rgba(245,166,35,.35)}
+.tab-btn:hover{border-color:var(--ink3);color:var(--ink)}
+.tab-btn.on{background:rgba(61,79,138,.08);color:var(--moon);border-color:rgba(61,79,138,.35);font-weight:500}
+.tab-btn.day-btn.on{background:rgba(200,114,10,.08);color:var(--sun);border-color:rgba(200,114,10,.35)}
 
 .ctrl-row{display:flex;align-items:center;gap:14px;margin-bottom:10px}
-.ctrl-label{font-size:13px;color:var(--text2);min-width:100px}
-.ctrl-value{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:80px;text-align:right}
-input[type=range]{flex:1;height:4px;appearance:none;background:var(--bg3);border-radius:2px;outline:none;cursor:pointer}
+.ctrl-label{font-size:13px;color:var(--ink2);min-width:100px}
+.ctrl-value{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--ink);min-width:80px;text-align:right}
+input[type=range]{flex:1;height:4px;appearance:none;background:var(--paper3);border-radius:2px;outline:none;cursor:pointer}
 input[type=range]::-webkit-slider-thumb{
   appearance:none;width:16px;height:16px;border-radius:50%;
-  background:var(--accent2);border:2px solid var(--bg);box-shadow:0 0 0 1px var(--accent2);
+  background:var(--moon);border:2px solid var(--paper2);box-shadow:0 0 0 1px var(--moon);
 }
 input[type=range]::-moz-range-thumb{
-  width:16px;height:16px;border-radius:50%;background:var(--accent2);border:2px solid var(--bg);
+  width:16px;height:16px;border-radius:50%;background:var(--moon);border:2px solid var(--paper2);
 }
 
-#simCanvas{width:100%;display:block;border-radius:var(--r);margin:4px 0 0}
+#simCanvas{width:100%;display:block;border-radius:var(--r);margin:4px 0 0;background:var(--paper)}
 
 .compare-table{width:100%;border-collapse:collapse;font-size:13px}
 .compare-table th{
@@ -915,15 +914,15 @@ function render(){
   if(tanA&&rows>1)sf=Math.max(0,Math.min(1,(hV-gM*tanA)/(hV+dH*tanA)));
 
   ctx2.clearRect(0,0,W,H);
-  ctx2.fillStyle='rgba(255,255,255,0.12)';
+  ctx2.fillStyle='rgba(0,0,0,0.08)';
   ctx2.beginPath();ctx2.roundRect(SX,GY,10*SC+8,4,2);ctx2.fill();
-  ctx2.fillStyle='rgba(255,255,255,0.25)';ctx2.font=`${Math.round(SC*.25)}px DM Mono,monospace`;
+  ctx2.fillStyle='rgba(0,0,0,0.45)';ctx2.font=`${Math.round(SC*.25)}px DM Mono,monospace`;
   ctx2.textAlign='left';ctx2.fillText('SÜD',SX,GY+16);
   ctx2.textAlign='right';ctx2.fillText('NORD',SX+10*SC+8,GY+16);
-  ctx2.strokeStyle='rgba(255,255,255,0.12)';ctx2.setLineDash([3,3]);ctx2.lineWidth=.5;
+  ctx2.strokeStyle='rgba(0,0,0,0.18)';ctx2.setLineDash([3,3]);ctx2.lineWidth=.5;
   ctx2.beginPath();ctx2.moveTo(SX-10,GY);ctx2.lineTo(SX-10,GY-mP);ctx2.stroke();
   ctx2.setLineDash([]);
-  ctx2.fillStyle='rgba(255,255,255,0.25)';ctx2.font=`${Math.round(SC*.24)}px DM Mono,monospace`;
+  ctx2.fillStyle='rgba(0,0,0,0.45)';ctx2.font=`${Math.round(SC*.24)}px DM Mono,monospace`;
   ctx2.textAlign='right';ctx2.fillText('2,75m',SX-13,GY-mP/2+4);
 
   if(tanA){
@@ -931,7 +930,7 @@ function render(){
     const offD_x=(MOUNT+hV)/tanA*SC,offD_y=mP-hP;
     for(let r=0;r<rows;r++){
       const btx=SX+r*pP+dP,bby=GY-mP;
-      ctx2.fillStyle='rgba(120,125,140,0.15)';
+      ctx2.fillStyle='rgba(80,90,110,0.22)';
       ctx2.beginPath();
       ctx2.moveTo(btx,bby-hP);ctx2.lineTo(btx,bby);
       ctx2.lineTo(btx+offC_x,bby+offC_y);ctx2.lineTo(btx+offD_x,bby+offD_y);
@@ -941,7 +940,7 @@ function render(){
 
   for(let r=0;r<rows;r++){
     const fx=SX+r*pP,bx=fx+dP,by=GY-mP,ty=GY-mP-hP;
-    ctx2.strokeStyle='rgba(255,255,255,0.28)';ctx2.lineWidth=1.5;ctx2.setLineDash([]);
+    ctx2.strokeStyle='rgba(0,0,0,0.35)';ctx2.lineWidth=1.5;ctx2.setLineDash([]);
     ctx2.beginPath();ctx2.moveTo(fx+dP*.45,GY);ctx2.lineTo(fx+dP*.45,by);ctx2.stroke();
     ctx2.fillStyle='#2a72c3';ctx2.globalAlpha=1.0;
     ctx2.beginPath();ctx2.moveTo(fx,by);ctx2.lineTo(bx,ty);ctx2.lineTo(bx+tnx,ty+tny);ctx2.lineTo(fx+tnx,by+tny);ctx2.closePath();ctx2.fill();
@@ -952,7 +951,7 @@ function render(){
       const t=i/3;
       ctx2.beginPath();ctx2.moveTo(fx+t*dP,by-t*hP);ctx2.lineTo(fx+t*dP+tnx,by-t*hP+tny);ctx2.stroke();
     }
-    ctx2.fillStyle='rgba(255,255,255,0.55)';
+    ctx2.fillStyle='rgba(0,0,0,0.65)';
     ctx2.font=`${Math.round(SC*.23)}px DM Mono,monospace`;
     ctx2.textAlign='center';
     ctx2.fillText('R'+(r+1),fx+dP*.44,ty-6);
