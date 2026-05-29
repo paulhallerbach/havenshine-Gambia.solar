@@ -418,8 +418,8 @@ footer{
       <p class="s-section-desc">Interaktive Darstellung der Reihenverschattung über den Tagesverlauf. Vergleich Portrait- und Querformat-Montage mit variablem Reihenabstand.</p>
       <div class="s-sim-card">
         <div class="tab-group" id="ot">
-          <button class="tab-btn on" onclick="sO(0)">Portrait 15° — 1,575 m nach Süden</button>
-          <button class="tab-btn" onclick="sO(1)">Querformat 15° — 0,826 m nach Süden</button>
+          <button class="tab-btn" onclick="sO(0)">Portrait 15° — 1,575 m nach Süden</button>
+          <button class="tab-btn on" onclick="sO(1)">Querformat 15° — 0,826 m nach Süden</button>
         </div>
         <div class="tab-group" id="dt">
           <button class="tab-btn day-btn on" onclick="sD(0)">21. Dez — meister Schatten</button>
@@ -463,7 +463,7 @@ footer{
         <span class="s-section-num">02</span>
         <h2 class="s-section-title">Variantenvergleich</h2>
       </div>
-      <p class="s-section-desc">Portrait vs. Querformat, 15° vs. 17° — Vergleich von Modulanzahl, Leistung, Mindestabstand und Jahresstrahlung.</p>
+      <p class="s-section-desc">Portrait vs. Querformat, 15° vs. 17° — Vergleich von Modulanzahl, Leistung, Mindestabstand und Jahresstrahlung. Da die Bypassdioden-Streifen senkrecht auf dem Modul verlaufen, ist Querformat die schattenoptimierte Variante.</p>
       <div class="s-card">
         <table class="compare-table">
           <thead>
@@ -474,17 +474,17 @@ footer{
             </tr>
           </thead>
           <tbody>
-            <tr class="winner-row">
-              <td>Portrait 15°<span class="winner-badge">Empfehlung</span></td>
-              <td class="highlight">60</td><td class="highlight">9,9 kWp</td>
+            <tr>
+              <td>Portrait 15°</td><td>60</td><td>9,9 kWp</td>
               <td>5 × 12</td><td>45 cm</td><td>2.298 kWh/m²/a</td><td>40,8 cm</td>
             </tr>
             <tr>
               <td>Portrait 17°</td><td>48</td><td>7,9 kWp</td>
               <td>4 × 12</td><td>51 cm</td><td>2.302 kWh/m²/a</td><td>46,1 cm</td>
             </tr>
-            <tr>
-              <td>Querformat 15°</td><td>54</td><td>8,9 kWp</td>
+            <tr class="winner-row">
+              <td>Querformat 15°<span class="winner-badge">Empfehlung</span></td>
+              <td class="highlight">54</td><td class="highlight">8,9 kWp</td>
               <td>9 × 6</td><td>24 cm</td><td>2.298 kWh/m²/a</td><td>21,4 cm</td>
             </tr>
             <tr>
@@ -542,61 +542,74 @@ footer{
     <section class="s-section">
       <div class="s-section-header">
         <span class="s-section-num">05</span>
-        <h2 class="s-section-title">Warum Portrait?</h2>
+        <h2 class="s-section-title">Warum Querformat?</h2>
       </div>
-      <p class="s-section-desc">Bypassdioden &amp; Streifenlage bei Reihenverschattung — warum Portrait die bessere Wahl ist.</p>
+      <p class="s-section-desc">Bypassdioden &amp; Streifenlage bei Reihenverschattung — warum Querformat die schattenoptimierte Wahl ist.</p>
       <div class="s-card">
         <p style="font-size:13px;line-height:1.7;margin-bottom:18px;color:var(--ink2)">
-          Das Sharp NEQ5E3E hat <strong>3 Bypass-Dioden</strong>, die das Modul in drei horizontale Streifen à 24 Zellen aufteilen. Entscheidend ist, wie diese Streifen im Verhältnis zum Schatten der Vorderreihe liegen.
+          Das Sharp NEQ5E3E hat <strong>3 Bypass-Dioden</strong>, die das Modul in drei <strong>senkrechte</strong> Streifen à 24 Zellen aufteilen — die Streifen verlaufen längs der langen Modulseite (1.575 mm). Entscheidend ist, wie diese Streifen nach der Montage im Verhältnis zum Schatten der Vorderreihe liegen.
         </p>
         <svg width="100%" viewBox="0 0 680 420" role="img" style="display:block">
-          <title>Portrait vs Querformat — Streifenlage bei Reihenverschattung</title>
+          <title>Portrait vs Querformat — Streifenlage bei Reihenverschattung (senkrechte Streifen)</title>
           <defs>
             <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </marker>
           </defs>
+          <!-- ── PORTRAIT (links) – senkrechte Streifen → alle 3 getroffen → 0 W ── -->
           <text x="155" y="28" text-anchor="middle" style="font-size:13px;font-weight:500;fill:#1a1a18;font-family:'DM Sans',sans-serif">Portrait</text>
           <text x="155" y="44" text-anchor="middle" style="font-size:12px;fill:#8a8a80;font-family:'DM Sans',sans-serif">lange Seite zeigt Nord–Süd</text>
-          <text x="520" y="28" text-anchor="middle" style="font-size:13px;font-weight:500;fill:#1a1a18;font-family:'DM Sans',sans-serif">Querformat</text>
-          <text x="520" y="44" text-anchor="middle" style="font-size:12px;fill:#8a8a80;font-family:'DM Sans',sans-serif">lange Seite zeigt Ost–West</text>
           <line x1="340" y1="20" x2="340" y2="400" stroke="rgba(0,0,0,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+          <!-- Modulrahmen Portrait -->
           <rect x="85" y="60" width="140" height="268" rx="5" fill="#1a2a4a" stroke="#2a4a8a" stroke-width="1.5"/>
-          <rect x="91" y="66"  width="128" height="82" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
-          <rect x="91" y="154" width="128" height="82" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
-          <rect x="91" y="242" width="128" height="80" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
-          <text x="155" y="111" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Streifen 1</text>
-          <text x="155" y="199" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Streifen 2</text>
-          <text x="155" y="285" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Streifen 3</text>
-          <rect x="91" y="302" width="128" height="20" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
+          <!-- 3 SENKRECHTE Streifen nebeneinander (O–W) -->
+          <rect x="91" y="66" width="40" height="256" rx="2" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <rect x="134" y="66" width="40" height="256" rx="2" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <rect x="177" y="66" width="42" height="256" rx="2" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <!-- Streifenbeschriftungen (rotiert) -->
+          <text x="111" y="200" text-anchor="middle" transform="rotate(-90,111,200)" style="font-size:11px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 1</text>
+          <text x="154" y="200" text-anchor="middle" transform="rotate(-90,154,200)" style="font-size:11px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 2</text>
+          <text x="198" y="200" text-anchor="middle" transform="rotate(-90,198,200)" style="font-size:11px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 3</text>
+          <!-- Schatten: volle Breite – trifft ALLE 3 Streifen gleichzeitig -->
+          <rect x="91" y="308" width="128" height="14" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
           <text x="155" y="346" text-anchor="middle" style="font-size:12px;fill:#4a4a44;font-family:'DM Sans',sans-serif">↑ Schatten trifft</text>
-          <text x="155" y="361" text-anchor="middle" style="font-size:12px;fill:#4a4a44;font-family:'DM Sans',sans-serif">nur Streifen 3</text>
+          <text x="155" y="361" text-anchor="middle" style="font-size:12px;fill:#4a4a44;font-family:'DM Sans',sans-serif">alle 3 Streifen</text>
+          <!-- Maße Portrait -->
           <line x1="85" y1="350" x2="225" y2="350" stroke="rgba(0,0,0,0.3)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
           <text x="155" y="364" text-anchor="middle" style="font-size:11px;fill:#8a8a80;font-family:'DM Mono',monospace">826 mm (O–W)</text>
-          <line x1="52" y1="60" x2="52" y2="328" stroke="rgba(0,0,0,0.3)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
-          <text x="46" y="200" text-anchor="middle" style="font-size:11px;fill:#8a8a80;font-family:'DM Mono',monospace" transform="rotate(-90,46,200)">1.575 mm (N–S)</text>
-          <rect x="75" y="375" width="160" height="34" rx="6" fill="rgba(45,202,140,0.1)" stroke="rgba(45,202,140,0.35)" stroke-width="1"/>
-          <text x="155" y="397" text-anchor="middle" style="font-size:12px;font-weight:500;fill:#2dca8c;font-family:'DM Sans',sans-serif">✓ Nur 1 Streifen aus → 110 W</text>
-          <rect x="390" y="110" width="268" height="140" rx="5" fill="#1a2a4a" stroke="#2a4a8a" stroke-width="1.5"/>
-          <rect x="396" y="116" width="82"  height="128" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
-          <rect x="484" y="116" width="82"  height="128" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
-          <rect x="572" y="116" width="80"  height="128" rx="3" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
-          <text x="437" y="184" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 1</text>
-          <text x="525" y="184" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 2</text>
-          <text x="612" y="184" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 3</text>
-          <rect x="396" y="220" width="82"  height="24" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
-          <rect x="484" y="220" width="82"  height="24" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
-          <rect x="572" y="220" width="80"  height="24" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
-          <text x="524" y="268" text-anchor="middle" style="font-size:12px;fill:#4a4a44;font-family:'DM Sans',sans-serif">↑ Schatten trifft alle 3 Streifen gleichzeitig</text>
+          <line x1="52" y1="60" x2="52" y2="322" stroke="rgba(0,0,0,0.3)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+          <text x="46" y="197" text-anchor="middle" transform="rotate(-90,46,197)" style="font-size:11px;fill:#8a8a80;font-family:'DM Mono',monospace">1.575 mm (N–S)</text>
+          <!-- Ergebnis-Badge: ROT -->
+          <rect x="75" y="375" width="160" height="34" rx="6" fill="rgba(240,96,96,0.1)" stroke="rgba(240,96,96,0.35)" stroke-width="1"/>
+          <text x="155" y="397" text-anchor="middle" style="font-size:12px;font-weight:500;fill:#f06060;font-family:'DM Sans',sans-serif">✗ Alle 3 Streifen aus → 0 W</text>
+
+          <!-- ── QUERFORMAT (rechts) – Streifen übereinander → nur 1 getroffen → 110 W ── -->
+          <text x="524" y="28" text-anchor="middle" style="font-size:13px;font-weight:500;fill:#1a1a18;font-family:'DM Sans',sans-serif">Querformat</text>
+          <text x="524" y="44" text-anchor="middle" style="font-size:12px;fill:#8a8a80;font-family:'DM Sans',sans-serif">lange Seite zeigt Ost–West</text>
+          <!-- Modulrahmen Querformat -->
+          <rect x="390" y="90" width="268" height="160" rx="5" fill="#1a2a4a" stroke="#2a4a8a" stroke-width="1.5"/>
+          <!-- 3 HORIZONTALE Streifen übereinander (N–S) nach 90°-Drehung des Moduls -->
+          <rect x="396" y="96"  width="256" height="46" rx="2" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <rect x="396" y="145" width="256" height="46" rx="2" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <rect x="396" y="194" width="256" height="48" rx="2" fill="#2a72c3" stroke="#0d3d74" stroke-width="0.5"/>
+          <!-- Streifenbeschriftungen -->
+          <text x="524" y="123" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 3 — Nord</text>
+          <text x="524" y="172" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 2</text>
+          <text x="524" y="220" text-anchor="middle" style="font-size:12px;fill:#b0c8ee;font-family:'DM Mono',monospace">Str. 1 — Süd</text>
+          <!-- Schatten: nur den südlichsten Streifen (Str. 1) am Boden -->
+          <rect x="396" y="228" width="256" height="14" rx="2" fill="rgba(5,18,55,0.82)" stroke="rgba(100,160,255,0.3)" stroke-width="0.5"/>
+          <text x="524" y="268" text-anchor="middle" style="font-size:12px;fill:#4a4a44;font-family:'DM Sans',sans-serif">↑ Schatten trifft nur Str. 1 (Süd)</text>
+          <!-- Maße Querformat -->
           <line x1="390" y1="300" x2="658" y2="300" stroke="rgba(0,0,0,0.3)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
           <text x="524" y="314" text-anchor="middle" style="font-size:11px;fill:#8a8a80;font-family:'DM Mono',monospace">1.575 mm (O–W)</text>
-          <line x1="668" y1="110" x2="668" y2="250" stroke="rgba(0,0,0,0.3)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
-          <text x="676" y="186" text-anchor="middle" style="font-size:11px;fill:#8a8a80;font-family:'DM Mono',monospace" transform="rotate(90,676,186)">826 mm (N–S)</text>
-          <rect x="390" y="330" width="268" height="34" rx="6" fill="rgba(240,96,96,0.1)" stroke="rgba(240,96,96,0.35)" stroke-width="1"/>
-          <text x="524" y="352" text-anchor="middle" style="font-size:12px;font-weight:500;fill:#f06060;font-family:'DM Sans',sans-serif">✗ Alle 3 Streifen aus → 0 W</text>
+          <line x1="668" y1="90" x2="668" y2="250" stroke="rgba(0,0,0,0.3)" stroke-width="1" marker-start="url(#arr2)" marker-end="url(#arr2)"/>
+          <text x="676" y="175" text-anchor="middle" transform="rotate(90,676,175)" style="font-size:11px;fill:#8a8a80;font-family:'DM Mono',monospace">826 mm (N–S)</text>
+          <!-- Ergebnis-Badge: GRÜN -->
+          <rect x="390" y="330" width="268" height="34" rx="6" fill="rgba(45,202,140,0.1)" stroke="rgba(45,202,140,0.35)" stroke-width="1"/>
+          <text x="524" y="352" text-anchor="middle" style="font-size:12px;font-weight:500;fill:#2dca8c;font-family:'DM Sans',sans-serif">✓ Nur 1 Streifen aus → 110 W</text>
         </svg>
         <p style="color:var(--ink3);font-size:12px;margin-top:14px;line-height:1.6;font-family:'DM Mono',monospace">
-          Im Querformat liegen die Streifen nebeneinander (O–W) — Schatten von unten trifft alle drei gleichzeitig. Im Portrait liegen sie übereinander (N–S) — Schatten trifft immer nur den untersten Streifen.
+          Die Streifen verlaufen senkrecht auf dem Modul (längs der 1.575 mm). Im Portrait liegen sie deshalb nebeneinander (O–W) — Reihenschatten von unten trifft alle drei gleichzeitig → 0 W. Im Querformat liegen sie nach der 90°-Drehung übereinander (N–S) — Schatten trifft immer nur den südlichsten Streifen → 110 W.
         </p>
       </div>
     </section>
@@ -608,15 +621,15 @@ footer{
         <h2 class="s-section-title">Empfehlung</h2>
       </div>
       <div class="conclusion-box">
-        <h2>Portrait 15°, 45 cm Abstand, 60 Module</h2>
+        <h2>Querformat 15°, 24 cm Abstand, 54 Module</h2>
         <p>
-          Die <strong>lange Modulseite (1,575 m) zeigt nach Süden</strong> — so trifft das Sonnenlicht senkrecht auf die größtmögliche Fläche. Querformat scheidet aus zwei Gründen aus: Erstens halbiert es die Module pro Reihe von 12 auf 6. Zweitens liegen die drei Bypass-Dioden-Streifen dann nebeneinander statt übereinander, sodass der Morgenschatten alle drei Streifen gleichzeitig trifft und das Modul auf 0 W bringt statt auf 110 W.
+          Die <strong>drei Bypass-Dioden-Streifen verlaufen senkrecht auf dem Modul</strong> — längs der langen Seite (1.575 mm). Im Querformat liegen sie nach der 90°-Drehung übereinander in N–S-Richtung: Reihenschatten von der Vorderreihe trifft immer nur den südlichsten Streifen, das Modul leistet <strong>110 W statt 0 W</strong>. Im Portrait lagen die Streifen nebeneinander in O–W-Richtung: Morgenschatten traf alle drei gleichzeitig und das Modul fiel komplett aus.
         </p>
         <p>
-          <strong>15° statt 17°</strong> kostet nur 0,2 % Jahresertrag (≈ 15 kWh/Jahr). Dafür sinkt die Modulhöhe von 46 cm auf 41 cm, der Mindestabstand schrumpft von 51 cm auf 45 cm — und damit passen <strong>5 Reihen statt 4</strong> auf die 10 m: 60 statt 48 Module, 1,98 kWp mehr.
+          <strong>15° statt 17°</strong> kostet nur 0,2 % Jahresertrag (≈ 15 kWh/Jahr). Bei Querformat sinkt die Modulhöhe auf 21 cm und der nötige Mindestabstand auf <strong>24 cm</strong> — damit passen <strong>9 Reihen à 6 Module</strong> auf die 10 m: 54 Module, 8,9 kWp.
         </p>
         <p>
-          Mit <strong>45 cm freiem Abstand</strong> sind die Module ab ca. 10:30 – 11:00 Uhr am 21. Dezember vollständig schattenfrei. Gleichzeitig ist der Abstand groß genug für die manuelle Reinigung zwischen den Reihen.
+          Mit <strong>24 cm freiem Abstand</strong> sind die Module ab ca. 10:30 – 11:00 Uhr am 21. Dezember vollständig schattenfrei. Der Abstand ist zudem breit genug für die manuelle Reinigung zwischen den Reihen.
         </p>
       </div>
     </section>
@@ -886,7 +899,7 @@ const DAYS=[
   ]}
 ];
 const OR=[{ns:1.575,ew:.826},{ns:.826,ew:1.575}];
-let cD=0,cO=0,simInit=false;
+let cD=0,cO=1,simInit=false;
 const canvas=document.getElementById('simCanvas');
 const ctx2=canvas.getContext('2d');
 
@@ -1000,21 +1013,21 @@ function render(){
     ctx2.fillText(Math.round(gM*100)+'cm',(gx1+gx2)/2,gy2-7);
   }
 
-  ctx2.strokeStyle='rgba(255,255,255,0.15)';ctx2.lineWidth=.5;ctx2.setLineDash([]);
+  ctx2.strokeStyle='rgba(0,0,0,0.2)';ctx2.lineWidth=.5;ctx2.setLineDash([]);
   ctx2.beginPath();ctx2.moveTo(SX,GY+22);ctx2.lineTo(SX+10*SC,GY+22);ctx2.stroke();
-  ctx2.fillStyle='rgba(255,255,255,0.15)';
+  ctx2.fillStyle='rgba(0,0,0,0.2)';
   ctx2.beginPath();ctx2.moveTo(SX,GY+22);ctx2.lineTo(SX+7,GY+19);ctx2.lineTo(SX+7,GY+25);ctx2.closePath();ctx2.fill();
   ctx2.beginPath();ctx2.moveTo(SX+10*SC,GY+22);ctx2.lineTo(SX+10*SC-7,GY+19);ctx2.lineTo(SX+10*SC-7,GY+25);ctx2.closePath();ctx2.fill();
-  ctx2.fillStyle='rgba(255,255,255,0.3)';
+  ctx2.fillStyle='rgba(0,0,0,0.4)';
   ctx2.font=`${Math.round(SC*.23)}px DM Mono,monospace`;
   ctx2.textAlign='center';
   ctx2.fillText('10,0 m (N–S)',SX+5*SC,GY+33);
 
-  ctx2.fillStyle='rgba(255,255,255,0.35)';
+  ctx2.fillStyle='rgba(0,0,0,0.5)';
   ctx2.font=`500 ${Math.round(SC*.26)}px DM Sans,sans-serif`;
   ctx2.textAlign='right';
   ctx2.fillText(cO===0?'Portrait 15°':'Querformat 15°',W-8,18);
-  ctx2.fillStyle='rgba(255,255,255,0.2)';
+  ctx2.fillStyle='rgba(0,0,0,0.35)';
   ctx2.font=`${Math.round(SC*.23)}px DM Mono,monospace`;
   ctx2.fillText(DAYS[cD].l,W-8,32);
 
