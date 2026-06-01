@@ -279,21 +279,131 @@ footer{
   .ctrl-label{min-width:72px;font-size:12px}
   footer{padding:20px 24px}
 }
+
+/* ════════════════════════════════════════════════════════════════
+   HEADER-LINKS (global, im Site-Header genutzt)
+═══════════════════════════════════════════════════════════════════ */
+.header-links{display:flex;gap:20px;margin-top:24px;position:relative;z-index:1;flex-wrap:wrap}
+.header-link{
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(247,245,240,.55);text-decoration:none;border-bottom:1px solid rgba(247,245,240,.2);
+  padding-bottom:2px;transition:color .2s,border-color .2s;
+}
+.header-link:hover{color:var(--paper);border-color:rgba(247,245,240,.6)}
+
+/* ════════════════════════════════════════════════════════════════
+   PAGE 0 — STARTSEITE  (Komponenten gekapselt unter #page-startseite)
+═══════════════════════════════════════════════════════════════════ */
+#page-startseite main{max-width:1100px;margin:0 auto;padding:0 60px 80px}
+
+#page-startseite .section{padding:56px 0;border-bottom:1px solid var(--paper3);animation:fadeIn .4s ease}
+#page-startseite .section:last-child{border-bottom:none}
+#page-startseite .section-header{display:flex;align-items:baseline;gap:20px;margin-bottom:8px}
+#page-startseite .section-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.1em}
+#page-startseite .section-title{font-family:'DM Serif Display',serif;font-size:28px;color:var(--ink)}
+#page-startseite .section-desc{font-size:14px;color:var(--ink3);margin-bottom:32px;max-width:640px;line-height:1.7;font-weight:300}
+
+/* KPI strip */
+#page-startseite .kpi-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:32px}
+#page-startseite .kpi{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:16px 18px}
+#page-startseite .kpi-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+#page-startseite .kpi-value{font-size:22px;font-weight:500;line-height:1;color:var(--ink);margin-bottom:3px}
+#page-startseite .kpi-unit{font-size:11px;color:var(--ink3);font-weight:300}
+#page-startseite .kpi.c-sun .kpi-value{color:var(--sun)}
+#page-startseite .kpi.c-moon .kpi-value{color:var(--moon)}
+#page-startseite .kpi.c-red .kpi-value{color:var(--red)}
+#page-startseite .kpi.c-green .kpi-value{color:var(--green)}
+
+/* two-col grid */
+#page-startseite .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+@media(max-width:700px){#page-startseite .two-col{grid-template-columns:1fr}}
+
+/* cards */
+#page-startseite .card{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:24px 26px}
+#page-startseite .card-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:16px}
+#page-startseite .card-title{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:8px;color:var(--ink)}
+#page-startseite .card-body{font-size:13px;color:var(--ink2);line-height:1.7;font-weight:300}
+#page-startseite .card-body p{margin-bottom:10px}
+#page-startseite .card-body p:last-child{margin-bottom:0}
+#page-startseite .card-body strong{font-weight:500;color:var(--ink)}
+#page-startseite .card.c-sun{background:var(--sun-light);border-color:#e8c896}
+#page-startseite .card.c-amber{background:var(--amber-light);border-color:#d4b870}
+#page-startseite .card.c-moon{background:var(--moon-light);border-color:#b8c4e0}
+#page-startseite .card.c-green{background:var(--green-light);border-color:#9ac4a8}
+#page-startseite .card.c-red{background:var(--red-light);border-color:#d4a498}
+
+/* step list */
+#page-startseite .steps{display:flex;flex-direction:column;gap:0}
+#page-startseite .step{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--paper3)}
+#page-startseite .step:last-child{border-bottom:none}
+#page-startseite .step-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);min-width:24px;padding-top:2px;flex-shrink:0}
+#page-startseite .step-text{font-size:14px;color:var(--ink2);line-height:1.5;font-weight:300}
+#page-startseite .step-text strong{font-weight:500;color:var(--ink);display:block;margin-bottom:2px}
+
+/* team cards */
+#page-startseite .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+@media(max-width:800px){#page-startseite .three-col{grid-template-columns:1fr}}
+#page-startseite .team-card{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:24px;position:relative;overflow:hidden}
+#page-startseite .team-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--paper3)}
+#page-startseite .team-card.active::before{background:var(--sun)}
+#page-startseite .team-card.active{background:var(--sun-light);border-color:#e8c896}
+#page-startseite .team-num{font-family:'DM Serif Display',serif;font-size:48px;line-height:1;color:rgba(26,26,24,.08);margin-bottom:8px}
+#page-startseite .team-card.active .team-num{color:rgba(200,114,10,.15)}
+#page-startseite .team-name{font-family:'DM Sans',sans-serif;font-weight:500;font-size:14px;margin-bottom:4px;color:var(--ink)}
+#page-startseite .team-share{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink3);margin-bottom:14px}
+#page-startseite .team-tasks{list-style:none;display:flex;flex-direction:column;gap:6px}
+#page-startseite .team-tasks li{font-size:12px;color:var(--ink2);padding-left:14px;position:relative;line-height:1.4;font-weight:300}
+#page-startseite .team-tasks li::before{content:'–';position:absolute;left:0;color:var(--ink3)}
+#page-startseite .team-badge{display:inline-block;margin-top:16px;background:var(--sun);color:#fff;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:3px}
+
+/* task grid */
+#page-startseite .task-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+@media(max-width:600px){#page-startseite .task-grid{grid-template-columns:1fr}}
+#page-startseite .task-item{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:18px 20px}
+#page-startseite .task-icon{font-size:22px;margin-bottom:10px;display:block}
+#page-startseite .task-name{font-weight:500;font-size:13px;margin-bottom:4px;color:var(--ink)}
+#page-startseite .task-desc{font-size:12px;color:var(--ink3);line-height:1.5;font-weight:300}
+
+/* coords table */
+#page-startseite .coords-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+#page-startseite .coords-table th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding:6px 12px 10px;border-bottom:1px solid var(--paper3);text-align:left;font-weight:500}
+#page-startseite .coords-table td{padding:10px 12px;border-bottom:1px solid var(--paper3);color:var(--ink)}
+#page-startseite .coords-table tr:last-child td{border-bottom:none}
+#page-startseite .coords-table tr:hover td{background:var(--paper2)}
+#page-startseite td.mono{font-family:'DM Mono',monospace;font-size:12px;color:var(--sun)}
+
+/* partner cards */
+#page-startseite .partner-card{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:24px 26px;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+#page-startseite .partner-card:hover{border-color:var(--ink3);transform:translateY(-2px)}
+#page-startseite .partner-name{font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:8px;color:var(--ink)}
+#page-startseite .partner-desc{font-size:13px;color:var(--ink2);line-height:1.7;font-weight:300;flex:1}
+#page-startseite .partner-url{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sun);margin-top:16px}
+
+@media(max-width:800px){
+  #page-startseite main{padding-left:24px;padding-right:24px}
+}
 </style>
 </head>
 <body>
 
 <!-- ══ SITE HEADER ══════════════════════════════════════════════════════════ -->
 <header class="site-header">
-  <div class="header-eyebrow">Solaranlage · Vorplanung · Gambia 2026</div>
-  <h1 class="header-title">HavenShine Academy<br><em>Solar Planungsportal</em></h1>
-  <p class="header-sub">Energielastprofil · Schattensimulation · Kindergarten Brikama, Gambia (13°N)</p>
+  <div class="header-eyebrow">Hochschule Bochum · Studentisches Projekt · SoSe 2026</div>
+  <h1 class="header-title">Photovoltaik<br><em>in Gambia</em></h1>
+  <p class="header-sub">Ausgediente PV-Module aus Deutschland bekommen ein zweites Leben – als verlässliche Stromversorgung für die HavenShine Academy in Mahmuda, Gambia. Team 2 dokumentiert hier die Konzeptionierung der PV-Anlage.</p>
+  <div class="header-links">
+    <a href="https://humanhope.de/" target="_blank" rel="noopener" class="header-link">Human.Hope e. V. ↗</a>
+    <a href="https://www.linkedin.com/in/projektkurs-pv-gambia/" target="_blank" rel="noopener" class="header-link">LinkedIn-Profil ↗</a>
+  </div>
 </header>
 
 <!-- ══ TOP NAVIGATION (pages) ═══════════════════════════════════════════════ -->
 <nav class="top-nav">
   <div class="top-nav-inner">
-    <button class="page-btn active" onclick="switchPage('lastprofil',this)">
+    <button class="page-btn active" onclick="switchPage('startseite',this)">
+      <span class="pg-icon">⌂</span> Startseite
+    </button>
+    <button class="page-btn" onclick="switchPage('lastprofil',this)">
       <span class="pg-icon">⚡</span> Energielastprofil
     </button>
     <button class="page-btn" onclick="switchPage('schatten',this)">
@@ -303,9 +413,244 @@ footer{
 </nav>
 
 <!-- ════════════════════════════════════════════════════════════════════════
+     PAGE 0 — STARTSEITE
+═════════════════════════════════════════════════════════════════════════ -->
+<div id="page-startseite" class="page active">
+<main>
+
+  <!-- ══ PROJEKT ══ -->
+  <div class="section" id="projekt">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Die Idee</h2>
+    </div>
+    <p class="section-desc">Kreislaufwirtschaft trifft Entwicklungshilfe: Funktionsfähige PV-Module, die in Deutschland nach Ablauf der EEG-Förderung demontiert werden, erhalten ein zweites Leben in Westafrika.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi c-sun">
+        <div class="kpi-label">Standort</div>
+        <div class="kpi-value" style="font-size:16px">Mahmuda</div>
+        <div class="kpi-unit">The Gambia, Westafrika</div>
+      </div>
+      <div class="kpi c-moon">
+        <div class="kpi-label">Partner vor Ort</div>
+        <div class="kpi-value" style="font-size:16px">Human.Hope e. V.</div>
+        <div class="kpi-unit">Gemeinnützig, Kreis Soest</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Semester</div>
+        <div class="kpi-value" style="font-size:16px">SoSe 2026</div>
+        <div class="kpi-unit">+ WiSe 2026/27</div>
+      </div>
+      <div class="kpi c-green">
+        <div class="kpi-label">Modul-Alter</div>
+        <div class="kpi-value">&gt; 20 a</div>
+        <div class="kpi-unit">Ausgediente EEG-Module</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Hintergrund</div>
+        <div class="card-body">
+          <p>In Deutschland werden jährlich tausende PV-Module demontiert, sobald die <strong>EEG-Förderung nach mehr als 20 Jahren</strong> ausläuft – obwohl sie technisch noch vollständig funktionsfähig sind. Dieses Projekt gibt ihnen ein zweites Leben als zuverlässige Energiequelle in Gambia.</p>
+          <p>Die Anlage soll den gesamten Kindergarten mit Strom versorgen – einschließlich der wirtschaftlichen Aktivitäten der Frauen vor Ort: <strong>Nähen, Backen und Erdnussbutterproduktion</strong>. So entsteht eine lokale Einkommensquelle, die Frauen und Kinder gleichermaßen stärkt.</p>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:20px 24px 16px;border-bottom:1px solid var(--paper3)">
+          <div class="card-label" style="margin-bottom:0">Projektschritte</div>
+        </div>
+        <div style="padding:4px 0 8px">
+          <div class="steps" style="padding:0 24px">
+            <div class="step">
+              <span class="step-num">01</span>
+              <div class="step-text"><strong>Test & Reinigung</strong>Systematische Prüfung der ausgedienten Module an der Hochschule Bochum</div>
+            </div>
+            <div class="step">
+              <span class="step-num">02</span>
+              <div class="step-text"><strong>Konzeptionierung</strong>Planung des 230-V-Gesamtsystems inkl. Komponentenauswahl</div>
+            </div>
+            <div class="step">
+              <span class="step-num">03</span>
+              <div class="step-text"><strong>Verpackung & Versand</strong>Verschiffung der Module nach Gambia</div>
+            </div>
+            <div class="step">
+              <span class="step-num">04</span>
+              <div class="step-text"><strong>Aufbau vor Ort</strong>Installation und Inbetriebnahme in Mahmuda (WiSe 26/27)</div>
+            </div>
+            <div class="step">
+              <span class="step-num">05</span>
+              <div class="step-text"><strong>Wissenstransfer</strong>Befähigung der Menschen vor Ort zum nachhaltigen Betrieb</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TEAMS ══ -->
+  <div class="section" id="teams">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Projektstruktur</h2>
+    </div>
+    <p class="section-desc">Das Projekt ist im SoSe 2026 in drei Teams aufgeteilt, die parallel an unterschiedlichen Aufgabenbereichen arbeiten. Wir sind Team 2.</p>
+
+    <div class="three-col">
+      <div class="team-card">
+        <div class="team-num">01</div>
+        <div class="team-name">Test & Reinigung der Module</div>
+        <ul class="team-tasks">
+          <li>Definition relevanter Parameter und Messwerkzeuge</li>
+          <li>Aufbau eines Teststands (Planung, Bau, Beschaffung)</li>
+          <li>Inbetriebnahme und Betrieb des Teststands</li>
+          <li>Systematische Überprüfung und Reinigung der Module</li>
+        </ul>
+      </div>
+
+      <div class="team-card active">
+        <div class="team-num">02</div>
+        <div class="team-name">Konzeptionierung PV-Anlage</div>
+        <ul class="team-tasks" style="margin-top:14px">
+          <li>Planung und Konzeptionierung des Gesamtsystems</li>
+          <li>Berechnung und Optimierung des Gesamtsystems</li>
+          <li>Planung und Berechnung der Statik</li>
+          <li>Zusammenstellung aller Komponenten</li>
+          <li>Installations- & Inbetriebnahmepläne erstellen</li>
+          <li>Dokumentation für die spätere praktische Umsetzung</li>
+        </ul>
+        <span class="team-badge">Wir sind Team 2</span>
+      </div>
+
+      <div class="team-card">
+        <div class="team-num">03</div>
+        <div class="team-name">Stakeholder Management</div>
+        <ul class="team-tasks">
+          <li>Sourcing ausgedienter Module (u. a. IQMA-Energy, Eslohe)</li>
+          <li>Öffentlichkeitsarbeit & Sponsoring</li>
+          <li>Verpackung & Versand der Module</li>
+          <li>Pflege Projektwebsite & LinkedIn</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TEAM 2 ══ -->
+  <div class="section" id="team2">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Team 2 – unsere Arbeit</h2>
+    </div>
+    <p class="section-desc">Als Team 2 übernehmen wir die vollständige technische Konzeptionierung der PV-Anlage für die HavenShine Academy – von der ersten Systemplanung bis zur praxisreifen Dokumentation für die Umsetzung vor Ort.</p>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Aufgabe & Ziel</div>
+        <div class="card-body">
+          <p>Wir planen und konzeptionieren ein vollständiges PV-System, das mit den refurbishten Modulen aus Deutschland zuverlässig betrieben werden kann – technisch durchdacht, statisch abgesichert und direkt umsetzbar.</p>
+          <p>Alle Ergebnisse werden so dokumentiert, dass das Installations-Team im Wintersemester 2026/27 <strong>direkt damit arbeiten</strong> kann.</p>
+        </div>
+      </div>
+      <div class="task-grid" style="align-content:start">
+        <div class="task-item">
+          <span class="task-icon">📐</span>
+          <div class="task-name">Planung & Konzeptionierung</div>
+          <div class="task-desc">Auslegung des Gesamtsystems auf Basis der Lastanalyse und der verfügbaren Module</div>
+        </div>
+        <div class="task-item">
+          <span class="task-icon">⚡</span>
+          <div class="task-name">Berechnung & Optimierung</div>
+          <div class="task-desc">Elektrische Berechnung und iterative Optimierung des Gesamtsystems</div>
+        </div>
+        <div class="task-item">
+          <span class="task-icon">🏗️</span>
+          <div class="task-name">Statik</div>
+          <div class="task-desc">Planung und Berechnung der Tragstruktur für die Montage vor Ort</div>
+        </div>
+        <div class="task-item">
+          <span class="task-icon">🔩</span>
+          <div class="task-name">Komponentenauswahl</div>
+          <div class="task-desc">Zusammenstellung aller Bauteile: Wechselrichter, Speicher, Leitungen</div>
+        </div>
+        <div class="task-item">
+          <span class="task-icon">📋</span>
+          <div class="task-name">Installations- & IBN-Pläne</div>
+          <div class="task-desc">Detaillierte Pläne für Installation und Inbetriebnahme in Gambia</div>
+        </div>
+        <div class="task-item">
+          <span class="task-icon">📄</span>
+          <div class="task-name">Dokumentation</div>
+          <div class="task-desc">Vollständige, nachvollziehbare Aufbereitung für die praktische Umsetzung</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ STANDORT ══ -->
+  <div class="section" id="standort">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Standort</h2>
+    </div>
+    <p class="section-desc">Die HavenShine Academy liegt im Dorf Mahmuda in The Gambia – mit über 2.500 Sonnenstunden pro Jahr ein idealer Standort für Photovoltaik.</p>
+
+    <div class="two-col">
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:16px 24px;border-bottom:1px solid var(--paper3);display:flex;justify-content:space-between;align-items:center">
+          <div class="card-label" style="margin-bottom:0">Koordinaten</div>
+          <a href="https://maps.app.goo.gl/M7A7Ld1GPtCkRb9u9?g_st=am" target="_blank" rel="noopener"
+             style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--sun);text-decoration:none">
+            Google Maps ↗
+          </a>
+        </div>
+        <div style="padding:20px 24px">
+          <div style="font-family:'DM Mono',monospace;font-size:18px;color:var(--sun);letter-spacing:.04em;margin-bottom:6px">
+            13°18'27.3"N &nbsp; 16°44'48.4"W
+          </div>
+          <div style="font-size:12px;color:var(--ink3);font-weight:300">Mahmuda, The Gambia · WGS84</div>
+        </div>
+      </div>
+      <div class="card c-sun">
+        <div class="card-label">Warum Gambia?</div>
+        <div class="card-body">
+          <p>The Gambia liegt auf <strong>ca. 13° nördlicher Breite</strong> – direkt in der tropischen Solarzone. Mit durchschnittlich über <strong>2.500 Sonnenstunden pro Jahr</strong> entfalten die ausgedienten Module aus Deutschland hier ihr volles Potenzial.</p>
+          <p>Gleichzeitig ist die Stromversorgung im ländlichen Gambia instabil und teuer. Eine autarke PV-Anlage schafft <strong>Versorgungssicherheit</strong> für Bildung und wirtschaftliche Aktivitäten direkt vor Ort.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PARTNER ══ -->
+  <div class="section" id="partner">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Partner & Links</h2>
+    </div>
+    <p class="section-desc">Das Projekt wird von der Hochschule Bochum initiiert und in enger Zusammenarbeit mit Human.Hope e. V. umgesetzt.</p>
+
+    <div class="two-col">
+      <a href="https://humanhope.de/" target="_blank" rel="noopener" class="partner-card">
+        <div class="partner-name">Human.Hope e. V.</div>
+        <div class="partner-desc">Gemeinnütziger Verein aus dem Kreis Soest, gegründet im März 2020. Ziel ist der Schutz von Menschen, die psychisch oder körperlich verletzt wurden – vor allem Waisenkinder. Bisherige Projekte umfassen ein Waisenhaus für 30 Kinder, Brunnen für Frauen und einen Gemeinschaftsgarten. Aktuelles Projekt: die <em>Kinderoase HavenShine Academy</em> in Mahmuda.</div>
+        <div class="partner-url">humanhope.de ↗</div>
+      </a>
+      <a href="https://www.linkedin.com/in/projektkurs-pv-gambia/" target="_blank" rel="noopener" class="partner-card">
+        <div class="partner-name">PV Gambia auf LinkedIn</div>
+        <div class="partner-desc">Das Projektteam der Hochschule Bochum teilt regelmäßig Updates zum Projektfortschritt auf LinkedIn – von Berichten aus der Testphase in Bochum über Meilensteine bei der Konzeptionierung bis hin zu Einblicken aus Gambia. Team 3 (Öffentlichkeitsarbeit) pflegt das Profil aktiv.</div>
+        <div class="partner-url">LinkedIn-Profil ↗</div>
+      </a>
+    </div>
+  </div>
+
+</main>
+</div><!-- /page-startseite -->
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
      PAGE 1 — LASTPROFIL
 ═════════════════════════════════════════════════════════════════════════ -->
-<div id="page-lastprofil" class="page active">
+<div id="page-lastprofil" class="page">
 
   <!-- sub-nav -->
   <nav class="sub-nav">
@@ -637,7 +982,13 @@ footer{
   </main>
 </div><!-- /page-schatten -->
 
-<footer>HavenShine Academy Gambia · Solaranlage Vorplanung · Solar Planungsportal · 2026</footer>
+<footer>
+  Photovoltaik in Gambia · Team 2 · Hochschule Bochum · Sommersemester 2026
+  &nbsp;·&nbsp;
+  <a href="https://humanhope.de/" target="_blank" style="color:inherit">Human.Hope e. V.</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/projektkurs-pv-gambia/" target="_blank" style="color:inherit">LinkedIn</a>
+</footer>
 
 
 <script>
@@ -651,6 +1002,7 @@ function switchPage(id, btn) {
   btn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (id === 'schatten' && !simInit) { setTimeout(resize, 50); simInit = true; }
+  if (id === 'lastprofil' && window.__dnChart) { setTimeout(() => window.__dnChart.resize(), 50); }
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -731,7 +1083,7 @@ function initDN(){
   document.getElementById('n-kwh').textContent=(nWh/1000).toFixed(1)+' kWh';
   document.getElementById('n-pct').textContent=Math.round(nWh/totWh*100)+'% der Gesamtenergie';
 
-  new Chart(document.getElementById('c-dn'),{
+  window.__dnChart = new Chart(document.getElementById('c-dn'),{
     type:'bar',
     data:{labels:cats,datasets:[
       {label:'Tagsüber (07–19)',data:cats.map(k=>sp.filter(c=>c.c===k).reduce((s,c)=>s+c.d,0)),backgroundColor:'#c8720a99',borderColor:'#c8720a',borderWidth:1,borderRadius:4},
