@@ -382,6 +382,31 @@ footer{
 @media(max-width:800px){
   #page-startseite main{padding-left:24px;padding-right:24px}
 }
+
+/* ════════════════════════════════════════════════════════════════
+   PAGE 3 — ENERGIEFLUSS  (light theme, matching site)
+═══════════════════════════════════════════════════════════════════ */
+#page-energiefluss{background:var(--paper)}
+.ef-main{max-width:1100px;margin:0 auto;padding:0 60px 80px}
+.ef-section{padding:56px 0;animation:fadeIn .4s ease}
+.ef-diagram-wrap{background:var(--paper2);border:1px solid var(--paper3);border-radius:12px;padding:24px;margin-bottom:20px}
+.ef-diagram-wrap svg{display:block;width:100%;height:auto}
+.ef-legend{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:24px}
+.ef-leg{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--ink2)}
+.ef-leg-line{width:26px;height:3px;border-radius:2px;flex-shrink:0}
+.ef-notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.ef-note{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:16px 18px}
+.ef-note-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.ef-note-val{font-size:22px;font-weight:500;line-height:1.1;margin-bottom:4px;color:var(--ink)}
+.ef-note-sub{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.5}
+@keyframes flow{to{stroke-dashoffset:-24}}
+.flow-pv{stroke-dasharray:8 6;animation:flow 1.4s linear infinite}
+.flow-dc{stroke-dasharray:8 6;animation:flow 1.5s linear infinite}
+.flow-load{stroke-dasharray:8 6;animation:flow 1.6s linear infinite}
+.flow-chrg{stroke-dasharray:6 5;animation:flow 1.8s linear infinite}
+.flow-dis{stroke-dasharray:6 5;animation:flow 2.0s linear infinite}
+@media(max-width:700px){.ef-main{padding:0 20px 60px}.ef-section{padding:36px 0}}
+
 </style>
 </head>
 <body>
@@ -408,6 +433,9 @@ footer{
     </button>
     <button class="page-btn" onclick="switchPage('schatten',this)">
       <span class="pg-icon">☀</span> Schattensimulation
+    </button>
+    <button class="page-btn" onclick="switchPage('energiefluss',this)">
+      <span class="pg-icon">⇄</span> Energiefluss
     </button>
   </div>
 </nav>
@@ -981,6 +1009,347 @@ footer{
 
   </main>
 </div><!-- /page-schatten -->
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE 3 — ENERGIEFLUSS
+═════════════════════════════════════════════════════════════════════════ -->
+<div id="page-energiefluss" class="page">
+  <main class="ef-main">
+    <section class="ef-section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title-lp">Energiefluss</h2>
+      </div>
+      <p class="section-desc">Kindergarten Brikama · Gambia 13°N · 9,9 kWp · 48 V System. Vom Solarertrag über MPPT, 48-V-DC-Bus und Batterie bis zum Wechselrichter und den 230-V-Verbrauchern.</p>
+
+      <div class="ef-diagram-wrap">
+      <svg viewBox="0 0 1200 860" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="a-pv"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#b8860b"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        <marker id="a-dc"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#2a6b4a"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        <marker id="a-ac"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#3d4f8a"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        <marker id="a-chrg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#c8720a"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        <marker id="a-dis"  viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#6a4c93"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        <filter id="gsun" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M20 0H0V20" fill="none" stroke="rgba(26,26,24,.035)" stroke-width=".5"/>
+        </pattern>
+      </defs>
+      <rect width="1200" height="860" fill="url(#grid)"/>
+
+      <!-- ═══════════════════════════════════════════
+           LAYOUT OVERVIEW  (all y-positions)
+           Zone backgrounds x:
+             PV zone:          x 10–340
+             Conversion zone:  x 356–576
+             AC zone:          x 592–1188
+
+           Component centers (x=464 for middle column):
+             Sun:              y  65
+             PV modules:       y 160–310   (box top=140, h=170)
+             MPPT:             y 380–480   (box top=370, h=110)
+             48V DC-Bus:       y 530–558   (box top=520, h=38)
+             Wechselrichter:   y 620–730   (box top=610, h=120)
+             Battery:          y 190–310   (box top=180, h=130) — left side at x=356
+
+           Wires:
+             PV → MPPT:        y 310→370   horizontal at y=340, then down
+             MPPT → Bus:       y 480→520
+             Bus → WR:         y 558→610
+             Batt ↔ Bus:       vertical x=374, y 310↔520
+      ═══════════════════════════════════════════ -->
+
+      <!-- ══ ZONE BACKGROUNDS ══ -->
+      <rect x="10"  y="10" width="330" height="838" rx="12" fill="rgba(184,134,11,.018)"  stroke="rgba(184,134,11,.09)"  stroke-width=".8"/>
+      <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(184,134,11,.32)"  x="24"  y="27">SOLARERTRAG · DC</text>
+
+      <rect x="348" y="10" width="232" height="838" rx="12" fill="rgba(42,107,74,.015)"  stroke="rgba(42,107,74,.09)"  stroke-width=".8"/>
+      <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(42,107,74,.32)"  x="362" y="27">UMWANDLUNG · 48 V DC-BUS</text>
+
+      <rect x="592" y="10" width="600" height="838" rx="12" fill="rgba(61,79,138,.015)"  stroke="rgba(61,79,138,.08)"  stroke-width=".8"/>
+      <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(61,79,138,.30)"  x="606" y="27">AC-VERBRAUCHER · 230 V</text>
+
+
+      <!-- ══════════════════════════════════════
+           1. SONNE
+      ══════════════════════════════════════ -->
+      <circle cx="175" cy="65" r="22" fill="rgba(184,134,11,.14)" stroke="#b8860b" stroke-width="1" filter="url(#gsun)"/>
+      <circle cx="175" cy="65" r="13" fill="#b8860b" opacity=".92"/>
+      <g stroke="#b8860b" stroke-width="1.4" stroke-linecap="round" opacity=".55">
+        <line x1="175" y1="36" x2="175" y2="29"/>  <line x1="175" y1="94" x2="175" y2="101"/>
+        <line x1="146" y1="65" x2="139" y2="65"/>  <line x1="204" y1="65" x2="211" y2="65"/>
+        <line x1="155" y1="45" x2="150" y2="40"/>  <line x1="195" y1="85" x2="200" y2="90"/>
+        <line x1="195" y1="45" x2="200" y2="40"/>  <line x1="155" y1="85" x2="150" y2="90"/>
+      </g>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(184,134,11,.4)" x="175" y="112" text-anchor="middle">SONNE · 13°N</text>
+      <!-- sun → modules dashed line -->
+      <line x1="175" y1="118" x2="175" y2="138" stroke="#b8860b" stroke-width="1.4" stroke-dasharray="3 3" opacity=".35"/>
+
+
+      <!-- ══════════════════════════════════════
+           2. PV-MODULE
+           box: x=28, y=140, w=294, h=170
+      ══════════════════════════════════════ -->
+      <rect x="28" y="140" width="294" height="170" rx="10" fill="rgba(184,134,11,.055)" stroke="#b8860b" stroke-width="1"/>
+      <!-- module grid: 4 cols × 3 rows -->
+      <g fill="rgba(184,134,11,.08)" stroke="#b8860b" stroke-width=".5">
+        <rect x="40"  y="152" width="60" height="34" rx="2"/>  <rect x="108" y="152" width="60" height="34" rx="2"/>
+        <rect x="176" y="152" width="60" height="34" rx="2"/>  <rect x="244" y="152" width="60" height="34" rx="2"/>
+        <rect x="40"  y="192" width="60" height="34" rx="2"/>  <rect x="108" y="192" width="60" height="34" rx="2"/>
+        <rect x="176" y="192" width="60" height="34" rx="2"/>  <rect x="244" y="192" width="60" height="34" rx="2"/>
+        <rect x="40"  y="232" width="60" height="34" rx="2"/>  <rect x="108" y="232" width="60" height="34" rx="2"/>
+        <rect x="176" y="232" width="60" height="34" rx="2"/>  <rect x="244" y="232" width="60" height="34" rx="2"/>
+      </g>
+      <!-- diagonal lines on modules -->
+      <g stroke="rgba(184,134,11,.2)" stroke-width=".4">
+        <line x1="40" y1="186" x2="100" y2="152"/>  <line x1="108" y1="186" x2="168" y2="152"/>
+        <line x1="176" y1="186" x2="236" y2="152"/>  <line x1="244" y1="186" x2="304" y2="152"/>
+      </g>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="rgba(184,134,11,.9)" x="175" y="288" text-anchor="middle">60× Sharp NEQ5E3E · 165 Wp</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(184,134,11,.5)" x="175" y="302" text-anchor="middle">9,9 kWp · Portrait 15° · Voc 22,4 V · Isc 9,61 A</text>
+
+      <!-- ══ PV → MPPT wire ══ -->
+      <!-- down from module to y=340, right to MPPT center, down to MPPT top -->
+      <line x1="175" y1="310" x2="175" y2="340" stroke="#b8860b" stroke-width="2"/>
+      <line class="flow-pv" x1="175" y1="340" x2="450" y2="340" stroke="#b8860b" stroke-width="2.5" marker-end="url(#a-pv)"/>
+      <line x1="450" y1="340" x2="450" y2="368" stroke="#b8860b" stroke-width="2"/>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(184,134,11,.5)" x="310" y="330" text-anchor="middle">DC · PV-String</text>
+
+
+      <!-- ══════════════════════════════════════
+           3. MPPT-LADEREGLER
+           box: x=368, y=370, w=164, h=120
+      ══════════════════════════════════════ -->
+      <rect x="368" y="370" width="164" height="120" rx="10" fill="rgba(42,107,74,.08)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="374" y="376" width="152" height="108" rx="7" fill="none" stroke="#2a6b4a" stroke-width=".4"/>
+      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="500" fill="#2a6b4a" x="450" y="406" text-anchor="middle">MPPT-Laderegler</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.6)" x="450" y="424" text-anchor="middle">2–3 × 80 A / 48 V</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.5)" x="450" y="440" text-anchor="middle">PV → DC-Bus · η ≈ 98 %</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(42,107,74,.35)" x="450" y="456" text-anchor="middle">MPP-Tracking · variable → 48 V stabil</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(42,107,74,.28)" x="450" y="470" text-anchor="middle">nur Laderichtung !</text>
+
+      <!-- ══ MPPT → DC-Bus ══ -->
+      <line class="flow-dc" x1="450" y1="490" x2="450" y2="518" stroke="#2a6b4a" stroke-width="2.5" marker-end="url(#a-dc)"/>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.5)" x="466" y="506" text-anchor="start">48 V DC</text>
+
+
+      <!-- ══════════════════════════════════════
+           4. 48 V DC-BUS
+           box: x=368, y=520, w=164, h=40
+      ══════════════════════════════════════ -->
+      <rect x="368" y="520" width="164" height="40" rx="7" fill="rgba(42,107,74,.18)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <text font-family="'DM Mono',monospace" font-size="10" font-weight="500" fill="#2a6b4a" x="450" y="544" text-anchor="middle" letter-spacing=".08em">48 V DC-BUS</text>
+
+      <!-- ══ DC-Bus → Wechselrichter ══ -->
+      <line class="flow-dc" x1="450" y1="560" x2="450" y2="608" stroke="#2a6b4a" stroke-width="2.5" marker-end="url(#a-dc)"/>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.5)" x="466" y="587" text-anchor="start">48 V DC</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.35)" x="466" y="598" text-anchor="start">aus Bus</text>
+
+
+      <!-- ══════════════════════════════════════
+           5. BATTERIE
+           Hängt direkt am DC-Bus, links vom Bus-Block
+           box: x=368, y=188, w=164, h=138
+           Bidirektionaler Pfad x=390 (Laden) / x=408 (Entladen), y=326→520
+      ══════════════════════════════════════ -->
+      <rect x="368" y="188" width="164" height="138" rx="10" fill="rgba(200,114,10,.08)" stroke="#c8720a" stroke-width="1.4"/>
+      <!-- battery cell symbol -->
+      <rect x="402" y="200" width="96" height="46" rx="3" fill="none" stroke="#c8720a" stroke-width=".8" opacity=".5"/>
+      <rect x="420" y="196" width="14" height="6" rx="2" fill="#c8720a" opacity=".4"/>
+      <!-- fill bars -->
+      <rect x="405" y="203" width="20" height="36" rx="2" fill="rgba(200,114,10,.2)"/>
+      <rect x="430" y="203" width="20" height="36" rx="2" fill="rgba(200,114,10,.38)"/>
+      <rect x="455" y="203" width="20" height="36" rx="2" fill="rgba(200,114,10,.56)"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#c8720a" x="450" y="264" text-anchor="middle">Batterie (LiFePO₄)</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(200,114,10,.6)" x="450" y="280" text-anchor="middle">48 V · ≥ 7 kWh Brutto</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(200,114,10,.45)" x="450" y="294" text-anchor="middle">5,3 kWh nutzbar · BMS</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(200,114,10,.35)" x="450" y="308" text-anchor="middle">80 % DoD · &gt; 3000 Zyklen</text>
+
+      <!--
+        BATTERIE ↔ DC-BUS  (bidirektional, vertikale Linie links vom MPPT-Block)
+        Laden:    Bus → Batt  (orange, nach oben)   x=388
+        Entladen: Batt → Bus  (lila,   nach unten)  x=406
+        y: Batt-Unterseite=326, Bus-Oberseite=520
+      -->
+      <line class="flow-chrg" x1="388" y1="520" x2="388" y2="328" stroke="#c8720a" stroke-width="2"   marker-end="url(#a-chrg)"/>
+      <line class="flow-dis"  x1="406" y1="328" x2="406" y2="520" stroke="#6a4c93" stroke-width="2"   marker-end="url(#a-dis)"/>
+
+      <!-- Labels neben den Batteriepfeilen -->
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(200,114,10,.65)" x="358" y="428" text-anchor="middle">Laden</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(200,114,10,.5)"  x="358" y="440" text-anchor="middle">☀ Tag</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(106,76,147,.7)" x="420" y="428" text-anchor="middle">Entlad.</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(106,76,147,.5)" x="420" y="440" text-anchor="middle">☽ Nacht</text>
+
+
+      <!-- ══════════════════════════════════════
+           6. WECHSELRICHTER
+           box: x=368, y=610, w=164, h=124
+      ══════════════════════════════════════ -->
+      <rect x="368" y="610" width="164" height="124" rx="10" fill="rgba(61,79,138,.08)" stroke="#3d4f8a" stroke-width="1.4"/>
+      <rect x="374" y="616" width="152" height="112" rx="7" fill="none" stroke="#3d4f8a" stroke-width=".4"/>
+      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="500" fill="#3d4f8a" x="450" y="648" text-anchor="middle">Wechselrichter</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.6)"  x="450" y="665" text-anchor="middle">Hybrid-Inverter · Off-Grid</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.5)"  x="450" y="681" text-anchor="middle">DC 48 V → AC 230 V / 50 Hz</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.45)" x="450" y="697" text-anchor="middle">≥ 6 kW Dauer · η ≈ 94 %</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(61,79,138,.3)"  x="450" y="714" text-anchor="middle">Eingang: direkt 48V DC-Bus</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(61,79,138,.3)"  x="450" y="726" text-anchor="middle">(PV-Überschuss ODER Batterie)</text>
+
+      <!-- ══ AC output: WR → AC-Bus ══ -->
+      <line class="flow-load" x1="532" y1="672" x2="590" y2="672" stroke="#3d4f8a" stroke-width="2.5" marker-end="url(#a-ac)"/>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.55)" x="561" y="662" text-anchor="middle">AC 230 V</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.35)" x="561" y="685" text-anchor="middle">3×2,5 mm²</text>
+
+
+      <!-- ══ AC bus bar (vertical) ══ -->
+      <rect x="590" y="44" width="10" height="790" rx="4" fill="rgba(61,79,138,.14)" stroke="#3d4f8a" stroke-width=".8"/>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.38)" x="595" y="36" text-anchor="middle" letter-spacing=".06em">AC-VERTEILER</text>
+
+
+      <!-- ══════════════════════════════════════
+           7. VERBRAUCHER
+           Gleichmäßig verteilt auf der rechten Seite
+           y-positions: 60, 190, 320, 530, 720
+      ══════════════════════════════════════ -->
+
+      <!-- ── 1. Beleuchtung  y=60, h=104 ── -->
+      <rect x="618" y="58"  width="556" height="104" rx="9" fill="rgba(200,114,10,.07)" stroke="#c8720a" stroke-width=".8"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#c8720a" x="636" y="83">Beleuchtung</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(200,114,10,.55)" x="636" y="99">Nursery 1–3 · Medical · Kitchen · Storage · Shop · Library · Meeting · Außen</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(200,114,10,.45)" x="636" y="114">Tagsüber: 390 Wh/d · Nachts (Speicher): 2.390 Wh/d · Außen: 780 Wh/d</text>
+      <rect x="1108" y="66" width="52" height="16" rx="3" fill="rgba(106,76,147,.1)"  stroke="rgba(106,76,147,.3)" stroke-width=".5"/>
+      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(106,76,147,.85)" x="1134" y="78" text-anchor="middle">☽ Nacht</text>
+      <line x1="600" y1="110" x2="616" y2="110" stroke="#3d4f8a" stroke-width="1.5" marker-end="url(#a-ac)"/>
+
+      <!-- ── 2. Klimatisierung  y=190, h=100 ── -->
+      <rect x="618" y="188" width="556" height="100" rx="9" fill="rgba(42,107,74,.07)"  stroke="#2a6b4a" stroke-width=".8"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#2a6b4a" x="636" y="213">Klimatisierung</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.55)" x="636" y="229">4× Ventilator 75 W · Nursery 1–3 + Medical · 07:00–17:00 Uhr</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.45)" x="636" y="245">2.550 Wh/d · nur Tagbetrieb (Solar direkt → kein Speicher)</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.35)" x="636" y="261">Spitzenlast gesamt: 300 W</text>
+      <rect x="1108" y="196" width="52" height="16" rx="3" fill="rgba(184,134,11,.08)"  stroke="rgba(184,134,11,.25)" stroke-width=".5"/>
+      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(184,134,11,.75)" x="1134" y="208" text-anchor="middle">☀ Tag</text>
+      <line x1="600" y1="238" x2="616" y2="238" stroke="#3d4f8a" stroke-width="1.5" marker-end="url(#a-ac)"/>
+
+      <!-- ── 3. Küche & Produktion  y=320, h=172 ── -->
+      <rect x="618" y="318" width="556" height="172" rx="9" fill="rgba(160,48,32,.07)"  stroke="#a03020" stroke-width=".8"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#a03020" x="636" y="343">Küche &amp; Produktion</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.55)" x="636" y="360">Backöfen 3× 2 kW (GZF 0,66) → 3.960 W · 7.920 Wh/d</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.55)" x="636" y="376">Erdnussbuttermaschine 2× 1,1 kW → 2.200 W · 4.400 Wh/d</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.55)" x="636" y="392">Ölpresse 1,8 kW · 3.600 Wh/d</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.55)" x="636" y="408">Nähmaschinen 6× 100 W · Küchenmaschinen · Wasserkocher</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.55)" x="636" y="424">Kühlschrank 80 W (24 h) → 1.920 Wh/d  (960 Wh davon nachts)</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.4)"  x="636" y="440">Zeitsteuerung 08:00–14:00 empfohlen für Großverbraucher</text>
+      <rect x="1080" y="326" width="80" height="16" rx="3" fill="rgba(184,134,11,.08)"  stroke="rgba(184,134,11,.25)" stroke-width=".5"/>
+      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(184,134,11,.75)" x="1120" y="338" text-anchor="middle">☀ 08–14 Uhr</text>
+      <rect x="1080" y="346" width="80" height="16" rx="3" fill="rgba(160,48,32,.12)"  stroke="rgba(160,48,32,.3)"  stroke-width=".5"/>
+      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(160,48,32,.9)"  x="1120" y="358" text-anchor="middle">⚡ Engpass Sommer!</text>
+      <rect x="1080" y="366" width="80" height="16" rx="3" fill="rgba(106,76,147,.1)"  stroke="rgba(106,76,147,.3)" stroke-width=".5"/>
+      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(106,76,147,.85)" x="1120" y="378" text-anchor="middle">☽ Kühlschr. Nacht</text>
+      <line x1="600" y1="404" x2="616" y2="404" stroke="#3d4f8a" stroke-width="1.5" marker-end="url(#a-ac)"/>
+
+      <!-- ── 4. Büro & Bildung  y=530, h=110 ── -->
+      <rect x="618" y="528" width="556" height="110" rx="9" fill="rgba(61,79,138,.07)"  stroke="#3d4f8a" stroke-width=".8"/>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#3d4f8a" x="636" y="553">Büro &amp; Bildung</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.55)" x="636" y="570">8× Laptop (GZF 0,5) → 260 W · 1.040 Wh/d · 08:00–15:00</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.55)" x="636" y="586">Beamer 350 W · 1.400 Wh/d · 19:00–23:00 Uhr (aus Speicher)</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.45)" x="636" y="602">Drucker 30 W · gelegentlich</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.35)" x="636" y="618">Gesamt: ~2.440 Wh/d</text>
+      <rect x="1108" y="536" width="52" height="16" rx="3" fill="rgba(106,76,147,.1)"  stroke="rgba(106,76,147,.3)" stroke-width=".5"/>
+      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(106,76,147,.85)" x="1134" y="548" text-anchor="middle">☽ Beamer</text>
+      <line x1="600" y1="583" x2="616" y2="583" stroke="#3d4f8a" stroke-width="1.5" marker-end="url(#a-ac)"/>
+
+      <!-- ── 5. Separate Systeme  y=678, h=72 ── -->
+      <rect x="618" y="678" width="556" height="72" rx="9" fill="rgba(26,26,24,.02)" stroke="rgba(26,26,24,.1)" stroke-width=".8" stroke-dasharray="6 4"/>
+      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="400" fill="rgba(26,26,24,.35)" x="636" y="704">Separate Systeme (eigenständig, eigene PV)</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(26,26,24,.22)" x="636" y="720">Handyladestation · Wasserpumpe · nicht Teil dieser Hauptanlage</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(26,26,24,.18)" x="636" y="736">Eigene Solarmodule + Laderegler</text>
+      <line x1="600" y1="714" x2="616" y2="714" stroke="rgba(26,26,24,.18)" stroke-width="1" stroke-dasharray="4 3"/>
+
+
+      <!-- ══════════════════════════════════════
+           8. ENERGIEBILANZ (unten links)
+      ══════════════════════════════════════ -->
+      <rect x="28" y="348" width="306" height="472" rx="10" fill="rgba(26,26,24,.03)" stroke="rgba(26,26,24,.1)" stroke-width=".8"/>
+      <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".1em" fill="rgba(26,26,24,.28)" x="46" y="372">ENERGIEBILANZ</text>
+      <line x1="46" y1="380" x2="316" y2="380" stroke="rgba(26,26,24,.08)" stroke-width=".5"/>
+
+      <g font-family="'DM Mono',monospace" font-size="11">
+        <text fill="rgba(26,26,24,.3)"  x="46" y="404">Gesamtbedarf/Tag</text>
+        <text font-weight="500" fill="rgba(26,26,24,.75)" x="316" y="404" text-anchor="end">26,97 kWh</text>
+        <line x1="46" y1="412" x2="316" y2="412" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
+
+        <text fill="rgba(184,134,11,.5)"   x="46" y="436">☀ Solar Worst Case</text>
+        <text font-weight="500" fill="#b8860b" x="316" y="436" text-anchor="end">16,2 kWh/d</text>
+        <text fill="rgba(184,134,11,.35)"  x="46" y="455">☀ Solar Jahresmittel</text>
+        <text fill="rgba(184,134,11,.65)"  x="316" y="455" text-anchor="end">~38 kWh/d</text>
+        <line x1="46" y1="464" x2="316" y2="464" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
+
+        <text fill="rgba(106,76,147,.6)"  x="46" y="488">☽ Nachtbedarf</text>
+        <text font-weight="500" fill="#6a4c93" x="316" y="488" text-anchor="end">3,51 kWh</text>
+        <text fill="rgba(200,114,10,.55)"  x="46" y="508">⚡ Speicher nutzbar</text>
+        <text font-weight="500" fill="#c8720a" x="316" y="508" text-anchor="end">5,3 kWh</text>
+        <line x1="46" y1="516" x2="316" y2="516" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
+
+        <text fill="rgba(160,48,32,.5)"  x="46" y="540">⚠ Defizit Worst Case</text>
+        <text fill="rgba(160,48,32,.8)"  x="316" y="540" text-anchor="end">−10,8 kWh/d</text>
+      </g>
+
+      <!-- Topologie-Erklärung -->
+      <rect x="46" y="560" width="270" height="90" rx="7" fill="rgba(42,107,74,.05)" stroke="rgba(42,107,74,.18)" stroke-width=".8"/>
+      <text font-family="'DM Mono',monospace" font-size="8" letter-spacing=".06em" fill="rgba(42,107,74,.45)" x="58" y="578">STROMFLUSS · TOPOLOGIE</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="596">PV → MPPT → 48V-Bus</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="612">48V-Bus ↔ Batterie (direkt)</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="628">48V-Bus → Wechselrichter → AC</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(42,107,74,.35)" x="58" y="644">Entladung NICHT durch MPPT</text>
+
+      <!-- Spitzenlast Box -->
+      <rect x="46" y="668" width="270" height="70" rx="7" fill="rgba(160,48,32,.04)" stroke="rgba(160,48,32,.18)" stroke-width=".8"/>
+      <text font-family="'DM Mono',monospace" font-size="8" letter-spacing=".06em" fill="rgba(160,48,32,.4)" x="58" y="686">SPITZENLAST</text>
+      <text font-family="'DM Mono',monospace" font-size="18" font-weight="500" fill="rgba(160,48,32,.8)" x="58" y="714">17.235 W</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(26,26,24,.25)" x="58" y="730">Lastmanagement empfohlen</text>
+
+      </svg>
+
+      </div>
+
+      <!-- Legend -->
+      <div class="ef-legend">
+        <span class="ef-leg"><span class="ef-leg-line" style="background:#b8860b"></span>DC PV-Strom (PV → MPPT)</span>
+        <span class="ef-leg"><span class="ef-leg-line" style="background:#2a6b4a"></span>DC 48 V Bus (MPPT → Bus / Bus → WR)</span>
+        <span class="ef-leg"><span class="ef-leg-line" style="background:#c8720a"></span>Batterieladung (Bus → Batterie, Tag)</span>
+        <span class="ef-leg"><span class="ef-leg-line" style="background:#6a4c93"></span>Batterieentladung (Batterie → Bus, Nacht)</span>
+        <span class="ef-leg"><span class="ef-leg-line" style="background:#3d4f8a"></span>AC 230 V (Wechselrichter → Verbraucher)</span>
+      </div>
+
+      <!-- Key metrics -->
+      <div class="ef-notes">
+        <div class="ef-note">
+          <div class="ef-note-label">Tagesbedarf gesamt</div>
+          <div class="ef-note-val">26,97 kWh</div>
+          <div class="ef-note-sub">Küche + Produktion dominiert mit ~18,6 kWh (69 %)</div>
+        </div>
+        <div class="ef-note">
+          <div class="ef-note-label">Solar Worst Case (Jul–Sep)</div>
+          <div class="ef-note-val" style="color:#b8860b">16,2 kWh/d</div>
+          <div class="ef-note-sub">3,04 kWh/kWp/d × 9,9 kWp × PR 54 % — Großverbraucher auf 08–14 Uhr legen</div>
+        </div>
+        <div class="ef-note">
+          <div class="ef-note-label">Nachtbedarf (aus Speicher)</div>
+          <div class="ef-note-val" style="color:#6a4c93">3,51 kWh</div>
+          <div class="ef-note-sub">Batterie → 48V-Bus → Wechselrichter → Verbraucher</div>
+        </div>
+        <div class="ef-note">
+          <div class="ef-note-label">Speicher nutzbar (LiFePO₄)</div>
+          <div class="ef-note-val" style="color:#c8720a">5,3 kWh</div>
+          <div class="ef-note-sub">bei 80 % DoD aus ≥ 7 kWh Brutto · deckt Nachtbedarf mit Reserve</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div><!-- /page-energiefluss -->
+
 
 <footer>
   Photovoltaik in Gambia · Team 2 · Hochschule Bochum · Sommersemester 2026
