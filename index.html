@@ -407,6 +407,146 @@ footer{
 .flow-dis{stroke-dasharray:6 5;animation:flow 2.0s linear infinite}
 @media(max-width:700px){.ef-main{padding:0 20px 60px}.ef-section{padding:36px 0}}
 
+
+/* ════════════════════════════════════════════════════════════════
+   PAGE 4 — ENERGIEERTRAG & KLIMA  (light theme, namespaced)
+═══════════════════════════════════════════════════════════════════ */
+#page-energieertrag{background:var(--paper)}
+#page-energieertrag .ee-view{display:none}
+#page-energieertrag .ee-view.active{display:block}
+#page-energieertrag .main-wrap{max-width:1100px;margin:0 auto;padding:0 60px 80px}
+
+#page-energieertrag .section{padding:56px 0;border-bottom:1px solid var(--paper3);animation:fadeIn .4s ease}
+#page-energieertrag .section:last-child{border-bottom:none}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+#page-energieertrag .section-header{display:flex;align-items:baseline;gap:20px;margin-bottom:8px}
+#page-energieertrag .section-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.1em}
+#page-energieertrag .section-title{font-family:'DM Serif Display',serif;font-size:28px;color:var(--ink)}
+#page-energieertrag .section-desc{font-size:14px;color:var(--ink3);margin-bottom:32px;max-width:660px;line-height:1.7;font-weight:300}
+
+#page-energieertrag /* KPI */
+.kpi-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:28px}
+#page-energieertrag .kpi{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:16px 18px}
+#page-energieertrag .kpi-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+#page-energieertrag .kpi-value{font-size:26px;font-weight:500;line-height:1;color:var(--ink);margin-bottom:3px}
+#page-energieertrag .kpi-unit{font-size:11px;color:var(--ink3)}
+#page-energieertrag .kpi.c-sun .kpi-value{color:var(--sun)}
+#page-energieertrag .kpi.c-moon .kpi-value{color:var(--moon)}
+#page-energieertrag .kpi.c-red .kpi-value{color:var(--red)}
+#page-energieertrag .kpi.c-green .kpi-value{color:var(--green)}
+
+#page-energieertrag /* cards */
+.card{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:24px 26px}
+#page-energieertrag .card-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:16px}
+#page-energieertrag .card-body{font-size:13px;color:var(--ink2);line-height:1.7;font-weight:300}
+#page-energieertrag .card-body p{margin-bottom:10px}
+#page-energieertrag .card-body p:last-child{margin-bottom:0}
+#page-energieertrag .card-body strong{font-weight:500;color:var(--ink)}
+
+#page-energieertrag .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+@media(max-width:700px){#page-energieertrag .two-col{grid-template-columns:1fr}}
+
+#page-energieertrag /* day/night style cards (best/worst day) */
+.dn-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+@media(max-width:600px){#page-energieertrag .dn-grid{grid-template-columns:1fr}}
+#page-energieertrag .dn-card{border-radius:12px;padding:24px 26px;position:relative;overflow:hidden}
+#page-energieertrag .dn-card.best{background:var(--sun-light);border:1px solid #e8c896}
+#page-energieertrag .dn-card.worst{background:var(--moon-light);border:1px solid #b8c4e0}
+#page-energieertrag .dn-icon{font-size:28px;margin-bottom:12px;display:block}
+#page-energieertrag .dn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+#page-energieertrag .dn-card.best .dn-label{color:var(--amber)}
+#page-energieertrag .dn-card.worst .dn-label{color:var(--moon)}
+#page-energieertrag .dn-time{font-size:12px;font-weight:300;margin-bottom:14px}
+#page-energieertrag .dn-card.best .dn-time{color:var(--amber)}
+#page-energieertrag .dn-card.worst .dn-time{color:var(--moon)}
+#page-energieertrag .dn-kwh{font-family:'DM Serif Display',serif;font-size:42px;line-height:1;margin-bottom:4px}
+#page-energieertrag .dn-card.best .dn-kwh{color:var(--sun)}
+#page-energieertrag .dn-card.worst .dn-kwh{color:var(--moon)}
+#page-energieertrag .dn-pct{font-size:13px;font-weight:300}
+#page-energieertrag .dn-card.best .dn-pct{color:var(--amber)}
+#page-energieertrag .dn-card.worst .dn-pct{color:var(--moon)}
+
+#page-energieertrag /* chart */
+.chart-wrap{background:var(--paper2);border:1px solid var(--paper3);border-radius:12px;padding:24px;margin-bottom:16px}
+#page-energieertrag .chart-wrap canvas{display:block}
+#page-energieertrag .legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:16px}
+#page-energieertrag .leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink2)}
+#page-energieertrag .leg-sq{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+#page-energieertrag /* controls */
+.ctrl-panel{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:24px 28px;margin-bottom:28px}
+#page-energieertrag .ctrl-block{margin-bottom:20px}
+#page-energieertrag .ctrl-block:last-child{margin-bottom:0}
+#page-energieertrag .ctrl-head{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;display:flex;justify-content:space-between;align-items:baseline}
+#page-energieertrag .ctrl-head .ctrl-readout{color:var(--sun);font-size:13px;font-weight:500}
+#page-energieertrag .tab-group{display:flex;gap:6px;flex-wrap:wrap}
+#page-energieertrag .tab-btn{
+  background:none;border:1px solid var(--paper3);border-radius:var(--r);
+  padding:6px 16px;cursor:pointer;font-size:13px;font-family:'DM Sans',sans-serif;
+  color:var(--ink2);transition:all .15s;
+}
+#page-energieertrag .tab-btn:hover{border-color:var(--ink3);color:var(--ink)}
+#page-energieertrag .tab-btn.on{background:var(--sun-light);color:var(--sun);border-color:#e0b87a;font-weight:500}
+#page-energieertrag input[type=range]{width:100%;height:4px;appearance:none;background:var(--paper3);border-radius:2px;outline:none;cursor:pointer;margin-top:4px}
+#page-energieertrag input[type=range]::-webkit-slider-thumb{appearance:none;width:16px;height:16px;border-radius:50%;background:var(--sun);border:2px solid var(--paper2);box-shadow:0 0 0 1px var(--sun)}
+#page-energieertrag input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--sun);border:2px solid var(--paper2)}
+
+#page-energieertrag /* tables */
+.con-table{width:100%;border-collapse:collapse;font-size:13px}
+#page-energieertrag .con-table thead th{
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink3);padding:6px 12px 10px;border-bottom:1px solid var(--paper3);text-align:left;font-weight:500
+}
+#page-energieertrag .con-table td{padding:8px 12px;border-bottom:1px solid var(--paper3);color:var(--ink)}
+#page-energieertrag .con-table tr:last-child td{border-bottom:none}
+#page-energieertrag .con-table tr:hover td{background:var(--paper)}
+#page-energieertrag .con-table tfoot td{font-weight:500;border-top:2px solid var(--paper3);background:var(--paper)}
+#page-energieertrag td.num, #page-energieertrag th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
+#page-energieertrag tr.rainy td:first-child::after{content:' · Regenzeit';font-family:'DM Mono',monospace;font-size:9px;color:var(--moon);letter-spacing:.05em}
+
+#page-energieertrag /* formula / conclusion box */
+.method-box{background:var(--amber-light);border:1px solid #d4b870;border-radius:var(--r);padding:28px 32px;margin-bottom:16px}
+#page-energieertrag .method-box h3{font-family:'DM Serif Display',serif;font-size:20px;color:var(--amber);margin-bottom:14px}
+#page-energieertrag .method-box p{color:var(--ink2);margin-bottom:10px;line-height:1.7;font-size:13px}
+#page-energieertrag .method-box p:last-child{margin-bottom:0}
+#page-energieertrag .method-box strong{color:var(--ink);font-weight:500}
+#page-energieertrag .formula{font-family:'DM Mono',monospace;font-size:15px;color:var(--ink);background:rgba(255,255,255,.5);border:1px solid #d4b870;border-radius:6px;padding:14px 18px;margin:12px 0;text-align:center}
+#page-energieertrag .var-list{list-style:none;margin:10px 0 0;font-size:13px}
+#page-energieertrag .var-list li{padding:5px 0 5px 16px;position:relative;color:var(--ink2);line-height:1.5}
+#page-energieertrag .var-list li::before{content:'–';position:absolute;left:0;color:var(--amber)}
+#page-energieertrag .var-list code{font-family:'DM Mono',monospace;color:var(--sun);font-weight:500}
+
+#page-energieertrag .note-box{background:var(--green-light);border:1px solid rgba(42,107,74,.25);border-radius:var(--r);padding:20px 24px;font-size:13px;color:var(--ink2);line-height:1.7}
+#page-energieertrag .note-box strong{color:var(--green);font-weight:500}
+
+#page-energieertrag /* spec rows */
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--paper3);gap:16px}
+#page-energieertrag .spec-row:last-child{border-bottom:none}
+#page-energieertrag .spec-key{font-size:13px;color:var(--ink2)}
+#page-energieertrag .spec-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--ink);text-align:right}
+
+#page-energieertrag /* coords */
+.coords-table{width:100%;border-collapse:collapse;font-size:13px}
+#page-energieertrag .coords-table th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding:6px 12px 10px;border-bottom:1px solid var(--paper3);text-align:left;font-weight:500}
+#page-energieertrag .coords-table td{padding:10px 12px;border-bottom:1px solid var(--paper3);color:var(--ink)}
+#page-energieertrag .coords-table tr:last-child td{border-bottom:none}
+#page-energieertrag td.mono{font-family:'DM Mono',monospace;font-size:12px;color:var(--sun)}
+
+#page-energieertrag .src-list{list-style:none;font-size:12px;color:var(--ink3);line-height:1.9}
+#page-energieertrag .src-list a{color:var(--sun);text-decoration:none;border-bottom:1px solid transparent}
+#page-energieertrag .src-list a:hover{border-color:var(--sun)}
+
+#page-energieertrag .map-link{display:inline-block;margin-top:14px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sun);text-decoration:none;border-bottom:1px solid rgba(200,114,10,.4);padding-bottom:2px}
+#page-energieertrag .map-link:hover{border-color:var(--sun)}
+@media(max-width:700px){
+  #page-energieertrag .site-header{padding:28px 20px 24px}
+  #page-energieertrag .top-nav{padding:0 20px}
+  #page-energieertrag .main-wrap{padding:0 20px 60px}
+  #page-energieertrag .section{padding:36px 0}
+  #page-energieertrag footer{padding:20px 24px}
+}
+
 </style>
 </head>
 <body>
@@ -436,6 +576,9 @@ footer{
     </button>
     <button class="page-btn" onclick="switchPage('energiefluss',this)">
       <span class="pg-icon">⇄</span> Energiefluss
+    </button>
+    <button class="page-btn" onclick="switchPage('energieertrag',this)">
+      <span class="pg-icon">☼</span> Energieertrag
     </button>
   </div>
 </nav>
@@ -1350,6 +1493,294 @@ footer{
   </main>
 </div><!-- /page-energiefluss -->
 
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE 4 — ENERGIEERTRAG & KLIMA
+═════════════════════════════════════════════════════════════════════════ -->
+<div id="page-energieertrag" class="page">
+
+  <!-- sub-nav -->
+  <nav class="sub-nav">
+    <div class="sub-nav-inner">
+      <button class="nav-btn active" onclick="eeShow('ertrag',this)">Energieertrag</button>
+      <button class="nav-btn" onclick="eeShow('klima',this)">Klima &amp; Standort</button>
+    </div>
+  </nav>
+
+<div id="ee-ertrag" class="ee-view active">
+<main class="main-wrap">
+
+  <!-- 01 PARAMETER & ERGEBNIS -->
+  <section class="section">
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Ertragsberechnung</h2></div>
+    <p class="section-desc">Alle Parameter sind anpassbar – die Ergebnisse aktualisieren sich sofort. Voreingestellt ist der Worst-Case unseres Projekts: 54 Module, 120 W gemessene Leistung (gealtert, Tests Team 1), Performance Ratio 52 % und 15° Neigung nach Süden.</p>
+
+    <div class="ctrl-panel">
+      <div class="ctrl-block">
+        <div class="ctrl-head"><span>Neigungswinkel (Süd)</span><span class="ctrl-readout" id="r-angle">15°</span></div>
+        <div class="tab-group" id="angle-tabs">
+          <button class="tab-btn" data-a="0">0° (flach)</button>
+          <button class="tab-btn" data-a="10">10°</button>
+          <button class="tab-btn on" data-a="15">15°</button>
+          <button class="tab-btn" data-a="17">17°</button>
+          <button class="tab-btn" data-a="20">20°</button>
+        </div>
+      </div>
+      <div class="ctrl-block">
+        <div class="ctrl-head"><span>Leistung je Modul</span><span class="ctrl-readout" id="r-wp">120 W</span></div>
+        <div class="tab-group" id="wp-tabs" style="margin-bottom:8px">
+          <button class="tab-btn on" data-wp="120">120 W · gemessen (gealtert)</button>
+          <button class="tab-btn" data-wp="165">165 W · Nennleistung (Datenblatt)</button>
+        </div>
+        <input type="range" id="s-wp" min="80" max="180" step="5" value="120">
+      </div>
+      <div class="ctrl-block">
+        <div class="ctrl-head"><span>Modulanzahl</span><span class="ctrl-readout" id="r-n">54 Module</span></div>
+        <input type="range" id="s-n" min="6" max="90" step="6" value="54">
+      </div>
+      <div class="ctrl-block">
+        <div class="ctrl-head"><span>Performance Ratio</span><span class="ctrl-readout" id="r-pr">52 %</span></div>
+        <input type="range" id="s-pr" min="40" max="90" step="1" value="52">
+      </div>
+    </div>
+
+    <div class="kpi-strip">
+      <div class="kpi c-sun"><div class="kpi-label">Installierte Leistung</div><div class="kpi-value" id="k-kwp">–</div><div class="kpi-unit" id="ku-kwp">kWp</div></div>
+      <div class="kpi"><div class="kpi-label">Jahresertrag</div><div class="kpi-value" id="k-year">–</div><div class="kpi-unit">kWh / Jahr</div></div>
+      <div class="kpi c-green"><div class="kpi-label">Ø Tagesertrag</div><div class="kpi-value" id="k-avg">–</div><div class="kpi-unit">kWh / Tag (Mittel)</div></div>
+      <div class="kpi c-moon"><div class="kpi-label">Spez. Ertrag</div><div class="kpi-value" id="k-spec">–</div><div class="kpi-unit">kWh / kWp · Jahr</div></div>
+    </div>
+
+    <div class="dn-grid">
+      <div class="dn-card best">
+        <span class="dn-icon">☀</span>
+        <div class="dn-label">Best Case · bester Monat</div>
+        <div class="dn-time" id="best-mon">–</div>
+        <div class="dn-kwh" id="best-kwh">–</div>
+        <div class="dn-pct">kWh / Tag · Trockenzeit</div>
+      </div>
+      <div class="dn-card worst">
+        <span class="dn-icon">☁</span>
+        <div class="dn-label">Worst Case · schlechtester Monat</div>
+        <div class="dn-time" id="worst-mon">–</div>
+        <div class="dn-kwh" id="worst-kwh">–</div>
+        <div class="dn-pct">kWh / Tag · maßgeblich für die Auslegung</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 TAGESERTRAG JE MONAT -->
+  <section class="section">
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Tagesertrag je Monat</h2></div>
+    <p class="section-desc">Mittlerer Tagesertrag der gesamten Anlage für jeden Monat – so werden die Saisonschwankungen zwischen Trockenzeit und Regenzeit sichtbar. Die Regenmonate Juli bis September sind der kritische Engpass.</p>
+    <div class="chart-wrap">
+      <div class="legend">
+        <span class="leg-item"><span class="leg-sq" style="background:#c8720a"></span>Trockenzeit</span>
+        <span class="leg-item"><span class="leg-sq" style="background:#3d4f8a"></span>Regenzeit (&lt; 8 Sonnenstd./Tag)</span>
+        <span class="leg-item"><span class="leg-sq" style="background:#2a6b4a"></span>bester Monat</span>
+        <span class="leg-item"><span class="leg-sq" style="background:#a03020"></span>schlechtester Monat</span>
+      </div>
+      <div style="position:relative;height:320px"><canvas id="c-daily"></canvas></div>
+    </div>
+  </section>
+
+  <!-- 03 MONATSWERTE TABELLE -->
+  <section class="section">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Monatswerte im Detail</h2></div>
+    <p class="section-desc">Rechenweg pro Monat: aus der Einstrahlung auf die geneigte Modulfläche werden die täglichen Sonnenstunden (PSH) abgeleitet und mit Anlagenleistung und Performance Ratio multipliziert.</p>
+    <table class="con-table" id="t-months">
+      <thead><tr>
+        <th>Monat</th>
+        <th class="num">Einstrahlung<br>kWh/m²/Mon</th>
+        <th class="num">Sonnenstd.<br>PSH/Tag</th>
+        <th class="num">Tagesertrag<br>kWh/Tag</th>
+        <th class="num">Monatsertrag<br>kWh/Mon</th>
+      </tr></thead>
+      <tbody></tbody>
+      <tfoot></tfoot>
+    </table>
+  </section>
+
+  <!-- 04 METHODE -->
+  <section class="section">
+    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Rechenweg & Annahmen</h2></div>
+    <p class="section-desc">Die Berechnung folgt dem Standard-Ansatz für die Jahresertragsabschätzung von PV-Anlagen.</p>
+
+    <div class="method-box">
+      <h3>Formel</h3>
+      <div class="formula">E<sub>Tag</sub> = P<sub>inst</sub> × H<sub>POA,Tag</sub> × PR</div>
+      <ul class="var-list">
+        <li><code>E_Tag</code> = täglicher Energieertrag der Anlage [kWh/Tag]</li>
+        <li><code>P_inst</code> = installierte Leistung = Modulanzahl × Leistung je Modul [kWp]</li>
+        <li><code>H_POA,Tag</code> = tägliche Einstrahlung auf die geneigte Fläche = monatliche Einstrahlung ÷ Tage des Monats. Entspricht den „Peak Sun Hours" (Volllaststunden) pro Tag [kWh/m²/Tag]</li>
+        <li><code>PR</code> = Performance Ratio – fasst alle Verluste zusammen: Hitze, Staub, Verkabelung, Laderegler, Batterie-Wirkungsgrad, Mismatch</li>
+      </ul>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Annahmen & Begründung</div>
+        <div class="card-body">
+          <p><strong>120 W je Modul:</strong> Tests von Team 1 ergaben, dass die über 20 Jahre gealterten Module unter optimalen Bedingungen in Deutschland nur noch rund 120 W liefern (statt 165 W laut Datenblatt) – das ist der gemessene, gealterte Wert.</p>
+          <p><strong>PR 52 %:</strong> Aus der Literatur und der Klimaanalyse; Hitze und Staub in Gambia können die Performance Ratio auf bis zu 52 % drücken. Bewusst als Worst-Case angesetzt, um nicht zu unterdimensionieren.</p>
+          <p><strong>15° Neigung, Süd:</strong> Global Solar Atlas nennt 15–16°, PVGIS 17° als Optimum. Der 15°-Wert wird zwischen den PVGIS-Spalten 10° und 20° interpoliert.</p>
+          <p><strong>Hinweis zur Doppelzählung:</strong> Die 120 W erfassen bereits die Alterung, die PR die Betriebsverluste vor Ort. Beides zusammen ist eine sehr konservative Abschätzung – über den Datenblatt-Schalter (165 W) lässt sich die optimistischere Variante vergleichen.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Modul · Sharp NEQ5E3E</div>
+        <div class="spec-row"><span class="spec-key">Nennleistung (P<sub>max</sub>)</span><span class="spec-val">165 Wp</span></div>
+        <div class="spec-row"><span class="spec-key">Gemessen (gealtert, Team 1)</span><span class="spec-val">≈ 120 W</span></div>
+        <div class="spec-row"><span class="spec-key">Modulwirkungsgrad</span><span class="spec-val">12,7 %</span></div>
+        <div class="spec-row"><span class="spec-key">Zelltyp</span><span class="spec-val">Polykristallin</span></div>
+        <div class="spec-row"><span class="spec-key">Abmessungen</span><span class="spec-val">1.575 × 826 mm</span></div>
+        <div class="spec-row"><span class="spec-key">Fläche / Modul</span><span class="spec-val">≈ 1,30 m²</span></div>
+        <div class="spec-row"><span class="spec-key">Temp.-Koeffizient P<sub>max</sub></span><span class="spec-val">−0,485 % / °C</span></div>
+        <div class="spec-row"><span class="spec-key">Layout (Schattensim.)</span><span class="spec-val">9 Reihen × 6 · quer</span></div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:16px">
+      <strong>Einordnung für die Auslegung:</strong> Maßgeblich ist nicht der Jahresdurchschnitt, sondern der schlechteste Monat (Regenzeit). Die Anlage muss auch dann den Tagesbedarf der Verbraucher decken – andernfalls braucht es mehr Module, einen größeren Speicher oder eine angepasste Lastverteilung. Der Vergleich mit dem Energielastprofil (Hauptanlage) erfolgt im nächsten Schritt der Systemdimensionierung.
+    </div>
+  </section>
+
+</main>
+</div><!-- /ee-ertrag -->
+
+<div id="ee-klima" class="ee-view">
+<main class="main-wrap">
+
+  <!-- 01 STANDORT -->
+  <section class="section">
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Standort</h2></div>
+    <p class="section-desc">Die HavenShine Academy liegt in Mahmuda, an der Westküste von The Gambia – nahe 13° nördlicher Breite. Die Koordinaten wurden von Peter Hense bereitgestellt; als nächstgelegene Klima-Referenzstation dient Banjul.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi c-sun"><div class="kpi-label">Standort</div><div class="kpi-value" style="font-size:18px">Mahmuda</div><div class="kpi-unit">The Gambia, Westafrika</div></div>
+      <div class="kpi"><div class="kpi-label">Breitengrad</div><div class="kpi-value">13,3° N</div><div class="kpi-unit">nahe Äquator</div></div>
+      <div class="kpi c-green"><div class="kpi-label">Einstrahlung (15°)</div><div class="kpi-value">2.295</div><div class="kpi-unit">kWh/m² · Jahr</div></div>
+      <div class="kpi c-moon"><div class="kpi-label">Ø Temperatur</div><div class="kpi-value">26 °C</div><div class="kpi-unit">ganzjährig warm</div></div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Koordinaten (Peter Hense)</div>
+        <table class="coords-table">
+          <thead><tr><th>Quelle / Zweck</th><th>Breite</th><th>Länge</th></tr></thead>
+          <tbody>
+            <tr><td>SunCalc (Schattensimulation)</td><td class="mono">13,3076° N</td><td class="mono">−16,7468° W</td></tr>
+            <tr><td>Global Solar Atlas (Einstrahlung)</td><td class="mono">13,2346° N</td><td class="mono">−16,2447° W</td></tr>
+          </tbody>
+        </table>
+        <a class="map-link" href="https://www.openstreetmap.org/?mlat=13.3076&mlon=-16.7468#map=11/13.3076/-16.7468" target="_blank" rel="noopener">Auf OpenStreetMap ansehen ↗</a>
+      </div>
+      <div class="card">
+        <div class="card-label">Lage & Bedeutung für die Anlage</div>
+        <div class="card-body">
+          <p>Die Nähe zum Äquator sorgt für ganzjährig hohe Sonnenstände und relativ konstante Tageslängen von rund <strong>11–13 Stunden</strong>. Das erlaubt einen flachen Neigungswinkel (15°).</p>
+          <p>Das Klima ist klar in zwei Saisons geteilt: eine lange <strong>Trockenzeit (Nov–Mai)</strong> mit sehr hoher Einstrahlung und eine kurze, intensive <strong>Regenzeit (Jun–Okt)</strong> mit Bewölkung, Staubabwaschung, aber deutlich geringerem Ertrag.</p>
+          <p>Mittlere Windgeschwindigkeit der Westküste laut Global Wind Atlas ≈ <strong>5,3–5,9 m/s</strong> – relevant für die Statik der Unterkonstruktion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 EINSTRAHLUNG -->
+  <section class="section">
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Sonneneinstrahlung</h2></div>
+    <p class="section-desc">Monatliche Einstrahlung auf die Modulfläche [kWh/m²/Monat] für verschiedene Neigungswinkel – Datenbasis PVGIS (JRC, EU-Kommission). Höchstwerte im März, Tiefpunkt in der Regenzeit (Juli/August).</p>
+    <div class="chart-wrap">
+      <div class="legend">
+        <span class="leg-item"><span class="leg-sq" style="background:#c8720a"></span>15° (gewählt)</span>
+        <span class="leg-item"><span class="leg-sq" style="background:#8a8a80"></span>0° (horizontal / GHI)</span>
+        <span class="leg-item"><span class="leg-sq" style="background:#3d4f8a"></span>20°</span>
+      </div>
+      <div style="position:relative;height:300px"><canvas id="c-irr"></canvas></div>
+    </div>
+    <table class="con-table" id="t-irr" style="margin-top:8px">
+      <thead><tr>
+        <th>Monat</th><th class="num">GHI (0°)</th><th class="num">10°</th><th class="num">15°</th><th class="num">17°</th><th class="num">20°</th>
+      </tr></thead>
+      <tbody></tbody>
+      <tfoot></tfoot>
+    </table>
+  </section>
+
+  <!-- 03 TEMPERATUR & SONNENSTUNDEN -->
+  <section class="section">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Temperatur & Sonnenstunden</h2></div>
+    <p class="section-desc">Gemessene Klimadaten für Banjul (climate-data.org, 1991–2021 bzw. 1999–2019). Die Sonnenstunden brechen in der Regenzeit von über 11 auf unter 7 Stunden pro Tag ein – das ist der Hauptgrund für den Ertragseinbruch.</p>
+    <div class="two-col">
+      <div class="chart-wrap" style="margin-bottom:0">
+        <div class="legend">
+          <span class="leg-item"><span class="leg-sq" style="background:#a03020"></span>Max</span>
+          <span class="leg-item"><span class="leg-sq" style="background:#c8720a"></span>Mittel</span>
+          <span class="leg-item"><span class="leg-sq" style="background:#3d4f8a"></span>Min</span>
+        </div>
+        <div style="position:relative;height:240px"><canvas id="c-temp"></canvas></div>
+      </div>
+      <div class="chart-wrap" style="margin-bottom:0">
+        <div class="legend"><span class="leg-item"><span class="leg-sq" style="background:#c8720a"></span>Sonnenstunden / Tag</span></div>
+        <div style="position:relative;height:240px"><canvas id="c-sun"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 NIEDERSCHLAG & FEUCHTE -->
+  <section class="section">
+    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Niederschlag & Luftfeuchte</h2></div>
+    <p class="section-desc">Der Niederschlag konzentriert sich fast vollständig auf Juli bis September (Monsun). Die hohe Luftfeuchte und Bewölkung in dieser Phase senken den PV-Ertrag und definieren den Worst-Case der Auslegung.</p>
+    <div class="chart-wrap">
+      <div class="legend">
+        <span class="leg-item"><span class="leg-sq" style="background:#3d4f8a"></span>Niederschlag mm/Monat</span>
+        <span class="leg-item"><span class="leg-sq" style="background:#2a6b4a"></span>Luftfeuchte %</span>
+      </div>
+      <div style="position:relative;height:280px"><canvas id="c-rain"></canvas></div>
+    </div>
+    <table class="con-table" id="t-climate" style="margin-top:8px">
+      <thead><tr>
+        <th>Monat</th><th class="num">Ø °C</th><th class="num">Min °C</th><th class="num">Max °C</th>
+        <th class="num">Regen mm</th><th class="num">Feuchte %</th><th class="num">Regentage</th><th class="num">Sonnenstd.</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- 05 ERKENNTNISSE & QUELLEN -->
+  <section class="section">
+    <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Erkenntnisse & Quellen</h2></div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Wichtigste Erkenntnisse</div>
+        <div class="card-body">
+          <p><strong>Optimaler Neigungswinkel 15–17°:</strong> maximiert die Jahressumme. Steiler verbessert einzelne Monate, senkt aber die Gesamtleistung.</p>
+          <p><strong>Saisonalität ist der kritische Faktor:</strong> Trockenzeit liefert reichlich, die Regenzeit (Jul–Sep) ist der Engpass und bestimmt die Dimensionierung.</p>
+          <p><strong>Hitze & Staub:</strong> drücken laut Literatur die Performance Ratio auf bis zu 52 % – für unsere Module noch durch eigene Messungen zu bestätigen.</p>
+          <p><strong>Konstante Tageslängen:</strong> dank Äquatornähe wenig Schwankung der Sonnenauf-/-untergangszeiten über das Jahr.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Datenquellen</div>
+        <ul class="src-list">
+          <li>PVGIS – <a href="https://re.jrc.ec.europa.eu/pvg_tools/en/tools.html" target="_blank" rel="noopener">re.jrc.ec.europa.eu</a> (Einstrahlung je Neigung)</li>
+          <li>Global Solar Atlas – <a href="https://globalsolaratlas.info" target="_blank" rel="noopener">globalsolaratlas.info</a></li>
+          <li>climate-data.org – <a href="https://en.climate-data.org/africa/the-gambia/banjul-2562/" target="_blank" rel="noopener">Banjul Klimatabelle</a></li>
+          <li>accessgambia.com – Sonnenstunden & Regen</li>
+          <li>World Bank Climate Knowledge Portal</li>
+          <li>Global Wind Atlas – Westküste Gambia</li>
+          <li>SunCalc – Schatten- & Sonnenstände</li>
+          <li>Koordinaten: Peter Hense</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div><!-- /ee-klima -->
+
+</div><!-- /page-energieertrag -->
+
+
 
 <footer>
   Photovoltaik in Gambia · Team 2 · Hochschule Bochum · Sommersemester 2026
@@ -1372,6 +1803,7 @@ function switchPage(id, btn) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (id === 'schatten' && !simInit) { setTimeout(resize, 50); simInit = true; }
   if (id === 'lastprofil' && window.__dnChart) { setTimeout(() => window.__dnChart.resize(), 50); }
+  if (id === 'energieertrag' && window.__eeInit) { window.__eeInit(); }
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -1793,6 +2225,217 @@ window.addEventListener('resize',()=>{
 });
 document.getElementById('sl-t').addEventListener('input',render);
 document.getElementById('sl-g').addEventListener('input',render);
+</script>
+<script>
+(function(){
+/* ══ DATEN ══ */
+const M = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+const DAYS = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+// Einstrahlung [kWh/m²/Monat] je Neigung – PVGIS (JRC). 0° = GHI.
+const IRR = {
+  0:  [179.25,178.63,224.78,224.85,208.25,188.02,171.01,153.42,169.22,175.46,182.59,172.46],
+  10: [198.64,191.34,231.66,222.34,200.73,179.49,164.55,150.53,170.97,183.95,201.06,193.40],
+  17: [209.89,197.89,233.34,217.36,192.77,171.24,158.00,146.71,170.11,187.75,211.55,205.84],
+  20: [213.44,199.73,233.22,214.80,189.23,167.67,155.14,144.91,169.31,188.63,214.79,209.85],
+};
+IRR[15] = IRR[10].map((v,i)=>(v+IRR[20][i])/2);
+
+// Klima Banjul – climate-data.org
+const CLIM = {
+  tAvg:[24.1,24.5,24.9,24.5,25,26.7,27.1,26.7,27.1,27.9,27.3,25.4],
+  tMin:[19.9,20.3,20.8,21.1,22.3,24.6,25.4,25.2,25.4,26.1,24.5,21.6],
+  tMax:[30,30.8,31.5,30.2,29.5,29.9,29.4,28.7,29.3,30.2,31.2,30.6],
+  precip:[1,1,0,0,0,13,130,267,191,60,1,1],
+  hum:[43,42,51,63,70,76,79,84,84,81,65,49],
+  rain:[0,0,0,0,0,2,11,18,15,6,0,0],
+  sun:[10.3,10.5,10.8,11.1,11.2,10.0,7.3,6.6,7.2,8.8,10.2,10.2],
+};
+const isRainy = i => CLIM.sun[i] < 8;   // Regenzeit-Markierung
+
+/* ══ ZUSTAND ══ */
+let st = { angle:15, wp:120, n:54, pr:52 };
+
+/* ══ CHART SETUP ══ */
+Chart.defaults.font.family = "'DM Sans',sans-serif";
+Chart.defaults.color = '#8a8a80';
+const GRID = 'rgba(26,26,24,0.06)';
+let dailyChart, irrChart, tempChart, sunChart, rainChart;
+
+function fmt(x,d=1){return x.toLocaleString('de-DE',{minimumFractionDigits:d,maximumFractionDigits:d});}
+
+/* ══ BERECHNUNG ══ */
+function compute(){
+  const kWp = st.n * st.wp / 1000;
+  const pr = st.pr/100;
+  const irr = IRR[st.angle];
+  const psh = irr.map((v,i)=>v/DAYS[i]);
+  const daily = psh.map(p=>kWp*p*pr);
+  const monthly = daily.map((d,i)=>d*DAYS[i]);
+  const year = monthly.reduce((a,b)=>a+b,0);
+  const avg = year/365;
+  let bi=0, wi=0;
+  daily.forEach((d,i)=>{ if(d>daily[bi])bi=i; if(d<daily[wi])wi=i; });
+  return {kWp,irr,psh,daily,monthly,year,avg,bi,wi,spec:year/kWp};
+}
+
+/* ══ RENDER ══ */
+function render(){
+  const r = compute();
+
+  // KPIs
+  document.getElementById('k-kwp').textContent = fmt(r.kWp,2);
+  document.getElementById('k-year').textContent = Math.round(r.year).toLocaleString('de-DE');
+  document.getElementById('k-avg').textContent = fmt(r.avg,1);
+  document.getElementById('k-spec').textContent = Math.round(r.spec).toLocaleString('de-DE');
+
+  // Best / Worst Karten
+  document.getElementById('best-mon').textContent  = M[r.bi]+' · '+fmt(r.psh[r.bi],1)+' PSH/Tag';
+  document.getElementById('best-kwh').textContent  = fmt(r.daily[r.bi],1);
+  document.getElementById('worst-mon').textContent = M[r.wi]+' · '+fmt(r.psh[r.wi],1)+' PSH/Tag';
+  document.getElementById('worst-kwh').textContent = fmt(r.daily[r.wi],1);
+
+  // Readouts
+  document.getElementById('r-angle').textContent = st.angle+'°';
+  document.getElementById('r-wp').textContent = st.wp+' W';
+  document.getElementById('r-n').textContent = st.n+' Module';
+  document.getElementById('r-pr').textContent = st.pr+' %';
+
+  // Tagesertrag-Chart
+  const cols = r.daily.map((_,i)=> i===r.bi ? '#2a6b4a' : i===r.wi ? '#a03020' : (isRainy(i)?'#3d4f8a':'#c8720a'));
+  if(!dailyChart){
+    dailyChart = new Chart(document.getElementById('c-daily'),{
+      type:'bar',
+      data:{labels:M,datasets:[{data:r.daily,backgroundColor:cols,borderRadius:4,maxBarThickness:46}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
+        tooltip:{callbacks:{label:c=>fmt(c.parsed.y,1)+' kWh/Tag'}}},
+        scales:{y:{beginAtZero:true,grid:{color:GRID},title:{display:true,text:'kWh / Tag'}},x:{grid:{display:false}}}}
+    });
+  } else {
+    dailyChart.data.datasets[0].data = r.daily;
+    dailyChart.data.datasets[0].backgroundColor = cols;
+    dailyChart.update();
+  }
+
+  // Monatstabelle
+  const tb = document.querySelector('#t-months tbody');
+  tb.innerHTML = r.daily.map((d,i)=>`<tr class="${isRainy(i)?'rainy':''}">
+    <td>${M[i]}</td>
+    <td class="num">${fmt(r.irr[i],0)}</td>
+    <td class="num">${fmt(r.psh[i],2)}</td>
+    <td class="num">${fmt(d,1)}</td>
+    <td class="num">${Math.round(r.monthly[i]).toLocaleString('de-DE')}</td>
+  </tr>`).join('');
+  document.querySelector('#t-months tfoot').innerHTML = `<tr>
+    <td>Jahr</td>
+    <td class="num">${Math.round(r.irr.reduce((a,b)=>a+b,0)).toLocaleString('de-DE')}</td>
+    <td class="num">${fmt(r.psh.reduce((a,b)=>a+b,0)/12,2)} ⌀</td>
+    <td class="num">${fmt(r.avg,1)} ⌀</td>
+    <td class="num">${Math.round(r.year).toLocaleString('de-DE')}</td>
+  </tr>`;
+}
+
+/* ══ KLIMA-CHARTS (statisch) ══ */
+function initKlima(){
+  if(irrChart) return;
+  irrChart = new Chart(document.getElementById('c-irr'),{
+    type:'line',
+    data:{labels:M,datasets:[
+      {label:'15°',data:IRR[15],borderColor:'#c8720a',backgroundColor:'#c8720a',tension:.35,borderWidth:2.5,pointRadius:3},
+      {label:'0° (GHI)',data:IRR[0],borderColor:'#8a8a80',backgroundColor:'#8a8a80',tension:.35,borderWidth:1.5,pointRadius:2,borderDash:[4,3]},
+      {label:'20°',data:IRR[20],borderColor:'#3d4f8a',backgroundColor:'#3d4f8a',tension:.35,borderWidth:1.5,pointRadius:2},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.parsed.y,0)+' kWh/m²'}}},
+      scales:{y:{grid:{color:GRID},title:{display:true,text:'kWh/m²/Monat'}},x:{grid:{display:false}}}}
+  });
+
+  const irb = document.querySelector('#t-irr tbody');
+  irb.innerHTML = M.map((m,i)=>`<tr class="${isRainy(i)?'rainy':''}">
+    <td>${m}</td><td class="num">${fmt(IRR[0][i],1)}</td><td class="num">${fmt(IRR[10][i],1)}</td>
+    <td class="num" style="color:var(--sun);font-weight:500">${fmt(IRR[15][i],1)}</td>
+    <td class="num">${fmt(IRR[17][i],1)}</td><td class="num">${fmt(IRR[20][i],1)}</td>
+  </tr>`).join('');
+  const sum = a => fmt(a.reduce((x,y)=>x+y,0),0);
+  document.querySelector('#t-irr tfoot').innerHTML = `<tr><td>kWh/m²·Jahr</td>
+    <td class="num">${sum(IRR[0])}</td><td class="num">${sum(IRR[10])}</td>
+    <td class="num" style="color:var(--sun);font-weight:500">${sum(IRR[15])}</td>
+    <td class="num">${sum(IRR[17])}</td><td class="num">${sum(IRR[20])}</td></tr>`;
+
+  tempChart = new Chart(document.getElementById('c-temp'),{
+    type:'line',
+    data:{labels:M,datasets:[
+      {label:'Max',data:CLIM.tMax,borderColor:'#a03020',tension:.35,borderWidth:2,pointRadius:2},
+      {label:'Mittel',data:CLIM.tAvg,borderColor:'#c8720a',tension:.35,borderWidth:2,pointRadius:2},
+      {label:'Min',data:CLIM.tMin,borderColor:'#3d4f8a',tension:.35,borderWidth:2,pointRadius:2},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.parsed.y,1)+' °C'}}},
+      scales:{y:{grid:{color:GRID},title:{display:true,text:'°C'}},x:{grid:{display:false}}}}
+  });
+
+  sunChart = new Chart(document.getElementById('c-sun'),{
+    type:'bar',
+    data:{labels:M,datasets:[{data:CLIM.sun,backgroundColor:M.map((_,i)=>isRainy(i)?'#3d4f8a':'#c8720a'),borderRadius:4,maxBarThickness:30}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>fmt(c.parsed.y,1)+' Std/Tag'}}},
+      scales:{y:{beginAtZero:true,grid:{color:GRID},title:{display:true,text:'Sonnenstd./Tag'}},x:{grid:{display:false}}}}
+  });
+
+  rainChart = new Chart(document.getElementById('c-rain'),{
+    type:'bar',
+    data:{labels:M,datasets:[
+      {label:'Niederschlag',data:CLIM.precip,backgroundColor:'#3d4f8a',borderRadius:4,maxBarThickness:38,yAxisID:'y'},
+      {label:'Luftfeuchte',data:CLIM.hum,type:'line',borderColor:'#2a6b4a',backgroundColor:'#2a6b4a',tension:.35,borderWidth:2,pointRadius:2,yAxisID:'y1'},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+(c.dataset.label==='Niederschlag'?c.parsed.y+' mm':c.parsed.y+' %')}}},
+      scales:{y:{beginAtZero:true,position:'left',grid:{color:GRID},title:{display:true,text:'mm/Monat'}},
+              y1:{beginAtZero:true,max:100,position:'right',grid:{display:false},title:{display:true,text:'%'}},x:{grid:{display:false}}}}
+  });
+
+  const ctb = document.querySelector('#t-climate tbody');
+  ctb.innerHTML = M.map((m,i)=>`<tr class="${isRainy(i)?'rainy':''}">
+    <td>${m}</td><td class="num">${fmt(CLIM.tAvg[i],1)}</td><td class="num">${fmt(CLIM.tMin[i],1)}</td>
+    <td class="num">${fmt(CLIM.tMax[i],1)}</td><td class="num">${CLIM.precip[i]}</td>
+    <td class="num">${CLIM.hum[i]}</td><td class="num">${CLIM.rain[i]}</td><td class="num">${fmt(CLIM.sun[i],1)}</td>
+  </tr>`).join('');
+}
+
+/* ══ NAVIGATION ══ */
+window.eeShow = function(id, btn){
+  document.querySelectorAll('#page-energieertrag .ee-view').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('#page-energieertrag .nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('ee-'+id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='klima'){ initKlima(); setTimeout(()=>{[irrChart,tempChart,sunChart,rainChart].forEach(c=>c&&c.resize());},60); }
+  if(id==='ertrag' && dailyChart){ setTimeout(()=>dailyChart.resize(),60); }
+}
+
+window.__eeInit = function(){ if(dailyChart) setTimeout(()=>dailyChart.resize(),60); };
+
+/* ══ CONTROLS ══ */
+document.getElementById('angle-tabs').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('#angle-tabs .tab-btn').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); st.angle=+b.dataset.a; render();
+});
+document.getElementById('wp-tabs').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('#wp-tabs .tab-btn').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); st.wp=+b.dataset.wp; document.getElementById('s-wp').value=st.wp; render();
+});
+document.getElementById('s-wp').addEventListener('input',e=>{
+  st.wp=+e.target.value;
+  document.querySelectorAll('#wp-tabs .tab-btn').forEach(x=>x.classList.toggle('on',+x.dataset.wp===st.wp));
+  render();
+});
+document.getElementById('s-n').addEventListener('input',e=>{st.n=+e.target.value;render();});
+document.getElementById('s-pr').addEventListener('input',e=>{st.pr=+e.target.value;render();});
+
+render();
+
+})();
 </script>
 </body>
 </html>
