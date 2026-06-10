@@ -1301,7 +1301,7 @@ footer{
       <p class="section-desc">Kindergarten Brikama · Gambia · Erste schematische Darstellung des geplanten Energieflusses. Solarstrom fließt über den MPPT-Laderegler in den 48-V-DC-Bus, lädt die Batterie und versorgt über den Wechselrichter die 230-V-Verbraucher.</p>
 
       <div class="ef-diagram-wrap">
-      <svg viewBox="0 0 1200 780" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 1200 860" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="a-pv"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#b8860b"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
         <marker id="a-dc"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#2a6b4a"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
@@ -1315,7 +1315,7 @@ footer{
           <path d="M20 0H0V20" fill="none" stroke="rgba(26,26,24,.035)" stroke-width=".5"/>
         </pattern>
       </defs>
-      <rect width="1200" height="780" fill="url(#grid)"/>
+      <rect width="1200" height="860" fill="url(#grid)"/>
 
       <!-- ═══════════════════════════════════════════
            LAYOUT OVERVIEW  (all y-positions)
@@ -1340,13 +1340,13 @@ footer{
       ═══════════════════════════════════════════ -->
 
       <!-- ══ ZONE BACKGROUNDS ══ -->
-      <rect x="10"  y="10" width="330" height="760" rx="12" fill="rgba(184,134,11,.018)"  stroke="rgba(184,134,11,.09)"  stroke-width=".8"/>
+      <rect x="10"  y="10" width="330" height="838" rx="12" fill="rgba(184,134,11,.018)"  stroke="rgba(184,134,11,.09)"  stroke-width=".8"/>
       <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(184,134,11,.32)"  x="24"  y="27">SOLARERTRAG · DC</text>
 
-      <rect x="348" y="10" width="232" height="760" rx="12" fill="rgba(42,107,74,.015)"  stroke="rgba(42,107,74,.09)"  stroke-width=".8"/>
+      <rect x="348" y="10" width="232" height="838" rx="12" fill="rgba(42,107,74,.015)"  stroke="rgba(42,107,74,.09)"  stroke-width=".8"/>
       <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(42,107,74,.32)"  x="362" y="27">UMWANDLUNG · 48 V DC-BUS</text>
 
-      <rect x="592" y="10" width="600" height="760" rx="12" fill="rgba(61,79,138,.015)"  stroke="rgba(61,79,138,.08)"  stroke-width=".8"/>
+      <rect x="592" y="10" width="600" height="838" rx="12" fill="rgba(61,79,138,.015)"  stroke="rgba(61,79,138,.08)"  stroke-width=".8"/>
       <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(61,79,138,.30)"  x="606" y="27">AC-VERBRAUCHER · 230 V</text>
 
 
@@ -1393,7 +1393,6 @@ footer{
       <line x1="175" y1="310" x2="175" y2="340" stroke="#b8860b" stroke-width="2"/>
       <line class="flow-pv" x1="175" y1="340" x2="450" y2="340" stroke="#b8860b" stroke-width="2.5" marker-end="url(#a-pv)"/>
       <line x1="450" y1="340" x2="450" y2="368" stroke="#b8860b" stroke-width="2"/>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(184,134,11,.5)" x="310" y="330" text-anchor="middle">DC · PV-String</text>
 
 
       <!-- ══════════════════════════════════════
@@ -1407,7 +1406,6 @@ footer{
 
       <!-- ══ MPPT → DC-Bus ══ -->
       <line class="flow-dc" x1="450" y1="490" x2="450" y2="518" stroke="#2a6b4a" stroke-width="2.5" marker-end="url(#a-dc)"/>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.5)" x="466" y="506" text-anchor="start">48 V DC</text>
 
 
       <!-- ══════════════════════════════════════
@@ -1419,8 +1417,6 @@ footer{
 
       <!-- ══ DC-Bus → Wechselrichter ══ -->
       <line class="flow-dc" x1="450" y1="560" x2="450" y2="608" stroke="#2a6b4a" stroke-width="2.5" marker-end="url(#a-dc)"/>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.5)" x="466" y="587" text-anchor="start">48 V DC</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.35)" x="466" y="598" text-anchor="start">aus Bus</text>
 
 
       <!-- ══════════════════════════════════════
@@ -1448,11 +1444,6 @@ footer{
       <line class="flow-chrg" x1="388" y1="520" x2="388" y2="328" stroke="#c8720a" stroke-width="2"   marker-end="url(#a-chrg)"/>
       <line class="flow-dis"  x1="406" y1="328" x2="406" y2="520" stroke="#6a4c93" stroke-width="2"   marker-end="url(#a-dis)"/>
 
-      <!-- Labels neben den Batteriepfeilen -->
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(200,114,10,.65)" x="358" y="428" text-anchor="middle">Laden</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(200,114,10,.5)"  x="358" y="440" text-anchor="middle">☀ Tag</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(106,76,147,.7)" x="420" y="428" text-anchor="middle">Entlad.</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(106,76,147,.5)" x="420" y="440" text-anchor="middle">☽ Nacht</text>
 
 
       <!-- ══════════════════════════════════════
@@ -1467,7 +1458,6 @@ footer{
 
       <!-- ══ AC output: WR → AC-Bus ══ -->
       <line class="flow-load" x1="532" y1="672" x2="590" y2="672" stroke="#3d4f8a" stroke-width="2.5" marker-end="url(#a-ac)"/>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.55)" x="561" y="662" text-anchor="middle">AC 230 V</text>
 
 
       <!-- ══ AC bus bar (vertical) ══ -->
@@ -1530,6 +1520,46 @@ footer{
 
 
 
+
+      <!-- ══════════════════════════════════════
+           8. ENERGIEBILANZ (unten links)
+      ══════════════════════════════════════ -->
+      <rect x="28" y="348" width="306" height="472" rx="10" fill="rgba(26,26,24,.03)" stroke="rgba(26,26,24,.1)" stroke-width=".8"/>
+      <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".1em" fill="rgba(26,26,24,.28)" x="46" y="372">ENERGIEBILANZ</text>
+      <line x1="46" y1="380" x2="316" y2="380" stroke="rgba(26,26,24,.08)" stroke-width=".5"/>
+
+      <g font-family="'DM Mono',monospace" font-size="11">
+        <text fill="rgba(26,26,24,.3)"  x="46" y="404">Gesamtbedarf/Tag</text>
+        <text font-weight="500" fill="rgba(26,26,24,.75)" x="316" y="404" text-anchor="end">27,77 kWh</text>
+        <line x1="46" y1="412" x2="316" y2="412" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
+
+        <text fill="rgba(184,134,11,.5)"   x="46" y="436">☀ Solar Worst Case</text>
+        <text font-weight="500" fill="#b8860b" x="316" y="436" text-anchor="end">16,1 kWh/d</text>
+        <line x1="46" y1="450" x2="316" y2="450" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
+
+        <text fill="rgba(106,76,147,.6)"  x="46" y="474">☽ Nachtbedarf</text>
+        <text font-weight="500" fill="#6a4c93" x="316" y="474" text-anchor="end">3,33 kWh</text>
+        <text fill="rgba(200,114,10,.55)"  x="46" y="494">⚡ Speicher nutzbar</text>
+        <text font-weight="500" fill="#c8720a" x="316" y="494" text-anchor="end">5,3 kWh</text>
+        <line x1="46" y1="502" x2="316" y2="502" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
+
+        <text fill="rgba(160,48,32,.5)"  x="46" y="526">⚠ Defizit Worst Case</text>
+        <text fill="rgba(160,48,32,.8)"  x="316" y="526" text-anchor="end">−11,7 kWh/d</text>
+      </g>
+
+      <!-- Topologie-Erklärung -->
+      <rect x="46" y="548" width="270" height="90" rx="7" fill="rgba(42,107,74,.05)" stroke="rgba(42,107,74,.18)" stroke-width=".8"/>
+      <text font-family="'DM Mono',monospace" font-size="8" letter-spacing=".06em" fill="rgba(42,107,74,.45)" x="58" y="566">STROMFLUSS · TOPOLOGIE</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="584">PV → MPPT → 48V-Bus</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="600">48V-Bus ↔ Batterie (direkt)</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="616">48V-Bus → Wechselrichter → AC</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(42,107,74,.35)" x="58" y="632">Entladung NICHT durch MPPT</text>
+
+      <!-- Spitzenlast Box -->
+      <rect x="46" y="654" width="270" height="70" rx="7" fill="rgba(160,48,32,.04)" stroke="rgba(160,48,32,.18)" stroke-width=".8"/>
+      <text font-family="'DM Mono',monospace" font-size="8" letter-spacing=".06em" fill="rgba(160,48,32,.4)" x="58" y="672">SPITZENLAST</text>
+      <text font-family="'DM Mono',monospace" font-size="18" font-weight="500" fill="rgba(160,48,32,.8)" x="58" y="700">11.920 W</text>
+      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(26,26,24,.25)" x="58" y="716">Lastmanagement empfohlen</text>
 
       </svg>
 
