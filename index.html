@@ -1298,10 +1298,10 @@ footer{
         <span class="section-num">01</span>
         <h2 class="section-title-lp">Energiefluss</h2>
       </div>
-      <p class="section-desc">Kindergarten Brikama · Gambia 13°N · 9,1 kWp · 48 V System · 54 Module (32× SW 165-S + 22× AS 175). Vom Solarertrag über MPPT, 48-V-DC-Bus und Batterie bis zum Wechselrichter und den 230-V-Verbrauchern.</p>
+      <p class="section-desc">Kindergarten Brikama · Gambia · Erste schematische Darstellung des geplanten Energieflusses. Solarstrom fließt über den MPPT-Laderegler in den 48-V-DC-Bus, lädt die Batterie und versorgt über den Wechselrichter die 230-V-Verbraucher.</p>
 
       <div class="ef-diagram-wrap">
-      <svg viewBox="0 0 1200 860" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 1200 780" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="a-pv"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#b8860b"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
         <marker id="a-dc"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#2a6b4a"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
@@ -1315,7 +1315,7 @@ footer{
           <path d="M20 0H0V20" fill="none" stroke="rgba(26,26,24,.035)" stroke-width=".5"/>
         </pattern>
       </defs>
-      <rect width="1200" height="860" fill="url(#grid)"/>
+      <rect width="1200" height="780" fill="url(#grid)"/>
 
       <!-- ═══════════════════════════════════════════
            LAYOUT OVERVIEW  (all y-positions)
@@ -1340,13 +1340,13 @@ footer{
       ═══════════════════════════════════════════ -->
 
       <!-- ══ ZONE BACKGROUNDS ══ -->
-      <rect x="10"  y="10" width="330" height="838" rx="12" fill="rgba(184,134,11,.018)"  stroke="rgba(184,134,11,.09)"  stroke-width=".8"/>
+      <rect x="10"  y="10" width="330" height="760" rx="12" fill="rgba(184,134,11,.018)"  stroke="rgba(184,134,11,.09)"  stroke-width=".8"/>
       <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(184,134,11,.32)"  x="24"  y="27">SOLARERTRAG · DC</text>
 
-      <rect x="348" y="10" width="232" height="838" rx="12" fill="rgba(42,107,74,.015)"  stroke="rgba(42,107,74,.09)"  stroke-width=".8"/>
+      <rect x="348" y="10" width="232" height="760" rx="12" fill="rgba(42,107,74,.015)"  stroke="rgba(42,107,74,.09)"  stroke-width=".8"/>
       <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(42,107,74,.32)"  x="362" y="27">UMWANDLUNG · 48 V DC-BUS</text>
 
-      <rect x="592" y="10" width="600" height="838" rx="12" fill="rgba(61,79,138,.015)"  stroke="rgba(61,79,138,.08)"  stroke-width=".8"/>
+      <rect x="592" y="10" width="600" height="760" rx="12" fill="rgba(61,79,138,.015)"  stroke="rgba(61,79,138,.08)"  stroke-width=".8"/>
       <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(61,79,138,.30)"  x="606" y="27">AC-VERBRAUCHER · 230 V</text>
 
 
@@ -1402,11 +1402,8 @@ footer{
       ══════════════════════════════════════ -->
       <rect x="368" y="370" width="164" height="120" rx="10" fill="rgba(42,107,74,.08)" stroke="#2a6b4a" stroke-width="1.4"/>
       <rect x="374" y="376" width="152" height="108" rx="7" fill="none" stroke="#2a6b4a" stroke-width=".4"/>
-      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="500" fill="#2a6b4a" x="450" y="406" text-anchor="middle">MPPT-Laderegler</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.6)" x="450" y="424" text-anchor="middle">2–3 × 80 A / 48 V</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.5)" x="450" y="440" text-anchor="middle">PV → DC-Bus · η ≈ 98 %</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(42,107,74,.35)" x="450" y="456" text-anchor="middle">MPP-Tracking · variable → 48 V stabil</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(42,107,74,.28)" x="450" y="470" text-anchor="middle">nur Laderichtung !</text>
+      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="500" fill="#2a6b4a" x="450" y="418" text-anchor="middle">MPPT-Laderegler</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.5)" x="450" y="440" text-anchor="middle">PV → DC-Bus</text>
 
       <!-- ══ MPPT → DC-Bus ══ -->
       <line class="flow-dc" x1="450" y1="490" x2="450" y2="518" stroke="#2a6b4a" stroke-width="2.5" marker-end="url(#a-dc)"/>
@@ -1440,10 +1437,7 @@ footer{
       <rect x="405" y="203" width="20" height="36" rx="2" fill="rgba(200,114,10,.2)"/>
       <rect x="430" y="203" width="20" height="36" rx="2" fill="rgba(200,114,10,.38)"/>
       <rect x="455" y="203" width="20" height="36" rx="2" fill="rgba(200,114,10,.56)"/>
-      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#c8720a" x="450" y="264" text-anchor="middle">Batterie (LiFePO₄)</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(200,114,10,.6)" x="450" y="280" text-anchor="middle">48 V · ≥ 7 kWh Brutto</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(200,114,10,.45)" x="450" y="294" text-anchor="middle">5,3 kWh nutzbar · BMS</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(200,114,10,.35)" x="450" y="308" text-anchor="middle">80 % DoD · &gt; 3000 Zyklen</text>
+      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#c8720a" x="450" y="272" text-anchor="middle">Batterie (LiFePO₄)</text>
 
       <!--
         BATTERIE ↔ DC-BUS  (bidirektional, vertikale Linie links vom MPPT-Block)
@@ -1467,17 +1461,13 @@ footer{
       ══════════════════════════════════════ -->
       <rect x="368" y="610" width="164" height="124" rx="10" fill="rgba(61,79,138,.08)" stroke="#3d4f8a" stroke-width="1.4"/>
       <rect x="374" y="616" width="152" height="112" rx="7" fill="none" stroke="#3d4f8a" stroke-width=".4"/>
-      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="500" fill="#3d4f8a" x="450" y="648" text-anchor="middle">Wechselrichter</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.6)"  x="450" y="665" text-anchor="middle">Hybrid-Inverter · Off-Grid</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.5)"  x="450" y="681" text-anchor="middle">DC 48 V → AC 230 V / 50 Hz</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.45)" x="450" y="697" text-anchor="middle">≥ 6 kW Dauer · η ≈ 94 %</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(61,79,138,.3)"  x="450" y="714" text-anchor="middle">Eingang: direkt 48V DC-Bus</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(61,79,138,.3)"  x="450" y="726" text-anchor="middle">(PV-Überschuss ODER Batterie)</text>
+      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="500" fill="#3d4f8a" x="450" y="655" text-anchor="middle">Wechselrichter</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.6)"  x="450" y="673" text-anchor="middle">Hybrid-Inverter · Off-Grid</text>
+      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.5)"  x="450" y="691" text-anchor="middle">DC 48 V → AC 230 V / 50 Hz</text>
 
       <!-- ══ AC output: WR → AC-Bus ══ -->
       <line class="flow-load" x1="532" y1="672" x2="590" y2="672" stroke="#3d4f8a" stroke-width="2.5" marker-end="url(#a-ac)"/>
       <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.55)" x="561" y="662" text-anchor="middle">AC 230 V</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.35)" x="561" y="685" text-anchor="middle">3×2,5 mm²</text>
 
 
       <!-- ══ AC bus bar (vertical) ══ -->
@@ -1538,92 +1528,13 @@ footer{
       <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(106,76,147,.85)" x="1134" y="548" text-anchor="middle">☽ Beamer</text>
       <line x1="600" y1="583" x2="616" y2="583" stroke="#3d4f8a" stroke-width="1.5" marker-end="url(#a-ac)"/>
 
-      <!-- ── 5. Separate Systeme  y=678, h=72 ── -->
-      <rect x="618" y="678" width="556" height="72" rx="9" fill="rgba(26,26,24,.02)" stroke="rgba(26,26,24,.1)" stroke-width=".8" stroke-dasharray="6 4"/>
-      <text font-family="'DM Sans',sans-serif" font-size="11" font-weight="400" fill="rgba(26,26,24,.35)" x="636" y="704">Separate Systeme (eigenständig, eigene PV)</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(26,26,24,.22)" x="636" y="720">Handyladestation · Wasserpumpe · nicht Teil dieser Hauptanlage</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(26,26,24,.18)" x="636" y="736">Eigene Solarmodule + Laderegler</text>
-      <line x1="600" y1="714" x2="616" y2="714" stroke="rgba(26,26,24,.18)" stroke-width="1" stroke-dasharray="4 3"/>
 
 
-      <!-- ══════════════════════════════════════
-           8. ENERGIEBILANZ (unten links)
-      ══════════════════════════════════════ -->
-      <rect x="28" y="348" width="306" height="472" rx="10" fill="rgba(26,26,24,.03)" stroke="rgba(26,26,24,.1)" stroke-width=".8"/>
-      <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".1em" fill="rgba(26,26,24,.28)" x="46" y="372">ENERGIEBILANZ</text>
-      <line x1="46" y1="380" x2="316" y2="380" stroke="rgba(26,26,24,.08)" stroke-width=".5"/>
-
-      <g font-family="'DM Mono',monospace" font-size="11">
-        <text fill="rgba(26,26,24,.3)"  x="46" y="404">Gesamtbedarf/Tag</text>
-        <text font-weight="500" fill="rgba(26,26,24,.75)" x="316" y="404" text-anchor="end">27,77 kWh</text>
-        <line x1="46" y1="412" x2="316" y2="412" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
-
-        <text fill="rgba(184,134,11,.5)"   x="46" y="436">☀ Solar Worst Case</text>
-        <text font-weight="500" fill="#b8860b" x="316" y="436" text-anchor="end">16,1 kWh/d</text>
-        <text fill="rgba(184,134,11,.35)"  x="46" y="455">☀ Solar Jahresmittel</text>
-        <text fill="rgba(184,134,11,.65)"  x="316" y="455" text-anchor="end">~31 kWh/d</text>
-        <line x1="46" y1="464" x2="316" y2="464" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
-
-        <text fill="rgba(106,76,147,.6)"  x="46" y="488">☽ Nachtbedarf</text>
-        <text font-weight="500" fill="#6a4c93" x="316" y="488" text-anchor="end">3,33 kWh</text>
-        <text fill="rgba(200,114,10,.55)"  x="46" y="508">⚡ Speicher nutzbar</text>
-        <text font-weight="500" fill="#c8720a" x="316" y="508" text-anchor="end">5,3 kWh</text>
-        <line x1="46" y1="516" x2="316" y2="516" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
-
-        <text fill="rgba(160,48,32,.5)"  x="46" y="540">⚠ Defizit Worst Case</text>
-        <text fill="rgba(160,48,32,.8)"  x="316" y="540" text-anchor="end">−11,7 kWh/d</text>
-      </g>
-
-      <!-- Topologie-Erklärung -->
-      <rect x="46" y="560" width="270" height="90" rx="7" fill="rgba(42,107,74,.05)" stroke="rgba(42,107,74,.18)" stroke-width=".8"/>
-      <text font-family="'DM Mono',monospace" font-size="8" letter-spacing=".06em" fill="rgba(42,107,74,.45)" x="58" y="578">STROMFLUSS · TOPOLOGIE</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="596">PV → MPPT → 48V-Bus</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="612">48V-Bus ↔ Batterie (direkt)</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="628">48V-Bus → Wechselrichter → AC</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(42,107,74,.35)" x="58" y="644">Entladung NICHT durch MPPT</text>
-
-      <!-- Spitzenlast Box -->
-      <rect x="46" y="668" width="270" height="70" rx="7" fill="rgba(160,48,32,.04)" stroke="rgba(160,48,32,.18)" stroke-width=".8"/>
-      <text font-family="'DM Mono',monospace" font-size="8" letter-spacing=".06em" fill="rgba(160,48,32,.4)" x="58" y="686">SPITZENLAST</text>
-      <text font-family="'DM Mono',monospace" font-size="18" font-weight="500" fill="rgba(160,48,32,.8)" x="58" y="714">11.920 W</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(26,26,24,.25)" x="58" y="730">Lastmanagement empfohlen</text>
 
       </svg>
 
       </div>
 
-      <!-- Legend -->
-      <div class="ef-legend">
-        <span class="ef-leg"><span class="ef-leg-line" style="background:#b8860b"></span>DC PV-Strom (PV → MPPT)</span>
-        <span class="ef-leg"><span class="ef-leg-line" style="background:#2a6b4a"></span>DC 48 V Bus (MPPT → Bus / Bus → WR)</span>
-        <span class="ef-leg"><span class="ef-leg-line" style="background:#c8720a"></span>Batterieladung (Bus → Batterie, Tag)</span>
-        <span class="ef-leg"><span class="ef-leg-line" style="background:#6a4c93"></span>Batterieentladung (Batterie → Bus, Nacht)</span>
-        <span class="ef-leg"><span class="ef-leg-line" style="background:#3d4f8a"></span>AC 230 V (Wechselrichter → Verbraucher)</span>
-      </div>
-
-      <!-- Key metrics -->
-      <div class="ef-notes">
-        <div class="ef-note">
-          <div class="ef-note-label">Tagesbedarf gesamt</div>
-          <div class="ef-note-val">27,77 kWh</div>
-          <div class="ef-note-sub">Küche + Produktion dominiert mit ~21,4 kWh (77 %)</div>
-        </div>
-        <div class="ef-note">
-          <div class="ef-note-label">Solar Worst Case (Jul–Sep)</div>
-          <div class="ef-note-val" style="color:#b8860b">16,1 kWh/d</div>
-          <div class="ef-note-sub">4,77 PSH × 6,48 kWp (eff.) × PR 52 % — Großverbraucher auf 08–14 Uhr legen</div>
-        </div>
-        <div class="ef-note">
-          <div class="ef-note-label">Nachtbedarf (aus Speicher)</div>
-          <div class="ef-note-val" style="color:#6a4c93">3,33 kWh</div>
-          <div class="ef-note-sub">Batterie → 48V-Bus → Wechselrichter → Verbraucher</div>
-        </div>
-        <div class="ef-note">
-          <div class="ef-note-label">Speicher nutzbar (LiFePO₄)</div>
-          <div class="ef-note-val" style="color:#c8720a">5,3 kWh</div>
-          <div class="ef-note-sub">bei 80 % DoD aus ≥ 7 kWh Brutto · deckt Nachtbedarf mit Reserve</div>
-        </div>
-      </div>
     </section>
   </main>
 </div><!-- /page-energiefluss -->
