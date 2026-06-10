@@ -965,16 +965,6 @@ footer{
 ═════════════════════════════════════════════════════════════════════════ -->
 <div id="page-lastprofil" class="page">
 
-  <!-- sub-nav -->
-  <nav class="sub-nav">
-    <div class="sub-nav-inner">
-      <button class="nav-btn active" onclick="lpShow('dn',this)">Tag &amp; Nacht</button>
-      <button class="nav-btn" onclick="lpShow('tv',this)">Tagesverlauf</button>
-      <button class="nav-btn" onclick="lpShow('el',this)">Energielast</button>
-      <button class="nav-btn" onclick="lpShow('vl',this)">Verbraucher</button>
-    </div>
-  </nav>
-
   <main class="lp-main">
 
     <!-- TAG & NACHT -->
@@ -1018,7 +1008,7 @@ footer{
     </section>
 
     <!-- TAGESVERLAUF -->
-    <section class="section" id="s-tv" style="display:none">
+    <section class="section" id="s-tv">
       <div class="section-header">
         <span class="section-num">02</span>
         <h2 class="section-title-lp">Tagesverlauf</h2>
@@ -1033,7 +1023,7 @@ footer{
     </section>
 
     <!-- ENERGIELAST -->
-    <section class="section" id="s-el" style="display:none">
+    <section class="section" id="s-el">
       <div class="section-header">
         <span class="section-num">03</span>
         <h2 class="section-title-lp">Energielast</h2>
@@ -1048,7 +1038,7 @@ footer{
     </section>
 
     <!-- VERBRAUCHER -->
-    <section class="section" id="s-vl" style="display:none">
+    <section class="section" id="s-vl">
       <div class="section-header">
         <span class="section-num">04</span>
         <h2 class="section-title-lp">Verbraucher</h2>
@@ -2675,19 +2665,10 @@ function initVL(){
   document.getElementById('ct-vl').innerHTML=h;
 }
 
-const secMap={dn:'s-dn',tv:'s-tv',el:'s-el',vl:'s-vl'};
-function lpShow(id,btn){
-  Object.values(secMap).forEach(s=>document.getElementById(s).style.display='none');
-  document.getElementById(secMap[id]).style.display='block';
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  if(id==='tv')initTV();
-  if(id==='el')initEL();
-  if(id==='vl')initVL();
-  window.scrollTo({top:document.querySelector('.sub-nav').offsetTop-43,behavior:'smooth'});
-}
-
 initDN();
+initTV();
+initEL();
+initVL();
 
 /* ══════════════════════════════════════════════════════════════════════
    SCHATTENSIMULATION
