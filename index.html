@@ -509,6 +509,10 @@ footer{
 .ef-note-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
 .ef-note-val{font-size:22px;font-weight:500;line-height:1.1;margin-bottom:4px;color:var(--ink)}
 .ef-note-sub{font-size:12px;color:var(--ink3);font-weight:300;line-height:1.5}
+.ef-comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.ef-main .card-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
+.ef-main .card-title{font-family:'DM Serif Display',serif;font-size:19px;margin-bottom:8px;color:var(--ink)}
+.ef-main .card-body .spec-row:last-child{border-bottom:none}
 @keyframes flow{to{stroke-dashoffset:-24}}
 .flow-pv{stroke-dasharray:8 6;animation:flow 1.4s linear infinite}
 .flow-dc{stroke-dasharray:8 6;animation:flow 1.5s linear infinite}
@@ -1366,276 +1370,297 @@ footer{
     <section class="ef-section">
       <div class="section-header">
         <span class="section-num">01</span>
-        <h2 class="section-title-lp">Energiefluss</h2>
+        <h2 class="section-title-lp">Systemarchitektur</h2>
       </div>
-      <p class="section-desc">Kindergarten Brikama · Gambia · Erste schematische Darstellung des geplanten Energieflusses. Solarstrom fließt über den MPPT-Laderegler in den 48-V-DC-Bus, lädt die Batterie und versorgt über den Wechselrichter die 230-V-Verbraucher.</p>
+      <p class="section-desc">Kindergarten Brikama · Gambia · Gesamtaufbau der Hauptanlage. Drei PV-Teilfelder mit unterschiedlichen Modultypen speisen über vier MPPT-Laderegler in einen gemeinsamen 48-V-DC-Bus (2× Lynx-Verteiler). Von dort versorgt der MultiPlus-II die 230-V-Verbraucher, während die Pylontech-Batteriebank über die Class-T-Hauptsicherung am Bus hängt. Der Cerbo GX verbindet und überwacht alle Komponenten.</p>
 
       <div class="ef-diagram-wrap">
-      <svg viewBox="0 0 1200 860" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 1200 1180" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <marker id="a-pv"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#b8860b"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
-        <marker id="a-dc"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#2a6b4a"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
-        <marker id="a-ac"   viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#3d4f8a"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
-        <marker id="a-chrg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#c8720a"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
-        <marker id="a-dis"  viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#6a4c93"  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
-        <filter id="gsun" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M20 0H0V20" fill="none" stroke="rgba(26,26,24,.035)" stroke-width=".5"/>
-        </pattern>
+        <marker id="bd-pow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#6b6b63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        <marker id="bd-pow-rev" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M9 2L2 5L9 8" fill="none" stroke="#6b6b63" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        <marker id="bd-com" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 2L8 5L1 8" fill="none" stroke="#a03020" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
       </defs>
-      <rect width="1200" height="860" fill="url(#grid)"/>
-
-      <!-- ═══════════════════════════════════════════
-           LAYOUT OVERVIEW  (all y-positions)
-           Zone backgrounds x:
-             PV zone:          x 10–340
-             Conversion zone:  x 356–576
-             AC zone:          x 592–1188
-
-           Component centers (x=464 for middle column):
-             Sun:              y  65
-             PV modules:       y 160–310   (box top=140, h=170)
-             MPPT:             y 380–480   (box top=370, h=110)
-             48V DC-Bus:       y 530–558   (box top=520, h=38)
-             Wechselrichter:   y 620–730   (box top=610, h=120)
-             Battery:          y 190–310   (box top=180, h=130) — left side at x=356
-
-           Wires:
-             PV → MPPT:        y 310→370   horizontal at y=340, then down
-             MPPT → Bus:       y 480→520
-             Bus → WR:         y 558→610
-             Batt ↔ Bus:       vertical x=374, y 310↔520
-      ═══════════════════════════════════════════ -->
-
-      <!-- ══ ZONE BACKGROUNDS ══ -->
-      <rect x="10"  y="10" width="330" height="838" rx="12" fill="rgba(184,134,11,.018)"  stroke="rgba(184,134,11,.09)"  stroke-width=".8"/>
-      <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(184,134,11,.32)"  x="24"  y="27">SOLARERTRAG · DC</text>
-
-      <rect x="348" y="10" width="232" height="838" rx="12" fill="rgba(42,107,74,.015)"  stroke="rgba(42,107,74,.09)"  stroke-width=".8"/>
-      <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(42,107,74,.32)"  x="362" y="27">UMWANDLUNG · 48 V DC-BUS</text>
-
-      <rect x="592" y="10" width="600" height="838" rx="12" fill="rgba(61,79,138,.015)"  stroke="rgba(61,79,138,.08)"  stroke-width=".8"/>
-      <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".12em" fill="rgba(61,79,138,.30)"  x="606" y="27">AC-VERBRAUCHER · 230 V</text>
-
-
-      <!-- ══════════════════════════════════════
-           1. SONNE
-      ══════════════════════════════════════ -->
-      <circle cx="175" cy="65" r="22" fill="rgba(184,134,11,.14)" stroke="#b8860b" stroke-width="1" filter="url(#gsun)"/>
-      <circle cx="175" cy="65" r="13" fill="#b8860b" opacity=".92"/>
-      <g stroke="#b8860b" stroke-width="1.4" stroke-linecap="round" opacity=".55">
-        <line x1="175" y1="36" x2="175" y2="29"/>  <line x1="175" y1="94" x2="175" y2="101"/>
-        <line x1="146" y1="65" x2="139" y2="65"/>  <line x1="204" y1="65" x2="211" y2="65"/>
-        <line x1="155" y1="45" x2="150" y2="40"/>  <line x1="195" y1="85" x2="200" y2="90"/>
-        <line x1="195" y1="45" x2="200" y2="40"/>  <line x1="155" y1="85" x2="150" y2="90"/>
-      </g>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(184,134,11,.4)" x="175" y="112" text-anchor="middle">SONNE · 13°N</text>
-      <!-- sun → modules dashed line -->
-      <line x1="175" y1="118" x2="175" y2="138" stroke="#b8860b" stroke-width="1.4" stroke-dasharray="3 3" opacity=".35"/>
-
-
-      <!-- ══════════════════════════════════════
-           2. PV-MODULE
-           box: x=28, y=140, w=294, h=170
-      ══════════════════════════════════════ -->
-      <rect x="28" y="140" width="294" height="170" rx="10" fill="rgba(184,134,11,.055)" stroke="#b8860b" stroke-width="1"/>
-      <!-- module grid: 4 cols × 3 rows -->
-      <g fill="rgba(184,134,11,.08)" stroke="#b8860b" stroke-width=".5">
-        <rect x="40"  y="152" width="60" height="34" rx="2"/>  <rect x="108" y="152" width="60" height="34" rx="2"/>
-        <rect x="176" y="152" width="60" height="34" rx="2"/>  <rect x="244" y="152" width="60" height="34" rx="2"/>
-        <rect x="40"  y="192" width="60" height="34" rx="2"/>  <rect x="108" y="192" width="60" height="34" rx="2"/>
-        <rect x="176" y="192" width="60" height="34" rx="2"/>  <rect x="244" y="192" width="60" height="34" rx="2"/>
-        <rect x="40"  y="232" width="60" height="34" rx="2"/>  <rect x="108" y="232" width="60" height="34" rx="2"/>
-        <rect x="176" y="232" width="60" height="34" rx="2"/>  <rect x="244" y="232" width="60" height="34" rx="2"/>
-      </g>
-      <!-- diagonal lines on modules -->
-      <g stroke="rgba(184,134,11,.2)" stroke-width=".4">
-        <line x1="40" y1="186" x2="100" y2="152"/>  <line x1="108" y1="186" x2="168" y2="152"/>
-        <line x1="176" y1="186" x2="236" y2="152"/>  <line x1="244" y1="186" x2="304" y2="152"/>
-      </g>
-      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="rgba(184,134,11,.9)" x="175" y="288" text-anchor="middle">32× SW 165-S + 22× AS 175</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(184,134,11,.5)" x="175" y="302" text-anchor="middle">54 Mod. · 9,1 kWp · Querformat 15°</text>
-
-      <!-- ══ PV → MPPT wire ══ -->
-      <!-- down from module to y=340, right to MPPT center, down to MPPT top -->
-      <line x1="175" y1="310" x2="175" y2="340" stroke="#b8860b" stroke-width="2"/>
-      <line class="flow-pv" x1="175" y1="340" x2="450" y2="340" stroke="#b8860b" stroke-width="2.5" marker-end="url(#a-pv)"/>
-      <line x1="450" y1="340" x2="450" y2="368" stroke="#b8860b" stroke-width="2"/>
-
-
-      <!-- ══════════════════════════════════════
-           3. MPPT-LADEREGLER
-           box: x=368, y=370, w=164, h=120
-      ══════════════════════════════════════ -->
-      <rect x="368" y="370" width="164" height="120" rx="10" fill="rgba(42,107,74,.08)" stroke="#2a6b4a" stroke-width="1.4"/>
-      <rect x="374" y="376" width="152" height="108" rx="7" fill="none" stroke="#2a6b4a" stroke-width=".4"/>
-      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="500" fill="#2a6b4a" x="450" y="418" text-anchor="middle">MPPT-Laderegler</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.5)" x="450" y="440" text-anchor="middle">PV → DC-Bus</text>
-
-      <!-- ══ MPPT → DC-Bus ══ -->
-      <line class="flow-dc" x1="450" y1="490" x2="450" y2="518" stroke="#2a6b4a" stroke-width="2.5" marker-end="url(#a-dc)"/>
-
-
-      <!-- ══════════════════════════════════════
-           4. 48 V DC-BUS
-           box: x=368, y=520, w=164, h=40
-      ══════════════════════════════════════ -->
-      <rect x="368" y="520" width="164" height="40" rx="7" fill="rgba(42,107,74,.18)" stroke="#2a6b4a" stroke-width="1.4"/>
-      <text font-family="'DM Mono',monospace" font-size="10" font-weight="500" fill="#2a6b4a" x="450" y="544" text-anchor="middle" letter-spacing=".08em">48 V DC-BUS</text>
-
-      <!-- ══ DC-Bus → Wechselrichter ══ -->
-      <line class="flow-dc" x1="450" y1="560" x2="450" y2="608" stroke="#2a6b4a" stroke-width="2.5" marker-end="url(#a-dc)"/>
-
-
-      <!-- ══════════════════════════════════════
-           5. BATTERIE
-           Hängt direkt am DC-Bus, links vom Bus-Block
-           box: x=368, y=188, w=164, h=138
-           Bidirektionaler Pfad x=390 (Laden) / x=408 (Entladen), y=326→520
-      ══════════════════════════════════════ -->
-      <rect x="368" y="188" width="164" height="138" rx="10" fill="rgba(200,114,10,.08)" stroke="#c8720a" stroke-width="1.4"/>
-      <!-- battery cell symbol -->
-      <rect x="402" y="200" width="96" height="46" rx="3" fill="none" stroke="#c8720a" stroke-width=".8" opacity=".5"/>
-      <rect x="420" y="196" width="14" height="6" rx="2" fill="#c8720a" opacity=".4"/>
-      <!-- fill bars -->
-      <rect x="405" y="203" width="20" height="36" rx="2" fill="rgba(200,114,10,.2)"/>
-      <rect x="430" y="203" width="20" height="36" rx="2" fill="rgba(200,114,10,.38)"/>
-      <rect x="455" y="203" width="20" height="36" rx="2" fill="rgba(200,114,10,.56)"/>
-      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#c8720a" x="450" y="272" text-anchor="middle">Batterie (LiFePO₄)</text>
-
-      <!--
-        BATTERIE ↔ DC-BUS  (bidirektional, vertikale Linie links vom MPPT-Block)
-        Laden:    Bus → Batt  (orange, nach oben)   x=388
-        Entladen: Batt → Bus  (lila,   nach unten)  x=406
-        y: Batt-Unterseite=326, Bus-Oberseite=520
-      -->
-      <line class="flow-chrg" x1="388" y1="520" x2="388" y2="328" stroke="#c8720a" stroke-width="2"   marker-end="url(#a-chrg)"/>
-      <line class="flow-dis"  x1="406" y1="328" x2="406" y2="520" stroke="#6a4c93" stroke-width="2"   marker-end="url(#a-dis)"/>
-
-
-
-      <!-- ══════════════════════════════════════
-           6. WECHSELRICHTER
-           box: x=368, y=610, w=164, h=124
-      ══════════════════════════════════════ -->
-      <rect x="368" y="610" width="164" height="124" rx="10" fill="rgba(61,79,138,.08)" stroke="#3d4f8a" stroke-width="1.4"/>
-      <rect x="374" y="616" width="152" height="112" rx="7" fill="none" stroke="#3d4f8a" stroke-width=".4"/>
-      <text font-family="'DM Sans',sans-serif" font-size="13" font-weight="500" fill="#3d4f8a" x="450" y="655" text-anchor="middle">Wechselrichter</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.6)"  x="450" y="673" text-anchor="middle">Hybrid-Inverter · Off-Grid</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.5)"  x="450" y="691" text-anchor="middle">DC 48 V → AC 230 V / 50 Hz</text>
-
-      <!-- ══ AC output: WR → AC-Bus ══ -->
-      <line class="flow-load" x1="532" y1="672" x2="590" y2="672" stroke="#3d4f8a" stroke-width="2.5" marker-end="url(#a-ac)"/>
-
-
-      <!-- ══ AC bus bar (vertical) ══ -->
-      <rect x="590" y="44" width="10" height="790" rx="4" fill="rgba(61,79,138,.14)" stroke="#3d4f8a" stroke-width=".8"/>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.38)" x="595" y="36" text-anchor="middle" letter-spacing=".06em">AC-VERTEILER</text>
-
-
-      <!-- ══════════════════════════════════════
-           7. VERBRAUCHER
-           Gleichmäßig verteilt auf der rechten Seite
-           y-positions: 60, 190, 320, 530, 720
-      ══════════════════════════════════════ -->
-
-      <!-- ── 1. Beleuchtung  y=60, h=104 ── -->
-      <rect x="618" y="58"  width="556" height="104" rx="9" fill="rgba(200,114,10,.07)" stroke="#c8720a" stroke-width=".8"/>
-      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#c8720a" x="636" y="83">Beleuchtung</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(200,114,10,.55)" x="636" y="99">Nursery 1–3 · Medical · Kitchen · Storage · Shop · Library · Meeting · Außen</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(200,114,10,.45)" x="636" y="114">Tagsüber: 400 Wh/d · Nachts (Speicher): 1.320 Wh/d · Außen: 780 Wh/d</text>
-      <rect x="1108" y="66" width="52" height="16" rx="3" fill="rgba(106,76,147,.1)"  stroke="rgba(106,76,147,.3)" stroke-width=".5"/>
-      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(106,76,147,.85)" x="1134" y="78" text-anchor="middle">☽ Nacht</text>
-      <line x1="600" y1="110" x2="616" y2="110" stroke="#3d4f8a" stroke-width="1.5" marker-end="url(#a-ac)"/>
-
-      <!-- ── 2. Klimatisierung  y=190, h=100 ── -->
-      <rect x="618" y="188" width="556" height="100" rx="9" fill="rgba(42,107,74,.07)"  stroke="#2a6b4a" stroke-width=".8"/>
-      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#2a6b4a" x="636" y="213">Klimatisierung</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.55)" x="636" y="229">4× Ventilator 75 W · Nursery 1–3 + Medical · 07:00–17:00 Uhr</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.45)" x="636" y="245">2.550 Wh/d · nur Tagbetrieb (Solar direkt → kein Speicher)</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.35)" x="636" y="261">Spitzenlast gesamt: 300 W</text>
-      <rect x="1108" y="196" width="52" height="16" rx="3" fill="rgba(184,134,11,.08)"  stroke="rgba(184,134,11,.25)" stroke-width=".5"/>
-      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(184,134,11,.75)" x="1134" y="208" text-anchor="middle">☀ Tag</text>
-      <line x1="600" y1="238" x2="616" y2="238" stroke="#3d4f8a" stroke-width="1.5" marker-end="url(#a-ac)"/>
-
-      <!-- ── 3. Küche & Produktion  y=320, h=172 ── -->
-      <rect x="618" y="318" width="556" height="172" rx="9" fill="rgba(160,48,32,.07)"  stroke="#a03020" stroke-width=".8"/>
-      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#a03020" x="636" y="343">Küche &amp; Produktion</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.55)" x="636" y="360">Backöfen 3× 2 kW (GZF 0,66) → 3.960 W · 7.920 Wh/d</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.55)" x="636" y="376">Erdnussbuttermaschine 2× 1,1 kW → 2.200 W · 4.400 Wh/d</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.55)" x="636" y="392">Ölpresse 1,8 kW · 3.600 Wh/d</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.55)" x="636" y="408">Nähmaschinen 6× 100 W · Küchenmaschinen · Wasserkocher</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.55)" x="636" y="424">Kühlschrank 80 W (24 h) → 1.920 Wh/d  (960 Wh davon nachts)</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(160,48,32,.4)"  x="636" y="440">Zeitsteuerung 08:00–14:00 empfohlen für Großverbraucher</text>
-      <rect x="1080" y="326" width="80" height="16" rx="3" fill="rgba(184,134,11,.08)"  stroke="rgba(184,134,11,.25)" stroke-width=".5"/>
-      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(184,134,11,.75)" x="1120" y="338" text-anchor="middle">☀ 08–14 Uhr</text>
-      <rect x="1080" y="346" width="80" height="16" rx="3" fill="rgba(160,48,32,.12)"  stroke="rgba(160,48,32,.3)"  stroke-width=".5"/>
-      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(160,48,32,.9)"  x="1120" y="358" text-anchor="middle">⚡ Engpass Sommer!</text>
-      <rect x="1080" y="366" width="80" height="16" rx="3" fill="rgba(106,76,147,.1)"  stroke="rgba(106,76,147,.3)" stroke-width=".5"/>
-      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(106,76,147,.85)" x="1120" y="378" text-anchor="middle">☽ Kühlschr. Nacht</text>
-      <line x1="600" y1="404" x2="616" y2="404" stroke="#3d4f8a" stroke-width="1.5" marker-end="url(#a-ac)"/>
-
-      <!-- ── 4. Büro & Bildung  y=530, h=110 ── -->
-      <rect x="618" y="528" width="556" height="110" rx="9" fill="rgba(61,79,138,.07)"  stroke="#3d4f8a" stroke-width=".8"/>
-      <text font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#3d4f8a" x="636" y="553">Büro &amp; Bildung</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.55)" x="636" y="570">8× Laptop (GZF 0,5) → 260 W · 1.040 Wh/d · 08:00–15:00</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.55)" x="636" y="586">Beamer 350 W · 1.050 Wh/d · 19:00–23:00 Uhr (aus Speicher)</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.45)" x="636" y="602">Drucker 30 W · gelegentlich</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(61,79,138,.35)" x="636" y="618">Gesamt: ~2.105 Wh/d</text>
-      <rect x="1108" y="536" width="52" height="16" rx="3" fill="rgba(106,76,147,.1)"  stroke="rgba(106,76,147,.3)" stroke-width=".5"/>
-      <text font-family="'DM Mono',monospace" font-size="8"  fill="rgba(106,76,147,.85)" x="1134" y="548" text-anchor="middle">☽ Beamer</text>
-      <line x1="600" y1="583" x2="616" y2="583" stroke="#3d4f8a" stroke-width="1.5" marker-end="url(#a-ac)"/>
-
-
-
-
-      <!-- ══════════════════════════════════════
-           8. ENERGIEBILANZ (unten links)
-      ══════════════════════════════════════ -->
-      <rect x="28" y="348" width="306" height="472" rx="10" fill="rgba(26,26,24,.03)" stroke="rgba(26,26,24,.1)" stroke-width=".8"/>
-      <text font-family="'DM Mono',monospace" font-size="9" letter-spacing=".1em" fill="rgba(26,26,24,.28)" x="46" y="372">ENERGIEBILANZ</text>
-      <line x1="46" y1="380" x2="316" y2="380" stroke="rgba(26,26,24,.08)" stroke-width=".5"/>
-
-      <g font-family="'DM Mono',monospace" font-size="11">
-        <text fill="rgba(26,26,24,.3)"  x="46" y="404">Gesamtbedarf/Tag</text>
-        <text font-weight="500" fill="rgba(26,26,24,.75)" x="316" y="404" text-anchor="end">27,77 kWh</text>
-        <line x1="46" y1="412" x2="316" y2="412" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
-
-        <text fill="rgba(184,134,11,.5)"   x="46" y="436">☀ Solar Worst Case</text>
-        <text font-weight="500" fill="#b8860b" x="316" y="436" text-anchor="end">16,1 kWh/d</text>
-        <line x1="46" y1="450" x2="316" y2="450" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
-
-        <text fill="rgba(106,76,147,.6)"  x="46" y="474">☽ Nachtbedarf</text>
-        <text font-weight="500" fill="#6a4c93" x="316" y="474" text-anchor="end">3,33 kWh</text>
-        <text fill="rgba(200,114,10,.55)"  x="46" y="494">⚡ Speicher nutzbar</text>
-        <text font-weight="500" fill="#c8720a" x="316" y="494" text-anchor="end">5,3 kWh</text>
-        <line x1="46" y1="502" x2="316" y2="502" stroke="rgba(26,26,24,.06)" stroke-width=".5"/>
-
-        <text fill="rgba(160,48,32,.5)"  x="46" y="526">⚠ Defizit Worst Case</text>
-        <text fill="rgba(160,48,32,.8)"  x="316" y="526" text-anchor="end">−11,7 kWh/d</text>
-      </g>
-
-      <!-- Topologie-Erklärung -->
-      <rect x="46" y="548" width="270" height="90" rx="7" fill="rgba(42,107,74,.05)" stroke="rgba(42,107,74,.18)" stroke-width=".8"/>
-      <text font-family="'DM Mono',monospace" font-size="8" letter-spacing=".06em" fill="rgba(42,107,74,.45)" x="58" y="566">STROMFLUSS · TOPOLOGIE</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="584">PV → MPPT → 48V-Bus</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="600">48V-Bus ↔ Batterie (direkt)</text>
-      <text font-family="'DM Mono',monospace" font-size="9" fill="rgba(42,107,74,.65)" x="58" y="616">48V-Bus → Wechselrichter → AC</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(42,107,74,.35)" x="58" y="632">Entladung NICHT durch MPPT</text>
-
-      <!-- Spitzenlast Box -->
-      <rect x="46" y="654" width="270" height="70" rx="7" fill="rgba(160,48,32,.04)" stroke="rgba(160,48,32,.18)" stroke-width=".8"/>
-      <text font-family="'DM Mono',monospace" font-size="8" letter-spacing=".06em" fill="rgba(160,48,32,.4)" x="58" y="672">SPITZENLAST</text>
-      <text font-family="'DM Mono',monospace" font-size="18" font-weight="500" fill="rgba(160,48,32,.8)" x="58" y="700">11.920 W</text>
-      <text font-family="'DM Mono',monospace" font-size="8" fill="rgba(26,26,24,.25)" x="58" y="716">Lastmanagement empfohlen</text>
-
+      <rect x="20" y="30" width="280" height="120" rx="10" fill="rgba(47,111,176,.07)" stroke="#2f6fb0" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#2f6fb0" x="160.0" y="84.0" text-anchor="middle">SolarWorld SW 165</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#2f6fb0" opacity=".7" x="160.0" y="108.0" text-anchor="middle">30 Module · 165 W</text>
+      <rect x="20" y="240" width="280" height="120" rx="10" fill="rgba(200,114,10,.07)" stroke="#c8720a" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#c8720a" x="160.0" y="294.0" text-anchor="middle">Sunset AS 175</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#c8720a" opacity=".7" x="160.0" y="318.0" text-anchor="middle">18 Module · 175 W</text>
+      <rect x="20" y="450" width="280" height="120" rx="10" fill="rgba(106,76,147,.07)" stroke="#6a4c93" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#6a4c93" x="160.0" y="504.0" text-anchor="middle">SolarWorld SW 250</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#6a4c93" opacity=".7" x="160.0" y="528.0" text-anchor="middle">6 Module · 250 W</text>
+      <rect x="400" y="30" width="280" height="120" rx="10" fill="rgba(47,111,176,.07)" stroke="#2f6fb0" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#2f6fb0" x="540.0" y="84.0" text-anchor="middle">2× MPPT 150/60</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#2f6fb0" opacity=".7" x="540.0" y="108.0" text-anchor="middle">5,0 kWp · 10×3</text>
+      <rect x="400" y="240" width="280" height="120" rx="10" fill="rgba(200,114,10,.07)" stroke="#c8720a" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#c8720a" x="540.0" y="294.0" text-anchor="middle">1× MPPT 250/70</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#c8720a" opacity=".7" x="540.0" y="318.0" text-anchor="middle">3,15 kWp · 3×6</text>
+      <rect x="400" y="450" width="280" height="120" rx="10" fill="rgba(106,76,147,.07)" stroke="#6a4c93" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#6a4c93" x="540.0" y="504.0" text-anchor="middle">1× MPPT 150/60</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#6a4c93" opacity=".7" x="540.0" y="528.0" text-anchor="middle">1,5 kWp · 2×3</text>
+      <line x1="300" y1="90.0" x2="400" y2="90.0" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)"/>
+      <line x1="300" y1="300.0" x2="400" y2="300.0" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)"/>
+      <line x1="300" y1="510.0" x2="400" y2="510.0" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)"/>
+      <line x1="680" y1="90.0" x2="780" y2="90.0" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)"/>
+      <line x1="680" y1="300.0" x2="780" y2="300.0" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)"/>
+      <line x1="680" y1="510.0" x2="780" y2="510.0" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)"/>
+      <rect x="780" y="30" width="140" height="540" rx="10" fill="rgba(26,26,24,.035)" stroke="#6b6b63" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="19" font-weight="600" fill="#6b6b63" x="850.0" y="294.0" text-anchor="middle">48 V</text>
+      <text font-family="'DM Sans',sans-serif" font-size="19" font-weight="600" fill="#6b6b63" x="850.0" y="320.0" text-anchor="middle">DC-Bus</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#6b6b63" opacity=".7" x="850.0" y="346.0" text-anchor="middle">2× Lynx</text>
+      <rect x="960" y="30" width="220" height="120" rx="10" fill="rgba(31,138,110,.08)" stroke="#1f8a6e" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#1f8a6e" x="1070.0" y="84.0" text-anchor="middle">MultiPlus-II</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#1f8a6e" opacity=".7" x="1070.0" y="108.0" text-anchor="middle">48/10000 · 8 kW</text>
+      <rect x="960" y="210" width="220" height="100" rx="10" fill="rgba(26,26,24,.035)" stroke="#6b6b63" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#6b6b63" x="1070.0" y="254.0" text-anchor="middle">Verbraucher</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#6b6b63" opacity=".7" x="1070.0" y="278.0" text-anchor="middle">Spitze 11,7 kW</text>
+      <line x1="920" y1="90.0" x2="960" y2="90.0" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)"/>
+      <line x1="1070.0" y1="150" x2="1070.0" y2="210" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)"/>
+      <rect x="680.0" y="640" width="340" height="100" rx="10" fill="rgba(26,26,24,.035)" stroke="#6b6b63" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#6b6b63" x="850.0" y="684.0" text-anchor="middle">Class-T</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#6b6b63" opacity=".7" x="850.0" y="708.0" text-anchor="middle">Hauptsicherung</text>
+      <line x1="850.0" y1="570" x2="850.0" y2="640" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)" marker-start="url(#bd-pow-rev)"/>
+      <rect x="680.0" y="790" width="340" height="110" rx="10" fill="rgba(42,107,74,.07)" stroke="#2a6b4a" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#2a6b4a" x="850.0" y="839.0" text-anchor="middle">Pylontech</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#2a6b4a" opacity=".7" x="850.0" y="863.0" text-anchor="middle">3× US5000 · 14,4 kWh</text>
+      <line x1="850.0" y1="740" x2="850.0" y2="790" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)" marker-start="url(#bd-pow-rev)"/>
+      <rect x="680.0" y="960" width="340" height="110" rx="10" fill="rgba(160,48,32,.07)" stroke="#a03020" stroke-width="1.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="18" font-weight="600" fill="#a03020" x="850.0" y="1009.0" text-anchor="middle">Cerbo GX</text>
+      <text font-family="'DM Mono',monospace" font-size="13" fill="#a03020" opacity=".7" x="850.0" y="1033.0" text-anchor="middle">Systemsteuerung</text>
+      <line x1="850.0" y1="900" x2="850.0" y2="960" stroke="#a03020" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#bd-com)"/>
+      <text font-family="'DM Mono',monospace" font-size="12" fill="#a03020" x="862.0" y="934.0">BMS-CAN</text>
+      <line x1="680.0" y1="1015.0" x2="8" y2="1015.0" stroke="#a03020" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <line x1="8" y1="1015.0" x2="8" y2="90.0" stroke="#a03020" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <line x1="8" y1="90.0" x2="20" y2="90.0" stroke="#a03020" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#bd-com)"/>
+      <line x1="8" y1="300.0" x2="20" y2="300.0" stroke="#a03020" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#bd-com)"/>
+      <line x1="8" y1="510.0" x2="20" y2="510.0" stroke="#a03020" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#bd-com)"/>
+      <text font-family="'DM Mono',monospace" font-size="12" fill="#a03020" x="344.0" y="1005.0" text-anchor="middle">VE.Direct ×4</text>
+      <line x1="1020.0" y1="1015.0" x2="1194" y2="1015.0" stroke="#a03020" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <line x1="1194" y1="1015.0" x2="1194" y2="90.0" stroke="#a03020" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <line x1="1194" y1="90.0" x2="1180" y2="90.0" stroke="#a03020" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#bd-com)"/>
+      <text font-family="'DM Mono',monospace" font-size="12" fill="#a03020" x="1107.0" y="1005.0" text-anchor="middle">VE.Bus</text>
+      <line x1="20" y1="1128" x2="60" y2="1128" stroke="#6b6b63" stroke-width="2" marker-end="url(#bd-pow)"/>
+      <text font-family="'DM Sans',sans-serif" font-size="14" fill="rgba(26,26,24,.78)" x="72" y="1133">Leistung (DC)</text>
+      <line x1="260" y1="1128" x2="300" y2="1128" stroke="#a03020" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#bd-com)"/>
+      <text font-family="'DM Sans',sans-serif" font-size="14" fill="rgba(26,26,24,.78)" x="312" y="1133">Kommunikation</text>
       </svg>
-
       </div>
 
+      <div class="ef-notes">
+        <div class="ef-note">
+          <div class="ef-note-label">Installierte PV-Leistung</div>
+          <div class="ef-note-val">9,65 kWp</div>
+          <div class="ef-note-sub">54 Module · 3 Modultypen · 4 MPPT-Laderegler</div>
+        </div>
+        <div class="ef-note">
+          <div class="ef-note-label">Speicherkapazität</div>
+          <div class="ef-note-val">14,4 kWh</div>
+          <div class="ef-note-sub">3× Pylontech US5000 · LiFePO₄</div>
+        </div>
+        <div class="ef-note">
+          <div class="ef-note-label">Wechselrichter</div>
+          <div class="ef-note-val">8 kW</div>
+          <div class="ef-note-sub">MultiPlus-II 48/10000 · 48 V DC → 230 V AC</div>
+        </div>
+        <div class="ef-note">
+          <div class="ef-note-label">Spitzenlast Verbraucher</div>
+          <div class="ef-note-val">11,7 kW</div>
+          <div class="ef-note-sub">Lastmanagement empfohlen</div>
+        </div>
+      </div>
     </section>
+
+    <section class="ef-section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title-lp">PV-Modulfeld &amp; Strings</h2>
+      </div>
+      <p class="section-desc">Die 54 Module verteilen sich auf 9 Dachreihen à 6 Module. Farblich markiert ist die Zuordnung zu den vier MPPT-Ladereglern: Die beiden SolarWorld-SW-165-Teilfelder (blau und grün, je 5 Strings × 3 Module) bilden gemeinsam die 5,0 kWp am Doppel-MPPT 150/60 und teilen sich Reihe 3. Die Sunset-AS-175-Reihen 6–8 (orange, 3 Strings × 6) hängen am MPPT 250/70, die SolarWorld-SW-250-Module in Reihe 9 (lila, 2 Strings × 3) am dritten MPPT 150/60.</p>
+
+      <div class="ef-diagram-wrap">
+      <svg viewBox="0 0 1020 900" xmlns="http://www.w3.org/2000/svg">
+      <rect x="90" y="20" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="243" y="20" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="396" y="20" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="549" y="20" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="702" y="20" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="855" y="20" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="90" y="96" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="243" y="96" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="396" y="96" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="549" y="96" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="702" y="96" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="855" y="96" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="90" y="172" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="243" y="172" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="396" y="172" width="145" height="68" rx="8" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <rect x="549" y="172" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="702" y="172" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="855" y="172" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="90" y="248" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="243" y="248" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="396" y="248" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="549" y="248" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="702" y="248" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="855" y="248" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="90" y="324" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="243" y="324" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="396" y="324" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="549" y="324" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="702" y="324" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="855" y="324" width="145" height="68" rx="8" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <rect x="90" y="400" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="243" y="400" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="396" y="400" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="549" y="400" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="702" y="400" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="855" y="400" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="90" y="476" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="243" y="476" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="396" y="476" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="549" y="476" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="702" y="476" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="855" y="476" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="90" y="552" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="243" y="552" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="396" y="552" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="549" y="552" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="702" y="552" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="855" y="552" width="145" height="68" rx="8" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <rect x="90" y="628" width="145" height="68" rx="8" fill="rgba(106,76,147,.12)" stroke="#6a4c93" stroke-width="1.4"/>
+      <rect x="243" y="628" width="145" height="68" rx="8" fill="rgba(106,76,147,.12)" stroke="#6a4c93" stroke-width="1.4"/>
+      <rect x="396" y="628" width="145" height="68" rx="8" fill="rgba(106,76,147,.12)" stroke="#6a4c93" stroke-width="1.4"/>
+      <rect x="549" y="628" width="145" height="68" rx="8" fill="rgba(106,76,147,.12)" stroke="#6a4c93" stroke-width="1.4"/>
+      <rect x="702" y="628" width="145" height="68" rx="8" fill="rgba(106,76,147,.12)" stroke="#6a4c93" stroke-width="1.4"/>
+      <rect x="855" y="628" width="145" height="68" rx="8" fill="rgba(106,76,147,.12)" stroke="#6a4c93" stroke-width="1.4"/>
+      <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="60.0" text-anchor="middle">1</text>
+      <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="136.0" text-anchor="middle">2</text>
+      <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="212.0" text-anchor="middle">3</text>
+      <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="288.0" text-anchor="middle">4</text>
+      <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="364.0" text-anchor="middle">5</text>
+      <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="440.0" text-anchor="middle">6</text>
+      <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="516.0" text-anchor="middle">7</text>
+      <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="592.0" text-anchor="middle">8</text>
+      <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="668.0" text-anchor="middle">9</text>
+      <line x1="545.0" y1="18" x2="545.0" y2="698" stroke="rgba(26,26,24,.18)" stroke-width="1" stroke-dasharray="4 4"/>
+      <rect x="20" y="20" width="9" height="186.0" rx="4.5" fill="#2f6fb0"/>
+      <rect x="20" y="206.0" width="9" height="186.0" rx="4.5" fill="#2a6b4a"/>
+      <rect x="20" y="400" width="9" height="220" rx="4.5" fill="#c8720a"/>
+      <rect x="20" y="628" width="9" height="68" rx="4.5" fill="#6a4c93"/>
+      <rect x="20" y="740" width="34" height="26" rx="6" fill="rgba(47,111,176,.12)" stroke="#2f6fb0" stroke-width="1.4"/>
+      <text font-family="'DM Sans',sans-serif" font-size="15" fill="rgba(26,26,24,.78)" x="68" y="758">Victron 150/60 · SolarWorld SW 165 · 5 Strings × 3 · Reihen 1–2,5</text>
+      <rect x="20" y="786" width="34" height="26" rx="6" fill="rgba(42,107,74,.12)" stroke="#2a6b4a" stroke-width="1.4"/>
+      <text font-family="'DM Sans',sans-serif" font-size="15" fill="rgba(26,26,24,.78)" x="68" y="804">Victron 150/60 · SolarWorld SW 165 · 5 Strings × 3 · Reihen 2,5–5</text>
+      <rect x="20" y="832" width="34" height="26" rx="6" fill="rgba(200,114,10,.12)" stroke="#c8720a" stroke-width="1.4"/>
+      <text font-family="'DM Sans',sans-serif" font-size="15" fill="rgba(26,26,24,.78)" x="68" y="850">Victron 250/70 · Sunset AS 175 · 3 Strings × 6 · Reihen 6–8</text>
+      <rect x="20" y="878" width="34" height="26" rx="6" fill="rgba(106,76,147,.12)" stroke="#6a4c93" stroke-width="1.4"/>
+      <text font-family="'DM Sans',sans-serif" font-size="15" fill="rgba(26,26,24,.78)" x="68" y="896">Victron 150/60 · SolarWorld SW 250 · 2 Strings × 3 · Reihe 9</text>
+      </svg>
+      </div>
+    </section>
+
+    <section class="ef-section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title-lp">Komponenten im Überblick</h2>
+      </div>
+      <p class="section-desc">Kurzbeschreibung der wichtigsten Komponenten der Anlage und ihrer Aufgaben im System.</p>
+
+      <div class="ef-comp-grid">
+        <div class="card">
+          <div class="card-label">PV-Modul · Typ 1</div>
+          <div class="card-title">SolarWorld SW 165</div>
+          <div class="card-body">
+            <div class="spec-row"><span class="spec-key">Anzahl</span><span class="spec-val">30 Module</span></div>
+            <div class="spec-row"><span class="spec-key">Leistung je Modul</span><span class="spec-val">165 Wp</span></div>
+            <div class="spec-row"><span class="spec-key">Verschaltung</span><span class="spec-val">10 Strings × 3</span></div>
+            <div class="spec-row"><span class="spec-key">Gesamtleistung</span><span class="spec-val">5,0 kWp</span></div>
+            <div class="spec-row"><span class="spec-key">Laderegler</span><span class="spec-val">2× MPPT 150/60</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">PV-Modul · Typ 2</div>
+          <div class="card-title">Sunset AS 175</div>
+          <div class="card-body">
+            <div class="spec-row"><span class="spec-key">Anzahl</span><span class="spec-val">18 Module</span></div>
+            <div class="spec-row"><span class="spec-key">Leistung je Modul</span><span class="spec-val">175 Wp</span></div>
+            <div class="spec-row"><span class="spec-key">Verschaltung</span><span class="spec-val">3 Strings × 6</span></div>
+            <div class="spec-row"><span class="spec-key">Gesamtleistung</span><span class="spec-val">3,15 kWp</span></div>
+            <div class="spec-row"><span class="spec-key">Laderegler</span><span class="spec-val">1× MPPT 250/70</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">PV-Modul · Typ 3</div>
+          <div class="card-title">SolarWorld SW 250</div>
+          <div class="card-body">
+            <div class="spec-row"><span class="spec-key">Anzahl</span><span class="spec-val">6 Module</span></div>
+            <div class="spec-row"><span class="spec-key">Leistung je Modul</span><span class="spec-val">250 Wp</span></div>
+            <div class="spec-row"><span class="spec-key">Verschaltung</span><span class="spec-val">2 Strings × 3</span></div>
+            <div class="spec-row"><span class="spec-key">Gesamtleistung</span><span class="spec-val">1,5 kWp</span></div>
+            <div class="spec-row"><span class="spec-key">Laderegler</span><span class="spec-val">1× MPPT 150/60</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Laderegler</div>
+          <div class="card-title">Victron SmartSolar MPPT</div>
+          <div class="card-body">
+            <div class="spec-row"><span class="spec-key">Bestückung</span><span class="spec-val">3× 150/60 · 1× 250/70</span></div>
+            <div class="spec-row"><span class="spec-key">Funktion</span><span class="spec-val">MPP-Tracking · Laden 48-V-Bus</span></div>
+            <div class="spec-row"><span class="spec-key">Gesamt-PV-Leistung</span><span class="spec-val">9,65 kWp</span></div>
+            <div class="spec-row"><span class="spec-key">Kommunikation</span><span class="spec-val">VE.Direct ×4 → Cerbo GX</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Verteilung</div>
+          <div class="card-title">48-V-DC-Bus · Lynx</div>
+          <div class="card-body">
+            <div class="spec-row"><span class="spec-key">Komponenten</span><span class="spec-val">2× Victron Lynx Distributor</span></div>
+            <div class="spec-row"><span class="spec-key">Funktion</span><span class="spec-val">zentrale, abgesicherte Sammelschiene</span></div>
+            <div class="spec-row"><span class="spec-key">Verbindet</span><span class="spec-val">MPPTs · Batterie · MultiPlus-II</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Wechselrichter / Ladegerät</div>
+          <div class="card-title">Victron MultiPlus-II</div>
+          <div class="card-body">
+            <div class="spec-row"><span class="spec-key">Modell</span><span class="spec-val">48/10000</span></div>
+            <div class="spec-row"><span class="spec-key">Dauerleistung</span><span class="spec-val">8 kW</span></div>
+            <div class="spec-row"><span class="spec-key">Wandlung</span><span class="spec-val">48 V DC ↔ 230 V AC / 50 Hz</span></div>
+            <div class="spec-row"><span class="spec-key">Kommunikation</span><span class="spec-val">VE.Bus → Cerbo GX</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Speicher</div>
+          <div class="card-title">Pylontech US5000</div>
+          <div class="card-body">
+            <div class="spec-row"><span class="spec-key">Anzahl</span><span class="spec-val">3× US5000 (parallel)</span></div>
+            <div class="spec-row"><span class="spec-key">Kapazität gesamt</span><span class="spec-val">14,4 kWh</span></div>
+            <div class="spec-row"><span class="spec-key">Kapazität je Modul</span><span class="spec-val">4,8 kWh</span></div>
+            <div class="spec-row"><span class="spec-key">Technologie</span><span class="spec-val">LiFePO₄ · BMS integriert</span></div>
+            <div class="spec-row"><span class="spec-key">Kommunikation</span><span class="spec-val">BMS-CAN → Cerbo GX</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Schutz &amp; Steuerung</div>
+          <div class="card-title">Class-T &amp; Cerbo GX</div>
+          <div class="card-body">
+            <div class="spec-row"><span class="spec-key">Class-T</span><span class="spec-val">Hauptsicherung Batterie ↔ Bus</span></div>
+            <div class="spec-row"><span class="spec-key">Cerbo GX</span><span class="spec-val">zentrale Systemsteuerung</span></div>
+            <div class="spec-row"><span class="spec-key">Anbindung</span><span class="spec-val">VE.Direct · VE.Bus · BMS-CAN</span></div>
+            <div class="spec-row"><span class="spec-key">Fernzugriff</span><span class="spec-val">VRM-Portal</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 </div><!-- /page-energiefluss -->
 
