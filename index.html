@@ -733,9 +733,15 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
 .note-box.warn strong{color:var(--sun)}
 .note-box.info{background:var(--moon-light);border:1px solid #b8c4e0;border-left:3px solid var(--moon)}
 .note-box.info strong{color:var(--moon)}
+#page-polysun .pol-insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+#page-polysun .pol-insight-card{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:20px 22px;border-top:3px solid var(--sun)}
+#page-polysun .pol-insight-num{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sun);margin-bottom:10px}
+#page-polysun .pol-insight-title{font-family:'DM Serif Display',serif;font-size:16px;color:var(--ink);margin-bottom:8px;line-height:1.25}
+#page-polysun .pol-insight-text{font-size:13px;color:var(--ink2);line-height:1.65;font-weight:300}
 @media(max-width:700px){
   #page-polysun .pol-main{padding:0 20px 60px}
   #page-polysun .two-col{grid-template-columns:1fr}
+  #page-polysun .pol-insight-grid{grid-template-columns:1fr}
 }
 
 /* ── LIGHTBOX ── */
@@ -2182,27 +2188,31 @@ img[data-lb]{cursor:zoom-in}
     <div class="note-box">
       <strong>Kernaussage für die Batteriewahl:</strong> Eine doppelt so große Batterie (35 statt 17,5&nbsp;kWh) hebt den Autarkiegrad nur um <strong>1,5&nbsp;Prozentpunkte</strong> (96,2&nbsp;%&nbsp;→&nbsp;97,7&nbsp;%). Dieser kleine Gewinn rechtfertigt die doppelten Kosten, das doppelte Gewicht und das doppelte Transportvolumen nicht – deshalb fiel die Entscheidung auf die kleinere Batterie.
     </div>
-  </div>
 
-  <!-- 02 AUTARKIE-DIAGRAMM -->
-  <div class="section">
-    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Autarkiegrad im Variantenvergleich</h2></div>
-    <p class="section-desc">Die Skala beginnt bewusst bei 0&nbsp;%: So wird sichtbar, dass alle Polysun-Varianten (V1–V4) praktisch gleich hoch sind – der Batterieunterschied verschwindet fast. Erst die abgeleiteten PR-Szenarien (60&nbsp;% / 52&nbsp;%) drücken die Autarkie spürbar.</p>
-    <div class="chart-wrap">
-      <div class="legend">
-        <span class="leg-item"><span class="leg-sq" style="background:#3d4f8a"></span>35 kWh (V1 / V3)</span>
-        <span class="leg-item"><span class="leg-sq" style="background:#d4a017"></span>17,5 kWh (V2 / V4)</span>
-        <span class="leg-item"><span class="leg-sq" style="background:#c8720a"></span>PR 60 % konservativ</span>
-        <span class="leg-item"><span class="leg-sq" style="background:#a03020"></span>PR 52 % Worst Case</span>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-top:32px;margin-bottom:0">Die drei wichtigsten Erkenntnisse</div>
+    <div class="pol-insight-grid">
+      <div class="pol-insight-card">
+        <div class="pol-insight-num">01</div>
+        <div class="pol-insight-title">Kleinere Batterie reicht</div>
+        <div class="pol-insight-text">17,5&nbsp;kWh liefern 96,2&nbsp;% Autarkie – nur 1,5&nbsp;Prozentpunkte weniger als die doppelt so große Batterie. Der Mehrgewinn rechtfertigt weder die doppelten Kosten noch das doppelte Transportvolumen.</div>
       </div>
-      <div style="position:relative;height:330px"><canvas id="c-sim-aut"></canvas></div>
+      <div class="pol-insight-card">
+        <div class="pol-insight-num">02</div>
+        <div class="pol-insight-title">Nutzerverhalten ist entscheidend</div>
+        <div class="pol-insight-text">Die Anlage schützt sich nicht selbst. In der Regenzeit und an trüben Tagen müssen die Menschen vor Ort wissen: Ist der Ladestand niedrig, haben Kühlschrank, Beleuchtung und medizinische Grundversorgung Vorrang – Maschinen und Großgeräte warten. Dieser Wissenstransfer ist ein zentraler Teil des Projekts.</div>
+      </div>
+      <div class="pol-insight-card">
+        <div class="pol-insight-num">03</div>
+        <div class="pol-insight-title">Reinigung = Versorgungssicherheit</div>
+        <div class="pol-insight-text">Der größte Risikofaktor ist nicht die Batterie, sondern Staub. Sinkt die Performance Ratio durch Harmattan-Staub von 69&nbsp;% auf 52&nbsp;%, fällt die Autarkie auf ~75&nbsp;%. Regelmäßige Modulreinigung ist die wirksamste Maßnahme, um die Anlage zuverlässig zu halten.</div>
+      </div>
     </div>
   </div>
 
-  <!-- 03 VOLLSTÄNDIGE ERGEBNISTABELLE -->
+  <!-- 02 VOLLSTÄNDIGE ERGEBNISTABELLE -->
   <div class="section">
-    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Alle Kennwerte im Detail</h2></div>
-    <p class="section-desc"><span style="color:var(--green);font-weight:600">Grün</span> = bester Wert der Zeile, <span style="color:var(--red);font-weight:600">Rosa</span> = schlechtester Wert. Reine Eingabe-/Parameterzeilen (Modulanzahl, Leistung, Batteriegröße, Verbrauch) sind nicht eingefärbt.</p>
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Alle Kennwerte im Detail</h2></div>
+    <p class="section-desc">Alle simulierten Größen für die sechs Varianten in einer Tabelle. Die Spaltenfarben im Tabellenkopf kennzeichnen die Variantengruppen: blau = 35&nbsp;kWh Batterie, gold = 17,5&nbsp;kWh Batterie, orange/rot = abgeleitete PR-Szenarien.</p>
     <div style="overflow-x:auto">
     <table class="con-table" id="t-sim">
       <thead>
@@ -2227,6 +2237,21 @@ img[data-lb]{cursor:zoom-in}
     <div style="font-size:12px;color:var(--ink3);margin-top:10px;line-height:1.6">Hinweis: Die PR-Szenarien 60&nbsp;% / 52&nbsp;% sind lineare Näherungen. Autarkiegrad und Defizitstunden in diesen beiden Spalten sind Schätzwerte, keine vollständigen Neuberechnungen.</div>
   </div>
 
+  <!-- 03 AUTARKIE-DIAGRAMM -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Autarkiegrad im Variantenvergleich</h2></div>
+    <p class="section-desc">Die Skala beginnt bewusst bei 0&nbsp;%: So wird sichtbar, dass alle Polysun-Varianten (V1–V4) praktisch gleich hoch sind – der Batterieunterschied verschwindet fast. Erst die abgeleiteten PR-Szenarien (60&nbsp;% / 52&nbsp;%) drücken die Autarkie spürbar.</p>
+    <div class="chart-wrap">
+      <div class="legend">
+        <span class="leg-item"><span class="leg-sq" style="background:#3d4f8a"></span>35 kWh (V1 / V3)</span>
+        <span class="leg-item"><span class="leg-sq" style="background:#d4a017"></span>17,5 kWh (V2 / V4)</span>
+        <span class="leg-item"><span class="leg-sq" style="background:#c8720a"></span>PR 60 % konservativ</span>
+        <span class="leg-item"><span class="leg-sq" style="background:#a03020"></span>PR 52 % Worst Case</span>
+      </div>
+      <div style="position:relative;height:330px"><canvas id="c-sim-aut"></canvas></div>
+    </div>
+  </div>
+
   <!-- 04 EINORDNUNG -->
   <div class="section">
     <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Interpretation der Ergebnisse</h2></div>
@@ -2248,34 +2273,11 @@ img[data-lb]{cursor:zoom-in}
     </div>
 
     <div class="note-box info" style="margin-bottom:12px">
-      <strong>Wichtig – die 1,5 Prozentpunkte erzählen nicht alles:</strong> Der Autarkiegrad bleibt zwar fast gleich, aber die <strong>Anzahl der Tage mit irgendeinem Defizit steigt von 7 auf 47 pro Jahr</strong> (Defizitstunden 31&nbsp;→&nbsp;210&nbsp;h). Die Ausfälle sind energetisch klein (nur 2,4&nbsp;% des Bedarfs), verteilen sich aber auf viel mehr Tage. Für Kindergarten/Waisenhaus heißt das: an rund 47&nbsp;Tagen kann es kurze Engpässe geben – relevant für die Frage, welche Verbraucher dann Priorität haben (Kühlschrank, Beleuchtung, Medizin).
+      <strong>Wichtig – die 1,5 Prozentpunkte erzählen nicht alles:</strong> Der Autarkiegrad bleibt zwar fast gleich, aber die <strong>Anzahl der Tage mit irgendeinem Defizit steigt von 7 auf 47 pro Jahr</strong> (Defizitstunden 31&nbsp;→&nbsp;210&nbsp;h). Die Ausfälle sind energetisch klein (nur 2,4&nbsp;% des Bedarfs), verteilen sich aber auf viel mehr Tage. Für den Kindergarten heißt das: an rund 47&nbsp;Tagen kann es kurze Engpässe geben – relevant für die Frage, welche Verbraucher dann Priorität haben (Kühlschrank, Beleuchtung, Medizin).
     </div>
 
     <div class="note-box warn">
       <strong>Wichtige Einordnung – die Simulation bildet nicht exakt das gebaute System ab:</strong> Polysun rechnet hier mit <strong>50 Modulen / 8,45 kWp</strong> (V3/V4) bzw. 54× generischen Sharp-Modulen sowie mit Batterien von 17,5 / 35&nbsp;kWh. Das endgültige Hauptsystem ist dagegen mit <strong>54 Modulen / 9,6 kWp</strong> (30× SW 165 · 18× Sunset AS 175 · 6× SW 250) und <strong>3× Pylontech US5000 (≈ 14,4 kWh)</strong> dimensioniert – die dritte Modulgruppe (6× SW 250) fehlt in der Simulation ganz. Folgen: Die absoluten Erträge hier sind <em>konservativ</em> gegenüber dem realen, größeren Feld. Die <em>reale Batterie (~14,4 kWh)</em> liegt sogar etwas unter der 17,5-kWh-Variante – ein Autarkiegrad knapp unter 96&nbsp;% ist die realistische Erwartung. Die Batterieentscheidung bleibt damit gültig, das Ertragsniveau sollte aber mit der Auslegungsseite (9,6 kWp) gespiegelt werden.
-    </div>
-  </div>
-
-  <!-- 05 BEMERKENSWERTE WERTE -->
-  <div class="section">
-    <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Bemerkenswerte Werte</h2></div>
-    <p class="section-desc">Über die Autarkie hinaus sind diese Zahlen für Dokumentation und weitere Auslegung besonders aussagekräftig.</p>
-    <div class="kpi-strip">
-      <div class="kpi c-red"><div class="kpi-label">Defizittage · 17,5 vs 35 kWh</div><div class="kpi-value">47 → 7</div><div class="kpi-unit">Tage/Jahr (V4 vs V3)</div></div>
-      <div class="kpi c-sun"><div class="kpi-label">Abregelungsverluste</div><div class="kpi-value">~1.080</div><div class="kpi-unit">kWh/Jahr ungenutzt (V3)</div></div>
-      <div class="kpi c-green"><div class="kpi-label">Spez. Ertrag (real, V3)</div><div class="kpi-value">1.380</div><div class="kpi-unit">kWh/kWp · Jahr</div></div>
-      <div class="kpi c-green"><div class="kpi-label">CO₂-Einsparung</div><div class="kpi-value">~6.300</div><div class="kpi-unit">kg/Jahr</div></div>
-      <div class="kpi c-red"><div class="kpi-label">Modultemperatur max.</div><div class="kpi-value">69,0</div><div class="kpi-unit">°C</div></div>
-      <div class="kpi c-moon"><div class="kpi-label">Autarkie · PR 52 % Worst Case</div><div class="kpi-value">~75</div><div class="kpi-unit">% (Risiko)</div></div>
-    </div>
-    <div class="card">
-      <div class="card-label">Warum diese Werte wichtig sind</div>
-      <div class="card-body">
-        <p><strong>Abregelungsverluste ~1.080 kWh/Jahr:</strong> In ertragsstarken Stunden ist die Batterie voll und der Bedarf gedeckt – rund 9&nbsp;% des DC-Ertrags werden „weggeworfen". Diese Energie wäre frei für Zusatzlasten (z.&nbsp;B. Wasserpumpe, weitere Geräte, Handyladestation) ohne neue Module.</p>
-        <p><strong>Spez. Ertrag 1.380 kWh/kWp:</strong> Ein sehr hoher Wert (Deutschland: ~950–1.050). Er belegt das starke Standortpotenzial in The Gambia und ist eine gute Kennzahl für die NGO-Kommunikation.</p>
-        <p><strong>Modultemperatur Ø 34&nbsp;°C / max. 69&nbsp;°C:</strong> Bestätigt die Hitze-Annahme der Auslegung. 69&nbsp;°C Zelltemperatur ist der Grund, warum die reale PR deutlich unter den Datenblattwerten liegt – und warum die PR-Szenarien (60/52&nbsp;%) ernst zu nehmen sind.</p>
-        <p><strong>Worst-Case-Autarkie ~75&nbsp;%:</strong> Der größte Risikofaktor ist nicht die Batterie, sondern die Performance Ratio. Bleibt das Feld ungereinigt und sinkt die PR auf 52&nbsp;%, fehlt rund ein Viertel der Versorgung. Regelmäßige Reinigung ist damit der wirksamste Hebel für die Versorgungssicherheit.</p>
-      </div>
     </div>
   </div>
 
@@ -3793,23 +3795,10 @@ render();
         tr.innerHTML = '<td colspan="8">' + r.cat + '</td>';
         tb.appendChild(tr); return;
       }
-      let best = null, worst = null;
-      if (r.dir) {
-        const valid = r.n.filter(v => v !== null);
-        if (valid.length) {
-          best  = r.dir === 'max' ? Math.max(...valid) : Math.min(...valid);
-          worst = r.dir === 'max' ? Math.min(...valid) : Math.max(...valid);
-        }
-      }
       const tr = document.createElement('tr');
       let html = '<td>' + r.l + '</td>';
-      r.d.forEach((disp, i) => {
-        let cls = 'num';
-        if (r.dir && r.n[i] !== null) {
-          if (r.n[i] === best)  cls += ' sim-best';
-          else if (r.n[i] === worst) cls += ' sim-worst';
-        }
-        html += '<td class="' + cls + '">' + disp + '</td>';
+      r.d.forEach((disp) => {
+        html += '<td class="num">' + disp + '</td>';
       });
       html += '<td class="num" style="color:var(--ink3)">' + r.u + '</td>';
       tr.innerHTML = html;
