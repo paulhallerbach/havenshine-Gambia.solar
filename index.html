@@ -663,75 +663,49 @@ footer{
 
 
 /* ════════════════════════════════════════════════════════════════
-   PAGE — LADESTATION INSELANLAGE
+   PAGES — AUSLEGUNG HAUPTSYSTEM & HANDYLADESTATION
 ═══════════════════════════════════════════════════════════════════ */
-#page-ladestation{background:var(--paper)}
-.ld-main{max-width:1100px;margin:0 auto;padding:0 60px 80px}
-.ld-section{padding:56px 0;border-bottom:1px solid var(--paper3);animation:fadeIn .4s ease}
-.ld-section:last-child{border-bottom:none}
-.ld-section-header{display:flex;align-items:baseline;gap:20px;margin-bottom:8px}
-.ld-section-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);letter-spacing:.1em}
-.ld-section-title{font-family:'DM Serif Display',serif;font-size:28px;color:var(--ink)}
-.ld-section-desc{font-size:14px;color:var(--ink3);margin-bottom:32px;max-width:640px;line-height:1.7;font-weight:300}
-
-/* version cards */
-.ld-versions{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media(max-width:700px){.ld-versions{grid-template-columns:1fr}}
-.ld-version{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);overflow:hidden}
-.ld-version-header{padding:16px 20px;border-bottom:1px solid var(--paper3);display:flex;justify-content:space-between;align-items:center}
-.ld-version-title{font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:var(--ink)}
-.ld-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;padding:3px 9px;border-radius:3px;font-weight:500}
-.ld-badge-day{background:var(--sun-light);color:var(--sun);border:1px solid rgba(200,114,10,.2)}
-.ld-badge-night{background:var(--moon-light);color:var(--moon);border:1px solid rgba(61,79,138,.2)}
-.ld-spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--paper3)}
-.ld-spec-cell{background:var(--paper2);padding:12px 16px}
-.ld-spec-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
-.ld-specval{font-family:'DM Mono',monospace;font-size:15px;font-weight:500;color:var(--ink);line-height:1.1}
-.ld-spec-sub{font-size:11px;color:var(--ink2);margin-top:2px}
-
-/* diagrams */
-.ld-diagrams{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media(max-width:700px){.ld-diagrams{grid-template-columns:1fr}}
-.ld-diagram-box{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:20px}
-.ld-diagram-box h3{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--paper3)}
-
-/* component table */
-.ld-comp-table{width:100%;border-collapse:collapse;font-size:13px}
-.ld-comp-table th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding:8px 12px;text-align:left;border-bottom:1.5px solid var(--paper3);background:var(--paper2)}
-.ld-comp-table td{padding:11px 12px;border-bottom:1px solid var(--paper3);vertical-align:top;line-height:1.5}
-.ld-comp-table tr:last-child td{border-bottom:none}
-.ld-comp-table tr:hover td{background:var(--paper2)}
-.ld-comp-table td.pos{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink3);white-space:nowrap}
-.ld-comp-table td.qty{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;text-align:center;white-space:nowrap}
-.ld-comp-table td.price{font-family:'DM Mono',monospace;font-size:12px;text-align:right;white-space:nowrap;color:var(--ink2)}
-.ld-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;margin-left:4px;vertical-align:middle}
-.ld-tag-v1{background:var(--sun-light);color:var(--sun);border:1px solid rgba(200,114,10,.2)}
-.ld-tag-v2{background:var(--moon-light);color:var(--moon);border:1px solid rgba(61,79,138,.2)}
-.ld-tag-both{background:var(--green-light);color:var(--green);border:1px solid rgba(42,107,74,.2)}
-.ld-tag-opt{background:var(--paper2);color:var(--ink2);border:1px solid var(--paper3)}
-.ld-comp-name{font-weight:500;color:var(--ink);margin-bottom:2px}
-.ld-comp-detail{font-size:12px;color:var(--ink2);line-height:1.5}
-
-/* cost & recommendation */
-.ld-cost-boxes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
-@media(max-width:700px){.ld-cost-boxes{grid-template-columns:1fr}}
-.ld-cost-box{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:20px}
-.ld-cost-box h3{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--paper3)}
-.ld-cost-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--paper3);font-size:13px}
-.ld-cost-row:last-child{border-bottom:none;font-weight:600;font-size:15px;padding-top:12px}
-.ld-cost-label{color:var(--ink2)}
-.ld-cost-val{font-family:'DM Mono',monospace;font-weight:500}
-.ld-rec-box{background:var(--green-light);border:1px solid rgba(42,107,74,.25);border-radius:var(--r);padding:20px 24px;margin-bottom:28px}
-.ld-rec-box h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
-.ld-rec-box p{font-size:13px;color:var(--ink);line-height:1.7}
-
-/* notes */
-.ld-notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.ld-note-card{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:14px 16px}
-.ld-note-card .label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:5px}
-.ld-note-card p{font-size:12px;color:var(--ink2);line-height:1.6}
-
-@media(max-width:700px){.ld-main{padding:0 20px 60px}.ld-section{padding:36px 0}}
+#page-auslegung,#page-zusatzsystem{background:var(--paper)}
+.aus-main{max-width:1080px;margin:0 auto;padding:0 60px 80px}
+.section-title{font-family:'DM Serif Display',serif;font-size:28px;color:var(--ink)}
+.card{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:24px 26px}
+.kpi.c-green .kpi-value{color:var(--green)}
+th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
+.con-table tfoot td{font-weight:500;border-top:2px solid var(--paper3);background:var(--paper2)}
+.con-table a{color:var(--moon);text-decoration:none;border-bottom:1px solid rgba(61,79,138,.3)}
+.con-table a:hover{border-bottom-color:var(--moon)}
+.note-box{background:var(--green-light);border:1px solid rgba(42,107,74,.25);border-radius:var(--r);padding:20px 24px;font-size:13px;color:var(--ink2);line-height:1.7}
+.note-box strong{color:var(--ink);font-weight:500}
+.table-scroll{overflow-x:auto}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:18px;margin-bottom:8px}
+.prod-card{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.prod-img{aspect-ratio:4/3;background:repeating-linear-gradient(45deg,var(--paper3) 0 1px,transparent 1px 11px),var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-bottom:1px solid var(--paper3)}
+.prod-img .ph-ico{font-size:26px;color:var(--ink3);opacity:.55}
+.prod-img .ph-txt{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.prod-body{padding:18px 20px;display:flex;flex-direction:column;flex:1}
+.prod-mfr{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+.prod-name{font-family:'DM Serif Display',serif;font-size:18px;line-height:1.2;color:var(--ink);margin-bottom:4px}
+.prod-tag{font-size:12px;color:var(--ink2);font-weight:300;margin-bottom:12px}
+.prod-specs{margin-top:auto}
+.prod-specs .spec-row{padding:6px 0}
+.prod-specs .spec-key{font-size:12px}
+.prod-specs .spec-val{font-size:12px}
+.prod-link{display:inline-block;margin-top:14px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.05em;color:var(--moon);text-decoration:none;border-bottom:1px solid rgba(61,79,138,.35);align-self:flex-start}
+.prod-link:hover{border-bottom-color:var(--moon)}
+.prod-link.pending{color:var(--ink3);border-bottom:1px dashed var(--ink3);cursor:default}
+.thumb-ph{width:46px;height:34px;border-radius:4px;background:repeating-linear-gradient(45deg,var(--paper3) 0 1px,transparent 1px 8px),var(--paper);border:1px solid var(--paper3);display:flex;align-items:center;justify-content:center;color:var(--ink3);font-size:13px;opacity:.7}
+.flow{max-width:420px;margin:0 auto}
+.flow-step{position:relative;border-radius:var(--r);padding:18px 22px;text-align:center}
+.flow-step .fs-title{font-family:'DM Serif Display',serif;font-size:20px;line-height:1.15}
+.flow-step .fs-sub{font-size:13px;margin-top:4px;font-weight:300}
+.flow-step.dc{background:var(--sun-light);border:1.5px solid var(--sun)}
+.flow-step.dc .fs-title{color:var(--ink)}
+.flow-step.dc .fs-sub{color:var(--amber)}
+.flow-step.ac{background:var(--moon-light);border:1.5px solid var(--moon)}
+.flow-step.ac .fs-title{color:var(--moon)}
+.flow-step.ac .fs-sub{color:var(--moon)}
+.flow-arrow{display:flex;justify-content:center;color:var(--ink3);font-size:22px;line-height:1;padding:8px 0}
+@media(max-width:720px){.aus-main{padding:0 22px 60px}}
 </style>
 </head>
 <body>
@@ -781,8 +755,11 @@ footer{
   <button class="page-btn" onclick="switchPage('energieertrag',this,true)">
     <span class="pg-icon">☼</span> Energieertrag
   </button>
-  <button class="page-btn" onclick="switchPage('ladestation',this,true)">
-    <span class="pg-icon">🔌</span> Ladestation
+  <button class="page-btn" onclick="switchPage('auslegung',this,true)">
+    <span class="pg-icon">&#9638;</span> Auslegung Hauptsystem
+  </button>
+  <button class="page-btn" onclick="switchPage('zusatzsystem',this,true)">
+    <span class="pg-icon">🔌</span> Handyladestation
   </button>
 </div>
 
@@ -1868,10 +1845,272 @@ footer{
 
 
 <!-- ════════════════════════════════════════════════════════════════════════
-     PAGE — LADESTATION INSELANLAGE
+     PAGE — AUSLEGUNG HAUPTSYSTEM
 ═════════════════════════════════════════════════════════════════════════ -->
-<div id="page-ladestation" class="page">
-  <main class="ld-main">
+<div id="page-auslegung" class="page">
+<main class="aus-main">
+
+  <!-- 01 ÜBERBLICK -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Überblick</h2></div>
+    <p class="section-desc">Für die Off-Grid-Inselanlage für den Kindergarten gibt es drei gespendete Modultypen mit unterschiedlichen elektrischen Kennwerten. Jeder Typ ist dabei an einen eigenen MPPT-Laderegler angeschlossen, und generell ist das gesamte System von mehreren unterschiedlichen Komponenten abhängig, welche auf dieser Seite aufgelistet sind.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi c-sun"><div class="kpi-label">PV-Leistung</div><div class="kpi-value">9,6 <span style="font-size:15px">kWp</span></div><div class="kpi-unit">54 Module · 3 Typen</div></div>
+      <div class="kpi c-green"><div class="kpi-label">Batterie</div><div class="kpi-value">14,4 <span style="font-size:15px">kWh</span></div><div class="kpi-unit">3× Pylontech US5000</div></div>
+      <div class="kpi c-moon"><div class="kpi-label">Wechselrichter</div><div class="kpi-value">10 <span style="font-size:15px">kVA</span></div><div class="kpi-unit">MultiPlus-II 48/10000</div></div>
+      <div class="kpi"><div class="kpi-label">MPPT-Regler</div><div class="kpi-value">4</div><div class="kpi-unit">3× 150/60 · 1× 250/70</div></div>
+      <div class="kpi"><div class="kpi-label">PV-Feld</div><div class="kpi-value">9 × 6</div><div class="kpi-unit">9 Reihen à 6 Module</div></div>
+      <div class="kpi"><div class="kpi-label">Komponentenkosten</div><div class="kpi-value">~4.980 <span style="font-size:15px">€</span></div><div class="kpi-unit">ohne Module (gespendet)</div></div>
+    </div>
+  </div>
+
+  <!-- 02 MODULE -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Unsere Module</h2></div>
+    <p class="section-desc">Die drei verbauten Modultypen mit ihren elektrischen Kennwerten bei STC. Alle Werte stammen aus der projektinternen String-Planung.</p>
+
+    <div class="prod-grid">
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">Sharp / SolarWorld</div>
+          <div class="prod-name">SW 165-S / Sharp NEQ5E3E</div>
+          <div class="prod-tag">30 Module · polykristallin</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">Nennleistung</span><span class="spec-val">165 W</span></div>
+            <div class="spec-row"><span class="spec-key">Vmpp</span><span class="spec-val">34,6 V</span></div>
+            <div class="spec-row"><span class="spec-key">Voc</span><span class="spec-val">43,1 V</span></div>
+            <div class="spec-row"><span class="spec-key">Impp</span><span class="spec-val">4,77 A</span></div>
+            <div class="spec-row"><span class="spec-key">Isc</span><span class="spec-val">5,46 A</span></div>
+            <div class="spec-row"><span class="spec-key">Max. Systemspannung</span><span class="spec-val">600 V</span></div>
+          </div>
+          <a class="prod-link pending">Datenblatt folgt</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">Sunset Energietechnik</div>
+          <div class="prod-name">Sunset AS 175</div>
+          <div class="prod-tag">18 Module · monokristallin</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">Nennleistung</span><span class="spec-val">175 W</span></div>
+            <div class="spec-row"><span class="spec-key">Vmpp</span><span class="spec-val">25,5 V</span></div>
+            <div class="spec-row"><span class="spec-key">Voc</span><span class="spec-val">32,5 V</span></div>
+            <div class="spec-row"><span class="spec-key">Impp</span><span class="spec-val">6,85 A</span></div>
+            <div class="spec-row"><span class="spec-key">Isc</span><span class="spec-val">7,65 A</span></div>
+            <div class="spec-row"><span class="spec-key">Max. Systemspannung</span><span class="spec-val">800 V</span></div>
+          </div>
+          <a class="prod-link pending">Datenblatt folgt</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">SolarWorld</div>
+          <div class="prod-name">Sunmodule Plus SW 250 POLY</div>
+          <div class="prod-tag">6 Module · polykristallin</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">Nennleistung</span><span class="spec-val">250 W</span></div>
+            <div class="spec-row"><span class="spec-key">Vmpp</span><span class="spec-val">30,5 V</span></div>
+            <div class="spec-row"><span class="spec-key">Voc</span><span class="spec-val">37,6 V</span></div>
+            <div class="spec-row"><span class="spec-key">Impp</span><span class="spec-val">8,27 A</span></div>
+            <div class="spec-row"><span class="spec-key">Isc</span><span class="spec-val">8,81 A</span></div>
+            <div class="spec-row"><span class="spec-key">Max. Systemspannung</span><span class="spec-val">1000 V</span></div>
+          </div>
+          <a class="prod-link pending">Datenblatt folgt</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 03 KOMPONENTENLISTE -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Komponentenliste</h2></div>
+    <p class="section-desc">Vollständige Stückliste des Hauptsystems. Modulpreise = 0 € (gespendete Gebrauchtmodule). Datenblätter der Komponenten verlinkt.</p>
+
+    <div class="table-scroll">
+    <table class="con-table">
+      <thead><tr>
+        <th>Bild</th><th>Komponente / Modell</th><th>Hersteller</th><th class="num">Anzahl</th><th class="num">Stückpreis</th><th class="num">Gesamt</th>
+      </tr></thead>
+      <tbody>
+        <tr class="cat-hdr"><td colspan="6">PV-Module</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>SW 165-S / Sharp NEQ5E3E</td><td>Sharp / SolarWorld</td><td class="num">30</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Sunset AS 175</td><td>Sunset Energietechnik</td><td class="num">18</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Sunmodule Plus SW 250 POLY</td><td>SolarWorld</td><td class="num">6</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
+
+        <tr class="cat-hdr"><td colspan="6">MPPT-Laderegler</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>SmartSolar MPPT 150/60 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-150-60-&amp;-150-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">3</td><td class="num">220 €</td><td class="num">660 €</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>SmartSolar MPPT 250/70 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-250-60-and-250-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">300 €</td><td class="num">300 €</td></tr>
+
+        <tr class="cat-hdr"><td colspan="6">Wechselrichter</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>MultiPlus-II 48/10000/140-100 230 V <a href="https://www.victronenergy.com/upload/documents/Datasheet-MultiPlus-II-inverter-charger-8k-10k-15k-AU-EN-AUS.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">1.300 €</td><td class="num">1.300 €</td></tr>
+
+        <tr class="cat-hdr"><td colspan="6">Batterie</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>US5000 LiFePO&#8324; (4,8 kWh / 48 V) <a href="https://global-site.oss-eu-central-1.aliyuncs.com/upload/2024/09/26/US%20Series_20240926105858A040.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Pylontech</td><td class="num">3</td><td class="num">750 €</td><td class="num">2.250 €</td></tr>
+
+        <tr class="cat-hdr"><td colspan="6">DC-Bus &amp; Systemsteuerung</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Lynx Distributor <a href="https://www.victronenergy.com/upload/documents/Lynx_Distributor/24531-Lynx_Distributor_Manual-pdf-en.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">2</td><td class="num">150 €</td><td class="num">300 €</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Cerbo GX MK2 <a href="https://www.victronenergy.com/upload/documents/Datasheet-Cerbo-GX-GX-Touch-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">170 €</td><td class="num">170 €</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Aluschienen (Montage)</td><td>&mdash;</td><td class="num">54</td><td class="num">offen</td><td class="num">offen</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="5">Summe Komponenten (ohne Module, ohne Montage)</td><td class="num">4.980 €</td></tr></tfoot>
+    </table>
+    </div>
+  </div>
+
+</main>
+</div><!-- /page-auslegung -->
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE — HANDYLADESTATION (ZUSATZSYSTEM)
+═════════════════════════════════════════════════════════════════════════ -->
+<div id="page-zusatzsystem" class="page">
+<main class="aus-main">
+
+  <!-- 01 ÜBERBLICK -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Überblick</h2></div>
+    <p class="section-desc">Eigenständige PV-Inselanlage mit eigenem Steckdosen-System. Die Steckdosen sind außerhalb der Mauern des Kindergartens angebracht, damit auch Nachbarn dort Geräte nutzen oder aufladen können. Drei SolarWorld-Module laden über einen MPPT-Regler eine LiFePO&#8324;-Batterie; ein Wechselrichter stellt die Steckdosen bereit.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi c-sun"><div class="kpi-label">PV-Leistung</div><div class="kpi-value">750 <span style="font-size:15px">Wp</span></div><div class="kpi-unit">3× SW 250 · 1 Strang</div></div>
+      <div class="kpi c-green"><div class="kpi-label">Batterie</div><div class="kpi-value">0,6 <span style="font-size:15px">kWh</span></div><div class="kpi-unit">12 V · 50 Ah LiFePO&#8324;</div></div>
+      <div class="kpi c-moon"><div class="kpi-label">Wechselrichter</div><div class="kpi-value">375 <span style="font-size:15px">VA</span></div><div class="kpi-unit">Phoenix 12/375</div></div>
+      <div class="kpi"><div class="kpi-label">Steckdosen</div><div class="kpi-value" style="font-size:16px">außerhalb</div><div class="kpi-unit">der Mauern · für Nachbarn</div></div>
+      <div class="kpi"><div class="kpi-label">Komponentenkosten</div><div class="kpi-value">~480 <span style="font-size:15px">€</span></div><div class="kpi-unit">ohne Module (gespendet)</div></div>
+    </div>
+  </div>
+
+  <!-- 02 SYSTEMAUFBAU -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Systemaufbau</h2></div>
+    <p class="section-desc">Von den PV-Modulen über MPPT-Laderegler und Batterie bis zur Steckdose. Amber = Gleichstrom-/Erzeugerseite, blau = Wechselstrom-/Verbraucherseite.</p>
+
+    <div class="card" style="padding:32px 28px">
+      <div class="flow">
+        <div class="flow-step dc"><div class="fs-title">SolarWorld SW 250</div><div class="fs-sub">3 × 250 W in Reihe</div></div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step dc"><div class="fs-title">MPPT 150/60</div><div class="fs-sub">750 Wp · 1×3</div></div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step dc"><div class="fs-title">LiTime 12 V 50 Ah</div><div class="fs-sub">Deep Cycle Lithium-Batterie</div></div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step ac"><div class="fs-title">Victron Phoenix 12/375</div><div class="fs-sub">230 V · VE.Direct · IEC</div></div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step ac"><div class="fs-title">230-V-Steckdose</div><div class="fs-sub">Handyladestation · Verbraucher</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 KOMPONENTEN -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Komponenten</h2></div>
+    <p class="section-desc">Die einzelnen Komponenten der Ladestation mit ihren Kennwerten. Datenblätter der Victron- und LiTime-Komponenten verlinkt.</p>
+
+    <div class="prod-grid">
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">SolarWorld</div>
+          <div class="prod-name">Sunmodule Plus SW 250 POLY</div>
+          <div class="prod-tag">3 Module · in Reihe</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">Nennleistung</span><span class="spec-val">3× 250 W</span></div>
+            <div class="spec-row"><span class="spec-key">Voc</span><span class="spec-val">37,6 V</span></div>
+            <div class="spec-row"><span class="spec-key">Isc</span><span class="spec-val">8,81 A</span></div>
+          </div>
+          <a class="prod-link pending">Datenblatt folgt</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">Victron Energy</div>
+          <div class="prod-name">SmartSolar MPPT 150/60</div>
+          <div class="prod-tag">Laderegler · VE.Can</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">Max. Ladestrom</span><span class="spec-val">60 A</span></div>
+            <div class="spec-row"><span class="spec-key">Max. PV-Spannung</span><span class="spec-val">150 V</span></div>
+            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">220 €</span></div>
+          </div>
+          <a class="prod-link" href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-150-60-&amp;-150-70-EN.pdf" target="_blank" rel="noopener">Datenblatt &#8599;</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">Victron Energy</div>
+          <div class="prod-name">Phoenix 12/375</div>
+          <div class="prod-tag">Wechselrichter · 12 V &rarr; 230 V</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">Leistung</span><span class="spec-val">375 VA</span></div>
+            <div class="spec-row"><span class="spec-key">Ausgang</span><span class="spec-val">230 V · IEC</span></div>
+            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">90 €</span></div>
+          </div>
+          <a class="prod-link" href="https://www.victronenergy.de/upload/documents/Datasheet-Inverter-VE.Direct-250VA-1600VA-DE.pdf" target="_blank" rel="noopener">Datenblatt &#8599;</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">LiTime</div>
+          <div class="prod-name">12 V 50 Ah Deep Cycle</div>
+          <div class="prod-tag">LiFePO&#8324;-Batterie</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">Spannung</span><span class="spec-val">12 V</span></div>
+            <div class="spec-row"><span class="spec-key">Kapazität</span><span class="spec-val">50 Ah · 0,6 kWh</span></div>
+            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">170 €</span></div>
+          </div>
+          <a class="prod-link" href="https://www.litime.de/products/litime-12v-50ah-lithium-lifepo4-batterie" target="_blank" rel="noopener">Produktseite &#8599;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 04 KOMPONENTENLISTE -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Komponentenliste</h2></div>
+    <p class="section-desc">Vollständige Stückliste der Handyladestation. Modulpreise = 0 € (gespendete Gebrauchtmodule).</p>
+
+    <div class="table-scroll">
+    <table class="con-table">
+      <thead><tr>
+        <th>Bild</th><th>Komponente / Modell</th><th>Hersteller</th><th class="num">Anzahl</th><th class="num">Stückpreis</th><th class="num">Gesamt</th>
+      </tr></thead>
+      <tbody>
+        <tr class="cat-hdr"><td colspan="6">PV-Modul</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Sunmodule Plus SW 250 POLY</td><td>SolarWorld</td><td class="num">3</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
+        <tr class="cat-hdr"><td colspan="6">MPPT-Laderegler</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>SmartSolar MPPT 150/60 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-150-60-&amp;-150-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">220 €</td><td class="num">220 €</td></tr>
+        <tr class="cat-hdr"><td colspan="6">Wechselrichter</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Phoenix 12/375 <a href="https://www.victronenergy.de/upload/documents/Datasheet-Inverter-VE.Direct-250VA-1600VA-DE.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">90 €</td><td class="num">90 €</td></tr>
+        <tr class="cat-hdr"><td colspan="6">Batterie</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>12 V 50 Ah Deep Cycle Lithium (LiFePO&#8324;) <a href="https://www.litime.de/products/litime-12v-50ah-lithium-lifepo4-batterie" target="_blank" rel="noopener">&#8599;</a></td><td>LiTime</td><td class="num">1</td><td class="num">170 €</td><td class="num">170 €</td></tr>
+        <tr class="cat-hdr"><td colspan="6">Montage</td></tr>
+        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Aluschienen</td><td>&mdash;</td><td class="num">3</td><td class="num">offen</td><td class="num">offen</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="5">Summe Komponenten (ohne Module, ohne Montage)</td><td class="num">480 €</td></tr></tfoot>
+    </table>
+    </div>
+  </div>
+
+</main>
+</div><!-- /page-zusatzsystem -->
+
+<div id="page-ladestation-dummy" style="display:none">
+<main>
 
     <!-- 01 SYSTEMVARIANTEN -->
     <section class="ld-section">
