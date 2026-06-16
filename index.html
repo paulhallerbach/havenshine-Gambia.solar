@@ -1561,31 +1561,18 @@ img[data-lb]{cursor:zoom-in}
   <!-- 01 PARAMETER & ERGEBNIS -->
   <section class="section">
     <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Ertragsberechnung</h2></div>
-    <p class="section-desc">Das Hauptsystem besteht aus drei Modultypen mit 9,6 kWp Nennleistung (54 Module). Voreingestellt ist das Planungs-Szenario: SW 165-S mit gemessenen 120 W, Sunset AS 175 und SW 250 mit Nennleistung, Performance Ratio 52 % und 15° Neigung im Querformat (Schattensimulations-Optimum).</p>
+    <p class="section-desc">Das Hauptsystem liefert bei Nennleistung 9,6 kWp (30× SW 165-S · 18× Sunset AS 175 · 6× SW 250, je 54 Module). Mit dem Modulverlust-Regler lässt sich die gemessene Degradation der gealterten Module einstellen; die Performance Ratio erfasst Betriebs- und Systemverluste vor Ort. Neigung: 15° Querformat (Ergebnis Schattensimulation).</p>
 
     <div class="ctrl-panel">
       <div class="ctrl-block">
-        <div class="ctrl-head"><span>System-Szenario</span><span class="ctrl-readout" id="r-kwp">8,25 kWp</span></div>
-        <div class="tab-group" id="scenario-tabs">
-          <button class="tab-btn" data-sc="nenn">Nennleistung · 9,6 kWp</button>
-          <button class="tab-btn on" data-sc="plan">Planung · 8,25 kWp</button>
-          <button class="tab-btn" data-sc="worst">Worst Case · 7,0 kWp</button>
-        </div>
-        <p style="font-size:12px;color:var(--ink3);margin-top:10px;line-height:1.7" id="scenario-detail">30× SW 165-S: 120 W gemessen · 18× Sunset AS 175: 175 W nominal · 6× SW 250: 250 W nominal</p>
-      </div>
-      <div class="ctrl-block">
-        <div class="ctrl-head"><span>Neigungswinkel (Süd)</span><span class="ctrl-readout" id="r-angle">15°</span></div>
-        <div class="tab-group" id="angle-tabs">
-          <button class="tab-btn" data-a="0">0° (flach)</button>
-          <button class="tab-btn" data-a="10">10°</button>
-          <button class="tab-btn on" data-a="15">15°</button>
-          <button class="tab-btn" data-a="20">20°</button>
-        </div>
+        <div class="ctrl-head"><span>Modulverlust gegenüber Nennleistung (9,6 kWp)</span><span class="ctrl-readout" id="r-verlust">0 % → 9,60 kWp</span></div>
+        <input type="range" id="s-verlust" min="0" max="40" step="1" value="0">
       </div>
       <div class="ctrl-block">
         <div class="ctrl-head"><span>Performance Ratio</span><span class="ctrl-readout" id="r-pr">52 %</span></div>
         <input type="range" id="s-pr" min="40" max="90" step="1" value="52">
       </div>
+      <div style="font-size:12px;color:var(--ink3);margin-top:4px">Neigung: 15° Querformat · 45 cm Reihenabstand (Schattensimulations-Ergebnis)</div>
     </div>
 
     <div class="kpi-strip">
@@ -1665,10 +1652,11 @@ img[data-lb]{cursor:zoom-in}
       <div class="card">
         <div class="card-label">Annahmen & Begründung</div>
         <div class="card-body">
-          <p><strong>Drei Szenarien:</strong> Das System enthält drei Modultypen mit 9,6 kWp Nennleistung. Da Team 1 nur die SW 165-S-Module gemessen hat (120 W statt 165 W Nennleistung), wird im Planungs-Szenario mit 8,25 kWp gerechnet. Im Worst Case wird die gleiche Degradation von 27 % auf alle Typen angewendet (→ 7,0 kWp).</p>
-          <p><strong>15° Neigung, Süd · Querformat:</strong> Die Schattensimulation ergab 15° im Querformat mit 45 cm Reihenabstand als optimale Projektkonfiguration. Die Einstrahlungsdaten bei 15° werden aus den PVGIS-Werten (JRC/EU-Kommission) für 10° und 20° interpoliert.</p>
+          <p><strong>Nennleistung 9,6 kWp:</strong> Das System enthält 30× SW 165-S (165 Wp), 18× Sunset AS 175 (175 Wp) und 6× SW 250 POLY (250 Wp). Team 1 hat die SW 165-S-Module gemessen: im Mittel 120 W (27 % unter Nennwert). Für Sunset AS 175 und SW 250 liegen noch keine Messungen vor.</p>
+          <p><strong>Modulverlust-Regler:</strong> Der Regler setzt einen einheitlichen prozentualen Verlust auf die gesamte Nennleistung an. 0 % = volle 9,6 kWp; 14 % ≈ 8,25 kWp (entspricht dem Fall, dass nur die SW 165-S auf ihren Messwert sinken); 27 % ≈ 7,0 kWp (alle Module gleich stark degradiert wie die SW 165-S).</p>
+          <p><strong>15° Neigung, Süd · Querformat:</strong> Die Schattensimulation ergab 15° im Querformat mit 45 cm Reihenabstand als optimale Projektkonfiguration. Die Einstrahlungsdaten werden aus den PVGIS-Monatswerten (JRC/EU-Kommission) für 10° und 20° auf 15° interpoliert.</p>
           <p><strong>PR 52 %:</strong> Hitze und Saharastaub (Harmattan) drücken die Performance Ratio auf 52–56 %. Als Worst-Case ist 52 % voreingestellt; für ein regelmäßig gewartetes System sind 54–56 % realistisch.</p>
-          <p><strong>Tagesbedarf:</strong> Das Energielastprofil ergibt 27,8 kWh/Tag. Im August-Worst-Case (17°, PR 52 %) liefert die Anlage je nach Szenario 20–24 kWh/Tag – die Differenz deckt der Batteriespeicher oder Lastmanagement ab.</p>
+          <p><strong>Tagesbedarf:</strong> Das Energielastprofil ergibt 27,8 kWh/Tag (Summe aller Verbraucher gemäß Lastprofil-Seite).</p>
         </div>
       </div>
       <div class="card">
@@ -1695,7 +1683,7 @@ img[data-lb]{cursor:zoom-in}
     </div>
 
     <div class="note-box" style="margin-top:16px">
-      <strong>Einordnung für die Auslegung:</strong> Maßgeblich ist der schlechteste Monat (August, Regenzeit). Im Planungs-Szenario (8,25 kWp · 15° Querformat · PR 52 %) erzeugt die Anlage dort <strong>~20,4 kWh/Tag</strong> – bei einem Tagesbedarf von <strong>27,8 kWh</strong> (Energielastprofil). Die Differenz von ~7,4 kWh/Tag deckt der Batteriespeicher (3× Pylontech US5000, 14,4 kWh) oder wird durch Lastmanagement ausgeglichen. Mit Nennleistung (9,6 kWp) steigt der August-Tagesertrag auf <strong>~23,8 kWh/Tag</strong>.
+      <strong>Einordnung für die Auslegung:</strong> Maßgeblich ist der schlechteste Monat (August, Regenzeit). Bei den aktuellen Einstellungen erzeugt die Anlage im August <strong><span id="nb-aug">–</span> kWh/Tag</strong> – bei einem Tagesbedarf von <strong>27,8 kWh/Tag</strong> (Energielastprofil). Die Differenz von <strong><span id="nb-diff">–</span> kWh/Tag</strong> deckt der Batteriespeicher (3× Pylontech US5000, 14,4 kWh) oder wird durch Lastmanagement ausgeglichen.
     </div>
   </section>
 
@@ -3158,7 +3146,7 @@ const CLIM = {
 const isRainy = i => CLIM.sun[i] < 8;   // Regenzeit-Markierung
 
 /* ══ ZUSTAND ══ */
-let st = { angle:15, scenario:'plan', pr:52 };
+let st = { verlust:0, pr:52 };
 
 /* ══ CHART SETUP ══ */
 Chart.defaults.font.family = "'DM Sans',sans-serif";
@@ -3170,9 +3158,9 @@ function fmt(x,d=1){return x.toLocaleString('de-DE',{minimumFractionDigits:d,max
 
 /* ══ BERECHNUNG ══ */
 function compute(){
-  const kWp = SCENARIOS[st.scenario].kWp;
-  const pr = st.pr/100;
-  const irr = IRR[st.angle];
+  const kWp = 9.6 * (1 - st.verlust / 100);
+  const pr = st.pr / 100;
+  const irr = IRR[15];
   const psh = irr.map((v,i)=>v/DAYS[i]);
   const daily = psh.map(p=>kWp*p*pr);
   const monthly = daily.map((d,i)=>d*DAYS[i]);
@@ -3200,10 +3188,12 @@ function render(){
   document.getElementById('worst-kwh').textContent = fmt(r.daily[r.wi],1);
 
   // Readouts
-  document.getElementById('r-kwp').textContent = fmt(r.kWp,2)+' kWp';
-  document.getElementById('scenario-detail').textContent = SCENARIOS[st.scenario].detail;
-  document.getElementById('r-angle').textContent = st.angle+'°';
+  document.getElementById('r-verlust').textContent = st.verlust+' % → '+fmt(r.kWp,2)+' kWp';
   document.getElementById('r-pr').textContent = st.pr+' %';
+  // Note-Box dynamisch
+  const DEMAND = 27.8;
+  document.getElementById('nb-aug').textContent = fmt(r.daily[r.wi],1);
+  document.getElementById('nb-diff').textContent = fmt(Math.max(0, DEMAND - r.daily[r.wi]),1);
 
   // Tagesertrag-Chart
   const cols = r.daily.map((_,i)=> i===r.bi ? '#2a6b4a' : i===r.wi ? '#a03020' : (isRainy(i)?'#3d4f8a':'#c8720a'));
@@ -3319,16 +3309,7 @@ window.eeShow = function(id, btn){
 window.__eeInit = function(){ if(dailyChart) setTimeout(()=>dailyChart.resize(),60); };
 
 /* ══ CONTROLS ══ */
-document.getElementById('scenario-tabs').addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b)return;
-  document.querySelectorAll('#scenario-tabs .tab-btn').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); st.scenario=b.dataset.sc; render();
-});
-document.getElementById('angle-tabs').addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b)return;
-  document.querySelectorAll('#angle-tabs .tab-btn').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); st.angle=+b.dataset.a; render();
-});
+document.getElementById('s-verlust').addEventListener('input',e=>{st.verlust=+e.target.value;render();});
 document.getElementById('s-pr').addEventListener('input',e=>{st.pr=+e.target.value;render();});
 
 render();
