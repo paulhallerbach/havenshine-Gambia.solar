@@ -706,6 +706,14 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
 .flow-step.ac .fs-sub{color:var(--moon)}
 .flow-arrow{display:flex;justify-content:center;color:var(--ink3);font-size:22px;line-height:1;padding:8px 0}
 @media(max-width:720px){.aus-main{padding:0 22px 60px}}
+
+/* ── LIGHTBOX ── */
+img[data-lb]{cursor:zoom-in}
+.lb-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .22s;cursor:zoom-out}
+.lb-overlay.open{opacity:1;pointer-events:auto}
+.lb-overlay img{max-width:90vw;max-height:90vh;border-radius:8px;object-fit:contain;box-shadow:0 12px 48px rgba(0,0,0,.6);cursor:default}
+.lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:28px;background:none;border:none;cursor:pointer;opacity:.65;line-height:1;padding:4px 10px;transition:opacity .15s}
+.lb-close:hover{opacity:1}
 </style>
 </head>
 <body>
@@ -1873,7 +1881,7 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
     <div class="prod-grid">
 
       <div class="prod-card">
-        <img src="img/sw165.png" alt="Sharp / SolarWorld SW 165-S NEQ5E3E" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
+        <img src="img/sw165.png" alt="Sharp / SolarWorld SW 165-S NEQ5E3E" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
         <div class="prod-body">
           <div class="prod-mfr">Sharp / SolarWorld</div>
           <div class="prod-name">SW 165-S / Sharp NEQ5E3E</div>
@@ -1909,7 +1917,7 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
       </div>
 
       <div class="prod-card">
-        <img src="img/sw250.png" alt="SolarWorld Sunmodule Plus SW 250 POLY" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
+        <img src="img/sw250.png" alt="SolarWorld Sunmodule Plus SW 250 POLY" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
         <div class="prod-body">
           <div class="prod-mfr">SolarWorld</div>
           <div class="prod-name">Sunmodule Plus SW 250 POLY</div>
@@ -1941,23 +1949,23 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
       </tr></thead>
       <tbody>
         <tr class="cat-hdr"><td colspan="6">PV-Module</td></tr>
-        <tr><td><img src="img/sw165.png" alt="SW 165-S" class="thumb-ph" style="object-fit:cover"></td><td>SW 165-S / Sharp NEQ5E3E</td><td>Sharp / SolarWorld</td><td class="num">30</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
+        <tr><td><img src="img/sw165.png" alt="SW 165-S" data-lb class="thumb-ph" style="object-fit:cover"></td><td>SW 165-S / Sharp NEQ5E3E</td><td>Sharp / SolarWorld</td><td class="num">30</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
         <tr><td><div class="thumb-ph">&#9638;</div></td><td>Sunset AS 175</td><td>Sunset Energietechnik</td><td class="num">18</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
-        <tr><td><img src="img/sw250.png" alt="SW 250 POLY" class="thumb-ph" style="object-fit:cover"></td><td>Sunmodule Plus SW 250 POLY</td><td>SolarWorld</td><td class="num">6</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
+        <tr><td><img src="img/sw250.png" alt="SW 250 POLY" data-lb class="thumb-ph" style="object-fit:cover"></td><td>Sunmodule Plus SW 250 POLY</td><td>SolarWorld</td><td class="num">6</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
 
         <tr class="cat-hdr"><td colspan="6">MPPT-Laderegler</td></tr>
-        <tr><td><div class="thumb-ph">&#9638;</div></td><td>SmartSolar MPPT 150/60 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-150-60-&amp;-150-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">3</td><td class="num">220 €</td><td class="num">660 €</td></tr>
-        <tr><td><div class="thumb-ph">&#9638;</div></td><td>SmartSolar MPPT 250/70 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-250-60-and-250-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">300 €</td><td class="num">300 €</td></tr>
+        <tr><td><img src="img/mppt150.png" alt="SmartSolar MPPT 150/60" data-lb class="thumb-ph" style="object-fit:cover"></td><td>SmartSolar MPPT 150/60 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-150-60-&amp;-150-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">3</td><td class="num">220 €</td><td class="num">660 €</td></tr>
+        <tr><td><img src="img/mppt250.png" alt="SmartSolar MPPT 250/70" data-lb class="thumb-ph" style="object-fit:cover"></td><td>SmartSolar MPPT 250/70 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-250-60-and-250-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">300 €</td><td class="num">300 €</td></tr>
 
         <tr class="cat-hdr"><td colspan="6">Wechselrichter</td></tr>
-        <tr><td><div class="thumb-ph">&#9638;</div></td><td>MultiPlus-II 48/10000/140-100 230 V <a href="https://www.victronenergy.com/upload/documents/Datasheet-MultiPlus-II-inverter-charger-8k-10k-15k-AU-EN-AUS.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">1.300 €</td><td class="num">1.300 €</td></tr>
+        <tr><td><img src="img/multiplus.png" alt="Victron MultiPlus-II 48/10000" data-lb class="thumb-ph" style="object-fit:cover"></td><td>MultiPlus-II 48/10000/140-100 230 V <a href="https://www.victronenergy.com/upload/documents/Datasheet-MultiPlus-II-inverter-charger-8k-10k-15k-AU-EN-AUS.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">1.300 €</td><td class="num">1.300 €</td></tr>
 
         <tr class="cat-hdr"><td colspan="6">Batterie</td></tr>
-        <tr><td><div class="thumb-ph">&#9638;</div></td><td>US5000 LiFePO&#8324; (4,8 kWh / 48 V) <a href="https://global-site.oss-eu-central-1.aliyuncs.com/upload/2024/09/26/US%20Series_20240926105858A040.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Pylontech</td><td class="num">3</td><td class="num">750 €</td><td class="num">2.250 €</td></tr>
+        <tr><td><img src="img/pylontech.png" alt="Pylontech US5000" data-lb class="thumb-ph" style="object-fit:cover"></td><td>US5000 LiFePO&#8324; (4,8 kWh / 48 V) <a href="https://global-site.oss-eu-central-1.aliyuncs.com/upload/2024/09/26/US%20Series_20240926105858A040.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Pylontech</td><td class="num">3</td><td class="num">750 €</td><td class="num">2.250 €</td></tr>
 
         <tr class="cat-hdr"><td colspan="6">DC-Bus &amp; Systemsteuerung</td></tr>
-        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Lynx Distributor <a href="https://www.victronenergy.com/upload/documents/Lynx_Distributor/24531-Lynx_Distributor_Manual-pdf-en.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">2</td><td class="num">150 €</td><td class="num">300 €</td></tr>
-        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Cerbo GX MK2 <a href="https://www.victronenergy.com/upload/documents/Datasheet-Cerbo-GX-GX-Touch-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">170 €</td><td class="num">170 €</td></tr>
+        <tr><td><img src="img/lynx.png" alt="Victron Lynx Distributor" data-lb class="thumb-ph" style="object-fit:cover"></td><td>Lynx Distributor <a href="https://www.victronenergy.com/upload/documents/Lynx_Distributor/24531-Lynx_Distributor_Manual-pdf-en.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">2</td><td class="num">150 €</td><td class="num">300 €</td></tr>
+        <tr><td><img src="img/cerbo.png" alt="Victron Cerbo GX MK2" data-lb class="thumb-ph" style="object-fit:cover"></td><td>Cerbo GX MK2 <a href="https://www.victronenergy.com/upload/documents/Datasheet-Cerbo-GX-GX-Touch-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">170 €</td><td class="num">170 €</td></tr>
         <tr><td><div class="thumb-ph">&#9638;</div></td><td>Aluschienen (Montage)</td><td>&mdash;</td><td class="num">54</td><td class="num">offen</td><td class="num">offen</td></tr>
       </tbody>
       <tfoot><tr><td colspan="5">Summe Komponenten (ohne Module, ohne Montage)</td><td class="num">4.980 €</td></tr></tfoot>
@@ -2017,7 +2025,7 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
     <div class="prod-grid">
 
       <div class="prod-card">
-        <img src="img/sw250.png" alt="SolarWorld Sunmodule Plus SW 250 POLY" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
+        <img src="img/sw250.png" alt="SolarWorld Sunmodule Plus SW 250 POLY" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
         <div class="prod-body">
           <div class="prod-mfr">SolarWorld</div>
           <div class="prod-name">Sunmodule Plus SW 250 POLY</div>
@@ -2032,7 +2040,7 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
       </div>
 
       <div class="prod-card">
-        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <img src="img/mppt150.png" alt="Victron SmartSolar MPPT 150/60" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
         <div class="prod-body">
           <div class="prod-mfr">Victron Energy</div>
           <div class="prod-name">SmartSolar MPPT 150/60</div>
@@ -2047,7 +2055,7 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
       </div>
 
       <div class="prod-card">
-        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <img src="img/phoenix375.png" alt="Victron Phoenix 12/375" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
         <div class="prod-body">
           <div class="prod-mfr">Victron Energy</div>
           <div class="prod-name">Phoenix 12/375</div>
@@ -2062,7 +2070,7 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
       </div>
 
       <div class="prod-card">
-        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <img src="img/litime.png" alt="LiTime 12V 50Ah LiFePO4" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
         <div class="prod-body">
           <div class="prod-mfr">LiTime</div>
           <div class="prod-name">12 V 50 Ah Deep Cycle</div>
@@ -2091,13 +2099,13 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
       </tr></thead>
       <tbody>
         <tr class="cat-hdr"><td colspan="6">PV-Modul</td></tr>
-        <tr><td><img src="img/sw250.png" alt="SW 250 POLY" class="thumb-ph" style="object-fit:cover"></td><td>Sunmodule Plus SW 250 POLY</td><td>SolarWorld</td><td class="num">3</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
+        <tr><td><img src="img/sw250.png" alt="SW 250 POLY" data-lb class="thumb-ph" style="object-fit:cover"></td><td>Sunmodule Plus SW 250 POLY</td><td>SolarWorld</td><td class="num">3</td><td class="num">gespendet</td><td class="num">0 €</td></tr>
         <tr class="cat-hdr"><td colspan="6">MPPT-Laderegler</td></tr>
-        <tr><td><div class="thumb-ph">&#9638;</div></td><td>SmartSolar MPPT 150/60 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-150-60-&amp;-150-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">220 €</td><td class="num">220 €</td></tr>
+        <tr><td><img src="img/mppt150.png" alt="SmartSolar MPPT 150/60" data-lb class="thumb-ph" style="object-fit:cover"></td><td>SmartSolar MPPT 150/60 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-150-60-&amp;-150-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">220 €</td><td class="num">220 €</td></tr>
         <tr class="cat-hdr"><td colspan="6">Wechselrichter</td></tr>
-        <tr><td><div class="thumb-ph">&#9638;</div></td><td>Phoenix 12/375 <a href="https://www.victronenergy.de/upload/documents/Datasheet-Inverter-VE.Direct-250VA-1600VA-DE.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">90 €</td><td class="num">90 €</td></tr>
+        <tr><td><img src="img/phoenix375.png" alt="Victron Phoenix 12/375" data-lb class="thumb-ph" style="object-fit:cover"></td><td>Phoenix 12/375 <a href="https://www.victronenergy.de/upload/documents/Datasheet-Inverter-VE.Direct-250VA-1600VA-DE.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">90 €</td><td class="num">90 €</td></tr>
         <tr class="cat-hdr"><td colspan="6">Batterie</td></tr>
-        <tr><td><div class="thumb-ph">&#9638;</div></td><td>12 V 50 Ah Deep Cycle Lithium (LiFePO&#8324;) <a href="https://www.litime.de/products/litime-12v-50ah-lithium-lifepo4-batterie" target="_blank" rel="noopener">&#8599;</a></td><td>LiTime</td><td class="num">1</td><td class="num">170 €</td><td class="num">170 €</td></tr>
+        <tr><td><img src="img/litime.png" alt="LiTime 12V 50Ah" data-lb class="thumb-ph" style="object-fit:cover"></td><td>12 V 50 Ah Deep Cycle Lithium (LiFePO&#8324;) <a href="https://www.litime.de/products/litime-12v-50ah-lithium-lifepo4-batterie" target="_blank" rel="noopener">&#8599;</a></td><td>LiTime</td><td class="num">1</td><td class="num">170 €</td><td class="num">170 €</td></tr>
         <tr class="cat-hdr"><td colspan="6">Montage</td></tr>
         <tr><td><div class="thumb-ph">&#9638;</div></td><td>Aluschienen</td><td>&mdash;</td><td class="num">3</td><td class="num">offen</td><td class="num">offen</td></tr>
       </tbody>
@@ -2626,6 +2634,11 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
   </main>
 </div><!-- /page-ladestation -->
 
+<div class="lb-overlay" id="lb-overlay">
+  <button class="lb-close" id="lb-close" aria-label="Schließen">✕</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
 <footer>
   Photovoltaik in Gambia · Team 2 · Hochschule Bochum · Sommersemester 2026
   &nbsp;·&nbsp;
@@ -2657,6 +2670,18 @@ function closeNav() {
   document.getElementById('nav-sidebar').classList.remove('open');
   document.body.style.overflow = '';
 }
+
+/* ── LIGHTBOX ── */
+(function(){
+  const ov = document.getElementById('lb-overlay');
+  const im = document.getElementById('lb-img');
+  function open(src,alt){ im.src=src; im.alt=alt||''; ov.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ ov.classList.remove('open'); document.body.style.overflow=''; im.src=''; }
+  document.getElementById('lb-close').addEventListener('click', close);
+  ov.addEventListener('click', function(e){ if(e.target!==im) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+  document.addEventListener('click', function(e){ if(e.target.matches('img[data-lb]')) open(e.target.src, e.target.alt); });
+})();
 
 function switchPage(id, btn, fromSidebar) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
