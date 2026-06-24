@@ -732,6 +732,9 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
 .kp-cab{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2)}
 .kp-cab .ln{width:36px;height:4px;border-radius:2px;flex-shrink:0}
 .kp-sum-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0 28px}
+.csa-chip{display:inline-block;padding:2px 9px;border-radius:999px;font-family:'DM Mono',monospace;font-size:11.5px;font-weight:700;white-space:nowrap}
+.csa-chip.c6{background:var(--green-light);color:var(--green)}
+.csa-chip.c10{background:var(--moon-light);color:var(--moon)}
 td.num-red{color:var(--red);font-family:'DM Mono',monospace;font-size:12px;text-align:right}
 td.num-blk{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
 @media(max-width:720px){.kp-main{padding:0 22px 60px}}
@@ -2527,7 +2530,7 @@ img[data-lb]{cursor:zoom-in}
     <div class="prod-grid">
 
       <div class="prod-card">
-        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <img src="img/vevor-6string-combinerbox.jpg" alt="Vevor PV-Combiner-Box 6-String 15A, geöffnet mit Sicherungsautomaten und Überspannungsschutz" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
         <div class="prod-body">
           <div class="prod-mfr">Vevor · PV-Kombinator-Box-Serie</div>
           <div class="prod-name">PV-Combiner-Box 6-String, 15 A Sicherung, 125 A Leistungsschalter</div>
@@ -2545,7 +2548,7 @@ img[data-lb]{cursor:zoom-in}
       </div>
 
       <div class="prod-card">
-        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <img src="img/vevor-kombikasten-4string.jpg" alt="Vevor PV-Kombinationskasten 4-String 15A, geöffnet mit Sicherungsautomaten und Überspannungsschutz" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
         <div class="prod-body">
           <div class="prod-mfr">Vevor · PV-Kombinator-Box-Serie</div>
           <div class="prod-name">PV-Kombinationskasten 4-String, 15 A Sicherungskasten, 500 V Unterverteilung</div>
@@ -2571,7 +2574,9 @@ img[data-lb]{cursor:zoom-in}
     </div>
 
     <div class="note-box warn">
-      <b>Sicherung prüfen:</b> Werks-Vorsicherung beider Boxtypen ist fix <b>15 A je String</b>. Das passt für SB3 (Sunset AS&nbsp;175, I<sub>sc</sub>=7,65 A → nach DIN VDE 0100-712 zulässig 9,6–18,4 A) und SB4 (SolarWorld SW&nbsp;250, I<sub>sc</sub>=8,81 A → zulässig 11,0–21,1 A). Für SB1/SB2 (SolarWorld SW&nbsp;165, I<sub>sc</sub>=5,46 A → zulässig nur 6,8–13,1 A) liegt die werkseitige 15-A-Sicherung bereits <b>über</b> dem zulässigen Maximum – die Notiz aus der Beschaffungsplanung („Sicherung auf 20 A erhöhen") passt dazu nicht, 20 A wäre noch weiter über dem Limit. Vor Bestellung klären, ob die Sicherungseinsätze der 6-String-Box austauschbar sind (z. B. auf 10 A), sonst Eigenbau-Lösung für SB1/SB2 prüfen. Der Hauptschalter (125 A bzw. 63 A) ist dagegen unkritisch – weit über dem realen Trunkstrom (22–34 A, siehe Abschnitt 05).
+      <b>Welche Sicherung wo – und warum:</b> Innerhalb eines Strings sind die Module in <b>Reihe</b> verschaltet, der Strangstrom bleibt also beim I<sub>sc</sub> des einzelnen Moduls. Innerhalb der Sammelbox werden mehrere Strings <b>parallel</b> zusammengeführt – und genau dafür braucht nach DIN VDE 0100-712 jeder String seine eigene Eingangssicherung (1,25–2,4 × I<sub>sc</sub>), die ihn im Fehlerfall vor dem Rückspeisestrom der übrigen parallelen Strings schützt. Beide Vevor-Boxtypen sind laut Datenblatt mit je <b>4 bzw. 6 Stück 15-A-DC-Sicherungen</b> (Standard-Schmelzeinsätze Ø10×38 mm, Halter bis 32 A, austauschbar) sowie einem nachgeschalteten Hauptschalter ausgestattet, der nur die gemeinsame Trunkleitung schützt, nicht die einzelnen Strings.
+      <br><br>
+      Damit ergibt sich je Gruppe: <b>SB3</b> (Sunset AS&nbsp;175, I<sub>sc</sub>=7,65 A → zulässig 9,6–18,4 A) und <b>SB4</b> (SolarWorld SW&nbsp;250, I<sub>sc</sub>=8,81 A → zulässig 11,0–21,1 A) passen mit der werkseitigen 15-A-Sicherung unverändert. <b>SB1/SB2</b> (SolarWorld SW&nbsp;165, I<sub>sc</sub>=5,46 A → zulässig nur 6,8–13,1 A) liegen mit 15 A bereits über dem zulässigen Maximum – hier vor Inbetriebnahme die Schmelzeinsätze der 6-String-Box auf <b>10 A</b> tauschen (Standardgröße, passt in den vorhandenen Halter). Die Notiz aus der Beschaffungsplanung „Sicherung auf 20 A erhöhen" bezog sich vermutlich auf den Hauptschalter und nicht auf die Stringsicherung – für SB1/SB2 wäre 20 A sogar noch weiter über dem Limit. Der Hauptschalter selbst (125 A bei der 6-String-Box für SB1/SB2, 63 A bei der 4-String-Box für SB3/SB4) ist unkritisch, da er weit über dem realen Trunkstrom liegt (22–34 A, siehe Abschnitt 05).
     </div>
   </div>
 
@@ -2663,13 +2668,13 @@ img[data-lb]{cursor:zoom-in}
   <!-- 05 SAMMELBOX -> TECHNIKRAUM -->
   <div class="section">
     <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Sammelbox → Technikraum (Storage)</h2></div>
-    <p class="section-desc">Von jeder Sammelbox führt ein gemeinsames Plus-/Minus-Trunkkabel (alle Strings der Gruppe bereits parallelgeschaltet) zum Technikraum mit MPPT-Reglern, Batterien und Wechselrichter. Als Technikraum ist <b>Storage</b> vorgesehen (Grundriss: x = 26.300–28.950 mm, y = 22.000–25.500 mm). Kabelweg: vom gemeinsamen Kanal der Sammelboxen (x = 17.000 mm) orthogonal zur Westwand von Storage, auf Höhe der jeweiligen Box – liegt die Box außerhalb der Raumhöhe, wird zur nächstgelegenen Wandecke geführt. Zuschlag: + 1,0 m Verlegereserve im Raum bis zum Reglerschrank.</p>
+    <p class="section-desc">Von jeder Sammelbox führt ein gemeinsames Plus-/Minus-Trunkkabel (alle Strings der Gruppe bereits parallelgeschaltet) zum Technikraum mit MPPT-Reglern, Batterien und Wechselrichter. Als Technikraum ist <b>Storage</b> vorgesehen (Grundriss: x = 26.300–28.950 mm, y = 22.000–25.500 mm). Kabelweg: vom gemeinsamen Kanal der Sammelboxen (x = 17.000 mm) horizontal zur Ostwand des Gebäudes (x = 23.450 mm), dort an der Wand entlang bis zur Mitte der Office-Wand (y = 23.750 mm), von dort durch den Boden unter Office hindurch in den Storage-Raum (Wanddurchführung bei x = 26.300 mm). Zuschlag: + 1,0 m Verlegereserve im Raum bis zum Reglerschrank.</p>
 
-    <p class="section-desc" style="margin-top:-6px">Ausschnitt aus dem Grundriss (Ostflügel) – Sammelboxen als Vierecke auf dem gemeinsamen Kabelkanal, Kabelweg bis zur Storage-Wand. Vollständiger Grundriss: siehe Seite „Grundriss".</p>
+    <p class="section-desc" style="margin-top:-6px">Ausschnitt aus dem Grundriss (Ostflügel) – Sammelboxen als Vierecke auf dem gemeinsamen Kabelkanal, Kabelweg an der Wand entlang und durch den Boden in den Storage-Raum. Vollständiger Grundriss: siehe Seite „Grundriss".</p>
 
     <div class="kp-diagram-wrap">
-<svg viewBox="4500 11800 26000 17700" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans,Arial,sans-serif">
-<rect x="4500" y="11800" width="26000" height="17700" fill="#F3EFE3"/>
+<svg viewBox="4000 11300 27000 19200" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans,Arial,sans-serif">
+<rect x="4000" y="11300" width="27000" height="19200" fill="#F3EFE3"/>
 <rect x="0" y="0" width="30000" height="30000" fill="none" stroke="#6B655A" stroke-width="45" stroke-dasharray="450 320"/>
 <rect x="23450" y="2200" width="5500" height="26800" fill="none" stroke="#3B3833" stroke-width="175"/>
 <rect x="23450" y="12200" width="5500" height="5500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
@@ -2678,10 +2683,10 @@ img[data-lb]{cursor:zoom-in}
 <rect x="23450" y="17700" width="5500" height="4300" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
 <text x="26200.0" y="20000.0" font-size="430" fill="#5A5448" text-anchor="middle">Kitchen</text>
 <rect x="23450" y="22000" width="2850" height="3500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
-<text x="24875.0" y="23900.0" font-size="360" fill="#5A5448" text-anchor="middle">Office</text>
+<text x="24875.0" y="22550.0" font-size="360" fill="#5A5448" text-anchor="middle">Office</text>
 <rect x="26300" y="22000" width="2650" height="3500" fill="#F3D9D4" stroke="#B0462B" stroke-width="120"/>
-<text x="27625.0" y="23650.0" font-size="360" fill="#5A5448" text-anchor="middle">Storage</text>
-<text x="27625.0" y="24090.0" font-size="280" fill="#B0462B" text-anchor="middle">(Schaltraum)</text>
+<text x="27625.0" y="22550.0" font-size="360" fill="#5A5448" text-anchor="middle">Storage</text>
+<text x="27625.0" y="22990.0" font-size="280" fill="#B0462B" text-anchor="middle">(Schaltraum)</text>
 <rect x="23450" y="25500" width="5500" height="3500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
 <text x="26200.0" y="27400.0" font-size="430" fill="#5A5448" text-anchor="middle">Shop</text>
 <rect x="6950" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
@@ -2749,65 +2754,102 @@ img[data-lb]{cursor:zoom-in}
 <text x="20125.0" y="25640.0" font-size="380" fill="#B0462B" text-anchor="middle">6650 (Abstand zur Wand)</text>
 <line x1="17000" y1="13022" x2="17000" y2="24678" stroke="#9A7B3F" stroke-width="50" stroke-dasharray="160 110"/>
 <text x="17150" y="12950" font-size="330" fill="#9A7B3F">Sammelbox-Kanal · x = 17.000 mm</text>
-<line x1="17000" y1="12100" x2="26300" y2="12100" stroke="#9A7B3F" stroke-width="32"/>
-<line x1="17000" y1="11950" x2="17000" y2="12250" stroke="#9A7B3F" stroke-width="32"/>
-<line x1="26300" y1="11950" x2="26300" y2="12250" stroke="#9A7B3F" stroke-width="32"/>
-<text x="21650.0" y="11880.0" font-size="360" fill="#9A7B3F" text-anchor="middle">9300 (Kanal &#8594; Storage-Westwand)</text>
-<line x1="17000" y1="14455.8" x2="26300" y2="14455.8" stroke="#378ADD" stroke-width="45"/>
-<line x1="26300" y1="14455.8" x2="26300" y2="22000" stroke="#378ADD" stroke-width="45"/>
-<line x1="26300" y1="22000" x2="27300" y2="22000" stroke="#378ADD" stroke-width="45"/>
-<text x="20500.0" y="14250.0" font-size="350" fill="#1d5fa3" text-anchor="middle">SB1 &#8594; 17,84 m</text>
-<line x1="17000" y1="17518.2" x2="26300" y2="17518.2" stroke="#1D9E75" stroke-width="45"/>
-<line x1="26300" y1="17518.2" x2="26300" y2="22000" stroke="#1D9E75" stroke-width="45"/>
-<line x1="26300" y1="22000" x2="27300" y2="22000" stroke="#1D9E75" stroke-width="45"/>
-<text x="20500.0" y="17313.0" font-size="350" fill="#147a56" text-anchor="middle">SB2 &#8594; 14,78 m</text>
-<line x1="17000" y1="21314.5" x2="26300" y2="21314.5" stroke="#EF9F27" stroke-width="45"/>
-<line x1="26300" y1="21314.5" x2="26300" y2="22000" stroke="#EF9F27" stroke-width="45"/>
-<line x1="26300" y1="22000" x2="27300" y2="22000" stroke="#EF9F27" stroke-width="45"/>
-<text x="20500.0" y="21109.0" font-size="350" fill="#a86c12" text-anchor="middle">SB3 &#8594; 10,99 m</text>
-<line x1="17000" y1="24177.5" x2="27300" y2="24177.5" stroke="#7E57C2" stroke-width="45"/>
-<text x="20500.0" y="23972.0" font-size="350" fill="#5c3a96" text-anchor="middle">SB4 &#8594; 10,30 m</text>
-<circle cx="26300" cy="22000" r="130" fill="#fbf9f2" stroke="#6b6b63" stroke-width="35"/>
-<rect x="16400" y="14080.8" width="1200" height="750" rx="60" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
-<text x="17000" y="14250.8" font-size="350" font-weight="700" fill="#1d5fa3" text-anchor="middle">SB1</text>
-<text x="17000" y="14600.8" font-size="200" fill="#3a3a34" text-anchor="middle">5 Strings</text>
-<rect x="16400" y="17143.2" width="1200" height="750" rx="60" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
-<text x="17000" y="17313.2" font-size="350" font-weight="700" fill="#147a56" text-anchor="middle">SB2</text>
-<text x="17000" y="17663.2" font-size="200" fill="#3a3a34" text-anchor="middle">5 Strings</text>
-<rect x="16400" y="20939.5" width="1200" height="750" rx="60" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
-<text x="17000" y="21109.5" font-size="350" font-weight="700" fill="#a86c12" text-anchor="middle">SB3</text>
-<text x="17000" y="21459.5" font-size="200" fill="#3a3a34" text-anchor="middle">3 Strings</text>
-<rect x="16400" y="23802.5" width="1200" height="750" rx="60" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
-<text x="17000" y="23972.5" font-size="350" font-weight="700" fill="#5c3a96" text-anchor="middle">SB4</text>
-<text x="17000" y="24322.5" font-size="200" fill="#3a3a34" text-anchor="middle">2 Strings</text>
-<text x="27450" y="21850" font-size="260" fill="#6b6b63">&#8594; Reglerschrank</text>
-<text x="6700" y="29150" font-size="280" fill="#9a958a">Maße in mm &#183; an der Storage-Ecke werden die Trassen zugunsten der Lesbarkeit überlagert dargestellt</text>
+<line x1="17000" y1="14455.8" x2="23450" y2="14455.8" stroke="#378ADD" stroke-width="45"/>
+<line x1="23450" y1="14455.8" x2="23450" y2="23660" stroke="#378ADD" stroke-width="45"/>
+<line x1="23450" y1="23660" x2="26300" y2="23660" stroke="#378ADD" stroke-width="45" stroke-dasharray="170 120"/>
+<line x1="26300" y1="23660" x2="27300" y2="23660" stroke="#378ADD" stroke-width="45"/>
+<circle cx="27300" cy="23660" r="70" fill="#fbf9f2" stroke="#378ADD" stroke-width="30"/>
+<text x="20225.0" y="14250.0" font-size="340" fill="#1d5fa3" text-anchor="middle">SB1 &#8594; 19,59 m</text>
+<line x1="17000" y1="17518.2" x2="23450" y2="17518.2" stroke="#1D9E75" stroke-width="45"/>
+<line x1="23450" y1="17518.2" x2="23450" y2="23720" stroke="#1D9E75" stroke-width="45"/>
+<line x1="23450" y1="23720" x2="26300" y2="23720" stroke="#1D9E75" stroke-width="45" stroke-dasharray="170 120"/>
+<line x1="26300" y1="23720" x2="27300" y2="23720" stroke="#1D9E75" stroke-width="45"/>
+<circle cx="27300" cy="23720" r="70" fill="#fbf9f2" stroke="#1D9E75" stroke-width="30"/>
+<text x="20225.0" y="17313.0" font-size="340" fill="#147a56" text-anchor="middle">SB2 &#8594; 16,53 m</text>
+<line x1="17000" y1="21314.5" x2="23450" y2="21314.5" stroke="#EF9F27" stroke-width="45"/>
+<line x1="23450" y1="21314.5" x2="23450" y2="23780" stroke="#EF9F27" stroke-width="45"/>
+<line x1="23450" y1="23780" x2="26300" y2="23780" stroke="#EF9F27" stroke-width="45" stroke-dasharray="170 120"/>
+<line x1="26300" y1="23780" x2="27300" y2="23780" stroke="#EF9F27" stroke-width="45"/>
+<circle cx="27300" cy="23780" r="70" fill="#fbf9f2" stroke="#EF9F27" stroke-width="30"/>
+<text x="20225.0" y="21109.0" font-size="340" fill="#a86c12" text-anchor="middle">SB3 &#8594; 12,74 m</text>
+<line x1="17000" y1="24177.5" x2="23450" y2="24177.5" stroke="#7E57C2" stroke-width="45"/>
+<line x1="23450" y1="24177.5" x2="23450" y2="23840" stroke="#7E57C2" stroke-width="45"/>
+<line x1="23450" y1="23840" x2="26300" y2="23840" stroke="#7E57C2" stroke-width="45" stroke-dasharray="170 120"/>
+<line x1="26300" y1="23840" x2="27300" y2="23840" stroke="#7E57C2" stroke-width="45"/>
+<circle cx="27300" cy="23840" r="70" fill="#fbf9f2" stroke="#7E57C2" stroke-width="30"/>
+<text x="20225.0" y="24632.0" font-size="340" fill="#5c3a96" text-anchor="middle">SB4 &#8594; 10,73 m</text>
+<rect x="17000" y="14005.8" width="1700" height="900" rx="70" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<text x="17850" y="14275.8" font-size="380" font-weight="700" fill="#1d5fa3" text-anchor="middle">SB1</text>
+<text x="17850" y="14655.8" font-size="230" fill="#3a3a34" text-anchor="middle">5 Strings</text>
+<rect x="17000" y="17068.2" width="1700" height="900" rx="70" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<text x="17850" y="17338.2" font-size="380" font-weight="700" fill="#147a56" text-anchor="middle">SB2</text>
+<text x="17850" y="17718.2" font-size="230" fill="#3a3a34" text-anchor="middle">5 Strings</text>
+<rect x="17000" y="20864.5" width="1700" height="900" rx="70" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<text x="17850" y="21134.5" font-size="380" font-weight="700" fill="#a86c12" text-anchor="middle">SB3</text>
+<text x="17850" y="21514.5" font-size="230" fill="#3a3a34" text-anchor="middle">3 Strings</text>
+<rect x="17000" y="23727.5" width="1700" height="900" rx="70" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<text x="17850" y="23997.5" font-size="380" font-weight="700" fill="#5c3a96" text-anchor="middle">SB4</text>
+<text x="17850" y="24377.5" font-size="230" fill="#3a3a34" text-anchor="middle">2 Strings</text>
+<text x="26900" y="24750" font-size="260" fill="#6b6b63">&#8594; Reglerschrank</text>
+<text x="6700" y="29900" font-size="280" fill="#9a958a">Maße in mm &#183; entlang der Office-Wand und beim Wanddurchbruch (gestrichelt = unter dem Boden) werden die vier Trassen zugunsten der Lesbarkeit leicht versetzt dargestellt</text>
 </svg>
     </div>
 
     <div class="table-scroll">
     <table class="con-table">
       <thead><tr>
-        <th>Box</th><th>Gruppe</th><th class="num">Strings</th><th class="num">Route Storage</th><th class="num">I<sub>mpp</sub> Trunk</th><th class="num">I<sub>B</sub> Trunk</th><th class="num">ΔU @ 6 mm²</th><th class="num">ΔU @ 10 mm²</th><th class="num">Gewählt</th>
+        <th>Box</th><th>Gruppe</th><th class="num">Strings</th><th class="num">Route (einfach)</th>
       </tr></thead>
       <tbody>
-        <tr><td>SB1</td><td>SolarWorld SW 165</td><td class="num">5</td><td class="num">17,84 m</td><td class="num">23,85 A</td><td class="num">34,12 A</td><td class="num">2,53 V · 2,44 %</td><td class="num">1,52 V · 1,46 %</td><td class="num"><b>10 mm²</b></td></tr>
-        <tr><td>SB2</td><td>SolarWorld SW 165</td><td class="num">5</td><td class="num">14,78 m</td><td class="num">23,85 A</td><td class="num">34,12 A</td><td class="num">2,10 V · 2,02 %</td><td class="num">1,26 V · 1,21 %</td><td class="num"><b>10 mm²</b></td></tr>
-        <tr><td>SB3</td><td>Sunset AS 175</td><td class="num">3</td><td class="num">10,99 m</td><td class="num">20,55 A</td><td class="num">28,69 A</td><td class="num">1,34 V · 0,88 %</td><td class="num">0,81 V · 0,53 %</td><td class="num"><b>6 mm²</b></td></tr>
-        <tr><td>SB4</td><td>SolarWorld SW 250</td><td class="num">2</td><td class="num">10,30 m</td><td class="num">16,54 A</td><td class="num">22,03 A</td><td class="num">1,01 V · 1,11 %</td><td class="num">0,61 V · 0,66 %</td><td class="num"><b>6 mm²</b></td></tr>
+        <tr><td>SB1</td><td>SolarWorld SW 165</td><td class="num">5</td><td class="num">19,59 m</td></tr>
+        <tr><td>SB2</td><td>SolarWorld SW 165</td><td class="num">5</td><td class="num">16,53 m</td></tr>
+        <tr><td>SB3</td><td>Sunset AS 175</td><td class="num">3</td><td class="num">12,74 m</td></tr>
+        <tr><td>SB4</td><td>SolarWorld SW 250</td><td class="num">2</td><td class="num">10,73 m</td></tr>
       </tbody>
-      <tfoot><tr><td colspan="3">Summe Trassenlänge (einfach)</td><td class="num">53,91 m</td><td colspan="5"></td></tr></tfoot>
+      <tfoot><tr><td colspan="3">Summe Trassenlänge (einfach)</td><td class="num">59,59 m</td></tr></tfoot>
     </table>
     </div>
 
     <div class="kp-sum-strip">
-      <div class="kpi"><div class="kpi-label">Trunkkabel 10 mm²</div><div class="kpi-value">65,3 <span style="font-size:15px">m</span></div><div class="kpi-unit">SB1 + SB2 · + und − je Box</div></div>
-      <div class="kpi"><div class="kpi-label">Trunkkabel 6 mm²</div><div class="kpi-value">42,6 <span style="font-size:15px">m</span></div><div class="kpi-unit">SB3 + SB4 · + und − je Box</div></div>
-      <div class="kpi"><div class="kpi-label">Leiterbedarf gesamt</div><div class="kpi-value">107,8 <span style="font-size:15px">m</span></div><div class="kpi-unit">4 Trunkleitungen · 2-adrig</div></div>
+      <div class="kpi"><div class="kpi-label"><span class="csa-chip c10">10 mm²</span> Trunkkabel</div><div class="kpi-value">72,3 <span style="font-size:15px">m</span></div><div class="kpi-unit">SB1 + SB2 · + und − je Box</div></div>
+      <div class="kpi"><div class="kpi-label"><span class="csa-chip c6">6 mm²</span> Trunkkabel</div><div class="kpi-value">46,9 <span style="font-size:15px">m</span></div><div class="kpi-unit">SB3 + SB4 · + und − je Box</div></div>
+      <div class="kpi"><div class="kpi-label">Leiterbedarf gesamt</div><div class="kpi-value">119,2 <span style="font-size:15px">m</span></div><div class="kpi-unit">4 Trunkleitungen · 2-adrig</div></div>
     </div>
 
-    <div class="note-box info">
-      <b>Warum 2 % statt 1 % Zielwert?</b> Das Stringkabel (Abschnitt 04) verbraucht bereits 0,3–0,7 % Spannungsfall. Für die Trunkleitung wird hier ≤ 2 % je Abschnitt angesetzt, sodass der gesamte DC-seitige Spannungsfall Modul → Regler unter den in der PV-Praxis üblichen 3 % bleibt. Bei 6 mm² läge SB1/SB2 mit 2,0–2,4 % darüber – deshalb 10 mm² für die beiden Gruppen mit 5 parallelen SW-165-Strings (höchster Trunkstrom, längste Strecke). SB3 und SB4 erreichen ihr Ziel bereits mit 6 mm². Die Strombelastbarkeit ist auch hier nie der limitierende Faktor (I<sub>B</sub> 22–34 A gegenüber ≥ 63 A bei 6 mm² bzw. ≥ 85 A bei 10 mm² Solarkabel).
+    <h2 class="section-title" style="font-size:20px;margin:36px 0 14px">Trunkkabel-Querschnitt (Querschnittsrechner)</h2>
+    <p class="section-desc" style="margin-bottom:20px">Gleiche Methode wie in Abschnitt 04, jetzt für die vier Trunkleitungen Sammelbox → Storage. Zwei Kriterien, das strengere entscheidet:</p>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Kriterium A · Strombelastbarkeit</div>
+        <div class="card-body">
+          <p>Bemessungsstrom <b>I<sub>B</sub> = 1,25 × I<sub>mpp</sub> Trunk</b> (Summenstrom aller parallelen Strings der Gruppe). Verglichen mit der Strombelastbarkeit von PV1-F/H1Z2Z2-K Solarkabel frei in Luft (≥ 63 A bei 6 mm², ≥ 85 A bei 10 mm²).</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Kriterium B · Spannungsfall</div>
+        <div class="card-body">
+          <p><b>ΔU = (I<sub>mpp</sub> Trunk × L) / (κ × A)</b> mit κ = 56 m/(Ω·mm²) (Kupfer). L = Trassenlänge Hin- und Rückleiter (2 × einfache Strecke aus der Tabelle oben). Zielwert hier: ΔU ≤ 2 % der String-Vmpp (Begründung siehe Hinweis unten).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-scroll">
+    <table class="con-table">
+      <thead><tr>
+        <th>Box</th><th>Gruppe</th><th class="num">I<sub>mpp</sub> Trunk</th><th class="num">I<sub>B</sub> Trunk</th><th class="num">ΔU @ <span class="csa-chip c6">6 mm²</span></th><th class="num">ΔU @ <span class="csa-chip c10">10 mm²</span></th><th class="num">Gewählt</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>SB1</td><td>SolarWorld SW 165</td><td class="num">23,85 A</td><td class="num">34,12 A</td><td class="num">2,78 V · 2,68 %</td><td class="num">1,67 V · 1,61 %</td><td class="num"><span class="csa-chip c10">10 mm²</span></td></tr>
+        <tr><td>SB2</td><td>SolarWorld SW 165</td><td class="num">23,85 A</td><td class="num">34,12 A</td><td class="num">2,35 V · 2,26 %</td><td class="num">1,41 V · 1,36 %</td><td class="num"><span class="csa-chip c10">10 mm²</span></td></tr>
+        <tr><td>SB3</td><td>Sunset AS 175</td><td class="num">20,55 A</td><td class="num">28,69 A</td><td class="num">1,56 V · 1,02 %</td><td class="num">0,93 V · 0,61 %</td><td class="num"><span class="csa-chip c6">6 mm²</span></td></tr>
+        <tr><td>SB4</td><td>SolarWorld SW 250</td><td class="num">16,54 A</td><td class="num">22,03 A</td><td class="num">1,06 V · 1,15 %</td><td class="num">0,63 V · 0,69 %</td><td class="num"><span class="csa-chip c6">6 mm²</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="note-box info" style="margin-top:20px">
+      <b>Warum 2 % statt 1 % Zielwert?</b> Das Stringkabel (Abschnitt 04) verbraucht bereits 0,3–0,7 % Spannungsfall. Für die Trunkleitung wird hier ≤ 2 % je Abschnitt angesetzt, sodass der gesamte DC-seitige Spannungsfall Modul → Regler unter den in der PV-Praxis üblichen 3 % bleibt. Bei <span class="csa-chip c6">6 mm²</span> läge SB1/SB2 mit 2,26–2,68 % darüber – deshalb <span class="csa-chip c10">10 mm²</span> für die beiden Gruppen mit 5 parallelen SW-165-Strings (höchster Trunkstrom, längste Strecke über die Office-Wand). SB3 und SB4 erreichen ihr Ziel bereits mit <span class="csa-chip c6">6 mm²</span> (1,02 % bzw. 1,15 %). Die Strombelastbarkeit ist auch hier nie der limitierende Faktor (I<sub>B</sub> 22–34 A gegenüber ≥ 63 A bei 6 mm² bzw. ≥ 85 A bei 10 mm² Solarkabel).
     </div>
 
   </div>
@@ -3620,6 +3662,7 @@ img[data-lb]{cursor:zoom-in}
   <a href="https://www.linkedin.com/in/projektkurs-pv-gambia/" target="_blank" style="color:inherit">LinkedIn</a>
   &nbsp;·&nbsp;
   <a href="https://www.hochschule-bochum.de/studentische-projekte/photovoltaik-in-gambia/uebersicht/" target="_blank" style="color:inherit">HS Bochum · Projektseite</a>
+  <div style="margin-top:10px">Diese Website wurde erstellt von: Simon van Almsick &amp; Paul Hallerbach</div>
 </footer>
 
 
