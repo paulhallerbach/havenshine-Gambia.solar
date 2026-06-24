@@ -722,7 +722,7 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
 #page-kabelplanung{background:var(--paper)}
 .kp-main{max-width:1300px;margin:0 auto;padding:0 60px 80px}
 .kp-diagram-wrap{background:var(--paper2);border:1px solid var(--paper3);border-radius:12px;padding:20px;overflow-x:auto;margin-bottom:24px}
-.kp-diagram-wrap svg{display:block;margin:0 auto;min-width:1080px;height:auto}
+.kp-diagram-wrap svg{display:block;margin:0 auto;min-width:1130px;height:auto}
 .kp-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:24px}
 .kp-lg{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
 .kp-lg .sw{width:30px;height:30px;border-radius:6px;border:2px solid;flex-shrink:0;margin-top:2px}
@@ -839,7 +839,7 @@ img[data-lb]{cursor:zoom-in}
     <span class="pg-icon">⛶</span> Grundriss
   </button>
   <button class="page-btn" onclick="switchPage('kabelplanung',this,true)">
-    <span class="pg-icon">⏚</span> Kabelplanung
+    <span class="pg-icon">⏚</span> Kabelplanung - draußen
   </button>
   <button class="page-btn" onclick="switchPage('zusatzsystem',this,true)">
     <span class="pg-icon">🔌</span> Zusatzsystem
@@ -2289,16 +2289,17 @@ img[data-lb]{cursor:zoom-in}
   <!-- 01 STRINGVERSCHALTUNG -->
   <div class="section">
     <div class="section-header"><span class="section-num">01</span><h2 class="section-title">String-Verschaltung &amp; Kabelwege</h2></div>
-    <p class="section-desc">15 Strings aus 54 Modulen, verteilt auf 9 Dachreihen, laufen in vier Sammelboxen (GAK) zusammen – je eine pro MPPT-Laderegler. Innerhalb eines Strings sind die Module in Reihe verschaltet; der freie <b>− Pol</b> (links) und <b>+ Pol</b> (rechts) jedes Strings wird einzeln zur Sammelbox geführt, dort werden die Strings parallelgeschaltet.</p>
+    <p class="section-desc">15 Strings aus 54 Modulen, verteilt auf 9 Dachreihen, laufen in vier Sammelboxen (GAK) zusammen – je eine pro MPPT-Laderegler. Innerhalb eines Strings sind die Module in Reihe verschaltet; der freie <b>− Pol</b> (links) und <b>+ Pol</b> (rechts) jedes Strings wird einzeln zur Sammelbox geführt, dort werden die Strings parallelgeschaltet. Die MPPT-Laderegler rechts daneben sind <b>nachgeschaltete Komponenten</b> im Technikraum (Trunkkabel, siehe Abschnitt 05 „Sammelbox → Technikraum") – sie stecken nicht in der Sammelbox selbst. Welche Sammelbox-Produkte tatsächlich verbaut werden, zeigt Abschnitt 02.</p>
 
     <div class="kp-cables">
       <div class="kp-cab"><span class="ln" style="background:#a03020"></span><span><b>Rot (+)</b> · Pluskabel · rechter Pol → Sammelbox</span></div>
       <div class="kp-cab"><span class="ln" style="background:#1a1a18"></span><span><b>Schwarz (−)</b> · Minuskabel · linker Pol → Sammelbox</span></div>
       <div class="kp-cab"><span class="ln" style="background:#9A7B3F;height:3px"></span><span>Maßlinie · realer Reihenabstand 450 mm (siehe Grundriss-Seite)</span></div>
+      <div class="kp-cab"><span class="ln" style="background:#cfcabd;border:1px dashed #8a8a80"></span><span>Gestrichelter Kasten · MPPT-Laderegler (nachgeschaltet, Details Abschnitt 05)</span></div>
     </div>
 
     <div class="kp-diagram-wrap">
-<svg viewBox="0 0 1230 1110" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif">
+<svg viewBox="0 0 1430 1110" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif">
 <rect x="34" y="70.0" width="8" height="222.3" rx="4" fill="#378ADD"/>
 <rect x="34" y="292.3" width="8" height="222.4" rx="4" fill="#1D9E75"/>
 <rect x="34" y="594.5" width="8" height="286.9" rx="4" fill="#EF9F27"/>
@@ -2455,81 +2456,174 @@ img[data-lb]{cursor:zoom-in}
 <text x="701.3" y="1004.2" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S15</text>
 <rect x="940.2" y="117.0" width="200" height="116.0" rx="8" fill="#ffffff" stroke="#378ADD" stroke-width="2"/>
 <text x="954.2" y="137.0" font-size="14" font-weight="700" fill="#378ADD" font-family="DM Serif Display, serif">Sammelbox 1</text>
-<text x="954.2" y="154.0" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 150/60</text>
+<a href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-solar-pv-combiner-box-6-string-15a-fuer-solar-panel-system-stahl-fall-ip65-p_010268881303?lang=de&amp;currency=eur" target="_blank" rel="noopener"><text x="954.2" y="154.0" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">Vevor 6-String 15A &#8599;</text></a>
 <text x="954.2" y="169.0" font-size="9.5" fill="#999" font-family="DM Mono, monospace">5 Strings &#183; SolarWorld SW 165</text>
 <rect x="940.2" y="351.7" width="200" height="116.0" rx="8" fill="#ffffff" stroke="#1D9E75" stroke-width="2"/>
 <text x="954.2" y="371.7" font-size="14" font-weight="700" fill="#1D9E75" font-family="DM Serif Display, serif">Sammelbox 2</text>
-<text x="954.2" y="388.7" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 150/60</text>
+<a href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-solar-pv-combiner-box-6-string-15a-fuer-solar-panel-system-stahl-fall-ip65-p_010268881303?lang=de&amp;currency=eur" target="_blank" rel="noopener"><text x="954.2" y="388.7" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">Vevor 6-String 15A &#8599;</text></a>
 <text x="954.2" y="403.7" font-size="9.5" fill="#999" font-family="DM Mono, monospace">5 Strings &#183; SolarWorld SW 165</text>
 <rect x="940.2" y="699.9" width="200" height="76.0" rx="8" fill="#ffffff" stroke="#EF9F27" stroke-width="2"/>
 <text x="954.2" y="719.9" font-size="14" font-weight="700" fill="#EF9F27" font-family="DM Serif Display, serif">Sammelbox 3</text>
-<text x="954.2" y="736.9" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 250/70</text>
+<a href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-pv-kombinationskasten-sicherungskasten-15a-500v-unterverteilung-aufputz-p_010856812983?lang=de&amp;currency=eur" target="_blank" rel="noopener"><text x="954.2" y="736.9" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">Vevor Kombikasten 15A &#8599;</text></a>
 <text x="954.2" y="751.9" font-size="9.5" fill="#999" font-family="DM Mono, monospace">3 Strings &#183; Sunset AS 175</text>
 <rect x="940.2" y="970.7" width="200" height="56.0" rx="8" fill="#ffffff" stroke="#7E57C2" stroke-width="2"/>
 <text x="954.2" y="990.7" font-size="14" font-weight="700" fill="#7E57C2" font-family="DM Serif Display, serif">Sammelbox 4</text>
-<text x="954.2" y="1007.7" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 150/60</text>
+<a href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-pv-kombinationskasten-sicherungskasten-15a-500v-unterverteilung-aufputz-p_010856812983?lang=de&amp;currency=eur" target="_blank" rel="noopener"><text x="954.2" y="1007.7" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">Vevor Kombikasten 15A &#8599;</text></a>
 <text x="954.2" y="1022.7" font-size="9.5" fill="#999" font-family="DM Mono, monospace">2 Strings &#183; SolarWorld SW 250</text>
+
+<line x1="1140.2" y1="165.0" x2="1200.2" y2="165.0" stroke="#1a1a18" stroke-width="1.6"/>
+<line x1="1140.2" y1="185.0" x2="1200.2" y2="185.0" stroke="#a03020" stroke-width="1.6"/>
+<circle cx="1140.2" cy="165.0" r="2.6" fill="#1a1a18"/>
+<circle cx="1140.2" cy="185.0" r="2.6" fill="#a03020"/>
+<text x="1146.0" y="161.5" font-size="10" fill="#1a1a18" font-weight="700" font-family="DM Mono, monospace">&#8722;</text>
+<text x="1146.0" y="198.0" font-size="10" fill="#a03020" font-weight="700" font-family="DM Mono, monospace">+</text>
+<rect x="1200.2" y="140.0" width="170" height="70.0" rx="8" fill="#fbf9f2" stroke="#378ADD" stroke-width="1.6" stroke-dasharray="5,3"/>
+<text x="1214.2" y="160.0" font-size="13" font-weight="700" fill="#378ADD" font-family="DM Serif Display, serif">MPPT 1</text>
+<text x="1214.2" y="178.0" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 150/60</text>
+<text x="1214.2" y="195.0" font-size="9" fill="#999" font-family="DM Mono, monospace">Trunk &#8594; Abschnitt 05</text>
+
+<line x1="1140.2" y1="399.7" x2="1200.2" y2="399.7" stroke="#1a1a18" stroke-width="1.6"/>
+<line x1="1140.2" y1="419.7" x2="1200.2" y2="419.7" stroke="#a03020" stroke-width="1.6"/>
+<circle cx="1140.2" cy="399.7" r="2.6" fill="#1a1a18"/>
+<circle cx="1140.2" cy="419.7" r="2.6" fill="#a03020"/>
+<text x="1146.0" y="396.2" font-size="10" fill="#1a1a18" font-weight="700" font-family="DM Mono, monospace">&#8722;</text>
+<text x="1146.0" y="432.7" font-size="10" fill="#a03020" font-weight="700" font-family="DM Mono, monospace">+</text>
+<rect x="1200.2" y="374.7" width="170" height="70.0" rx="8" fill="#fbf9f2" stroke="#1D9E75" stroke-width="1.6" stroke-dasharray="5,3"/>
+<text x="1214.2" y="394.7" font-size="13" font-weight="700" fill="#1D9E75" font-family="DM Serif Display, serif">MPPT 2</text>
+<text x="1214.2" y="412.7" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 150/60</text>
+<text x="1214.2" y="429.7" font-size="9" fill="#999" font-family="DM Mono, monospace">Trunk &#8594; Abschnitt 05</text>
+
+<line x1="1140.2" y1="727.9" x2="1200.2" y2="727.9" stroke="#1a1a18" stroke-width="1.6"/>
+<line x1="1140.2" y1="747.9" x2="1200.2" y2="747.9" stroke="#a03020" stroke-width="1.6"/>
+<circle cx="1140.2" cy="727.9" r="2.6" fill="#1a1a18"/>
+<circle cx="1140.2" cy="747.9" r="2.6" fill="#a03020"/>
+<text x="1146.0" y="724.4" font-size="10" fill="#1a1a18" font-weight="700" font-family="DM Mono, monospace">&#8722;</text>
+<text x="1146.0" y="760.9" font-size="10" fill="#a03020" font-weight="700" font-family="DM Mono, monospace">+</text>
+<rect x="1200.2" y="702.9" width="170" height="70.0" rx="8" fill="#fbf9f2" stroke="#EF9F27" stroke-width="1.6" stroke-dasharray="5,3"/>
+<text x="1214.2" y="722.9" font-size="13" font-weight="700" fill="#EF9F27" font-family="DM Serif Display, serif">MPPT 3</text>
+<text x="1214.2" y="740.9" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 250/70</text>
+<text x="1214.2" y="757.9" font-size="9" fill="#999" font-family="DM Mono, monospace">Trunk &#8594; Abschnitt 05</text>
+
+<line x1="1140.2" y1="988.7" x2="1200.2" y2="988.7" stroke="#1a1a18" stroke-width="1.6"/>
+<line x1="1140.2" y1="1008.7" x2="1200.2" y2="1008.7" stroke="#a03020" stroke-width="1.6"/>
+<circle cx="1140.2" cy="988.7" r="2.6" fill="#1a1a18"/>
+<circle cx="1140.2" cy="1008.7" r="2.6" fill="#a03020"/>
+<text x="1146.0" y="985.2" font-size="10" fill="#1a1a18" font-weight="700" font-family="DM Mono, monospace">&#8722;</text>
+<text x="1146.0" y="1021.7" font-size="10" fill="#a03020" font-weight="700" font-family="DM Mono, monospace">+</text>
+<rect x="1200.2" y="963.7" width="170" height="70.0" rx="8" fill="#fbf9f2" stroke="#7E57C2" stroke-width="1.6" stroke-dasharray="5,3"/>
+<text x="1214.2" y="983.7" font-size="13" font-weight="700" fill="#7E57C2" font-family="DM Serif Display, serif">MPPT 4</text>
+<text x="1214.2" y="1001.7" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 150/60</text>
+<text x="1214.2" y="1018.7" font-size="9" fill="#999" font-family="DM Mono, monospace">Trunk &#8594; Abschnitt 05</text>
 </svg>
     </div>
 
-    <div class="kp-legend">
-      <div class="kp-lg"><div class="sw" style="background:#D6E4F2;border-color:#378ADD"></div><div class="t"><b>Sammelbox 1</b><br>Victron 150/60 · SolarWorld SW 165<br>5 Strings × 3 Module · Reihen 1–2,5</div></div>
-      <div class="kp-lg"><div class="sw" style="background:#D5E8DF;border-color:#1D9E75"></div><div class="t"><b>Sammelbox 2</b><br>Victron 150/60 · SolarWorld SW 165<br>5 Strings × 3 Module · Reihen 2,5–5</div></div>
-      <div class="kp-lg"><div class="sw" style="background:#F6E6CC;border-color:#EF9F27"></div><div class="t"><b>Sammelbox 3</b><br>Victron 250/70 · Sunset AS 175<br>3 Strings × 6 Module · Reihen 6–8</div></div>
-      <div class="kp-lg"><div class="sw" style="background:#E2DAEC;border-color:#7E57C2"></div><div class="t"><b>Sammelbox 4</b><br>Victron 150/60 · SolarWorld SW 250<br>2 Strings × 3 Module · Reihe 9</div></div>
+  </div>
+
+  <!-- 02 SAMMELBOXEN KOMPONENTEN -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Sammelboxen (GAK) · Komponenten</h2></div>
+    <p class="section-desc">Die in Abschnitt 01 verwendeten Sammelboxen sind reale Produkte – zwei Bautypen, vier Stück. Spezifikationen unten direkt vom Hersteller-Datenblatt übernommen (Stand der Recherche). Alle Preise inkl. MwSt., ohne Versand – vor Bestellung beim Anbieter gegenprüfen.</p>
+
+    <div class="prod-grid">
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">Vevor · PV-Kombinator-Box-Serie</div>
+          <div class="prod-name">PV-Combiner-Box 6-String, 15 A Sicherung, 125 A Leistungsschalter</div>
+          <div class="prod-tag">2× benötigt · für SB1 &amp; SB2 (je 5 von 6 Eingängen genutzt)</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">String-Eingänge</span><span class="spec-val">6 · je 15 A Sicherung (DC 500 V)</span></div>
+            <div class="spec-row"><span class="spec-key">Hauptschalter</span><span class="spec-val">125 A · 2P DC 500 V</span></div>
+            <div class="spec-row"><span class="spec-key">Überspannungsschutz</span><span class="spec-val">40 kA · 2P</span></div>
+            <div class="spec-row"><span class="spec-key">Gehäuse / Schutzart</span><span class="spec-val">Stahl 0,8 mm, RAL 7035 · IP65</span></div>
+            <div class="spec-row"><span class="spec-key">Maße / Gewicht</span><span class="spec-val">280 × 250 × 100 mm · 3,88 kg</span></div>
+            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">90,00 € / Stück</span></div>
+          </div>
+          <a class="prod-link" href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-solar-pv-combiner-box-6-string-15a-fuer-solar-panel-system-stahl-fall-ip65-p_010268881303?lang=de&amp;currency=eur" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">Vevor · PV-Kombinator-Box-Serie</div>
+          <div class="prod-name">PV-Kombinationskasten 4-String, 15 A Sicherungskasten, 500 V Unterverteilung</div>
+          <div class="prod-tag">2× benötigt · je 1× für SB3 (3 von 4 Eing.) &amp; SB4 (2 von 4 Eing.)</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">String-Eingänge</span><span class="spec-val">4 · je 15 A Sicherung (DC)</span></div>
+            <div class="spec-row"><span class="spec-key">Hauptschalter</span><span class="spec-val">63 A · 500 V</span></div>
+            <div class="spec-row"><span class="spec-key">Überspannungsschutz</span><span class="spec-val">20 kA, max. 40 kA</span></div>
+            <div class="spec-row"><span class="spec-key">Gehäuse / Schutzart</span><span class="spec-val">ABS-Kunststoff · IP65</span></div>
+            <div class="spec-row"><span class="spec-key">Maße / Gewicht</span><span class="spec-val">170 × 230 × 110 mm · 1,8 kg</span></div>
+            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">70,90 € / Stück</span></div>
+          </div>
+          <a class="prod-link" href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-pv-kombinationskasten-sicherungskasten-15a-500v-unterverteilung-aufputz-p_010856812983?lang=de&amp;currency=eur" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
+        </div>
+      </div>
+
     </div>
 
-    <div class="note-box">
-      <b>Lesehilfe:</b> Jede Zeile im Diagramm ist eine Dachreihe (Maßstab wie im <span style="white-space:nowrap">Grundriss</span>). Reihen mit 6 Modulen bilden zwei Strings (links/rechts der gestrichelten Trennlinie) oder – bei Reihen 6–8 – einen durchgehenden 6er-String. Die vier Sammelboxen hängen an einem gemeinsamen Kabelkanal an der Ostseite des Feldes; jeder String läuft einzeln und kreuzungsfrei in seine Box.
+    <div class="kp-sum-strip">
+      <div class="kpi"><div class="kpi-label">Sammelboxen gesamt</div><div class="kpi-value">4 <span style="font-size:15px">Stück</span></div><div class="kpi-unit">2 Bautypen · je 2×</div></div>
+      <div class="kpi"><div class="kpi-label">Kosten Sammelboxen</div><div class="kpi-value">321,80 <span style="font-size:15px">€</span></div><div class="kpi-unit">2× 90,00 € + 2× 70,90 €</div></div>
+      <div class="kpi"><div class="kpi-label">Freie Reserve-Eingänge</div><div class="kpi-value">5 <span style="font-size:15px">frei</span></div><div class="kpi-unit">SB1/SB2 je 1 · SB3 1 · SB4 2</div></div>
+    </div>
+
+    <div class="note-box warn">
+      <b>Sicherung prüfen:</b> Werks-Vorsicherung beider Boxtypen ist fix <b>15 A je String</b>. Das passt für SB3 (Sunset AS&nbsp;175, I<sub>sc</sub>=7,65 A → nach DIN VDE 0100-712 zulässig 9,6–18,4 A) und SB4 (SolarWorld SW&nbsp;250, I<sub>sc</sub>=8,81 A → zulässig 11,0–21,1 A). Für SB1/SB2 (SolarWorld SW&nbsp;165, I<sub>sc</sub>=5,46 A → zulässig nur 6,8–13,1 A) liegt die werkseitige 15-A-Sicherung bereits <b>über</b> dem zulässigen Maximum – die Notiz aus der Beschaffungsplanung („Sicherung auf 20 A erhöhen") passt dazu nicht, 20 A wäre noch weiter über dem Limit. Vor Bestellung klären, ob die Sicherungseinsätze der 6-String-Box austauschbar sind (z. B. auf 10 A), sonst Eigenbau-Lösung für SB1/SB2 prüfen. Der Hauptschalter (125 A bzw. 63 A) ist dagegen unkritisch – weit über dem realen Trunkstrom (22–34 A, siehe Abschnitt 05).
     </div>
   </div>
 
-  <!-- 02 KABELLÄNGEN -->
+  <!-- 03 KABELLÄNGEN -->
   <div class="section">
-    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Kabellängen-Berechnung</h2></div>
-    <p class="section-desc">Berechnet aus den Koordinaten des Grundrisses, nicht geschätzt. Sammelbox-Position je Gruppe: gemeinsamer Kabelkanal bei x = 17.000 mm (200 mm hinter der letzten Modulspalte), Höhe = Mittelwert der Reihenmitten aller angeschlossenen Strings. Kabelweg = orthogonal (Reihenhöhe → Kanal → Box), nicht Luftlinie; + 0,5 m je Kabelende für Steckverbinder/Zugentlastung bereits enthalten. Das Minuskabel ist je String länger als das Pluskabel, weil der − Pol links und die Sammelbox rechts vom Feld liegt.</p>
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Kabellängen-Berechnung</h2></div>
+    <p class="section-desc">Berechnet aus den Koordinaten des Grundrisses, nicht geschätzt. Sammelbox-Position je Gruppe: gemeinsamer Kabelkanal bei x = 17.000 mm (200 mm hinter der letzten Modulspalte), Höhe = Mittelwert der Reihenmitten aller angeschlossenen Strings. Kabelweg = orthogonal (Reihenhöhe → Kanal → Box), nicht Luftlinie; + 0,5 m je Kabelende für Steckverbinder/Zugentlastung bereits enthalten. Angegeben ist die Gesamtlänge je String (Plus- und Minuskabel zusammen) – gilt ausschließlich für das 4 mm² String-Kabel; die dickeren Trunkkabel zur Storage-Strecke stehen in Abschnitt 05.</p>
 
     <div class="table-scroll">
     <table class="con-table">
       <thead><tr>
-        <th>String</th><th>Reihe</th><th>Hälfte</th><th>Box</th><th class="num">Minus (−) m</th><th class="num">Plus (+) m</th><th class="num">Summe m</th>
+        <th>String</th><th>Reihe</th><th>Hälfte</th><th>Box</th><th class="num">Länge m</th>
       </tr></thead>
       <tbody>
-        <tr><td>S1</td><td>1</td><td>Spalte 1–3</td><td>SB1</td><td class="num-blk">11,57</td><td class="num-red">6,81</td><td class="num">18,38</td></tr>
-        <tr><td>S2</td><td>1</td><td>Spalte 4–6</td><td>SB1</td><td class="num-blk">6,79</td><td class="num-red">2,02</td><td class="num">8,81</td></tr>
-        <tr><td>S3</td><td>2</td><td>Spalte 1–3</td><td>SB1</td><td class="num-blk">10,80</td><td class="num-red">6,04</td><td class="num">16,84</td></tr>
-        <tr><td>S4</td><td>2</td><td>Spalte 4–6</td><td>SB1</td><td class="num-blk">6,02</td><td class="num-red">1,25</td><td class="num">7,27</td></tr>
-        <tr><td>S5</td><td>3</td><td>Spalte 1–3</td><td>SB1</td><td class="num-blk">12,08</td><td class="num-red">7,32</td><td class="num">19,40</td></tr>
-        <tr class="cat-hdr"><td colspan="7">Sammelbox 1 · Zwischensumme: 47,26 m (−) + 23,44 m (+) = 70,70 m</td></tr>
-        <tr><td>S6</td><td>3</td><td>Spalte 4–6</td><td>SB2</td><td class="num-blk">7,30</td><td class="num-red">2,53</td><td class="num">9,83</td></tr>
-        <tr><td>S7</td><td>4</td><td>Spalte 1–3</td><td>SB2</td><td class="num-blk">10,80</td><td class="num-red">6,04</td><td class="num">16,84</td></tr>
-        <tr><td>S8</td><td>4</td><td>Spalte 4–6</td><td>SB2</td><td class="num-blk">6,02</td><td class="num-red">1,25</td><td class="num">7,27</td></tr>
-        <tr><td>S9</td><td>5</td><td>Spalte 1–3</td><td>SB2</td><td class="num-blk">11,57</td><td class="num-red">6,81</td><td class="num">18,38</td></tr>
-        <tr><td>S10</td><td>5</td><td>Spalte 4–6</td><td>SB2</td><td class="num-blk">6,79</td><td class="num-red">2,02</td><td class="num">8,81</td></tr>
-        <tr class="cat-hdr"><td colspan="7">Sammelbox 2 · Zwischensumme: 42,48 m (−) + 18,65 m (+) = 61,13 m</td></tr>
-        <tr><td>S11</td><td>6</td><td>Spalte 1–6</td><td>SB3</td><td class="num-blk">11,68</td><td class="num-red">2,72</td><td class="num">14,40</td></tr>
-        <tr><td>S12</td><td>7</td><td>Spalte 1–6</td><td>SB3</td><td class="num-blk">10,26</td><td class="num-red">1,29</td><td class="num">11,55</td></tr>
-        <tr><td>S13</td><td>8</td><td>Spalte 1–6</td><td>SB3</td><td class="num-blk">11,68</td><td class="num-red">2,72</td><td class="num">14,40</td></tr>
-        <tr class="cat-hdr"><td colspan="7">Sammelbox 3 · Zwischensumme: 33,63 m (−) + 6,72 m (+) = 40,35 m</td></tr>
-        <tr><td>S14</td><td>9</td><td>Spalte 1–3</td><td>SB4</td><td class="num-blk">10,85</td><td class="num-red">5,79</td><td class="num">16,64</td></tr>
-        <tr><td>S15</td><td>9</td><td>Spalte 4–6</td><td>SB4</td><td class="num-blk">5,77</td><td class="num-red">0,70</td><td class="num">6,47</td></tr>
-        <tr class="cat-hdr"><td colspan="7">Sammelbox 4 · Zwischensumme: 16,62 m (−) + 6,49 m (+) = 23,10 m</td></tr>
+        <tr><td>S1</td><td>1</td><td>Spalte 1–3</td><td>SB1</td><td class="num">18,4</td></tr>
+        <tr><td>S2</td><td>1</td><td>Spalte 4–6</td><td>SB1</td><td class="num">8,8</td></tr>
+        <tr><td>S3</td><td>2</td><td>Spalte 1–3</td><td>SB1</td><td class="num">16,8</td></tr>
+        <tr><td>S4</td><td>2</td><td>Spalte 4–6</td><td>SB1</td><td class="num">7,3</td></tr>
+        <tr><td>S5</td><td>3</td><td>Spalte 1–3</td><td>SB1</td><td class="num">19,4</td></tr>
+        <tr class="cat-hdr"><td colspan="5">Sammelbox 1 · Zwischensumme: 70,7 m</td></tr>
+        <tr><td>S6</td><td>3</td><td>Spalte 4–6</td><td>SB2</td><td class="num">9,8</td></tr>
+        <tr><td>S7</td><td>4</td><td>Spalte 1–3</td><td>SB2</td><td class="num">16,8</td></tr>
+        <tr><td>S8</td><td>4</td><td>Spalte 4–6</td><td>SB2</td><td class="num">7,3</td></tr>
+        <tr><td>S9</td><td>5</td><td>Spalte 1–3</td><td>SB2</td><td class="num">18,4</td></tr>
+        <tr><td>S10</td><td>5</td><td>Spalte 4–6</td><td>SB2</td><td class="num">8,8</td></tr>
+        <tr class="cat-hdr"><td colspan="5">Sammelbox 2 · Zwischensumme: 61,1 m</td></tr>
+        <tr><td>S11</td><td>6</td><td>Spalte 1–6</td><td>SB3</td><td class="num">14,4</td></tr>
+        <tr><td>S12</td><td>7</td><td>Spalte 1–6</td><td>SB3</td><td class="num">11,6</td></tr>
+        <tr><td>S13</td><td>8</td><td>Spalte 1–6</td><td>SB3</td><td class="num">14,4</td></tr>
+        <tr class="cat-hdr"><td colspan="5">Sammelbox 3 · Zwischensumme: 40,4 m</td></tr>
+        <tr><td>S14</td><td>9</td><td>Spalte 1–3</td><td>SB4</td><td class="num">16,6</td></tr>
+        <tr><td>S15</td><td>9</td><td>Spalte 4–6</td><td>SB4</td><td class="num">6,5</td></tr>
+        <tr class="cat-hdr"><td colspan="5">Sammelbox 4 · Zwischensumme: 23,1 m</td></tr>
       </tbody>
-      <tfoot><tr><td colspan="4">Gesamtsumme · 15 Strings</td><td class="num-blk">139,98</td><td class="num-red">55,30</td><td class="num">195,28</td></tr></tfoot>
+      <tfoot><tr><td colspan="4">Gesamtsumme · 15 Strings</td><td class="num">195,3</td></tr></tfoot>
     </table>
     </div>
 
     <div class="kp-sum-strip">
-      <div class="kpi"><div class="kpi-label">Kabellänge gesamt</div><div class="kpi-value">195,3 <span style="font-size:15px">m</span></div><div class="kpi-unit">15 Strings · 54 Module</div></div>
-      <div class="kpi"><div class="kpi-label">Minuskabel (schwarz)</div><div class="kpi-value">140,0 <span style="font-size:15px">m</span></div><div class="kpi-unit">71,7 % der Gesamtlänge</div></div>
-      <div class="kpi c-red"><div class="kpi-label">Pluskabel (rot)</div><div class="kpi-value">55,3 <span style="font-size:15px">m</span></div><div class="kpi-unit">28,3 % der Gesamtlänge</div></div>
+      <div class="kpi"><div class="kpi-label">Kabellänge berechnet</div><div class="kpi-value">195,3 <span style="font-size:15px">m</span></div><div class="kpi-unit">15 Strings · 54 Module</div></div>
+      <div class="kpi c-red"><div class="kpi-label">Einkaufsmenge (Rollen)</div><div class="kpi-value">300 <span style="font-size:15px">m</span></div><div class="kpi-unit">2× 100 m schwarz + 1× 100 m rot</div></div>
       <div class="kpi"><div class="kpi-label">Mittlere Stringlänge</div><div class="kpi-value">13,0 <span style="font-size:15px">m</span></div><div class="kpi-unit">6,5–19,4 m Spannweite</div></div>
+    </div>
+
+    <div class="note-box" style="margin-top:4px">
+      <b>Einkauf:</b> Rechnerisch werden 140,0 m Minus- (schwarz) und 55,3 m Plus-Kabel (rot) benötigt. Eingekauft wird in handelsüblichen 100-m-Rollen mit Reserve für Verschnitt und Nachbesserung: <b>2× 100 m schwarz + 1× 100 m rot = 300 m</b> 4 mm² PV1-F/H1Z2Z2-K Solarkabel. Warum genau dieser Querschnitt (4 mm²) gewählt wurde, zeigt die Rechnung in Abschnitt 04.
     </div>
   </div>
 
-  <!-- 03 QUERSCHNITT -->
+  <!-- 04 QUERSCHNITT -->
   <div class="section">
-    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Leitungsquerschnitt</h2></div>
+    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Leitungsquerschnitt (Querschnittsrechner)</h2></div>
     <p class="section-desc">Querschnitt je Sammelbox-Gruppe, ausgelegt für den jeweils längsten String (worst case). Zwei Kriterien, das strengere entscheidet:</p>
 
     <div class="two-col">
@@ -2566,10 +2660,130 @@ img[data-lb]{cursor:zoom-in}
     </div>
   </div>
 
-  <!-- 04 SAMMELBOX -> TECHNIKRAUM -->
+  <!-- 05 SAMMELBOX -> TECHNIKRAUM -->
   <div class="section">
-    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Sammelbox → Technikraum (Storage)</h2></div>
+    <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Sammelbox → Technikraum (Storage)</h2></div>
     <p class="section-desc">Von jeder Sammelbox führt ein gemeinsames Plus-/Minus-Trunkkabel (alle Strings der Gruppe bereits parallelgeschaltet) zum Technikraum mit MPPT-Reglern, Batterien und Wechselrichter. Als Technikraum ist <b>Storage</b> vorgesehen (Grundriss: x = 26.300–28.950 mm, y = 22.000–25.500 mm). Kabelweg: vom gemeinsamen Kanal der Sammelboxen (x = 17.000 mm) orthogonal zur Westwand von Storage, auf Höhe der jeweiligen Box – liegt die Box außerhalb der Raumhöhe, wird zur nächstgelegenen Wandecke geführt. Zuschlag: + 1,0 m Verlegereserve im Raum bis zum Reglerschrank.</p>
+
+    <p class="section-desc" style="margin-top:-6px">Ausschnitt aus dem Grundriss (Ostflügel) – Sammelboxen als Vierecke auf dem gemeinsamen Kabelkanal, Kabelweg bis zur Storage-Wand. Vollständiger Grundriss: siehe Seite „Grundriss".</p>
+
+    <div class="kp-diagram-wrap">
+<svg viewBox="4500 11800 26000 17700" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans,Arial,sans-serif">
+<rect x="4500" y="11800" width="26000" height="17700" fill="#F3EFE3"/>
+<rect x="0" y="0" width="30000" height="30000" fill="none" stroke="#6B655A" stroke-width="45" stroke-dasharray="450 320"/>
+<rect x="23450" y="2200" width="5500" height="26800" fill="none" stroke="#3B3833" stroke-width="175"/>
+<rect x="23450" y="12200" width="5500" height="5500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="26200.0" y="14890.0" font-size="400" fill="#5A5448" text-anchor="middle">Medical /</text>
+<text x="26200.0" y="15380.0" font-size="312" fill="#5A5448" text-anchor="middle">Skill</text>
+<rect x="23450" y="17700" width="5500" height="4300" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="26200.0" y="20000.0" font-size="430" fill="#5A5448" text-anchor="middle">Kitchen</text>
+<rect x="23450" y="22000" width="2850" height="3500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="24875.0" y="23900.0" font-size="360" fill="#5A5448" text-anchor="middle">Office</text>
+<rect x="26300" y="22000" width="2650" height="3500" fill="#F3D9D4" stroke="#B0462B" stroke-width="120"/>
+<text x="27625.0" y="23650.0" font-size="360" fill="#5A5448" text-anchor="middle">Storage</text>
+<text x="27625.0" y="24090.0" font-size="280" fill="#B0462B" text-anchor="middle">(Schaltraum)</text>
+<rect x="23450" y="25500" width="5500" height="3500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="26200.0" y="27400.0" font-size="430" fill="#5A5448" text-anchor="middle">Shop</text>
+<rect x="6950" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="8545" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="10140" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="11735" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="13330" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="14925" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="6950" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="8545" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="10140" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="11735" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="13330" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="14925" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="6950" y="15574" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="8545" y="15574" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="10140" y="15574" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="11735" y="15574" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="13330" y="15574" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="14925" y="15574" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="6950" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="8545" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="10140" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="11735" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="13330" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="14925" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="6950" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="8545" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="10140" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="11735" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="13330" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="14925" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="7241" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="8739" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="10237" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="11735" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="13233" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="14731" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="7241" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="8739" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="10237" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="11735" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="13233" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="14731" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="7241" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="8739" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="10237" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="11735" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="13233" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="14731" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="6650" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="8345" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="10040" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="11735" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="13430" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="15125" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="6650" y="13022" width="10150" height="11656" fill="none" stroke="#B0462B" stroke-width="55" stroke-dasharray="240 170"/>
+<line x1="6650.0" y1="12202.0" x2="16800.0" y2="12202.0" stroke="#B0462B" stroke-width="32"/>
+<line x1="6650.0" y1="12052.0" x2="6650.0" y2="12352.0" stroke="#B0462B" stroke-width="32"/>
+<line x1="16800.0" y1="12052.0" x2="16800.0" y2="12352.0" stroke="#B0462B" stroke-width="32"/>
+<text x="11725.0" y="12032.0" font-size="380" fill="#B0462B" text-anchor="middle">10150</text>
+<line x1="16800" y1="25200" x2="23450" y2="25200" stroke="#B0462B" stroke-width="32"/>
+<line x1="16800" y1="25050" x2="16800" y2="25350" stroke="#B0462B" stroke-width="32"/>
+<line x1="23450" y1="25050" x2="23450" y2="25350" stroke="#B0462B" stroke-width="32"/>
+<text x="20125.0" y="25640.0" font-size="380" fill="#B0462B" text-anchor="middle">6650 (Abstand zur Wand)</text>
+<line x1="17000" y1="13022" x2="17000" y2="24678" stroke="#9A7B3F" stroke-width="50" stroke-dasharray="160 110"/>
+<text x="17150" y="12950" font-size="330" fill="#9A7B3F">Sammelbox-Kanal · x = 17.000 mm</text>
+<line x1="17000" y1="12100" x2="26300" y2="12100" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="17000" y1="11950" x2="17000" y2="12250" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="26300" y1="11950" x2="26300" y2="12250" stroke="#9A7B3F" stroke-width="32"/>
+<text x="21650.0" y="11880.0" font-size="360" fill="#9A7B3F" text-anchor="middle">9300 (Kanal &#8594; Storage-Westwand)</text>
+<line x1="17000" y1="14455.8" x2="26300" y2="14455.8" stroke="#378ADD" stroke-width="45"/>
+<line x1="26300" y1="14455.8" x2="26300" y2="22000" stroke="#378ADD" stroke-width="45"/>
+<line x1="26300" y1="22000" x2="27300" y2="22000" stroke="#378ADD" stroke-width="45"/>
+<text x="20500.0" y="14250.0" font-size="350" fill="#1d5fa3" text-anchor="middle">SB1 &#8594; 17,84 m</text>
+<line x1="17000" y1="17518.2" x2="26300" y2="17518.2" stroke="#1D9E75" stroke-width="45"/>
+<line x1="26300" y1="17518.2" x2="26300" y2="22000" stroke="#1D9E75" stroke-width="45"/>
+<line x1="26300" y1="22000" x2="27300" y2="22000" stroke="#1D9E75" stroke-width="45"/>
+<text x="20500.0" y="17313.0" font-size="350" fill="#147a56" text-anchor="middle">SB2 &#8594; 14,78 m</text>
+<line x1="17000" y1="21314.5" x2="26300" y2="21314.5" stroke="#EF9F27" stroke-width="45"/>
+<line x1="26300" y1="21314.5" x2="26300" y2="22000" stroke="#EF9F27" stroke-width="45"/>
+<line x1="26300" y1="22000" x2="27300" y2="22000" stroke="#EF9F27" stroke-width="45"/>
+<text x="20500.0" y="21109.0" font-size="350" fill="#a86c12" text-anchor="middle">SB3 &#8594; 10,99 m</text>
+<line x1="17000" y1="24177.5" x2="27300" y2="24177.5" stroke="#7E57C2" stroke-width="45"/>
+<text x="20500.0" y="23972.0" font-size="350" fill="#5c3a96" text-anchor="middle">SB4 &#8594; 10,30 m</text>
+<circle cx="26300" cy="22000" r="130" fill="#fbf9f2" stroke="#6b6b63" stroke-width="35"/>
+<rect x="16400" y="14080.8" width="1200" height="750" rx="60" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<text x="17000" y="14250.8" font-size="350" font-weight="700" fill="#1d5fa3" text-anchor="middle">SB1</text>
+<text x="17000" y="14600.8" font-size="200" fill="#3a3a34" text-anchor="middle">5 Strings</text>
+<rect x="16400" y="17143.2" width="1200" height="750" rx="60" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<text x="17000" y="17313.2" font-size="350" font-weight="700" fill="#147a56" text-anchor="middle">SB2</text>
+<text x="17000" y="17663.2" font-size="200" fill="#3a3a34" text-anchor="middle">5 Strings</text>
+<rect x="16400" y="20939.5" width="1200" height="750" rx="60" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<text x="17000" y="21109.5" font-size="350" font-weight="700" fill="#a86c12" text-anchor="middle">SB3</text>
+<text x="17000" y="21459.5" font-size="200" fill="#3a3a34" text-anchor="middle">3 Strings</text>
+<rect x="16400" y="23802.5" width="1200" height="750" rx="60" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<text x="17000" y="23972.5" font-size="350" font-weight="700" fill="#5c3a96" text-anchor="middle">SB4</text>
+<text x="17000" y="24322.5" font-size="200" fill="#3a3a34" text-anchor="middle">2 Strings</text>
+<text x="27450" y="21850" font-size="260" fill="#6b6b63">&#8594; Reglerschrank</text>
+<text x="6700" y="29150" font-size="280" fill="#9a958a">Maße in mm &#183; an der Storage-Ecke werden die Trassen zugunsten der Lesbarkeit überlagert dargestellt</text>
+</svg>
+    </div>
 
     <div class="table-scroll">
     <table class="con-table">
@@ -2593,70 +2807,9 @@ img[data-lb]{cursor:zoom-in}
     </div>
 
     <div class="note-box info">
-      <b>Warum 2 % statt 1 % Zielwert?</b> Das Stringkabel (Abschnitt 03) verbraucht bereits 0,3–0,7 % Spannungsfall. Für die Trunkleitung wird hier ≤ 2 % je Abschnitt angesetzt, sodass der gesamte DC-seitige Spannungsfall Modul → Regler unter den in der PV-Praxis üblichen 3 % bleibt. Bei 6 mm² läge SB1/SB2 mit 2,0–2,4 % darüber – deshalb 10 mm² für die beiden Gruppen mit 5 parallelen SW-165-Strings (höchster Trunkstrom, längste Strecke). SB3 und SB4 erreichen ihr Ziel bereits mit 6 mm². Die Strombelastbarkeit ist auch hier nie der limitierende Faktor (I<sub>B</sub> 22–34 A gegenüber ≥ 63 A bei 6 mm² bzw. ≥ 85 A bei 10 mm² Solarkabel).
+      <b>Warum 2 % statt 1 % Zielwert?</b> Das Stringkabel (Abschnitt 04) verbraucht bereits 0,3–0,7 % Spannungsfall. Für die Trunkleitung wird hier ≤ 2 % je Abschnitt angesetzt, sodass der gesamte DC-seitige Spannungsfall Modul → Regler unter den in der PV-Praxis üblichen 3 % bleibt. Bei 6 mm² läge SB1/SB2 mit 2,0–2,4 % darüber – deshalb 10 mm² für die beiden Gruppen mit 5 parallelen SW-165-Strings (höchster Trunkstrom, längste Strecke). SB3 und SB4 erreichen ihr Ziel bereits mit 6 mm². Die Strombelastbarkeit ist auch hier nie der limitierende Faktor (I<sub>B</sub> 22–34 A gegenüber ≥ 63 A bei 6 mm² bzw. ≥ 85 A bei 10 mm² Solarkabel).
     </div>
 
-    <h2 class="section-title" style="font-size:20px;margin:32px 0 14px">Passende Sammelboxen (GAK)</h2>
-    <p class="section-desc" style="margin-bottom:20px">Reale Produkte mit den benötigten String-Eingängen, Vorsicherungen und Schutzart. Alle Angaben Stand der Recherche; Preise inkl. MwSt., ohne Versand – vor Bestellung beim Anbieter gegenprüfen.</p>
-
-    <div class="prod-grid">
-
-      <div class="prod-card">
-        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
-        <div class="prod-body">
-          <div class="prod-mfr">Q3 Energie GmbH · individuell konfiguriert</div>
-          <div class="prod-name">Generatoranschlusskasten GAK, 5 → 1</div>
-          <div class="prod-tag">Für SB1 &amp; SB2 · je 5× SolarWorld&nbsp;SW&nbsp;165</div>
-          <div class="prod-specs">
-            <div class="spec-row"><span class="spec-key">String-Eingänge</span><span class="spec-val">1–24 je MPPT (hier: 5)</span></div>
-            <div class="spec-row"><span class="spec-key">Vorsicherung je String</span><span class="spec-val">einstellbar, hier 10 A</span></div>
-            <div class="spec-row"><span class="spec-key">Schaltstrom je String</span><span class="spec-val">bis 20 A</span></div>
-            <div class="spec-row"><span class="spec-key">Schutzart</span><span class="spec-val">bis IP67</span></div>
-            <div class="spec-row"><span class="spec-key">Anschluss Trunk</span><span class="spec-val">10 mm² Klemme</span></div>
-          </div>
-          <a class="prod-link" href="https://q3-energie.de/produkte/anschlusstechnik-pv/generatoranschlusskasten/" target="_blank" rel="noopener">Konfigurator / Anfrage &#8599;</a>
-        </div>
-      </div>
-
-      <div class="prod-card">
-        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
-        <div class="prod-body">
-          <div class="prod-mfr">Stark in Strom · Made in Germany</div>
-          <div class="prod-name">Solar Generator-Anschlusskasten DC 3-String</div>
-          <div class="prod-tag">Für SB3 · 3× Sunset&nbsp;AS&nbsp;175</div>
-          <div class="prod-specs">
-            <div class="spec-row"><span class="spec-key">String-Eingänge</span><span class="spec-val">3 · MC4</span></div>
-            <div class="spec-row"><span class="spec-key">Vorsicherung</span><span class="spec-val">15 A werkseitig (bis 32 A)</span></div>
-            <div class="spec-row"><span class="spec-key">Überspannungsschutz</span><span class="spec-val">T1+T2 wählbar</span></div>
-            <div class="spec-row"><span class="spec-key">Schutzart / Spannung</span><span class="spec-val">IP65 · 1000 V DC</span></div>
-            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">ab 184,03 €</span></div>
-          </div>
-          <a class="prod-link" href="https://www.stark-in-strom.de/products/solar-generator-anschlusskasten-photovoltaik-dc-3-string-inkl-sicherungstrennschalter-t1-t2-mc-4-steckvariante-uberspannungsschutz" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
-        </div>
-      </div>
-
-      <div class="prod-card">
-        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
-        <div class="prod-body">
-          <div class="prod-mfr">Stark in Strom · Made in Germany</div>
-          <div class="prod-name">Solar Generator-Anschlusskasten DC 2-String</div>
-          <div class="prod-tag">Für SB4 · 2× SolarWorld&nbsp;SW&nbsp;250</div>
-          <div class="prod-specs">
-            <div class="spec-row"><span class="spec-key">String-Eingänge</span><span class="spec-val">2 · MC4</span></div>
-            <div class="spec-row"><span class="spec-key">Vorsicherung</span><span class="spec-val">15 A werkseitig (bis 32 A)</span></div>
-            <div class="spec-row"><span class="spec-key">Überspannungsschutz</span><span class="spec-val">T1+T2 wählbar</span></div>
-            <div class="spec-row"><span class="spec-key">Schutzart / Spannung</span><span class="spec-val">IP65 · 1000 V DC</span></div>
-            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">ab 160,50 €</span></div>
-          </div>
-          <a class="prod-link" href="https://www.stark-in-strom.de/products/solar-anschlusskasten-photovoltaik-dc-2-string-3-polig-mc-4-sicherungstrennschalter-uberspannungsschutz" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="note-box" style="margin-top:20px">
-      <b>Sicherungswahl:</b> Werks-Vorsicherung (15 A) passt unverändert für SB3 (AS&nbsp;175, I<sub>sc</sub>=7,65 A → zulässig 9,6–18,4 A) und SB4 (SW&nbsp;250, I<sub>sc</sub>=8,81 A → zulässig 11,0–21,1 A). Für SB1/SB2 (SW&nbsp;165, I<sub>sc</sub>=5,46 A → zulässig 6,8–13,1 A) muss beim Q3-GAK explizit <b>10 A</b> konfiguriert werden. T1+T2-Überspannungsschutz empfohlen statt nur T2, da das Freiland-Feld ohne Gebäude-Blitzschutz in der Nähe steht und Gambias Regenzeit (Jun.–Okt.) mit häufigen Gewittern einhergeht. Alle drei Boxen sind IP65 – für die Außenmontage am Feldrand ausreichend.
-    </div>
   </div>
 
 </main>
