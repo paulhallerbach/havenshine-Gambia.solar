@@ -2553,6 +2553,99 @@ img[data-lb]{cursor:zoom-in}
     </div>
   </div>
 
+  <!-- 04 SAMMELBOX -> TECHNIKRAUM -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Sammelbox → Technikraum (Storage)</h2></div>
+    <p class="section-desc">Von jeder Sammelbox führt ein gemeinsames Plus-/Minus-Trunkkabel (alle Strings der Gruppe bereits parallelgeschaltet) zum Technikraum mit MPPT-Reglern, Batterien und Wechselrichter. Als Technikraum ist <b>Storage</b> vorgesehen (Grundriss: x = 26.300–28.950 mm, y = 22.000–25.500 mm). Kabelweg: vom gemeinsamen Kanal der Sammelboxen (x = 17.000 mm) orthogonal zur Westwand von Storage, auf Höhe der jeweiligen Box – liegt die Box außerhalb der Raumhöhe, wird zur nächstgelegenen Wandecke geführt. Zuschlag: + 1,0 m Verlegereserve im Raum bis zum Reglerschrank.</p>
+
+    <div class="table-scroll">
+    <table class="con-table">
+      <thead><tr>
+        <th>Box</th><th>Gruppe</th><th class="num">Strings</th><th class="num">Route Storage</th><th class="num">I<sub>mpp</sub> Trunk</th><th class="num">I<sub>B</sub> Trunk</th><th class="num">ΔU @ 6 mm²</th><th class="num">ΔU @ 10 mm²</th><th class="num">Gewählt</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>SB1</td><td>SolarWorld SW 165</td><td class="num">5</td><td class="num">17,84 m</td><td class="num">23,85 A</td><td class="num">34,12 A</td><td class="num">2,53 V · 2,44 %</td><td class="num">1,52 V · 1,46 %</td><td class="num"><b>10 mm²</b></td></tr>
+        <tr><td>SB2</td><td>SolarWorld SW 165</td><td class="num">5</td><td class="num">14,78 m</td><td class="num">23,85 A</td><td class="num">34,12 A</td><td class="num">2,10 V · 2,02 %</td><td class="num">1,26 V · 1,21 %</td><td class="num"><b>10 mm²</b></td></tr>
+        <tr><td>SB3</td><td>Sunset AS 175</td><td class="num">3</td><td class="num">10,99 m</td><td class="num">20,55 A</td><td class="num">28,69 A</td><td class="num">1,34 V · 0,88 %</td><td class="num">0,81 V · 0,53 %</td><td class="num"><b>6 mm²</b></td></tr>
+        <tr><td>SB4</td><td>SolarWorld SW 250</td><td class="num">2</td><td class="num">10,30 m</td><td class="num">16,54 A</td><td class="num">22,03 A</td><td class="num">1,01 V · 1,11 %</td><td class="num">0,61 V · 0,66 %</td><td class="num"><b>6 mm²</b></td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="3">Summe Trassenlänge (einfach)</td><td class="num">53,91 m</td><td colspan="5"></td></tr></tfoot>
+    </table>
+    </div>
+
+    <div class="kp-sum-strip">
+      <div class="kpi"><div class="kpi-label">Trunkkabel 10 mm²</div><div class="kpi-value">65,3 <span style="font-size:15px">m</span></div><div class="kpi-unit">SB1 + SB2 · + und − je Box</div></div>
+      <div class="kpi"><div class="kpi-label">Trunkkabel 6 mm²</div><div class="kpi-value">42,6 <span style="font-size:15px">m</span></div><div class="kpi-unit">SB3 + SB4 · + und − je Box</div></div>
+      <div class="kpi"><div class="kpi-label">Leiterbedarf gesamt</div><div class="kpi-value">107,8 <span style="font-size:15px">m</span></div><div class="kpi-unit">4 Trunkleitungen · 2-adrig</div></div>
+    </div>
+
+    <div class="note-box info">
+      <b>Warum 2 % statt 1 % Zielwert?</b> Das Stringkabel (Abschnitt 03) verbraucht bereits 0,3–0,7 % Spannungsfall. Für die Trunkleitung wird hier ≤ 2 % je Abschnitt angesetzt, sodass der gesamte DC-seitige Spannungsfall Modul → Regler unter den in der PV-Praxis üblichen 3 % bleibt. Bei 6 mm² läge SB1/SB2 mit 2,0–2,4 % darüber – deshalb 10 mm² für die beiden Gruppen mit 5 parallelen SW-165-Strings (höchster Trunkstrom, längste Strecke). SB3 und SB4 erreichen ihr Ziel bereits mit 6 mm². Die Strombelastbarkeit ist auch hier nie der limitierende Faktor (I<sub>B</sub> 22–34 A gegenüber ≥ 63 A bei 6 mm² bzw. ≥ 85 A bei 10 mm² Solarkabel).
+    </div>
+
+    <h2 class="section-title" style="font-size:20px;margin:32px 0 14px">Passende Sammelboxen (GAK)</h2>
+    <p class="section-desc" style="margin-bottom:20px">Reale Produkte mit den benötigten String-Eingängen, Vorsicherungen und Schutzart. Alle Angaben Stand der Recherche; Preise inkl. MwSt., ohne Versand – vor Bestellung beim Anbieter gegenprüfen.</p>
+
+    <div class="prod-grid">
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">Q3 Energie GmbH · individuell konfiguriert</div>
+          <div class="prod-name">Generatoranschlusskasten GAK, 5 → 1</div>
+          <div class="prod-tag">Für SB1 &amp; SB2 · je 5× SolarWorld&nbsp;SW&nbsp;165</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">String-Eingänge</span><span class="spec-val">1–24 je MPPT (hier: 5)</span></div>
+            <div class="spec-row"><span class="spec-key">Vorsicherung je String</span><span class="spec-val">einstellbar, hier 10 A</span></div>
+            <div class="spec-row"><span class="spec-key">Schaltstrom je String</span><span class="spec-val">bis 20 A</span></div>
+            <div class="spec-row"><span class="spec-key">Schutzart</span><span class="spec-val">bis IP67</span></div>
+            <div class="spec-row"><span class="spec-key">Anschluss Trunk</span><span class="spec-val">10 mm² Klemme</span></div>
+          </div>
+          <a class="prod-link" href="https://q3-energie.de/produkte/anschlusstechnik-pv/generatoranschlusskasten/" target="_blank" rel="noopener">Konfigurator / Anfrage &#8599;</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">Stark in Strom · Made in Germany</div>
+          <div class="prod-name">Solar Generator-Anschlusskasten DC 3-String</div>
+          <div class="prod-tag">Für SB3 · 3× Sunset&nbsp;AS&nbsp;175</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">String-Eingänge</span><span class="spec-val">3 · MC4</span></div>
+            <div class="spec-row"><span class="spec-key">Vorsicherung</span><span class="spec-val">15 A werkseitig (bis 32 A)</span></div>
+            <div class="spec-row"><span class="spec-key">Überspannungsschutz</span><span class="spec-val">T1+T2 wählbar</span></div>
+            <div class="spec-row"><span class="spec-key">Schutzart / Spannung</span><span class="spec-val">IP65 · 1000 V DC</span></div>
+            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">ab 184,03 €</span></div>
+          </div>
+          <a class="prod-link" href="https://www.stark-in-strom.de/products/solar-generator-anschlusskasten-photovoltaik-dc-3-string-inkl-sicherungstrennschalter-t1-t2-mc-4-steckvariante-uberspannungsschutz" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img"><span class="ph-ico">&#9638;</span><span class="ph-txt">Produktbild folgt</span></div>
+        <div class="prod-body">
+          <div class="prod-mfr">Stark in Strom · Made in Germany</div>
+          <div class="prod-name">Solar Generator-Anschlusskasten DC 2-String</div>
+          <div class="prod-tag">Für SB4 · 2× SolarWorld&nbsp;SW&nbsp;250</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">String-Eingänge</span><span class="spec-val">2 · MC4</span></div>
+            <div class="spec-row"><span class="spec-key">Vorsicherung</span><span class="spec-val">15 A werkseitig (bis 32 A)</span></div>
+            <div class="spec-row"><span class="spec-key">Überspannungsschutz</span><span class="spec-val">T1+T2 wählbar</span></div>
+            <div class="spec-row"><span class="spec-key">Schutzart / Spannung</span><span class="spec-val">IP65 · 1000 V DC</span></div>
+            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">ab 160,50 €</span></div>
+          </div>
+          <a class="prod-link" href="https://www.stark-in-strom.de/products/solar-anschlusskasten-photovoltaik-dc-2-string-3-polig-mc-4-sicherungstrennschalter-uberspannungsschutz" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="note-box" style="margin-top:20px">
+      <b>Sicherungswahl:</b> Werks-Vorsicherung (15 A) passt unverändert für SB3 (AS&nbsp;175, I<sub>sc</sub>=7,65 A → zulässig 9,6–18,4 A) und SB4 (SW&nbsp;250, I<sub>sc</sub>=8,81 A → zulässig 11,0–21,1 A). Für SB1/SB2 (SW&nbsp;165, I<sub>sc</sub>=5,46 A → zulässig 6,8–13,1 A) muss beim Q3-GAK explizit <b>10 A</b> konfiguriert werden. T1+T2-Überspannungsschutz empfohlen statt nur T2, da das Freiland-Feld ohne Gebäude-Blitzschutz in der Nähe steht und Gambias Regenzeit (Jun.–Okt.) mit häufigen Gewittern einhergeht. Alle drei Boxen sind IP65 – für die Außenmontage am Feldrand ausreichend.
+    </div>
+  </div>
+
 </main>
 </div><!-- /page-kabelplanung -->
 
