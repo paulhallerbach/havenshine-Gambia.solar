@@ -708,6 +708,35 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
 @media(max-width:720px){.aus-main{padding:0 22px 60px}}
 
 /* ════════════════════════════════════════════════════════════════
+   PAGE — GRUNDRISS
+═══════════════════════════════════════════════════════════════════ */
+#page-grundriss{background:var(--paper)}
+.gr-main{max-width:1300px;margin:0 auto;padding:0 60px 80px}
+.gr-diagram-wrap{background:var(--paper2);border:1px solid var(--paper3);border-radius:12px;padding:20px;overflow-x:auto}
+.gr-diagram-wrap svg{display:block;margin:0 auto;min-width:920px;height:auto}
+@media(max-width:720px){.gr-main{padding:0 22px 60px}}
+
+/* ════════════════════════════════════════════════════════════════
+   PAGE — KABELPLANUNG
+═══════════════════════════════════════════════════════════════════ */
+#page-kabelplanung{background:var(--paper)}
+.kp-main{max-width:1300px;margin:0 auto;padding:0 60px 80px}
+.kp-diagram-wrap{background:var(--paper2);border:1px solid var(--paper3);border-radius:12px;padding:20px;overflow-x:auto;margin-bottom:24px}
+.kp-diagram-wrap svg{display:block;margin:0 auto;min-width:1080px;height:auto}
+.kp-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:24px}
+.kp-lg{background:var(--paper2);border:1px solid var(--paper3);border-radius:var(--r);padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.kp-lg .sw{width:30px;height:30px;border-radius:6px;border:2px solid;flex-shrink:0;margin-top:2px}
+.kp-lg .t{font-size:13px;color:var(--ink2);line-height:1.5}
+.kp-lg .t b{font-family:'DM Serif Display',serif;font-weight:400;color:var(--ink);font-size:14px}
+.kp-cables{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:24px}
+.kp-cab{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2)}
+.kp-cab .ln{width:36px;height:4px;border-radius:2px;flex-shrink:0}
+.kp-sum-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0 28px}
+td.num-red{color:var(--red);font-family:'DM Mono',monospace;font-size:12px;text-align:right}
+td.num-blk{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
+@media(max-width:720px){.kp-main{padding:0 22px 60px}}
+
+/* ════════════════════════════════════════════════════════════════
    PAGE — POLYSUN-SIMULATION
 ═══════════════════════════════════════════════════════════════════ */
 #page-polysun{background:var(--paper)}
@@ -805,6 +834,12 @@ img[data-lb]{cursor:zoom-in}
   </button>
   <button class="page-btn" onclick="switchPage('auslegung',this,true)">
     <span class="pg-icon">&#9638;</span> Auslegung Hauptsystem
+  </button>
+  <button class="page-btn" onclick="switchPage('grundriss',this,true)">
+    <span class="pg-icon">⛶</span> Grundriss
+  </button>
+  <button class="page-btn" onclick="switchPage('kabelplanung',this,true)">
+    <span class="pg-icon">⏚</span> Kabelplanung
   </button>
   <button class="page-btn" onclick="switchPage('zusatzsystem',this,true)">
     <span class="pg-icon">🔌</span> Zusatzsystem
@@ -2009,6 +2044,517 @@ img[data-lb]{cursor:zoom-in}
 
 </main>
 </div><!-- /page-auslegung -->
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE — GRUNDRISS
+═════════════════════════════════════════════════════════════════════════ -->
+<div id="page-grundriss" class="page">
+<main class="gr-main">
+
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Grundriss &amp; PV-Feld</h2></div>
+    <p class="section-desc">Maßstäblicher Grundriss der HavenShine Academy (30 × 30 m) mit dem PV-Feld im Innenhof. 54 Module in 9 Reihen à 6 Module, 15° nach Süden geneigt, Reihenabstand 450 mm. Alle Maße in mm.</p>
+
+    <div class="gr-diagram-wrap">
+<svg viewBox="-4200 -3600 39000 39000" font-family="DM Sans,Arial,sans-serif">
+<rect x="-4200" y="-3600" width="39000" height="39000" fill="#F3EFE3"/>
+<rect x="0" y="0" width="30000" height="30000" fill="none" stroke="#6B655A" stroke-width="45" stroke-dasharray="450 320"/>
+<rect x="1950" y="2200" width="5500" height="5500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="4700.0" y="5100.0" font-size="440" fill="#5A5448" text-anchor="middle">Nursery</text>
+<rect x="7450" y="2200" width="5500" height="5500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="10200.0" y="5100.0" font-size="440" fill="#5A5448" text-anchor="middle">Nursery</text>
+<rect x="12950" y="2200" width="5000" height="5500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="15450.0" y="5100.0" font-size="440" fill="#5A5448" text-anchor="middle">Nursery</text>
+<rect x="17950" y="2200" width="5500" height="5500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="20700.0" y="5100.0" font-size="440" fill="#5A5448" text-anchor="middle">Library</text>
+<rect x="23450" y="9700" width="5500" height="2500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="26200.0" y="11100.0" font-size="380" fill="#5A5448" text-anchor="middle">Stairs</text>
+<rect x="23450" y="12200" width="5500" height="5500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="26200.0" y="14890.0" font-size="400" fill="#5A5448" text-anchor="middle">Medical /</text>
+<text x="26200.0" y="15380.0" font-size="312" fill="#5A5448" text-anchor="middle">Skill</text>
+<rect x="23450" y="17700" width="5500" height="4300" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="26200.0" y="20000.0" font-size="430" fill="#5A5448" text-anchor="middle">Kitchen</text>
+<rect x="23450" y="22000" width="2850" height="3500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="24875.0" y="23900.0" font-size="360" fill="#5A5448" text-anchor="middle">Office</text>
+<rect x="26300" y="22000" width="2650" height="3500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="27625.0" y="23900.0" font-size="360" fill="#5A5448" text-anchor="middle">Storage</text>
+<rect x="23450" y="25500" width="5500" height="3500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="26200.0" y="27400.0" font-size="430" fill="#5A5448" text-anchor="middle">Shop</text>
+<rect x="1950" y="2200" width="21500" height="5500" fill="none" stroke="#3B3833" stroke-width="175"/>
+<rect x="23450" y="2200" width="5500" height="26800" fill="none" stroke="#3B3833" stroke-width="175"/>
+<rect x="23450" y="2200" width="5500" height="7500" fill="#FBF9F2" stroke="#3B3833" stroke-width="120"/>
+<text x="26200.0" y="5890.0" font-size="430" fill="#5A5448" text-anchor="middle">Skill</text>
+<text x="26200.0" y="6380.0" font-size="335" fill="#5A5448" text-anchor="middle">(Meeting)</text>
+<rect x="600" y="23300" width="2700" height="1700" fill="#FBF9F2" stroke="#3B3833" stroke-width="95"/>
+<text x="1950.0" y="24300.0" font-size="400" fill="#5A5448" text-anchor="middle">Sanitär</text>
+<rect x="600" y="25300" width="2700" height="1700" fill="#FBF9F2" stroke="#3B3833" stroke-width="95"/>
+<text x="1950.0" y="26300.0" font-size="400" fill="#5A5448" text-anchor="middle">Dusche</text>
+<rect x="600" y="27300" width="2700" height="1700" fill="#FBF9F2" stroke="#3B3833" stroke-width="95"/>
+<text x="1950.0" y="28300.0" font-size="400" fill="#5A5448" text-anchor="middle">Bohrloch</text>
+<text x="11725.0" y="9000" font-size="540" fill="#6B655A" text-anchor="middle" opacity="0.65">Innenhof — freie Fläche</text>
+<rect x="6950" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="8545" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="10140" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="11735" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="13330" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="14925" y="13022" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="6950" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="8545" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="10140" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="11735" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="13330" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="14925" y="14298" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="6950" y="15574" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="8545" y="15574" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="10140" y="15574" width="1575" height="826" rx="35" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<rect x="11735" y="15574" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="13330" y="15574" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="14925" y="15574" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="6950" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="8545" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="10140" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="11735" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="13330" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="14925" y="16850" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="6950" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="8545" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="10140" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="11735" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="13330" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="14925" y="18126" width="1575" height="826" rx="35" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<rect x="7241" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="8739" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="10237" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="11735" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="13233" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="14731" y="19402" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="7241" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="8739" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="10237" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="11735" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="13233" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="14731" y="20827" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="7241" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="8739" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="10237" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="11735" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="13233" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="14731" y="22252" width="1478" height="975" rx="35" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<rect x="6650" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="8345" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="10040" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="11735" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="13430" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="15125" y="23677" width="1675" height="1001" rx="35" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<rect x="6650" y="13022" width="10150" height="11656" fill="none" stroke="#B0462B" stroke-width="55" stroke-dasharray="240 170"/>
+<line x1="17100.0" y1="13848.0" x2="17100.0" y2="14298.0" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="16950.0" y1="13848.0" x2="17250.0" y2="13848.0" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="16950.0" y1="14298.0" x2="17250.0" y2="14298.0" stroke="#9A7B3F" stroke-width="32"/>
+<text x="17450.0" y="14193.0" font-size="330" fill="#9A7B3F">450 (Reihenabstand)</text>
+<line x1="11725.0" y1="24798.0" x2="11725.0" y2="25978.0" stroke="#B0462B" stroke-width="70"/>
+<path d="M 11465.0 25748.0 L 11725.0 26178.0 L 11985.0 25748.0 Z" fill="#B0462B"/>
+<text x="11725.0" y="26628.0" font-size="440" fill="#B0462B" text-anchor="middle">15° nach Süden</text>
+<line x1="0" y1="-2400" x2="30000" y2="-2400" stroke="#2B2A26" stroke-width="32"/>
+<line x1="0" y1="-2550" x2="0" y2="-2250" stroke="#2B2A26" stroke-width="32"/>
+<line x1="30000" y1="-2550" x2="30000" y2="-2250" stroke="#2B2A26" stroke-width="32"/>
+<text x="15000.0" y="-2570" font-size="430" fill="#2B2A26" text-anchor="middle">30000</text>
+<line x1="0" y1="-1300" x2="1950" y2="-1300" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="0" y1="-1450" x2="0" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="1950" y1="-1450" x2="1950" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<text x="975.0" y="-1470" font-size="370" fill="#9A7B3F" text-anchor="middle">1950</text>
+<line x1="1950" y1="-1300" x2="7450" y2="-1300" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="1950" y1="-1450" x2="1950" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="7450" y1="-1450" x2="7450" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<text x="4700.0" y="-1470" font-size="370" fill="#9A7B3F" text-anchor="middle">5500</text>
+<line x1="7450" y1="-1300" x2="12950" y2="-1300" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="7450" y1="-1450" x2="7450" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="12950" y1="-1450" x2="12950" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<text x="10200.0" y="-1470" font-size="370" fill="#9A7B3F" text-anchor="middle">5500</text>
+<line x1="12950" y1="-1300" x2="17950" y2="-1300" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="12950" y1="-1450" x2="12950" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="17950" y1="-1450" x2="17950" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<text x="15450.0" y="-1470" font-size="370" fill="#9A7B3F" text-anchor="middle">5000</text>
+<line x1="17950" y1="-1300" x2="23450" y2="-1300" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="17950" y1="-1450" x2="17950" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="23450" y1="-1450" x2="23450" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<text x="20700.0" y="-1470" font-size="370" fill="#9A7B3F" text-anchor="middle">5500</text>
+<line x1="23450" y1="-1300" x2="28950" y2="-1300" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="23450" y1="-1450" x2="23450" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="28950" y1="-1450" x2="28950" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<text x="26200.0" y="-1470" font-size="370" fill="#9A7B3F" text-anchor="middle">5500</text>
+<line x1="28950" y1="-1300" x2="30000" y2="-1300" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="28950" y1="-1450" x2="28950" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30000" y1="-1450" x2="30000" y2="-1150" stroke="#9A7B3F" stroke-width="32"/>
+<text x="29475.0" y="-1470" font-size="370" fill="#9A7B3F" text-anchor="middle">1050</text>
+<line x1="-1100" y1="0" x2="-1100" y2="2200" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="-1250" y1="0" x2="-950" y2="0" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="-1250" y1="2200" x2="-950" y2="2200" stroke="#9A7B3F" stroke-width="32"/>
+<text x="-1300" y="1230.0" font-size="370" fill="#9A7B3F" text-anchor="end">2200</text>
+<line x1="-1100" y1="2200" x2="-1100" y2="7700" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="-1250" y1="2200" x2="-950" y2="2200" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="-1250" y1="7700" x2="-950" y2="7700" stroke="#9A7B3F" stroke-width="32"/>
+<text x="-1300" y="5080.0" font-size="370" fill="#9A7B3F" text-anchor="end">5500</text>
+<line x1="31100" y1="2200" x2="31100" y2="9700" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="2200" x2="31250" y2="2200" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="9700" x2="31250" y2="9700" stroke="#9A7B3F" stroke-width="32"/>
+<text x="30900" y="6080.0" font-size="370" fill="#9A7B3F" text-anchor="end">7500</text>
+<line x1="31100" y1="9700" x2="31100" y2="12200" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="9700" x2="31250" y2="9700" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="12200" x2="31250" y2="12200" stroke="#9A7B3F" stroke-width="32"/>
+<text x="30900" y="11080.0" font-size="370" fill="#9A7B3F" text-anchor="end">2500</text>
+<line x1="31100" y1="12200" x2="31100" y2="17700" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="12200" x2="31250" y2="12200" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="17700" x2="31250" y2="17700" stroke="#9A7B3F" stroke-width="32"/>
+<text x="30900" y="15080.0" font-size="370" fill="#9A7B3F" text-anchor="end">5500</text>
+<line x1="31100" y1="17700" x2="31100" y2="22000" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="17700" x2="31250" y2="17700" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="22000" x2="31250" y2="22000" stroke="#9A7B3F" stroke-width="32"/>
+<text x="30900" y="19980.0" font-size="370" fill="#9A7B3F" text-anchor="end">4300</text>
+<line x1="31100" y1="22000" x2="31100" y2="25500" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="22000" x2="31250" y2="22000" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="25500" x2="31250" y2="25500" stroke="#9A7B3F" stroke-width="32"/>
+<text x="30900" y="23880.0" font-size="370" fill="#9A7B3F" text-anchor="end">3500</text>
+<line x1="31100" y1="25500" x2="31100" y2="29000" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="25500" x2="31250" y2="25500" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="29000" x2="31250" y2="29000" stroke="#9A7B3F" stroke-width="32"/>
+<text x="30900" y="27380.0" font-size="370" fill="#9A7B3F" text-anchor="end">3500</text>
+<line x1="31100" y1="29000" x2="31100" y2="30000" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="29000" x2="31250" y2="29000" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="30950" y1="30000" x2="31250" y2="30000" stroke="#9A7B3F" stroke-width="32"/>
+<text x="30900" y="29630.0" font-size="370" fill="#9A7B3F" text-anchor="end">1000</text>
+<line x1="23450" y1="25950" x2="26300" y2="25950" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="23450" y1="25800" x2="23450" y2="26100" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="26300" y1="25800" x2="26300" y2="26100" stroke="#9A7B3F" stroke-width="32"/>
+<text x="24875.0" y="25780" font-size="330" fill="#9A7B3F" text-anchor="middle">2850</text>
+<line x1="26300" y1="25950" x2="28950" y2="25950" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="26300" y1="25800" x2="26300" y2="26100" stroke="#9A7B3F" stroke-width="32"/>
+<line x1="28950" y1="25800" x2="28950" y2="26100" stroke="#9A7B3F" stroke-width="32"/>
+<text x="27625.0" y="25780" font-size="330" fill="#9A7B3F" text-anchor="middle">2500</text>
+<line x1="6650.0" y1="12202.0" x2="16800.0" y2="12202.0" stroke="#B0462B" stroke-width="32"/>
+<line x1="6650.0" y1="12052.0" x2="6650.0" y2="12352.0" stroke="#B0462B" stroke-width="32"/>
+<line x1="16800.0" y1="12052.0" x2="16800.0" y2="12352.0" stroke="#B0462B" stroke-width="32"/>
+<text x="11725.0" y="12032.0" font-size="380" fill="#B0462B" text-anchor="middle">10150</text>
+<line x1="18700.0" y1="13022.0" x2="18700.0" y2="24678.0" stroke="#B0462B" stroke-width="32"/>
+<line x1="18550.0" y1="13022.0" x2="18850.0" y2="13022.0" stroke="#B0462B" stroke-width="32"/>
+<line x1="18550.0" y1="24678.0" x2="18850.0" y2="24678.0" stroke="#B0462B" stroke-width="32"/>
+<text x="18500.0" y="18980.0" font-size="380" fill="#B0462B" text-anchor="end">11656</text>
+<circle cx="4300" cy="10600" r="650" fill="none" stroke="#2B2A26" stroke-width="50"/>
+<path d="M 4300 10000 L 4100 10600 L 4300 11200 L 4500 10600 Z" fill="#2B2A26"/>
+<text x="4300" y="9830" font-size="400" fill="#2B2A26" text-anchor="middle">N</text>
+<text x="4300" y="11680" font-size="400" fill="#2B2A26" text-anchor="middle">S</text>
+<line x1="0" y1="32100" x2="5000" y2="32100" stroke="#2B2A26" stroke-width="60"/>
+<line x1="0" y1="31950" x2="0" y2="32250" stroke="#2B2A26" stroke-width="60"/>
+<line x1="1000" y1="31950" x2="1000" y2="32250" stroke="#2B2A26" stroke-width="60"/>
+<line x1="2000" y1="31950" x2="2000" y2="32250" stroke="#2B2A26" stroke-width="60"/>
+<line x1="3000" y1="31950" x2="3000" y2="32250" stroke="#2B2A26" stroke-width="60"/>
+<line x1="4000" y1="31950" x2="4000" y2="32250" stroke="#2B2A26" stroke-width="60"/>
+<line x1="5000" y1="31950" x2="5000" y2="32250" stroke="#2B2A26" stroke-width="60"/>
+<text x="2500" y="32700" font-size="400" fill="#2B2A26" text-anchor="middle">0     5 m   ·   Maße in mm</text>
+<rect x="18800" y="31400" width="520" height="380" rx="40" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
+<text x="19520" y="31690" font-size="370" fill="#2B2A26">SW 165 · Reihen 1–2,5</text>
+<rect x="18800" y="32040" width="520" height="380" rx="40" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
+<text x="19520" y="32330" font-size="370" fill="#2B2A26">SW 165 · Reihen 2,5–5</text>
+<rect x="18800" y="32680" width="520" height="380" rx="40" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
+<text x="19520" y="32970" font-size="370" fill="#2B2A26">Sunset AS 175 · Reihen 6–8</text>
+<rect x="18800" y="33320" width="520" height="380" rx="40" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
+<text x="19520" y="33610" font-size="370" fill="#2B2A26">SW 250 · Reihe 9</text>
+</svg>
+    </div>
+  </div>
+
+</main>
+</div><!-- /page-grundriss -->
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE — KABELPLANUNG
+═════════════════════════════════════════════════════════════════════════ -->
+<div id="page-kabelplanung" class="page">
+<main class="kp-main">
+
+  <!-- 01 STRINGVERSCHALTUNG -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">String-Verschaltung &amp; Kabelwege</h2></div>
+    <p class="section-desc">15 Strings aus 54 Modulen, verteilt auf 9 Dachreihen, laufen in vier Sammelboxen (GAK) zusammen – je eine pro MPPT-Laderegler. Innerhalb eines Strings sind die Module in Reihe verschaltet; der freie <b>− Pol</b> (links) und <b>+ Pol</b> (rechts) jedes Strings wird einzeln zur Sammelbox geführt, dort werden die Strings parallelgeschaltet.</p>
+
+    <div class="kp-cables">
+      <div class="kp-cab"><span class="ln" style="background:#a03020"></span><span><b>Rot (+)</b> · Pluskabel · rechter Pol → Sammelbox</span></div>
+      <div class="kp-cab"><span class="ln" style="background:#1a1a18"></span><span><b>Schwarz (−)</b> · Minuskabel · linker Pol → Sammelbox</span></div>
+      <div class="kp-cab"><span class="ln" style="background:#9A7B3F;height:3px"></span><span>Maßlinie · realer Reihenabstand 450 mm (siehe Grundriss-Seite)</span></div>
+    </div>
+
+    <div class="kp-diagram-wrap">
+<svg viewBox="0 0 1230 1110" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif">
+<rect x="34" y="70.0" width="8" height="222.3" rx="4" fill="#378ADD"/>
+<rect x="34" y="292.3" width="8" height="222.4" rx="4" fill="#1D9E75"/>
+<rect x="34" y="594.5" width="8" height="286.9" rx="4" fill="#EF9F27"/>
+<rect x="34" y="961.1" width="8" height="75.1" rx="4" fill="#7E57C2"/>
+<text x="78" y="106.0" font-size="15" fill="#8a8a80" text-anchor="middle" font-family="DM Mono, monospace">1</text>
+<text x="78" y="201.6" font-size="15" fill="#8a8a80" text-anchor="middle" font-family="DM Mono, monospace">2</text>
+<text x="78" y="297.4" font-size="15" fill="#8a8a80" text-anchor="middle" font-family="DM Mono, monospace">3</text>
+<text x="78" y="393.1" font-size="15" fill="#8a8a80" text-anchor="middle" font-family="DM Mono, monospace">4</text>
+<text x="78" y="488.8" font-size="15" fill="#8a8a80" text-anchor="middle" font-family="DM Mono, monospace">5</text>
+<text x="78" y="636.0" font-size="15" fill="#8a8a80" text-anchor="middle" font-family="DM Mono, monospace">6</text>
+<text x="78" y="743.0" font-size="15" fill="#8a8a80" text-anchor="middle" font-family="DM Mono, monospace">7</text>
+<text x="78" y="849.8" font-size="15" fill="#8a8a80" text-anchor="middle" font-family="DM Mono, monospace">8</text>
+<text x="78" y="1003.7" font-size="15" fill="#8a8a80" text-anchor="middle" font-family="DM Mono, monospace">9</text>
+<rect x="152.5" y="70.0" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="272.1" y="70.0" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="391.8" y="70.0" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="511.4" y="70.0" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="631.0" y="70.0" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="750.6" y="70.0" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<line x1="510.6" y1="66.0" x2="510.6" y2="135.9" stroke="#b8b3a4" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="152.5" y="165.7" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="272.1" y="165.7" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="391.8" y="165.7" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="511.4" y="165.7" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="631.0" y="165.7" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="750.6" y="165.7" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<line x1="510.6" y1="161.7" x2="510.6" y2="231.6" stroke="#b8b3a4" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="152.5" y="261.4" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="272.1" y="261.4" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="391.8" y="261.4" width="115.1" height="61.9" rx="4" fill="#D6E4F2" stroke="#378ADD" stroke-width="1.6"/>
+<rect x="511.4" y="261.4" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="631.0" y="261.4" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="750.6" y="261.4" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<line x1="510.6" y1="257.4" x2="510.6" y2="327.3" stroke="#b8b3a4" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="152.5" y="357.1" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="272.1" y="357.1" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="391.8" y="357.1" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="511.4" y="357.1" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="631.0" y="357.1" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="750.6" y="357.1" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<line x1="510.6" y1="353.1" x2="510.6" y2="423.0" stroke="#b8b3a4" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="152.5" y="452.8" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="272.1" y="452.8" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="391.8" y="452.8" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="511.4" y="452.8" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="631.0" y="452.8" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<rect x="750.6" y="452.8" width="115.1" height="61.9" rx="4" fill="#D5E8DF" stroke="#1D9E75" stroke-width="1.6"/>
+<line x1="510.6" y1="448.8" x2="510.6" y2="518.8" stroke="#b8b3a4" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="174.3" y="594.5" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="286.7" y="594.5" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="399.0" y="594.5" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="511.4" y="594.5" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="623.7" y="594.5" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="736.1" y="594.5" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="174.3" y="701.4" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="286.7" y="701.4" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="399.0" y="701.4" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="511.4" y="701.4" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="623.7" y="701.4" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="736.1" y="701.4" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="174.3" y="808.2" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="286.7" y="808.2" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="399.0" y="808.2" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="511.4" y="808.2" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="623.7" y="808.2" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="736.1" y="808.2" width="107.8" height="73.1" rx="4" fill="#F6E6CC" stroke="#EF9F27" stroke-width="1.6"/>
+<rect x="130.0" y="961.1" width="122.6" height="75.1" rx="4" fill="#E2DAEC" stroke="#7E57C2" stroke-width="1.6"/>
+<rect x="257.1" y="961.1" width="122.6" height="75.1" rx="4" fill="#E2DAEC" stroke="#7E57C2" stroke-width="1.6"/>
+<rect x="384.2" y="961.1" width="122.6" height="75.1" rx="4" fill="#E2DAEC" stroke="#7E57C2" stroke-width="1.6"/>
+<rect x="511.4" y="961.1" width="122.6" height="75.1" rx="4" fill="#E2DAEC" stroke="#7E57C2" stroke-width="1.6"/>
+<rect x="638.5" y="961.1" width="122.6" height="75.1" rx="4" fill="#E2DAEC" stroke="#7E57C2" stroke-width="1.6"/>
+<rect x="765.6" y="961.1" width="122.6" height="75.1" rx="4" fill="#E2DAEC" stroke="#7E57C2" stroke-width="1.6"/>
+<line x1="510.6" y1="957.1" x2="510.6" y2="1040.2" stroke="#b8b3a4" stroke-width="1" stroke-dasharray="2,3"/>
+<line x1="108.0" y1="131.9" x2="108.0" y2="165.7" stroke="#B0462B" stroke-width="1.6"/>
+<line x1="101.0" y1="131.9" x2="115.0" y2="131.9" stroke="#B0462B" stroke-width="1.6"/>
+<line x1="101.0" y1="165.7" x2="115.0" y2="165.7" stroke="#B0462B" stroke-width="1.6"/>
+<text x="98.0" y="151.8" font-size="11" fill="#B0462B" text-anchor="end" font-family="DM Mono, monospace">450</text>
+<polyline points="152.5,85.4 906.2,85.4 906.2,128.6 940.2,128.6" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="509.9,91.8 906.2,91.8 906.2,131.0 940.2,131.0" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="152.5" cy="85.4" r="2.6" fill="#1a1a18"/>
+<circle cx="509.9" cy="91.8" r="2.6" fill="#a03020"/>
+<text x="331.2" y="79.1" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S1</text>
+<text x="147.5" y="88.9" font-size="11" fill="#1a1a18" font-weight="700" text-anchor="end" font-family="DM Mono, monospace">&#8722;</text>
+<text x="515.9" y="95.3" font-size="11" fill="#a03020" font-weight="700" text-anchor="start" font-family="DM Mono, monospace">+</text>
+<polyline points="511.4,110.1 906.2,110.1 906.2,151.8 940.2,151.8" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="868.8,116.5 906.2,116.5 906.2,154.2 940.2,154.2" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="511.4" cy="110.1" r="2.6" fill="#1a1a18"/>
+<circle cx="868.8" cy="116.5" r="2.6" fill="#a03020"/>
+<text x="690.1" y="103.8" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S2</text>
+<polyline points="152.5,181.1 906.2,181.1 906.2,175.0 940.2,175.0" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="509.9,187.5 906.2,187.5 906.2,177.4 940.2,177.4" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="152.5" cy="181.1" r="2.6" fill="#1a1a18"/>
+<circle cx="509.9" cy="187.5" r="2.6" fill="#a03020"/>
+<text x="331.2" y="174.8" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S3</text>
+<polyline points="511.4,205.8 906.2,205.8 906.2,198.2 940.2,198.2" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="868.8,212.2 906.2,212.2 906.2,200.6 940.2,200.6" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="511.4" cy="205.8" r="2.6" fill="#1a1a18"/>
+<circle cx="868.8" cy="212.2" r="2.6" fill="#a03020"/>
+<text x="690.1" y="199.5" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S4</text>
+<polyline points="152.5,276.8 906.2,276.8 906.2,221.4 940.2,221.4" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="509.9,283.2 906.2,283.2 906.2,223.8 940.2,223.8" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="152.5" cy="276.8" r="2.6" fill="#1a1a18"/>
+<circle cx="509.9" cy="283.2" r="2.6" fill="#a03020"/>
+<text x="331.2" y="270.5" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S5</text>
+<polyline points="511.4,301.5 906.2,301.5 906.2,363.3 940.2,363.3" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="868.8,307.9 906.2,307.9 906.2,365.7 940.2,365.7" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="511.4" cy="301.5" r="2.6" fill="#1a1a18"/>
+<circle cx="868.8" cy="307.9" r="2.6" fill="#a03020"/>
+<text x="690.1" y="295.2" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S6</text>
+<polyline points="152.5,372.5 906.2,372.5 906.2,386.5 940.2,386.5" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="509.9,378.9 906.2,378.9 906.2,388.9 940.2,388.9" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="152.5" cy="372.5" r="2.6" fill="#1a1a18"/>
+<circle cx="509.9" cy="378.9" r="2.6" fill="#a03020"/>
+<text x="331.2" y="366.2" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S7</text>
+<polyline points="511.4,397.2 906.2,397.2 906.2,409.7 940.2,409.7" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="868.8,403.6 906.2,403.6 906.2,412.1 940.2,412.1" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="511.4" cy="397.2" r="2.6" fill="#1a1a18"/>
+<circle cx="868.8" cy="403.6" r="2.6" fill="#a03020"/>
+<text x="690.1" y="390.9" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S8</text>
+<polyline points="152.5,468.2 906.2,468.2 906.2,432.9 940.2,432.9" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="509.9,474.6 906.2,474.6 906.2,435.3 940.2,435.3" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="152.5" cy="468.2" r="2.6" fill="#1a1a18"/>
+<circle cx="509.9" cy="474.6" r="2.6" fill="#a03020"/>
+<text x="331.2" y="461.9" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S9</text>
+<polyline points="511.4,492.9 906.2,492.9 906.2,456.1 940.2,456.1" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="868.8,499.3 906.2,499.3 906.2,458.5 940.2,458.5" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="511.4" cy="492.9" r="2.6" fill="#1a1a18"/>
+<circle cx="868.8" cy="499.3" r="2.6" fill="#a03020"/>
+<text x="690.1" y="486.6" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S10</text>
+<polyline points="174.3,627.8 906.2,627.8 906.2,712.6 940.2,712.6" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="846.9,634.2 906.2,634.2 906.2,715.0 940.2,715.0" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="174.3" cy="627.8" r="2.6" fill="#1a1a18"/>
+<circle cx="846.9" cy="634.2" r="2.6" fill="#a03020"/>
+<text x="510.6" y="621.5" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S11</text>
+<polyline points="174.3,734.7 906.2,734.7 906.2,737.9 940.2,737.9" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="846.9,741.1 906.2,741.1 906.2,740.3 940.2,740.3" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="174.3" cy="734.7" r="2.6" fill="#1a1a18"/>
+<circle cx="846.9" cy="741.1" r="2.6" fill="#a03020"/>
+<text x="510.6" y="728.4" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S12</text>
+<polyline points="174.3,841.6 906.2,841.6 906.2,763.2 940.2,763.2" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="846.9,848.0 906.2,848.0 906.2,765.6 940.2,765.6" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="174.3" cy="841.6" r="2.6" fill="#1a1a18"/>
+<circle cx="846.9" cy="848.0" r="2.6" fill="#a03020"/>
+<text x="510.6" y="835.3" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S13</text>
+<polyline points="130.0,980.4 906.2,980.4 906.2,984.7 940.2,984.7" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="509.9,986.8 906.2,986.8 906.2,987.1 940.2,987.1" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="130.0" cy="980.4" r="2.6" fill="#1a1a18"/>
+<circle cx="509.9" cy="986.8" r="2.6" fill="#a03020"/>
+<text x="319.9" y="974.1" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S14</text>
+<polyline points="511.4,1010.5 906.2,1010.5 906.2,1012.7 940.2,1012.7" fill="none" stroke="#1a1a18" stroke-width="1.6" stroke-linejoin="round"/>
+<polyline points="891.2,1016.9 906.2,1016.9 906.2,1015.1 940.2,1015.1" fill="none" stroke="#a03020" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="511.4" cy="1010.5" r="2.6" fill="#1a1a18"/>
+<circle cx="891.2" cy="1016.9" r="2.6" fill="#a03020"/>
+<text x="701.3" y="1004.2" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S15</text>
+<rect x="940.2" y="117.0" width="200" height="116.0" rx="8" fill="#ffffff" stroke="#378ADD" stroke-width="2"/>
+<text x="954.2" y="137.0" font-size="14" font-weight="700" fill="#378ADD" font-family="DM Serif Display, serif">Sammelbox 1</text>
+<text x="954.2" y="154.0" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 150/60</text>
+<text x="954.2" y="169.0" font-size="9.5" fill="#999" font-family="DM Mono, monospace">5 Strings &#183; SolarWorld SW 165</text>
+<rect x="940.2" y="351.7" width="200" height="116.0" rx="8" fill="#ffffff" stroke="#1D9E75" stroke-width="2"/>
+<text x="954.2" y="371.7" font-size="14" font-weight="700" fill="#1D9E75" font-family="DM Serif Display, serif">Sammelbox 2</text>
+<text x="954.2" y="388.7" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 150/60</text>
+<text x="954.2" y="403.7" font-size="9.5" fill="#999" font-family="DM Mono, monospace">5 Strings &#183; SolarWorld SW 165</text>
+<rect x="940.2" y="699.9" width="200" height="76.0" rx="8" fill="#ffffff" stroke="#EF9F27" stroke-width="2"/>
+<text x="954.2" y="719.9" font-size="14" font-weight="700" fill="#EF9F27" font-family="DM Serif Display, serif">Sammelbox 3</text>
+<text x="954.2" y="736.9" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 250/70</text>
+<text x="954.2" y="751.9" font-size="9.5" fill="#999" font-family="DM Mono, monospace">3 Strings &#183; Sunset AS 175</text>
+<rect x="940.2" y="970.7" width="200" height="56.0" rx="8" fill="#ffffff" stroke="#7E57C2" stroke-width="2"/>
+<text x="954.2" y="990.7" font-size="14" font-weight="700" fill="#7E57C2" font-family="DM Serif Display, serif">Sammelbox 4</text>
+<text x="954.2" y="1007.7" font-size="10.5" fill="#555" font-family="DM Mono, monospace">Victron 150/60</text>
+<text x="954.2" y="1022.7" font-size="9.5" fill="#999" font-family="DM Mono, monospace">2 Strings &#183; SolarWorld SW 250</text>
+</svg>
+    </div>
+
+    <div class="kp-legend">
+      <div class="kp-lg"><div class="sw" style="background:#D6E4F2;border-color:#378ADD"></div><div class="t"><b>Sammelbox 1</b><br>Victron 150/60 · SolarWorld SW 165<br>5 Strings × 3 Module · Reihen 1–2,5</div></div>
+      <div class="kp-lg"><div class="sw" style="background:#D5E8DF;border-color:#1D9E75"></div><div class="t"><b>Sammelbox 2</b><br>Victron 150/60 · SolarWorld SW 165<br>5 Strings × 3 Module · Reihen 2,5–5</div></div>
+      <div class="kp-lg"><div class="sw" style="background:#F6E6CC;border-color:#EF9F27"></div><div class="t"><b>Sammelbox 3</b><br>Victron 250/70 · Sunset AS 175<br>3 Strings × 6 Module · Reihen 6–8</div></div>
+      <div class="kp-lg"><div class="sw" style="background:#E2DAEC;border-color:#7E57C2"></div><div class="t"><b>Sammelbox 4</b><br>Victron 150/60 · SolarWorld SW 250<br>2 Strings × 3 Module · Reihe 9</div></div>
+    </div>
+
+    <div class="note-box">
+      <b>Lesehilfe:</b> Jede Zeile im Diagramm ist eine Dachreihe (Maßstab wie im <span style="white-space:nowrap">Grundriss</span>). Reihen mit 6 Modulen bilden zwei Strings (links/rechts der gestrichelten Trennlinie) oder – bei Reihen 6–8 – einen durchgehenden 6er-String. Die vier Sammelboxen hängen an einem gemeinsamen Kabelkanal an der Ostseite des Feldes; jeder String läuft einzeln und kreuzungsfrei in seine Box.
+    </div>
+  </div>
+
+  <!-- 02 KABELLÄNGEN -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Kabellängen-Berechnung</h2></div>
+    <p class="section-desc">Berechnet aus den Koordinaten des Grundrisses, nicht geschätzt. Sammelbox-Position je Gruppe: gemeinsamer Kabelkanal bei x = 17.000 mm (200 mm hinter der letzten Modulspalte), Höhe = Mittelwert der Reihenmitten aller angeschlossenen Strings. Kabelweg = orthogonal (Reihenhöhe → Kanal → Box), nicht Luftlinie; + 0,5 m je Kabelende für Steckverbinder/Zugentlastung bereits enthalten. Das Minuskabel ist je String länger als das Pluskabel, weil der − Pol links und die Sammelbox rechts vom Feld liegt.</p>
+
+    <div class="table-scroll">
+    <table class="con-table">
+      <thead><tr>
+        <th>String</th><th>Reihe</th><th>Hälfte</th><th>Box</th><th class="num">Minus (−) m</th><th class="num">Plus (+) m</th><th class="num">Summe m</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>S1</td><td>1</td><td>Spalte 1–3</td><td>SB1</td><td class="num-blk">11,57</td><td class="num-red">6,81</td><td class="num">18,38</td></tr>
+        <tr><td>S2</td><td>1</td><td>Spalte 4–6</td><td>SB1</td><td class="num-blk">6,79</td><td class="num-red">2,02</td><td class="num">8,81</td></tr>
+        <tr><td>S3</td><td>2</td><td>Spalte 1–3</td><td>SB1</td><td class="num-blk">10,80</td><td class="num-red">6,04</td><td class="num">16,84</td></tr>
+        <tr><td>S4</td><td>2</td><td>Spalte 4–6</td><td>SB1</td><td class="num-blk">6,02</td><td class="num-red">1,25</td><td class="num">7,27</td></tr>
+        <tr><td>S5</td><td>3</td><td>Spalte 1–3</td><td>SB1</td><td class="num-blk">12,08</td><td class="num-red">7,32</td><td class="num">19,40</td></tr>
+        <tr class="cat-hdr"><td colspan="7">Sammelbox 1 · Zwischensumme: 47,26 m (−) + 23,44 m (+) = 70,70 m</td></tr>
+        <tr><td>S6</td><td>3</td><td>Spalte 4–6</td><td>SB2</td><td class="num-blk">7,30</td><td class="num-red">2,53</td><td class="num">9,83</td></tr>
+        <tr><td>S7</td><td>4</td><td>Spalte 1–3</td><td>SB2</td><td class="num-blk">10,80</td><td class="num-red">6,04</td><td class="num">16,84</td></tr>
+        <tr><td>S8</td><td>4</td><td>Spalte 4–6</td><td>SB2</td><td class="num-blk">6,02</td><td class="num-red">1,25</td><td class="num">7,27</td></tr>
+        <tr><td>S9</td><td>5</td><td>Spalte 1–3</td><td>SB2</td><td class="num-blk">11,57</td><td class="num-red">6,81</td><td class="num">18,38</td></tr>
+        <tr><td>S10</td><td>5</td><td>Spalte 4–6</td><td>SB2</td><td class="num-blk">6,79</td><td class="num-red">2,02</td><td class="num">8,81</td></tr>
+        <tr class="cat-hdr"><td colspan="7">Sammelbox 2 · Zwischensumme: 42,48 m (−) + 18,65 m (+) = 61,13 m</td></tr>
+        <tr><td>S11</td><td>6</td><td>Spalte 1–6</td><td>SB3</td><td class="num-blk">11,68</td><td class="num-red">2,72</td><td class="num">14,40</td></tr>
+        <tr><td>S12</td><td>7</td><td>Spalte 1–6</td><td>SB3</td><td class="num-blk">10,26</td><td class="num-red">1,29</td><td class="num">11,55</td></tr>
+        <tr><td>S13</td><td>8</td><td>Spalte 1–6</td><td>SB3</td><td class="num-blk">11,68</td><td class="num-red">2,72</td><td class="num">14,40</td></tr>
+        <tr class="cat-hdr"><td colspan="7">Sammelbox 3 · Zwischensumme: 33,63 m (−) + 6,72 m (+) = 40,35 m</td></tr>
+        <tr><td>S14</td><td>9</td><td>Spalte 1–3</td><td>SB4</td><td class="num-blk">10,85</td><td class="num-red">5,79</td><td class="num">16,64</td></tr>
+        <tr><td>S15</td><td>9</td><td>Spalte 4–6</td><td>SB4</td><td class="num-blk">5,77</td><td class="num-red">0,70</td><td class="num">6,47</td></tr>
+        <tr class="cat-hdr"><td colspan="7">Sammelbox 4 · Zwischensumme: 16,62 m (−) + 6,49 m (+) = 23,10 m</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="4">Gesamtsumme · 15 Strings</td><td class="num-blk">139,98</td><td class="num-red">55,30</td><td class="num">195,28</td></tr></tfoot>
+    </table>
+    </div>
+
+    <div class="kp-sum-strip">
+      <div class="kpi"><div class="kpi-label">Kabellänge gesamt</div><div class="kpi-value">195,3 <span style="font-size:15px">m</span></div><div class="kpi-unit">15 Strings · 54 Module</div></div>
+      <div class="kpi"><div class="kpi-label">Minuskabel (schwarz)</div><div class="kpi-value">140,0 <span style="font-size:15px">m</span></div><div class="kpi-unit">71,7 % der Gesamtlänge</div></div>
+      <div class="kpi c-red"><div class="kpi-label">Pluskabel (rot)</div><div class="kpi-value">55,3 <span style="font-size:15px">m</span></div><div class="kpi-unit">28,3 % der Gesamtlänge</div></div>
+      <div class="kpi"><div class="kpi-label">Mittlere Stringlänge</div><div class="kpi-value">13,0 <span style="font-size:15px">m</span></div><div class="kpi-unit">6,5–19,4 m Spannweite</div></div>
+    </div>
+  </div>
+
+  <!-- 03 QUERSCHNITT -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Leitungsquerschnitt</h2></div>
+    <p class="section-desc">Querschnitt je Sammelbox-Gruppe, ausgelegt für den jeweils längsten String (worst case). Zwei Kriterien, das strengere entscheidet:</p>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Kriterium A · Strombelastbarkeit</div>
+        <div class="card-body">
+          <p>Bemessungsstrom nach DIN VDE 0100-712: <b>I<sub>B</sub> = 1,25 × I<sub>sc</sub></b> (STC-Übereinstrahlung möglich). Verglichen mit der Strombelastbarkeit von PV1-F/H1Z2Z2-K Solarkabel frei in Luft (Herstellerangabe, ≥ 40 A bei 4 mm²).</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Kriterium B · Spannungsfall</div>
+        <div class="card-body">
+          <p><b>ΔU = (I<sub>mpp</sub> × L) / (κ × A)</b> mit κ = 56 m/(Ω·mm²) (Kupfer). L = Summe aus Minus- und Pluskabel des längsten Strings der Gruppe (Hin- und Rückleiter). Zielwert: ΔU ≤ 1 % der String-Vmpp.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-scroll">
+    <table class="con-table">
+      <thead><tr>
+        <th>Box</th><th>Modul</th><th class="num">Module/String</th><th class="num">Vmpp String</th><th class="num">I<sub>B</sub> (1,25×I<sub>sc</sub>)</th><th class="num">L (worst case)</th><th class="num">A min. (ΔU≤1%)</th><th class="num">Gewählt</th><th class="num">ΔU real</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>SB1</td><td>SolarWorld SW 165</td><td class="num">3</td><td class="num">103,8 V</td><td class="num">6,83 A</td><td class="num">19,40 m</td><td class="num">1,59 mm²</td><td class="num">4 mm²</td><td class="num">0,41 V · 0,40 %</td></tr>
+        <tr><td>SB2</td><td>SolarWorld SW 165</td><td class="num">3</td><td class="num">103,8 V</td><td class="num">6,83 A</td><td class="num">18,38 m</td><td class="num">1,51 mm²</td><td class="num">4 mm²</td><td class="num">0,39 V · 0,38 %</td></tr>
+        <tr><td>SB3</td><td>Sunset AS 175</td><td class="num">6</td><td class="num">153,0 V</td><td class="num">9,56 A</td><td class="num">14,40 m</td><td class="num">1,15 mm²</td><td class="num">4 mm²</td><td class="num">0,44 V · 0,29 %</td></tr>
+        <tr><td>SB4</td><td>SolarWorld SW 250</td><td class="num">3</td><td class="num">91,5 V</td><td class="num">11,01 A</td><td class="num">16,64 m</td><td class="num">2,69 mm²</td><td class="num">4 mm²</td><td class="num">0,61 V · 0,67 %</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="note-box" style="margin-top:20px">
+      <b>Ergebnis:</b> Rechnerisch reichen 1,15–2,69 mm² für alle vier Gruppen aus – die Strombelastbarkeit ist nie der limitierende Faktor (I<sub>B</sub> bleibt mit 6,8–11,0 A weit unter den ≥ 40 A eines 4 mm² Solarkabels). Gewählt wird einheitlich <b>4 mm² PV1-F / H1Z2Z2-K</b>, der praxisübliche Mindestquerschnitt für freiverlegte String-Kabel (mechanische Robustheit, gängige MC4-Verbinder). Damit liegt der reale Spannungsfall bei 0,29–0,67 % der String-Vmpp – deutlich innerhalb des 1 %-Ziels.
+    </div>
+  </div>
+
+</main>
+</div><!-- /page-kabelplanung -->
 
 
 <!-- ════════════════════════════════════════════════════════════════════════
