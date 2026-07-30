@@ -720,6 +720,7 @@ th.num{font-family:'DM Mono',monospace;font-size:12px;text-align:right}
    PAGE — KABELPLANUNG
 ═══════════════════════════════════════════════════════════════════ */
 #page-kabelplanung{background:var(--paper)}
+#page-kabelstorage{background:var(--paper)}
 .kp-main{max-width:1300px;margin:0 auto;padding:0 60px 80px}
 .kp-diagram-wrap{background:var(--paper2);border:1px solid var(--paper3);border-radius:12px;padding:20px;overflow-x:auto;margin-bottom:24px}
 .kp-diagram-wrap svg{display:block;margin:0 auto;min-width:1130px;height:auto}
@@ -843,6 +844,9 @@ img[data-lb]{cursor:zoom-in}
   </button>
   <button class="page-btn" onclick="switchPage('kabelplanung',this,true)">
     <span class="pg-icon">⏚</span> Kabelplanung - draußen
+  </button>
+  <button class="page-btn" onclick="switchPage('kabelstorage',this,true)">
+    <span class="pg-icon">⚡</span> Kabelplanung - Schaltraum
   </button>
   <button class="page-btn" onclick="switchPage('zusatzsystem',this,true)">
     <span class="pg-icon">🔌</span> Zusatzsystem
@@ -2872,6 +2876,360 @@ img[data-lb]{cursor:zoom-in}
 
 
 <!-- ════════════════════════════════════════════════════════════════════════
+     PAGE — KABELPLANUNG SCHALTRAUM (STORAGE ROOM)
+═════════════════════════════════════════════════════════════════════════ -->
+<div id="page-kabelstorage" class="page">
+<main class="kp-main">
+
+  <!-- 01 ÜBERBLICK -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Schaltraum — Überblick</h2></div>
+    <p class="section-desc">Der Storage-Raum ist das elektrische Herz der Anlage. Vier MPPT-Laderegler empfangen die DC-Energie von den Dach-Y-Steckern und speisen sie in den gemeinsamen 48-V-DC-Bus ein, der aus zwei miteinander verbundenen Victron Lynx Distributoren besteht. Am Bus hängen die drei Pylontech-Akkumodule (je 25 mm²) und der MultiPlus-II-Wechselrichter (2 × 35 mm² je Pol). Der Cerbo GX MK2 verbindet und überwacht alle Komponenten über VE.Direct-, VE.Bus- und CAN-Bus-Leitungen.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi c-sun">
+        <div class="kpi-label">DC-Busspannung</div>
+        <div class="kpi-value">48 <span style="font-size:15px">V</span></div>
+        <div class="kpi-unit">Nennspannung Gesamtsystem</div>
+      </div>
+      <div class="kpi c-sun">
+        <div class="kpi-label">MPPT-Regler</div>
+        <div class="kpi-value">4 ×</div>
+        <div class="kpi-unit">Victron SmartSolar</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">DC-Bus</div>
+        <div class="kpi-value" style="font-size:18px">2 × Lynx</div>
+        <div class="kpi-unit">Victron Lynx Distributor · 1000 A</div>
+      </div>
+      <div class="kpi c-green">
+        <div class="kpi-label">Batteriekapazität</div>
+        <div class="kpi-value">14,4 <span style="font-size:15px">kWh</span></div>
+        <div class="kpi-unit">3 × Pylontech US5000 · LiFePO₄</div>
+      </div>
+      <div class="kpi c-moon">
+        <div class="kpi-label">Wechselrichter</div>
+        <div class="kpi-value">10 <span style="font-size:15px">kVA</span></div>
+        <div class="kpi-unit">MultiPlus-II 48/10000</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 SCHALTSCHEMA -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Schaltschema — Storage Room</h2></div>
+    <p class="section-desc">Energiefluss von den Dach-Y-Steckern über die vier MPPT-Laderegler in den gemeinsamen 48-V-DC-Bus (2× Victron Lynx Distributor). Von dort: drei Pylontech-Akkumodule (bidirektional, je 25 mm²) und der MultiPlus-II-Wechselrichter (2 × 35 mm² je Pol). Kommunikationskabel (VE.Direct, VE.Bus, CAN RS485) sind gestrichelt dargestellt.</p>
+
+    <div class="kp-cables" style="margin-bottom:16px">
+      <div class="kp-cab"><span class="ln" style="background:#a03020;height:4px"></span><span><b>Rot (+)</b> · DC-Pluspol</span></div>
+      <div class="kp-cab"><span class="ln" style="background:#1a1a18;height:4px"></span><span><b>Schwarz (−)</b> · DC-Minuspol</span></div>
+      <div class="kp-cab"><span class="ln" style="background:none;border-bottom:2px dashed #7E57C2;height:0;margin-top:4px"></span><span><b>Violett gestrichelt</b> · VE.Direct / VE.Bus (Kommunikation)</span></div>
+      <div class="kp-cab"><span class="ln" style="background:none;border-bottom:2px dashed #2a6b4a;height:0;margin-top:4px"></span><span><b>Grün gestrichelt</b> · CAN RS485 (Pylontech BMS)</span></div>
+    </div>
+
+    <div class="kp-diagram-wrap">
+<svg viewBox="0 0 1380 750" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif" style="min-width:1380px">
+
+<!-- BACKGROUND + ROOM OUTLINE -->
+<rect width="1380" height="750" fill="#F7F5F0" rx="10"/>
+<rect x="10" y="10" width="1360" height="730" rx="10" fill="#F3EFE3" stroke="#D4CFC0" stroke-width="1.5" stroke-dasharray="8 4"/>
+<text x="28" y="34" font-size="10.5" fill="#8a8a80" font-family="DM Mono,monospace" letter-spacing=".12em">STORAGE / SCHALTRAUM — 48 V DC-BUS</text>
+
+<!-- ── CABLE ENTRIES FROM ROOF (Trunk-Kabel von Y-Steckern) ── -->
+<rect x="91" y="43" width="34" height="11" rx="3" fill="none" stroke="#b8b3a4" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="261" y="43" width="34" height="11" rx="3" fill="none" stroke="#b8b3a4" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="431" y="43" width="34" height="11" rx="3" fill="none" stroke="#b8b3a4" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="601" y="43" width="34" height="11" rx="3" fill="none" stroke="#b8b3a4" stroke-width="1.2" stroke-dasharray="3 2"/>
+<text x="108" y="42" font-size="10" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">Y1 → MPPT 1</text>
+<text x="278" y="42" font-size="10" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">Y2 → MPPT 2</text>
+<text x="448" y="42" font-size="10" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">Y3 → MPPT 3</text>
+<text x="618" y="42" font-size="10" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">Y4 → MPPT 4</text>
+<!-- trunk cable pairs -->
+<line x1="102" y1="54" x2="102" y2="82" stroke="#1a1a18" stroke-width="3"/>
+<line x1="114" y1="54" x2="114" y2="82" stroke="#a03020" stroke-width="3"/>
+<line x1="272" y1="54" x2="272" y2="82" stroke="#1a1a18" stroke-width="3"/>
+<line x1="284" y1="54" x2="284" y2="82" stroke="#a03020" stroke-width="3"/>
+<line x1="442" y1="54" x2="442" y2="82" stroke="#1a1a18" stroke-width="3"/>
+<line x1="454" y1="54" x2="454" y2="82" stroke="#a03020" stroke-width="3"/>
+<line x1="612" y1="54" x2="612" y2="82" stroke="#1a1a18" stroke-width="3"/>
+<line x1="624" y1="54" x2="624" y2="82" stroke="#a03020" stroke-width="3"/>
+
+<!-- ── MPPT LADEREGLER (4 Stück) ── -->
+<!-- MPPT 1: SmartSolar 150/60 -->
+<rect x="32" y="82" width="152" height="118" rx="8" fill="#FFF4E6" stroke="#EF9F27" stroke-width="2"/>
+<text x="108" y="101" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace" letter-spacing=".08em">VICTRON ENERGY</text>
+<text x="108" y="121" font-size="14" fill="#1a1a18" text-anchor="middle" font-weight="600">MPPT 1</text>
+<text x="108" y="138" font-size="10.5" fill="#c87810" text-anchor="middle" font-family="DM Mono,monospace">SmartSolar 150/60</text>
+<text x="108" y="154" font-size="9" fill="#8a8a80" text-anchor="middle">PV max. 150 V · 60 A</text>
+<text x="108" y="169" font-size="9" fill="#5a8a5a" text-anchor="middle" font-family="DM Mono,monospace">Y1 · Strings 1–5 · 5in1</text>
+<text x="108" y="184" font-size="8.5" fill="#8a8a80" text-anchor="middle">~2,5 kWp</text>
+
+<!-- MPPT 2: SmartSolar 150/60 -->
+<rect x="202" y="82" width="152" height="118" rx="8" fill="#FFF4E6" stroke="#EF9F27" stroke-width="2"/>
+<text x="278" y="101" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace" letter-spacing=".08em">VICTRON ENERGY</text>
+<text x="278" y="121" font-size="14" fill="#1a1a18" text-anchor="middle" font-weight="600">MPPT 2</text>
+<text x="278" y="138" font-size="10.5" fill="#c87810" text-anchor="middle" font-family="DM Mono,monospace">SmartSolar 150/60</text>
+<text x="278" y="154" font-size="9" fill="#8a8a80" text-anchor="middle">PV max. 150 V · 60 A</text>
+<text x="278" y="169" font-size="9" fill="#5a8a5a" text-anchor="middle" font-family="DM Mono,monospace">Y2 · Strings 6–10 · 5in1</text>
+<text x="278" y="184" font-size="8.5" fill="#8a8a80" text-anchor="middle">~2,5 kWp</text>
+
+<!-- MPPT 3: SmartSolar 250/70 -->
+<rect x="372" y="82" width="152" height="118" rx="8" fill="#FFF4E6" stroke="#EF9F27" stroke-width="2"/>
+<text x="448" y="101" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace" letter-spacing=".08em">VICTRON ENERGY</text>
+<text x="448" y="121" font-size="14" fill="#1a1a18" text-anchor="middle" font-weight="600">MPPT 3</text>
+<text x="448" y="138" font-size="10.5" fill="#c87810" text-anchor="middle" font-family="DM Mono,monospace">SmartSolar 250/70</text>
+<text x="448" y="154" font-size="9" fill="#8a8a80" text-anchor="middle">PV max. 250 V · 70 A</text>
+<text x="448" y="169" font-size="9" fill="#5a8a5a" text-anchor="middle" font-family="DM Mono,monospace">Y3 · Strings 11–13 · 3in1</text>
+<text x="448" y="184" font-size="8.5" fill="#8a8a80" text-anchor="middle">~3,15 kWp</text>
+
+<!-- MPPT 4: SmartSolar 150/60 -->
+<rect x="542" y="82" width="152" height="118" rx="8" fill="#FFF4E6" stroke="#EF9F27" stroke-width="2"/>
+<text x="618" y="101" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace" letter-spacing=".08em">VICTRON ENERGY</text>
+<text x="618" y="121" font-size="14" fill="#1a1a18" text-anchor="middle" font-weight="600">MPPT 4</text>
+<text x="618" y="138" font-size="10.5" fill="#c87810" text-anchor="middle" font-family="DM Mono,monospace">SmartSolar 150/60</text>
+<text x="618" y="154" font-size="9" fill="#8a8a80" text-anchor="middle">PV max. 150 V · 60 A</text>
+<text x="618" y="169" font-size="9" fill="#5a8a5a" text-anchor="middle" font-family="DM Mono,monospace">Y4 · Strings 14–15 · 2in1</text>
+<text x="618" y="184" font-size="8.5" fill="#8a8a80" text-anchor="middle">~1,5 kWp</text>
+
+<!-- ── MPPT → LYNX DC-KABEL (25 mm²) ── -->
+<line x1="102" y1="200" x2="102" y2="248" stroke="#1a1a18" stroke-width="3.5"/>
+<line x1="114" y1="200" x2="114" y2="248" stroke="#a03020" stroke-width="3.5"/>
+<line x1="272" y1="200" x2="272" y2="248" stroke="#1a1a18" stroke-width="3.5"/>
+<line x1="284" y1="200" x2="284" y2="248" stroke="#a03020" stroke-width="3.5"/>
+<line x1="442" y1="200" x2="442" y2="248" stroke="#1a1a18" stroke-width="3.5"/>
+<line x1="454" y1="200" x2="454" y2="248" stroke="#a03020" stroke-width="3.5"/>
+<line x1="612" y1="200" x2="612" y2="248" stroke="#1a1a18" stroke-width="3.5"/>
+<line x1="624" y1="200" x2="624" y2="248" stroke="#a03020" stroke-width="3.5"/>
+<text x="120" y="228" font-size="9" fill="#8a8a80" font-family="DM Mono,monospace">25 mm²</text>
+<text x="290" y="228" font-size="9" fill="#8a8a80" font-family="DM Mono,monospace">25 mm²</text>
+<text x="460" y="228" font-size="9" fill="#8a8a80" font-family="DM Mono,monospace">25 mm²</text>
+<text x="630" y="228" font-size="9" fill="#8a8a80" font-family="DM Mono,monospace">25 mm²</text>
+
+<!-- ── LYNX DISTRIBUTOR — ZENTRALER DC-BUS ── -->
+<!-- glow backgrounds -->
+<rect x="24" y="244" width="376" height="122" rx="12" fill="rgba(200,120,16,.06)"/>
+<rect x="402" y="244" width="376" height="122" rx="12" fill="rgba(200,120,16,.06)"/>
+
+<!-- LYNX DISTRIBUTOR 1 (x=28–384, y=248–360) -->
+<rect x="28" y="248" width="356" height="112" rx="8" fill="#FEF8ED" stroke="#c87810" stroke-width="2.5"/>
+<rect x="40" y="278" width="332" height="13" rx="3" fill="#c87810" opacity=".28"/>
+<!-- terminal circles at MPPT connection points -->
+<circle cx="108" cy="264" r="6" fill="none" stroke="#c87810" stroke-width="1.5"/>
+<circle cx="278" cy="264" r="6" fill="none" stroke="#c87810" stroke-width="1.5"/>
+<!-- terminal circles at battery connection points -->
+<circle cx="108" cy="344" r="6" fill="none" stroke="#c87810" stroke-width="1.5"/>
+<circle cx="278" cy="344" r="6" fill="none" stroke="#c87810" stroke-width="1.5"/>
+<text x="206" y="268" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace" letter-spacing=".1em">VICTRON LYNX DISTRIBUTOR 1</text>
+<text x="206" y="304" font-size="13.5" fill="#8a5010" text-anchor="middle" font-weight="600">DC-Sammelschiene</text>
+<text x="206" y="322" font-size="9.5" fill="#8a5010" text-anchor="middle">MPPT 1 · MPPT 2 · Batterie 1 · Batterie 2</text>
+<text x="206" y="338" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">Klasse-T-Sicherungen · 1000 A · M8-Bolzen</text>
+<text x="206" y="352" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">4 Anschlüsse je Seite</text>
+
+<!-- Bus connector between Lynx 1 and Lynx 2 -->
+<rect x="384" y="275" width="18" height="34" rx="3" fill="#c87810" opacity=".55"/>
+<text x="393" y="271" font-size="8" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">BUS</text>
+
+<!-- LYNX DISTRIBUTOR 2 (x=402–758, y=248–360) -->
+<rect x="402" y="248" width="356" height="112" rx="8" fill="#FEF8ED" stroke="#c87810" stroke-width="2.5"/>
+<rect x="414" y="278" width="332" height="13" rx="3" fill="#c87810" opacity=".28"/>
+<circle cx="448" cy="264" r="6" fill="none" stroke="#c87810" stroke-width="1.5"/>
+<circle cx="618" cy="264" r="6" fill="none" stroke="#c87810" stroke-width="1.5"/>
+<circle cx="500" cy="344" r="6" fill="none" stroke="#c87810" stroke-width="1.5"/>
+<text x="580" y="268" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace" letter-spacing=".1em">VICTRON LYNX DISTRIBUTOR 2</text>
+<text x="580" y="304" font-size="13.5" fill="#8a5010" text-anchor="middle" font-weight="600">DC-Sammelschiene</text>
+<text x="580" y="322" font-size="9.5" fill="#8a5010" text-anchor="middle">MPPT 3 · MPPT 4 · Batterie 3 · MultiPlus-II</text>
+<text x="580" y="338" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">Klasse-T-Sicherungen · 1000 A · M8-Bolzen</text>
+<text x="580" y="352" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">4 Anschlüsse je Seite</text>
+
+<!-- ── LYNX → BATTERIEN (25 mm²) ── -->
+<line x1="102" y1="360" x2="102" y2="408" stroke="#1a1a18" stroke-width="3.5"/>
+<line x1="114" y1="360" x2="114" y2="408" stroke="#a03020" stroke-width="3.5"/>
+<line x1="272" y1="360" x2="272" y2="408" stroke="#1a1a18" stroke-width="3.5"/>
+<line x1="284" y1="360" x2="284" y2="408" stroke="#a03020" stroke-width="3.5"/>
+<line x1="494" y1="360" x2="494" y2="408" stroke="#1a1a18" stroke-width="3.5"/>
+<line x1="506" y1="360" x2="506" y2="408" stroke="#a03020" stroke-width="3.5"/>
+<text x="120" y="388" font-size="9" fill="#8a8a80" font-family="DM Mono,monospace">25 mm²</text>
+<text x="290" y="388" font-size="9" fill="#8a8a80" font-family="DM Mono,monospace">25 mm²</text>
+<text x="512" y="388" font-size="9" fill="#8a8a80" font-family="DM Mono,monospace">25 mm²</text>
+
+<!-- ── LYNX → MULTIPLUS (2 × 35 mm² je Pol) ── -->
+<line x1="758" y1="283" x2="800" y2="283" stroke="#a03020" stroke-width="5"/>
+<line x1="758" y1="294" x2="800" y2="294" stroke="#a03020" stroke-width="5"/>
+<line x1="758" y1="312" x2="800" y2="312" stroke="#1a1a18" stroke-width="5"/>
+<line x1="758" y1="323" x2="800" y2="323" stroke="#1a1a18" stroke-width="5"/>
+<text x="778" y="276" font-size="9" fill="#a03020" text-anchor="middle" font-family="DM Mono,monospace">+ 2 × 35</text>
+<text x="778" y="334" font-size="9" fill="#1a1a18" text-anchor="middle" font-family="DM Mono,monospace">− 2 × 35</text>
+<text x="778" y="346" font-size="8.5" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">mm² je Pol</text>
+
+<!-- ── PYLONTECH US5000 BATTERIEN (3 Stück) ── -->
+<!-- Batterie 1 (x=30–186, y=408–592, cx=108) -->
+<rect x="30" y="408" width="156" height="184" rx="8" fill="#E8F5EE" stroke="#2a6b4a" stroke-width="2"/>
+<text x="108" y="428" font-size="8.5" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">PYLONTECH</text>
+<text x="108" y="447" font-size="13.5" fill="#1a1a18" text-anchor="middle" font-weight="600">Batterie 1</text>
+<text x="108" y="465" font-size="11.5" fill="#2a6b4a" text-anchor="middle" font-weight="500">US5000</text>
+<text x="108" y="481" font-size="9" fill="#8a8a80" text-anchor="middle">4,8 kWh · 48 V · 74 Ah</text>
+<text x="108" y="496" font-size="9" fill="#8a8a80" text-anchor="middle">LiFePO₄ · BMS integriert</text>
+<rect x="52" y="508" width="112" height="48" rx="4" fill="#c4e6d0" stroke="#2a6b4a" stroke-width="1" opacity=".8"/>
+<text x="108" y="524" font-size="8" fill="#1a5a30" text-anchor="middle" font-family="DM Mono,monospace">SOC</text>
+<text x="108" y="542" font-size="15" fill="#1a5a30" text-anchor="middle" font-weight="700">100 %</text>
+<text x="108" y="574" font-size="8.5" fill="#2a6b4a" text-anchor="middle">CAN RS485 (Bat.-Master)</text>
+
+<!-- Batterie 2 (x=202–358, cx=280) -->
+<rect x="202" y="408" width="156" height="184" rx="8" fill="#E8F5EE" stroke="#2a6b4a" stroke-width="2"/>
+<text x="280" y="428" font-size="8.5" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">PYLONTECH</text>
+<text x="280" y="447" font-size="13.5" fill="#1a1a18" text-anchor="middle" font-weight="600">Batterie 2</text>
+<text x="280" y="465" font-size="11.5" fill="#2a6b4a" text-anchor="middle" font-weight="500">US5000</text>
+<text x="280" y="481" font-size="9" fill="#8a8a80" text-anchor="middle">4,8 kWh · 48 V · 74 Ah</text>
+<text x="280" y="496" font-size="9" fill="#8a8a80" text-anchor="middle">LiFePO₄ · BMS integriert</text>
+<rect x="224" y="508" width="112" height="48" rx="4" fill="#c4e6d0" stroke="#2a6b4a" stroke-width="1" opacity=".8"/>
+<text x="280" y="524" font-size="8" fill="#1a5a30" text-anchor="middle" font-family="DM Mono,monospace">SOC</text>
+<text x="280" y="542" font-size="15" fill="#1a5a30" text-anchor="middle" font-weight="700">100 %</text>
+<text x="280" y="574" font-size="8.5" fill="#2a6b4a" text-anchor="middle">CAN RS485 (Slave)</text>
+
+<!-- Batterie 3 (x=422–578, cx=500) -->
+<rect x="422" y="408" width="156" height="184" rx="8" fill="#E8F5EE" stroke="#2a6b4a" stroke-width="2"/>
+<text x="500" y="428" font-size="8.5" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">PYLONTECH</text>
+<text x="500" y="447" font-size="13.5" fill="#1a1a18" text-anchor="middle" font-weight="600">Batterie 3</text>
+<text x="500" y="465" font-size="11.5" fill="#2a6b4a" text-anchor="middle" font-weight="500">US5000</text>
+<text x="500" y="481" font-size="9" fill="#8a8a80" text-anchor="middle">4,8 kWh · 48 V · 74 Ah</text>
+<text x="500" y="496" font-size="9" fill="#8a8a80" text-anchor="middle">LiFePO₄ · BMS integriert</text>
+<rect x="444" y="508" width="112" height="48" rx="4" fill="#c4e6d0" stroke="#2a6b4a" stroke-width="1" opacity=".8"/>
+<text x="500" y="524" font-size="8" fill="#1a5a30" text-anchor="middle" font-family="DM Mono,monospace">SOC</text>
+<text x="500" y="542" font-size="15" fill="#1a5a30" text-anchor="middle" font-weight="700">100 %</text>
+<text x="500" y="574" font-size="8.5" fill="#2a6b4a" text-anchor="middle">CAN RS485 (Slave)</text>
+
+<!-- Battery group total label -->
+<rect x="30" y="598" width="548" height="24" rx="4" fill="rgba(42,107,74,.06)" stroke="rgba(42,107,74,.2)" stroke-width="1"/>
+<text x="304" y="615" font-size="9.5" fill="#2a6b4a" text-anchor="middle" font-family="DM Mono,monospace">Gesamt: 3 × 4,8 kWh = 14,4 kWh · 222 Ah @ 48 V · LiFePO₄</text>
+
+<!-- ── MULTIPLUS-II 48/10000 ── -->
+<rect x="800" y="244" width="194" height="260" rx="8" fill="#E8ECF8" stroke="#3d4f8a" stroke-width="2"/>
+<text x="897" y="267" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace" letter-spacing=".08em">VICTRON ENERGY</text>
+<text x="897" y="288" font-size="14" fill="#1a1a18" text-anchor="middle" font-weight="600">MultiPlus-II</text>
+<text x="897" y="308" font-size="11" fill="#3d4f8a" text-anchor="middle" font-family="DM Mono,monospace">48/10000</text>
+<line x1="820" y1="318" x2="974" y2="318" stroke="#e2dfd6" stroke-width="1"/>
+<text x="897" y="335" font-size="9" fill="#8a8a80" text-anchor="middle">Wechselrichter 10 kVA</text>
+<text x="897" y="351" font-size="9" fill="#8a8a80" text-anchor="middle">+ Netzladegerät 140 A</text>
+<text x="897" y="368" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">DC: 48 V · max. 500 A</text>
+<text x="897" y="384" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">AC-Out: 230 V · 50 Hz</text>
+<text x="897" y="400" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">AC-In: Generator / Netz</text>
+<line x1="897" y1="415" x2="897" y2="458" stroke="#3d4f8a" stroke-width="2.5" stroke-dasharray="6 3"/>
+<circle cx="897" cy="461" r="5" fill="#3d4f8a" opacity=".3"/>
+<text x="897" y="478" font-size="9.5" fill="#3d4f8a" text-anchor="middle" font-family="DM Mono,monospace">230 V AC</text>
+<text x="897" y="493" font-size="9" fill="#8a8a80" text-anchor="middle">→ Verbraucher (Kindergarten)</text>
+
+<!-- ── CERBO GX MK2 ── -->
+<rect x="1052" y="52" width="218" height="156" rx="8" fill="#EDE8F8" stroke="#7E57C2" stroke-width="2"/>
+<text x="1161" y="74" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace" letter-spacing=".08em">VICTRON ENERGY</text>
+<text x="1161" y="95" font-size="14" fill="#1a1a18" text-anchor="middle" font-weight="600">Cerbo GX MK2</text>
+<text x="1161" y="114" font-size="9.5" fill="#7E57C2" text-anchor="middle">Systemmonitor &amp; Steuerung</text>
+<line x1="1068" y1="123" x2="1254" y2="123" stroke="#e2dfd6" stroke-width="1"/>
+<text x="1161" y="140" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">4 × VE.Direct (MPPT 1–4)</text>
+<text x="1161" y="155" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">1 × VE.Bus (MultiPlus-II)</text>
+<text x="1161" y="170" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">1 × CAN RS485 (Pylontech BMS)</text>
+<text x="1161" y="185" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">WLAN · LAN · Bluetooth</text>
+<text x="1161" y="199" font-size="8.5" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace">VRM-Portal: Remote-Monitoring</text>
+
+<!-- Cerbo → GX Touch (HDMI) -->
+<line x1="1161" y1="208" x2="1161" y2="244" stroke="#7E57C2" stroke-width="2"/>
+<text x="1172" y="232" font-size="8.5" fill="#7E57C2" font-family="DM Mono,monospace">HDMI</text>
+
+<!-- ── GX TOUCH 70 DISPLAY ── -->
+<rect x="1052" y="244" width="218" height="142" rx="8" fill="#EDE8F8" stroke="#7E57C2" stroke-width="1.5"/>
+<text x="1161" y="267" font-size="9" fill="#8a8a80" text-anchor="middle" font-family="DM Mono,monospace" letter-spacing=".08em">VICTRON ENERGY</text>
+<text x="1161" y="286" font-size="12.5" fill="#1a1a18" text-anchor="middle" font-weight="600">GX Touch 70</text>
+<text x="1161" y="303" font-size="9.5" fill="#7E57C2" text-anchor="middle">7″ Touchscreen-Display</text>
+<!-- Simulated screen -->
+<rect x="1070" y="312" width="182" height="62" rx="4" fill="#1a1a18" opacity=".88"/>
+<text x="1161" y="330" font-size="8.5" fill="#d4a85a" text-anchor="middle" font-family="DM Mono,monospace">SOC: 100 % · 54,2 V DC</text>
+<text x="1161" y="346" font-size="8.5" fill="#4dbd8a" text-anchor="middle" font-family="DM Mono,monospace">PV: 8,4 kW → Bat: +3,2 kW</text>
+<text x="1161" y="362" font-size="8" fill="#8a9ab4" text-anchor="middle" font-family="DM Mono,monospace">Lasten: 5,2 kW · Grid: 0 W</text>
+<text x="1161" y="376" font-size="8.5" fill="#7E57C2" text-anchor="middle">Fernüberwachung via VRM-Portal</text>
+
+<!-- ── VE.DIRECT KABEL (4 × MPPT → Cerbo GX) ── -->
+<!-- Horizontal bundle from MPPT right sides → Cerbo GX left side -->
+<!-- Slightly staggered y to form visible bundle -->
+<line x1="184" y1="131" x2="1052" y2="131" stroke="#7E57C2" stroke-width="1.3" stroke-dasharray="7 4" opacity=".62"/>
+<line x1="354" y1="137" x2="1052" y2="137" stroke="#7E57C2" stroke-width="1.3" stroke-dasharray="7 4" opacity=".62"/>
+<line x1="524" y1="143" x2="1052" y2="143" stroke="#7E57C2" stroke-width="1.3" stroke-dasharray="7 4" opacity=".62"/>
+<line x1="694" y1="149" x2="1052" y2="149" stroke="#7E57C2" stroke-width="1.3" stroke-dasharray="7 4" opacity=".62"/>
+<!-- Bundle label box -->
+<rect x="762" y="118" width="82" height="40" rx="4" fill="#F0EDF8" stroke="#c8bff0" stroke-width="1" opacity=".95"/>
+<text x="803" y="134" font-size="9" fill="#7E57C2" text-anchor="middle" font-family="DM Mono,monospace">VE.Direct</text>
+<text x="803" y="149" font-size="9" fill="#7E57C2" text-anchor="middle" font-family="DM Mono,monospace">4 × RJ12</text>
+
+<!-- ── VE.BUS (MultiPlus → Cerbo) ── -->
+<polyline points="994,355 1036,355 1036,167 1052,167" fill="none" stroke="#7E57C2" stroke-width="1.5" stroke-dasharray="8 4" opacity=".7"/>
+<text x="1026" y="351" font-size="8.5" fill="#7E57C2" text-anchor="end" font-family="DM Mono,monospace">VE.Bus</text>
+
+<!-- ── CAN RS485 (Pylontech → Cerbo) ── -->
+<polyline points="578,490 648,490 648,182 1052,182" fill="none" stroke="#2a6b4a" stroke-width="1.5" stroke-dasharray="5 4" opacity=".7"/>
+<text x="654" y="487" font-size="8.5" fill="#2a6b4a" font-family="DM Mono,monospace">CAN RS485</text>
+
+<!-- ── DC-BUS CENTER LABEL ── -->
+<text x="393" y="246" font-size="9" fill="#8a5010" text-anchor="middle" font-family="DM Mono,monospace" letter-spacing=".06em" font-weight="600">48 V DC-BUS</text>
+
+</svg>
+    </div>
+  </div>
+
+  <!-- 03 KABELSPEZIFIKATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Kabelspezifikation Schaltraum</h2></div>
+    <p class="section-desc">Alle Kabel innerhalb des Storage-Raums. DC-Leistungskabel als H07V-K (flexibel, 90 °C, für Festinstallation), Kommunikationskabel als Victron-Originalzubehör. Querschnitte für kurze Verlegelängen (&lt; 1 m) berechnet.</p>
+
+    <div class="table-scroll">
+    <table class="con-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Verbindung</th>
+          <th>Kabeltyp</th>
+          <th class="num">Querschnitt</th>
+          <th class="num">Anz.</th>
+          <th>Anmerkung</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cat-hdr"><td colspan="6">PV-Eingang — Trunk-Kabel von Dach in Schaltraum</td></tr>
+        <tr><td class="num">1</td><td>Y1 → MPPT 1</td><td>H1Z2Z2-K (PV1-F)</td><td class="num">10 mm²</td><td class="num">2 (+/−)</td><td>5-String-Gruppe, längste Strecke</td></tr>
+        <tr><td class="num">2</td><td>Y2 → MPPT 2</td><td>H1Z2Z2-K (PV1-F)</td><td class="num">10 mm²</td><td class="num">2 (+/−)</td><td>5-String-Gruppe</td></tr>
+        <tr><td class="num">3</td><td>Y3 → MPPT 3</td><td>H1Z2Z2-K (PV1-F)</td><td class="num">6 mm²</td><td class="num">2 (+/−)</td><td>3-String-Gruppe, kürzere Strecke</td></tr>
+        <tr><td class="num">4</td><td>Y4 → MPPT 4</td><td>H1Z2Z2-K (PV1-F)</td><td class="num">6 mm²</td><td class="num">2 (+/−)</td><td>2-String-Gruppe, kürzeste Strecke</td></tr>
+
+        <tr class="cat-hdr"><td colspan="6">DC-Leistungskabel — MPPT → Lynx Distributor</td></tr>
+        <tr><td class="num">5</td><td>MPPT 1 → Lynx Distributor 1</td><td>H07V-K flex. 90 °C</td><td class="num">25 mm²</td><td class="num">2 (+/−)</td><td>Ringkabelschuh M8 · ~0,8 m</td></tr>
+        <tr><td class="num">6</td><td>MPPT 2 → Lynx Distributor 1</td><td>H07V-K flex. 90 °C</td><td class="num">25 mm²</td><td class="num">2 (+/−)</td><td>Ringkabelschuh M8 · ~0,8 m</td></tr>
+        <tr><td class="num">7</td><td>MPPT 3 → Lynx Distributor 2</td><td>H07V-K flex. 90 °C</td><td class="num">25 mm²</td><td class="num">2 (+/−)</td><td>Ringkabelschuh M8 · ~0,8 m</td></tr>
+        <tr><td class="num">8</td><td>MPPT 4 → Lynx Distributor 2</td><td>H07V-K flex. 90 °C</td><td class="num">25 mm²</td><td class="num">2 (+/−)</td><td>Ringkabelschuh M8 · ~0,8 m</td></tr>
+
+        <tr class="cat-hdr"><td colspan="6">DC-Leistungskabel — Lynx Distributor → Batterien</td></tr>
+        <tr><td class="num">9</td><td>Lynx 1 → Pylontech US5000 #1</td><td>H07V-K flex. 90 °C</td><td class="num">25 mm²</td><td class="num">2 (+/−)</td><td>Ringkabelschuh M8 · ~0,5 m</td></tr>
+        <tr><td class="num">10</td><td>Lynx 1 → Pylontech US5000 #2</td><td>H07V-K flex. 90 °C</td><td class="num">25 mm²</td><td class="num">2 (+/−)</td><td>Ringkabelschuh M8 · ~0,5 m</td></tr>
+        <tr><td class="num">11</td><td>Lynx 2 → Pylontech US5000 #3</td><td>H07V-K flex. 90 °C</td><td class="num">25 mm²</td><td class="num">2 (+/−)</td><td>Ringkabelschuh M8 · ~0,5 m</td></tr>
+
+        <tr class="cat-hdr"><td colspan="6">DC-Leistungskabel — Lynx Distributor → Wechselrichter</td></tr>
+        <tr><td class="num">12</td><td>Lynx 2 → MultiPlus-II 48/10000</td><td>H07V-K flex. 90 °C</td><td class="num">35 mm²</td><td class="num">4 (2+/2−)</td><td>2 Kabel je Pol · Ringkabelschuh M8 · ~0,6 m</td></tr>
+
+        <tr class="cat-hdr"><td colspan="6">Kommunikationskabel — Systembus</td></tr>
+        <tr><td class="num">13</td><td>MPPT 1–4 → Cerbo GX MK2</td><td>VE.Direct Kabel</td><td class="num">RJ12 (6P6C)</td><td class="num">4 ×</td><td>Victron-Originalzubehör · je 1,8 m</td></tr>
+        <tr><td class="num">14</td><td>MultiPlus-II → Cerbo GX MK2</td><td>VE.Bus Kabel</td><td class="num">RJ45 (8P8C)</td><td class="num">1 ×</td><td>Victron-Originalzubehör · 1,8 m</td></tr>
+        <tr><td class="num">15</td><td>Pylontech #1 → Cerbo GX MK2</td><td>CAN RS485</td><td class="num">RJ45</td><td class="num">1 ×</td><td>Batterie 1 als CAN-Master · 2,0 m</td></tr>
+        <tr><td class="num">16</td><td>Cerbo GX MK2 → GX Touch 70</td><td>HDMI</td><td class="num">HDMI</td><td class="num">1 ×</td><td>Victron-Originalzubehör · max. 5 m</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="note-box" style="margin-top:20px">
+      <strong>Kabelzubehör:</strong> Alle DC-Kabel (25 mm² / 35 mm²) erhalten beidseitig Ringkabelschuhe M8, passend zu den M8-Bolzen der Lynx Distributoren. Die flexiblen H07V-K-Litzen ermöglichen einfache Konfektionierung im Schaltraum. Aderendhülsen sind für diese Querschnitte nicht geeignet – ausschließlich Rohrkabelschuhe verwenden. Plusleiter immer in Rot, Minusleiter in Schwarz oder Grau.
+    </div>
+  </div>
+
+</main>
+</div><!-- /page-kabelstorage -->
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
      PAGE — ZUSATZSYSTEM
 ═════════════════════════════════════════════════════════════════════════ -->
 <div id="page-zusatzsystem" class="page">
@@ -3011,10 +3369,10 @@ img[data-lb]{cursor:zoom-in}
   <!-- 05 SCHALTPLAN -->
   <div class="section">
     <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Schaltplan · Systemübersicht</h2></div>
-    <p class="section-desc">Schematischer Aufbau des Zusatzsystems von oben nach unten: PV-Strang → Laderegler → Batterie → Wechselrichter → Steckdose. Kabelquerschnitte nach Strombelastbarkeit ausgelegt (4 mm² PV-Seite, 16 mm² Batterie-Seite Laderegler, 10 mm² Wechselrichter).</p>
+    <p class="section-desc">Schematischer Aufbau des Zusatzsystems von oben nach unten: PV-Strang → Laderegler → Batterie → Wechselrichter. Kabelquerschnitte: 4 mm² auf der PV-Seite, einheitlich 10 mm² auf der DC-Batterie-Seite (Laderegler → Batterie und Batterie → Wechselrichter). Das Schema endet am Wechselrichter — die AC-Verteilung dahinter liegt außerhalb unserer Planung.</p>
 
     <div style="max-width:560px;margin:0 auto">
-      <svg viewBox="0 0 560 920" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans,Arial,sans-serif" style="width:100%;display:block">
+      <svg viewBox="0 0 560 600" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans,Arial,sans-serif" style="width:100%;display:block">
 
         <!-- ── MODULE (3 in Reihe) ── -->
         <!-- Module 1 -->
@@ -3069,9 +3427,9 @@ img[data-lb]{cursor:zoom-in}
         <line x1="280" y1="290" x2="280" y2="324" stroke="#6b6b63" stroke-width="1.5" stroke-dasharray="4 3"/>
         <polygon points="275,324 285,324 280,334" fill="#6b6b63"/>
 
-        <!-- Kabel-Label 16mm² (Laderegler → Batterie) -->
+        <!-- Kabel-Label 10mm² (Laderegler → Batterie) -->
         <rect x="195" y="298" width="170" height="16" rx="3" fill="#f7f5f0" stroke="#e2dfd6"/>
-        <text x="280" y="310" font-size="9.5" fill="#4a4a44" text-anchor="middle" font-family="DM Mono,monospace">16 mm² DC-Kabel (rot + / schwarz −)</text>
+        <text x="280" y="310" font-size="9.5" fill="#4a4a44" text-anchor="middle" font-family="DM Mono,monospace">10 mm² DC-Kabel (rot + / schwarz −)</text>
 
         <!-- ── BATTERIE ── -->
         <rect x="150" y="336" width="260" height="100" rx="8" fill="#d4ead9" stroke="#2a6b4a" stroke-width="2"/>
@@ -3097,31 +3455,160 @@ img[data-lb]{cursor:zoom-in}
         <text x="340" y="549" font-size="9.5" fill="#4a4a44" text-anchor="middle">375 VA · VE.Direct · IEC-Buchse</text>
         <text x="340" y="566" font-size="9.5" fill="#4a4a44" text-anchor="middle">Wirkungsgrad &gt; 93 %</text>
 
-        <!-- Pfeil runter -->
-        <line x1="280" y1="582" x2="280" y2="616" stroke="#3d4f8a" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <polygon points="275,616 285,616 280,626" fill="#3d4f8a"/>
+      </svg>
+    </div>
+  </div>
 
-        <!-- Kabel-Label 230V AC -->
-        <rect x="195" y="590" width="170" height="16" rx="3" fill="#f7f5f0" stroke="#e2dfd6"/>
-        <text x="280" y="602" font-size="9.5" fill="#4a4a44" text-anchor="middle" font-family="DM Mono,monospace">230 V AC · Schutzleiter 3-adrig</text>
+  <!-- 06 SYSTEMSCHAUBILD — Illustration -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">06</span><h2 class="section-title">Systemschaubild</h2></div>
+    <p class="section-desc">Schematische Darstellung des Energieflusses ohne technische Beschriftung: Sonnenlicht trifft die Module, der Laderegler optimiert den Ladestrom, die Batterie speichert ihn — der Wechselrichter versorgt ein Gerät.</p>
+
+    <div style="max-width:500px;margin:0 auto">
+      <svg viewBox="0 0 500 545" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+        <defs>
+          <style>
+            @keyframes il-f{to{stroke-dashoffset:-28}}
+            .il-pv{stroke-dasharray:9 5;animation:il-f 1.2s linear infinite}
+            .il-dc{stroke-dasharray:9 5;animation:il-f 1.7s linear infinite}
+            .il-ac{stroke-dasharray:9 5;animation:il-f 2.1s linear infinite}
+          </style>
+        </defs>
+
+        <!-- Background -->
+        <rect width="500" height="545" fill="#F3EFE3" rx="10"/>
+
+        <!-- ── SONNE ── -->
+        <circle cx="58" cy="68" r="52" fill="#FCD835" opacity=".2"/>
+        <circle cx="58" cy="68" r="40" fill="#FCD835" stroke="#E5A800" stroke-width="2.5"/>
+        <line x1="58" y1="22" x2="58" y2="11" stroke="#E5A800" stroke-width="3" stroke-linecap="round"/>
+        <line x1="58" y1="114" x2="58" y2="125" stroke="#E5A800" stroke-width="3" stroke-linecap="round"/>
+        <line x1="104" y1="68" x2="115" y2="68" stroke="#E5A800" stroke-width="3" stroke-linecap="round"/>
+        <line x1="12" y1="68" x2="1" y2="68" stroke="#E5A800" stroke-width="3" stroke-linecap="round"/>
+        <line x1="87" y1="37" x2="95" y2="29" stroke="#E5A800" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="87" y1="99" x2="95" y2="107" stroke="#E5A800" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="29" y1="37" x2="21" y2="29" stroke="#E5A800" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="29" y1="99" x2="21" y2="107" stroke="#E5A800" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Sonnenstrahlen zu Modulen -->
+        <line x1="97" y1="48" x2="128" y2="38" stroke="#FCD835" stroke-width="1.5" stroke-dasharray="5 4" opacity=".8"/>
+        <line x1="100" y1="60" x2="222" y2="38" stroke="#FCD835" stroke-width="1.5" stroke-dasharray="5 4" opacity=".5"/>
+        <line x1="98" y1="72" x2="314" y2="40" stroke="#FCD835" stroke-width="1.5" stroke-dasharray="5 4" opacity=".3"/>
+
+        <!-- ── 3 PV-MODULE ── -->
+        <!-- Modul 1 -->
+        <rect x="112" y="12" width="84" height="64" rx="5" fill="#1e3d5f" stroke="#3a6895" stroke-width="1.5"/>
+        <line x1="112" y1="33" x2="196" y2="33" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <line x1="112" y1="54" x2="196" y2="54" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <line x1="140" y1="12" x2="140" y2="76" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <line x1="168" y1="12" x2="168" y2="76" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <path d="M116,16 L133,16 L121,28 Z" fill="white" opacity=".1"/>
+        <!-- Modul 2 -->
+        <rect x="206" y="12" width="84" height="64" rx="5" fill="#1e3d5f" stroke="#3a6895" stroke-width="1.5"/>
+        <line x1="206" y1="33" x2="290" y2="33" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <line x1="206" y1="54" x2="290" y2="54" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <line x1="234" y1="12" x2="234" y2="76" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <line x1="262" y1="12" x2="262" y2="76" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <path d="M210,16 L227,16 L215,28 Z" fill="white" opacity=".1"/>
+        <!-- Modul 3 -->
+        <rect x="300" y="12" width="84" height="64" rx="5" fill="#1e3d5f" stroke="#3a6895" stroke-width="1.5"/>
+        <line x1="300" y1="33" x2="384" y2="33" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <line x1="300" y1="54" x2="384" y2="54" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <line x1="328" y1="12" x2="328" y2="76" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <line x1="356" y1="12" x2="356" y2="76" stroke="#3a6895" stroke-width="0.8" opacity=".7"/>
+        <path d="M304,16 L321,16 L309,28 Z" fill="white" opacity=".1"/>
+        <!-- Reihenschaltung -->
+        <line x1="196" y1="44" x2="206" y2="44" stroke="#4a4a44" stroke-width="2"/>
+        <line x1="290" y1="44" x2="300" y2="44" stroke="#4a4a44" stroke-width="2"/>
+
+        <!-- DC-Kabel Module → Laderegler (animierter PV-Strom) -->
+        <polyline points="384,44 398,44 398,102 252,102 252,122" fill="none" stroke="#c8720a" stroke-width="2.5" class="il-pv"/>
+        <polyline points="112,44 98,44 98,112 244,112 244,122" fill="none" stroke="#2a2018" stroke-width="2.5"/>
+
+        <!-- ── MPPT-LADEREGLER ── -->
+        <rect x="114" y="122" width="256" height="82" rx="8" fill="#FFF4E6" stroke="#EF9F27" stroke-width="2.5"/>
+        <!-- Mini-Display -->
+        <rect x="128" y="132" width="48" height="34" rx="3" fill="#12120f"/>
+        <text x="152" y="146" font-size="7" fill="#4dbd8a" text-anchor="middle" font-family="monospace">62A</text>
+        <text x="152" y="159" font-size="7" fill="#d4a85a" text-anchor="middle" font-family="monospace">12V</text>
+        <!-- Status-LEDs -->
+        <circle cx="190" cy="140" r="4" fill="#4dbd8a"/>
+        <circle cx="202" cy="140" r="4" fill="#EF9F27" opacity=".7"/>
+        <!-- Bezeichnung -->
+        <text x="316" y="153" font-size="12" fill="#c87810" text-anchor="middle" font-family="DM Serif Display,serif">Laderegler</text>
+        <text x="316" y="170" font-size="9" fill="#8a6010" text-anchor="middle">MPPT SmartSolar 150/60</text>
+        <text x="316" y="185" font-size="8" fill="#a08050" text-anchor="middle">12 V · max. 60 A</text>
+
+        <!-- DC-Kabel Laderegler → Batterie (kurzes Kabel, animiert) -->
+        <line x1="244" y1="204" x2="244" y2="238" stroke="#c8720a" stroke-width="3" class="il-dc"/>
+        <line x1="254" y1="204" x2="254" y2="238" stroke="#2a2018" stroke-width="3"/>
+
+        <!-- ── BATTERIE ── -->
+        <rect x="130" y="238" width="224" height="80" rx="8" fill="#E8F5EE" stroke="#2a6b4a" stroke-width="2.5"/>
+        <!-- Pole-Nasen oben -->
+        <rect x="168" y="232" width="18" height="9" rx="3" fill="#2a6b4a" opacity=".7"/>
+        <rect x="296" y="232" width="18" height="9" rx="3" fill="#1a1a18" opacity=".6"/>
+        <!-- Zellen-Optik -->
+        <rect x="145" y="254" width="194" height="44" rx="4" fill="rgba(42,107,74,.12)"/>
+        <line x1="209" y1="254" x2="209" y2="298" stroke="#2a6b4a" stroke-width="1" opacity=".5"/>
+        <line x1="274" y1="254" x2="274" y2="298" stroke="#2a6b4a" stroke-width="1" opacity=".5"/>
+        <!-- SOC-Balken -->
+        <rect x="145" y="300" width="194" height="8" rx="3" fill="rgba(0,0,0,.08)"/>
+        <rect x="145" y="300" width="155" height="8" rx="3" fill="#4dbd8a" opacity=".8"/>
+        <!-- Bezeichnung -->
+        <text x="242" y="270" font-size="11" fill="#2a6b4a" text-anchor="middle" font-weight="600">Batterie</text>
+        <text x="242" y="286" font-size="9" fill="#2a6b4a" text-anchor="middle">LiTime 12 V 50 Ah · LiFePO₄</text>
+
+        <!-- DC-Kabel Batterie → Wechselrichter (animiert) -->
+        <line x1="244" y1="318" x2="244" y2="356" stroke="#2a6b4a" stroke-width="3" class="il-dc"/>
+        <line x1="254" y1="318" x2="254" y2="356" stroke="#2a2018" stroke-width="3"/>
+
+        <!-- ── WECHSELRICHTER ── -->
+        <rect x="114" y="356" width="256" height="82" rx="8" fill="#E8ECF8" stroke="#3d4f8a" stroke-width="2.5"/>
+        <!-- Mini-Display -->
+        <rect x="128" y="366" width="48" height="40" rx="3" fill="#12120f"/>
+        <text x="152" y="380" font-size="7" fill="#d4a85a" text-anchor="middle" font-family="monospace">230V</text>
+        <text x="152" y="392" font-size="7" fill="#4dbd8a" text-anchor="middle" font-family="monospace">50Hz</text>
+        <text x="152" y="404" font-size="7" fill="#8a9ab4" text-anchor="middle" font-family="monospace">375VA</text>
+        <!-- Indikator-LEDs -->
+        <circle cx="190" cy="378" r="4" fill="#3d4f8a" opacity=".7"/>
+        <circle cx="202" cy="378" r="4" fill="#4dbd8a" opacity=".8"/>
+        <!-- Bezeichnung -->
+        <text x="316" y="388" font-size="12" fill="#3d4f8a" text-anchor="middle" font-family="DM Serif Display,serif">Wechselrichter</text>
+        <text x="316" y="404" font-size="9" fill="#3d4f8a" text-anchor="middle">Phoenix 12/375</text>
+        <text x="316" y="419" font-size="8" fill="#6878a4" text-anchor="middle">12 V DC → 230 V AC · 375 VA</text>
+        <text x="316" y="432" font-size="8" fill="#a0a8c4" text-anchor="middle">50 Hz</text>
+
+        <!-- AC-Kabel Wechselrichter → Steckdose (animiert, blau) -->
+        <line x1="370" y1="397" x2="422" y2="397" stroke="#3d4f8a" stroke-width="3" class="il-ac"/>
 
         <!-- ── STECKDOSE ── -->
-        <rect x="150" y="628" width="260" height="80" rx="8" fill="#dde3f5" stroke="#3d4f8a" stroke-width="2"/>
-        <text x="280" y="658" font-size="22" text-anchor="middle">🔌</text>
-        <text x="280" y="680" font-size="13" font-weight="700" fill="#3d4f8a" text-anchor="middle" font-family="DM Serif Display,serif">230-V-Steckdose</text>
-        <text x="280" y="697" font-size="10" fill="#3d4f8a" text-anchor="middle">Außen an der Mauer · für Nachbarn</text>
+        <rect x="422" y="376" width="46" height="54" rx="8" fill="#dde3f5" stroke="#3d4f8a" stroke-width="2"/>
+        <!-- Schuko-Löcher -->
+        <ellipse cx="435" cy="397" rx="4.5" ry="5" fill="#3d4f8a" opacity=".7"/>
+        <ellipse cx="459" cy="397" rx="4.5" ry="5" fill="#3d4f8a" opacity=".7"/>
+        <!-- Schutzleiter-Schlitz -->
+        <rect x="440" y="416" width="10" height="5" rx="2" fill="#3d4f8a" opacity=".5"/>
 
-        <!-- Legende -->
-        <rect x="30" y="740" width="500" height="58" rx="6" fill="var(--paper2,#edeae2)" stroke="#e2dfd6"/>
-        <text x="50" y="760" font-size="10" font-weight="600" fill="#4a4a44" font-family="DM Mono,monospace">LEGENDE</text>
-        <rect x="50" y="769" width="22" height="3" fill="#c8720a" rx="1"/>
-        <text x="78" y="775" font-size="9.5" fill="#4a4a44">DC-Seite (Gleichstrom / PV)</text>
-        <rect x="200" y="769" width="22" height="3" fill="#2a6b4a" rx="1"/>
-        <text x="228" y="775" font-size="9.5" fill="#4a4a44">Batterie</text>
-        <rect x="290" y="769" width="22" height="3" fill="#3d4f8a" rx="1"/>
-        <text x="318" y="775" font-size="9.5" fill="#4a4a44">AC-Seite (Wechselstrom)</text>
-        <line x1="50" y1="790" x2="72" y2="790" stroke="#6b6b63" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <text x="78" y="794" font-size="9.5" fill="#4a4a44">Kabelverbindung mit Querschnitt-Angabe</text>
+        <!-- Ladekabel Steckdose → USB-Stecker -->
+        <polyline points="447,430 447,452" fill="none" stroke="#4a4a44" stroke-width="2.5"/>
+        <!-- USB-Stecker-Kopf -->
+        <rect x="438" y="452" width="18" height="7" rx="2.5" fill="#4a4a44"/>
+
+        <!-- ── HANDY ── -->
+        <rect x="426" y="459" width="44" height="74" rx="8" fill="#2a2824" stroke="#4a4a44" stroke-width="1.5"/>
+        <!-- Display -->
+        <rect x="431" y="464" width="34" height="54" rx="4" fill="#0d1f35"/>
+        <!-- Blitz-Symbol (Laden) -->
+        <polygon points="451,475 444,489 449,489 447,502 455,487 450,487" fill="#4dbd8a"/>
+        <!-- Lade-% -->
+        <text x="448" y="517" font-size="7.5" fill="#4dbd8a" text-anchor="middle" font-family="monospace">67 %</text>
+        <!-- Akku-Balken im Display -->
+        <rect x="435" y="522" width="26" height="4" rx="2" fill="rgba(255,255,255,.1)"/>
+        <rect x="435" y="522" width="20" height="4" rx="2" fill="#4dbd8a" opacity=".7"/>
+        <!-- Home-Bar -->
+        <rect x="440" y="525" width="14" height="2.5" rx="1.5" fill="#4a4a44"/>
+        <!-- Kamera oben -->
+        <rect x="438" y="460" width="18" height="3.5" rx="1.5" fill="#3a3832"/>
 
       </svg>
     </div>
