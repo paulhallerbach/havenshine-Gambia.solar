@@ -1606,7 +1606,8 @@ img[data-lb]{cursor:zoom-in}
       <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="516.0" text-anchor="middle">7</text>
       <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="592.0" text-anchor="middle">8</text>
       <text font-family="'DM Sans',sans-serif" font-size="17" fill="rgba(26,26,24,.55)" x="60" y="668.0" text-anchor="middle">9</text>
-      <line x1="545.0" y1="18" x2="545.0" y2="698" stroke="rgba(26,26,24,.18)" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="545.0" y1="18" x2="545.0" y2="394" stroke="rgba(26,26,24,.18)" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="545.0" y1="626" x2="545.0" y2="698" stroke="rgba(26,26,24,.18)" stroke-width="1" stroke-dasharray="4 4"/>
       <rect x="20" y="20" width="9" height="186.0" rx="4.5" fill="#2f6fb0"/>
       <rect x="20" y="206.0" width="9" height="186.0" rx="4.5" fill="#2a6b4a"/>
       <rect x="20" y="400" width="9" height="220" rx="4.5" fill="#c8720a"/>
@@ -2292,11 +2293,11 @@ img[data-lb]{cursor:zoom-in}
   <!-- 01 STRINGVERSCHALTUNG -->
   <div class="section">
     <div class="section-header"><span class="section-num">01</span><h2 class="section-title">String-Verschaltung &amp; Kabelwege</h2></div>
-    <p class="section-desc">15 Strings aus 54 Modulen, verteilt auf 9 Dachreihen, laufen in vier Sammelboxen (GAK) zusammen – je eine pro MPPT-Laderegler. Innerhalb eines Strings sind die Module in Reihe verschaltet; der freie <b>− Pol</b> (links) und <b>+ Pol</b> (rechts) jedes Strings wird einzeln zur Sammelbox geführt, dort werden die Strings parallelgeschaltet. Die MPPT-Laderegler rechts daneben sind <b>nachgeschaltete Komponenten</b> im Technikraum (Trunkkabel, siehe Abschnitt 05 „Sammelbox → Technikraum") – sie stecken nicht in der Sammelbox selbst. Welche Sammelbox-Produkte tatsächlich verbaut werden, zeigt Abschnitt 02.</p>
+    <p class="section-desc">15 Strings aus 54 Modulen, verteilt auf 9 Dachreihen, laufen über MC4-Y-Stecker (5-in-1, 3-in-1, 2-in-1) zusammen – je ein Verteiler pro MPPT-Gruppe. Innerhalb eines Strings sind die Module in Reihe verschaltet; der freie <b>− Pol</b> (links) und <b>+ Pol</b> (rechts) jedes Strings wird einzeln zum Y-Stecker geführt, dort werden die Strings parallelgeschaltet. Die MPPT-Laderegler rechts daneben sind <b>nachgeschaltete Komponenten</b> im Technikraum (Trunkkabel, siehe Abschnitt 05) – sie stecken nicht im Y-Stecker selbst. Welche Y-Stecker-Produkte tatsächlich verbaut werden, zeigt Abschnitt 02.</p>
 
     <div class="kp-cables">
-      <div class="kp-cab"><span class="ln" style="background:#a03020"></span><span><b>Rot (+)</b> · Pluskabel · rechter Pol → Sammelbox</span></div>
-      <div class="kp-cab"><span class="ln" style="background:#1a1a18"></span><span><b>Schwarz (−)</b> · Minuskabel · linker Pol → Sammelbox</span></div>
+      <div class="kp-cab"><span class="ln" style="background:#a03020"></span><span><b>Rot (+)</b> · Pluskabel · rechter Pol → Y-Stecker</span></div>
+      <div class="kp-cab"><span class="ln" style="background:#1a1a18"></span><span><b>Schwarz (−)</b> · Minuskabel · linker Pol → Y-Stecker</span></div>
       <div class="kp-cab"><span class="ln" style="background:#9A7B3F;height:3px"></span><span>Maßlinie · realer Reihenabstand 450 mm (siehe Grundriss-Seite)</span></div>
       <div class="kp-cab"><span class="ln" style="background:#cfcabd;border:1px dashed #8a8a80"></span><span>Gestrichelter Kasten · MPPT-Laderegler (nachgeschaltet, Details Abschnitt 05)</span></div>
     </div>
@@ -2458,20 +2459,20 @@ img[data-lb]{cursor:zoom-in}
 <circle cx="891.2" cy="1016.9" r="2.6" fill="#a03020"/>
 <text x="701.3" y="1004.2" font-size="10.5" fill="#6b6b63" text-anchor="middle" font-family="DM Mono, monospace">S15</text>
 <rect x="940.2" y="117.0" width="200" height="116.0" rx="8" fill="#ffffff" stroke="#378ADD" stroke-width="2"/>
-<text x="954.2" y="137.0" font-size="14" font-weight="700" fill="#378ADD" font-family="DM Serif Display, serif">Sammelbox 1</text>
-<a href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-solar-pv-combiner-box-6-string-15a-fuer-solar-panel-system-stahl-fall-ip65-p_010268881303?lang=de&amp;currency=eur" target="_blank" rel="noopener"><text x="954.2" y="154.0" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">Vevor 6-String 15A &#8599;</text></a>
+<text x="954.2" y="137.0" font-size="14" font-weight="700" fill="#378ADD" font-family="DM Serif Display, serif">Y-Stecker 1</text>
+<a href="https://www.amazon.de/WOODGUILIN-Y-Verteiler-Solarpanels-Solar-1-6/dp/B0DPSS5KRL/" target="_blank" rel="noopener"><text x="954.2" y="154.0" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">WOODGUILIN 5-in-1 &#8599;</text></a>
 <text x="954.2" y="169.0" font-size="9.5" fill="#999" font-family="DM Mono, monospace">5 Strings &#183; SolarWorld SW 165</text>
 <rect x="940.2" y="351.7" width="200" height="116.0" rx="8" fill="#ffffff" stroke="#1D9E75" stroke-width="2"/>
-<text x="954.2" y="371.7" font-size="14" font-weight="700" fill="#1D9E75" font-family="DM Serif Display, serif">Sammelbox 2</text>
-<a href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-solar-pv-combiner-box-6-string-15a-fuer-solar-panel-system-stahl-fall-ip65-p_010268881303?lang=de&amp;currency=eur" target="_blank" rel="noopener"><text x="954.2" y="388.7" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">Vevor 6-String 15A &#8599;</text></a>
+<text x="954.2" y="371.7" font-size="14" font-weight="700" fill="#1D9E75" font-family="DM Serif Display, serif">Y-Stecker 2</text>
+<a href="https://www.amazon.de/WOODGUILIN-Y-Verteiler-Solarpanels-Solar-1-6/dp/B0DPSS5KRL/" target="_blank" rel="noopener"><text x="954.2" y="388.7" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">WOODGUILIN 5-in-1 &#8599;</text></a>
 <text x="954.2" y="403.7" font-size="9.5" fill="#999" font-family="DM Mono, monospace">5 Strings &#183; SolarWorld SW 165</text>
 <rect x="940.2" y="699.9" width="200" height="76.0" rx="8" fill="#ffffff" stroke="#EF9F27" stroke-width="2"/>
-<text x="954.2" y="719.9" font-size="14" font-weight="700" fill="#EF9F27" font-family="DM Serif Display, serif">Sammelbox 3</text>
-<a href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-pv-kombinationskasten-sicherungskasten-15a-500v-unterverteilung-aufputz-p_010856812983?lang=de&amp;currency=eur" target="_blank" rel="noopener"><text x="954.2" y="736.9" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">Vevor Kombikasten 15A &#8599;</text></a>
+<text x="954.2" y="719.9" font-size="14" font-weight="700" fill="#EF9F27" font-family="DM Serif Display, serif">Y-Stecker 3</text>
+<a href="https://www.amazon.de/WOODGUILIN-Y-Verteiler-Solarpanels-Solar-1-6/dp/B0DPTY3HRY/" target="_blank" rel="noopener"><text x="954.2" y="736.9" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">WOODGUILIN 3-in-1 &#8599;</text></a>
 <text x="954.2" y="751.9" font-size="9.5" fill="#999" font-family="DM Mono, monospace">3 Strings &#183; Sunset AS 175</text>
 <rect x="940.2" y="970.7" width="200" height="56.0" rx="8" fill="#ffffff" stroke="#7E57C2" stroke-width="2"/>
-<text x="954.2" y="990.7" font-size="14" font-weight="700" fill="#7E57C2" font-family="DM Serif Display, serif">Sammelbox 4</text>
-<a href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-pv-kombinationskasten-sicherungskasten-15a-500v-unterverteilung-aufputz-p_010856812983?lang=de&amp;currency=eur" target="_blank" rel="noopener"><text x="954.2" y="1007.7" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">Vevor Kombikasten 15A &#8599;</text></a>
+<text x="954.2" y="990.7" font-size="14" font-weight="700" fill="#7E57C2" font-family="DM Serif Display, serif">Y-Stecker 4</text>
+<a href="https://www.amazon.de/WOODGUILIN-Y-Verteiler-Solarpanels-Solar-1-6/dp/B0DPSN96GP/" target="_blank" rel="noopener"><text x="954.2" y="1007.7" font-size="10" fill="#1a6fc4" text-decoration="underline" font-family="DM Mono, monospace">WOODGUILIN 2-in-1 &#8599;</text></a>
 <text x="954.2" y="1022.7" font-size="9.5" fill="#999" font-family="DM Mono, monospace">2 Strings &#183; SolarWorld SW 250</text>
 
 <line x1="1140.2" y1="165.0" x2="1200.2" y2="165.0" stroke="#1a1a18" stroke-width="1.6"/>
@@ -2522,61 +2523,67 @@ img[data-lb]{cursor:zoom-in}
 
   </div>
 
-  <!-- 02 SAMMELBOXEN KOMPONENTEN -->
+  <!-- 02 Y-STECKER KOMPONENTEN -->
   <div class="section">
-    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Sammelboxen (GAK) · Komponenten</h2></div>
-    <p class="section-desc">Die in Abschnitt 01 verwendeten Sammelboxen sind reale Produkte – zwei Bautypen, vier Stück. Spezifikationen unten direkt vom Hersteller-Datenblatt übernommen (Stand der Recherche). Alle Preise inkl. MwSt., ohne Versand – vor Bestellung beim Anbieter gegenprüfen.</p>
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Y-Stecker · Komponenten</h2></div>
+    <p class="section-desc">Statt PV-Kombinator-Boxen (GAK) werden MC4-Y-Verteiler des Typs WOODGUILIN eingesetzt – je ein Stecker pro MPPT-Gruppe. Die Strings werden damit ohne Gehäuse und ohne Einzelsicherungen parallelgeschaltet. Preise vor Bestellung beim Anbieter prüfen.</p>
 
     <div class="prod-grid">
 
       <div class="prod-card">
-        <img src="img/vevor-6string-combinerbox.jpg" alt="Vevor PV-Combiner-Box 6-String 15A, geöffnet mit Sicherungsautomaten und Überspannungsschutz" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
+        <img src="img/y-5in1.jpg" alt="WOODGUILIN MC4 Y-Verteiler 5-in-1, schwarz und rot" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
         <div class="prod-body">
-          <div class="prod-mfr">Vevor · PV-Kombinator-Box-Serie</div>
-          <div class="prod-name">PV-Combiner-Box 6-String, 15 A Sicherung, 125 A Leistungsschalter</div>
-          <div class="prod-tag">2× benötigt · für SB1 &amp; SB2 (je 5 von 6 Eingängen genutzt)</div>
+          <div class="prod-mfr">WOODGUILIN</div>
+          <div class="prod-name">MC4 Y-Verteiler 5-in-1</div>
+          <div class="prod-tag">2× benötigt · Y-1 (5 Strings SW 165) &amp; Y-2 (5 Strings SW 165)</div>
           <div class="prod-specs">
-            <div class="spec-row"><span class="spec-key">String-Eingänge</span><span class="spec-val">6 · je 15 A Sicherung (DC 500 V)</span></div>
-            <div class="spec-row"><span class="spec-key">Hauptschalter</span><span class="spec-val">125 A · 2P DC 500 V</span></div>
-            <div class="spec-row"><span class="spec-key">Überspannungsschutz</span><span class="spec-val">40 kA · 2P</span></div>
-            <div class="spec-row"><span class="spec-key">Gehäuse / Schutzart</span><span class="spec-val">Stahl 0,8 mm, RAL 7035 · IP65</span></div>
-            <div class="spec-row"><span class="spec-key">Maße / Gewicht</span><span class="spec-val">280 × 250 × 100 mm · 3,88 kg</span></div>
-            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">90,00 € / Stück</span></div>
+            <div class="spec-row"><span class="spec-key">Eingänge</span><span class="spec-val">5 MC4-Paare (je + und −)</span></div>
+            <div class="spec-row"><span class="spec-key">Ausgang</span><span class="spec-val">1 MC4-Paar</span></div>
+            <div class="spec-row"><span class="spec-key">Steckertyp</span><span class="spec-val">MC4-kompatibel</span></div>
           </div>
-          <a class="prod-link" href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-solar-pv-combiner-box-6-string-15a-fuer-solar-panel-system-stahl-fall-ip65-p_010268881303?lang=de&amp;currency=eur" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
+          <a class="prod-link" href="https://www.amazon.de/WOODGUILIN-Y-Verteiler-Solarpanels-Solar-1-6/dp/B0DPSS5KRL/" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
         </div>
       </div>
 
       <div class="prod-card">
-        <img src="img/vevor-kombikasten-4string.jpg" alt="Vevor PV-Kombinationskasten 4-String 15A, geöffnet mit Sicherungsautomaten und Überspannungsschutz" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
+        <img src="img/y-3in1.jpg" alt="WOODGUILIN MC4 Y-Verteiler 3-in-1, kombiniert" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
         <div class="prod-body">
-          <div class="prod-mfr">Vevor · PV-Kombinator-Box-Serie</div>
-          <div class="prod-name">PV-Kombinationskasten 4-String, 15 A Sicherungskasten, 500 V Unterverteilung</div>
-          <div class="prod-tag">2× benötigt · je 1× für SB3 (3 von 4 Eing.) &amp; SB4 (2 von 4 Eing.)</div>
+          <div class="prod-mfr">WOODGUILIN</div>
+          <div class="prod-name">MC4 Y-Verteiler 3-in-1</div>
+          <div class="prod-tag">1× benötigt · Y-3 (3 Strings Sunset AS 175)</div>
           <div class="prod-specs">
-            <div class="spec-row"><span class="spec-key">String-Eingänge</span><span class="spec-val">4 · je 15 A Sicherung (DC)</span></div>
-            <div class="spec-row"><span class="spec-key">Hauptschalter</span><span class="spec-val">63 A · 500 V</span></div>
-            <div class="spec-row"><span class="spec-key">Überspannungsschutz</span><span class="spec-val">20 kA, max. 40 kA</span></div>
-            <div class="spec-row"><span class="spec-key">Gehäuse / Schutzart</span><span class="spec-val">ABS-Kunststoff · IP65</span></div>
-            <div class="spec-row"><span class="spec-key">Maße / Gewicht</span><span class="spec-val">170 × 230 × 110 mm · 1,8 kg</span></div>
-            <div class="spec-row"><span class="spec-key">Preis</span><span class="spec-val">70,90 € / Stück</span></div>
+            <div class="spec-row"><span class="spec-key">Eingänge</span><span class="spec-val">3 MC4-Paare (je + und −)</span></div>
+            <div class="spec-row"><span class="spec-key">Ausgang</span><span class="spec-val">1 MC4-Paar</span></div>
+            <div class="spec-row"><span class="spec-key">Steckertyp</span><span class="spec-val">MC4-kompatibel</span></div>
           </div>
-          <a class="prod-link" href="https://www.vevor.de/pv-kombinator-box-c_10733/vevor-pv-kombinationskasten-sicherungskasten-15a-500v-unterverteilung-aufputz-p_010856812983?lang=de&amp;currency=eur" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
+          <a class="prod-link" href="https://www.amazon.de/WOODGUILIN-Y-Verteiler-Solarpanels-Solar-1-6/dp/B0DPTY3HRY/" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <img src="img/y-2in1.jpg" alt="WOODGUILIN MC4 Y-Verteiler 2-in-1, schwarz und rot" data-lb style="width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:1px solid var(--paper3)">
+        <div class="prod-body">
+          <div class="prod-mfr">WOODGUILIN</div>
+          <div class="prod-name">MC4 Y-Verteiler 2-in-1</div>
+          <div class="prod-tag">1× benötigt · Y-4 (2 Strings SolarWorld SW 250)</div>
+          <div class="prod-specs">
+            <div class="spec-row"><span class="spec-key">Eingänge</span><span class="spec-val">2 MC4-Paare (je + und −)</span></div>
+            <div class="spec-row"><span class="spec-key">Ausgang</span><span class="spec-val">1 MC4-Paar</span></div>
+            <div class="spec-row"><span class="spec-key">Steckertyp</span><span class="spec-val">MC4-kompatibel</span></div>
+          </div>
+          <a class="prod-link" href="https://www.amazon.de/WOODGUILIN-Y-Verteiler-Solarpanels-Solar-1-6/dp/B0DPSN96GP/" target="_blank" rel="noopener">Zum Produkt &#8599;</a>
         </div>
       </div>
 
     </div>
 
     <div class="kp-sum-strip">
-      <div class="kpi"><div class="kpi-label">Sammelboxen gesamt</div><div class="kpi-value">4 <span style="font-size:15px">Stück</span></div><div class="kpi-unit">2 Bautypen · je 2×</div></div>
-      <div class="kpi"><div class="kpi-label">Kosten Sammelboxen</div><div class="kpi-value">321,80 <span style="font-size:15px">€</span></div><div class="kpi-unit">2× 90,00 € + 2× 70,90 €</div></div>
-      <div class="kpi"><div class="kpi-label">Freie Reserve-Eingänge</div><div class="kpi-value">5 <span style="font-size:15px">frei</span></div><div class="kpi-unit">SB1/SB2 je 1 · SB3 1 · SB4 2</div></div>
+      <div class="kpi"><div class="kpi-label">Y-Stecker gesamt</div><div class="kpi-value">4 <span style="font-size:15px">Stück</span></div><div class="kpi-unit">2× 5-in-1 · 1× 3-in-1 · 1× 2-in-1</div></div>
+      <div class="kpi"><div class="kpi-label">Kosten Y-Stecker</div><div class="kpi-value">offen <span style="font-size:15px">€</span></div><div class="kpi-unit">Preise vor Bestellung prüfen</div></div>
     </div>
 
     <div class="note-box warn">
-      <b>Welche Sicherung wo – und warum:</b> Innerhalb eines Strings sind die Module in <b>Reihe</b> verschaltet, der Strangstrom bleibt also beim I<sub>sc</sub> des einzelnen Moduls. Innerhalb der Sammelbox werden mehrere Strings <b>parallel</b> zusammengeführt – und genau dafür braucht nach DIN VDE 0100-712 jeder String seine eigene Eingangssicherung (1,25–2,4 × I<sub>sc</sub>), die ihn im Fehlerfall vor dem Rückspeisestrom der übrigen parallelen Strings schützt. Beide Vevor-Boxtypen sind laut Datenblatt mit je <b>4 bzw. 6 Stück 15-A-DC-Sicherungen</b> (Standard-Schmelzeinsätze Ø10×38 mm, Halter bis 32 A, austauschbar) sowie einem nachgeschalteten Hauptschalter ausgestattet, der nur die gemeinsame Trunkleitung schützt, nicht die einzelnen Strings.
-      <br><br>
-      Damit ergibt sich je Gruppe: <b>SB3</b> (Sunset AS&nbsp;175, I<sub>sc</sub>=7,65 A → zulässig 9,6–18,4 A) und <b>SB4</b> (SolarWorld SW&nbsp;250, I<sub>sc</sub>=8,81 A → zulässig 11,0–21,1 A) passen mit der werkseitigen 15-A-Sicherung unverändert. <b>SB1/SB2</b> (SolarWorld SW&nbsp;165, I<sub>sc</sub>=5,46 A → zulässig nur 6,8–13,1 A) liegen mit 15 A bereits über dem zulässigen Maximum – hier vor Inbetriebnahme die Schmelzeinsätze der 6-String-Box auf <b>10 A</b> tauschen (Standardgröße, passt in den vorhandenen Halter). Die Notiz aus der Beschaffungsplanung „Sicherung auf 20 A erhöhen" bezog sich vermutlich auf den Hauptschalter und nicht auf die Stringsicherung – für SB1/SB2 wäre 20 A sogar noch weiter über dem Limit. Der Hauptschalter selbst (125 A bei der 6-String-Box für SB1/SB2, 63 A bei der 4-String-Box für SB3/SB4) ist unkritisch, da er weit über dem realen Trunkstrom liegt (22–34 A, siehe Abschnitt 05).
+      <b>Kein Überspannungsschutz · keine Stringsicherungen:</b> MC4-Y-Verteiler bieten im Gegensatz zu GAK-Kombinator-Boxen weder Einzelsicherungen je String noch Überspannungsableiter. Im Fehlerfall (z. B. Teilabschattung) können parallele Strings Rückspeisestrom in den betroffenen String einspeisen. Für eine dauerhaft unbeaufsichtigte Anlage die Lösung mit einem Elektrofachbetrieb absprechen.
     </div>
   </div>
 
@@ -2628,49 +2635,34 @@ img[data-lb]{cursor:zoom-in}
 
   <!-- 04 QUERSCHNITT -->
   <div class="section">
-    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Leitungsquerschnitt (Querschnittsrechner)</h2></div>
-    <p class="section-desc">Querschnitt je Sammelbox-Gruppe, ausgelegt für den jeweils längsten String (worst case). Zwei Kriterien, das strengere entscheidet:</p>
-
-    <div class="two-col">
-      <div class="card">
-        <div class="card-label">Kriterium A · Strombelastbarkeit</div>
-        <div class="card-body">
-          <p>Bemessungsstrom nach DIN VDE 0100-712: <b>I<sub>B</sub> = 1,25 × I<sub>sc</sub></b> (STC-Übereinstrahlung möglich). Verglichen mit der Strombelastbarkeit von PV1-F/H1Z2Z2-K Solarkabel frei in Luft (Herstellerangabe, ≥ 40 A bei 4 mm²).</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-label">Kriterium B · Spannungsfall</div>
-        <div class="card-body">
-          <p><b>ΔU = (I<sub>mpp</sub> × L) / (κ × A)</b> mit κ = 56 m/(Ω·mm²) (Kupfer). L = Summe aus Minus- und Pluskabel des längsten Strings der Gruppe (Hin- und Rückleiter). Zielwert: ΔU ≤ 1 % der String-Vmpp.</p>
-        </div>
-      </div>
-    </div>
+    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Leitungsquerschnitt · Stringkabel</h2></div>
+    <p class="section-desc">Berechnet mit dem <a href="https://www.omnicalculator.com/de/physik/dc-kabelquerschnitt-rechner" target="_blank" rel="noopener">DC-Kabelquerschnitt-Rechner &#8599;</a> – worst-case je Gruppe (längster String). Kriterien: Strombelastbarkeit (I<sub>B</sub> = 1,25 × I<sub>sc</sub>, PV1-F ≥ 40 A bei 4 mm²) und Spannungsfall (Ziel ≤ 1 % der String-Vmpp, κ = 56 m/Ω·mm²).</p>
 
     <div class="table-scroll">
     <table class="con-table">
       <thead><tr>
-        <th>Box</th><th>Modul</th><th class="num">Module/String</th><th class="num">Vmpp String</th><th class="num">I<sub>B</sub> (1,25×I<sub>sc</sub>)</th><th class="num">L (worst case)</th><th class="num">A min. (ΔU≤1%)</th><th class="num">Gewählt</th><th class="num">ΔU real</th>
+        <th>Gruppe</th><th>Modul</th><th class="num">Module/String</th><th class="num">Vmpp String</th><th class="num">I<sub>B</sub></th><th class="num">L (worst case)</th><th class="num">A min.</th><th class="num">Gewählt</th><th class="num">ΔU real</th>
       </tr></thead>
       <tbody>
-        <tr><td>SB1</td><td>SolarWorld SW 165</td><td class="num">3</td><td class="num">103,8 V</td><td class="num">6,83 A</td><td class="num">19,40 m</td><td class="num">1,59 mm²</td><td class="num">4 mm²</td><td class="num">0,41 V · 0,40 %</td></tr>
-        <tr><td>SB2</td><td>SolarWorld SW 165</td><td class="num">3</td><td class="num">103,8 V</td><td class="num">6,83 A</td><td class="num">18,38 m</td><td class="num">1,51 mm²</td><td class="num">4 mm²</td><td class="num">0,39 V · 0,38 %</td></tr>
-        <tr><td>SB3</td><td>Sunset AS 175</td><td class="num">6</td><td class="num">153,0 V</td><td class="num">9,56 A</td><td class="num">14,40 m</td><td class="num">1,15 mm²</td><td class="num">4 mm²</td><td class="num">0,44 V · 0,29 %</td></tr>
-        <tr><td>SB4</td><td>SolarWorld SW 250</td><td class="num">3</td><td class="num">91,5 V</td><td class="num">11,01 A</td><td class="num">16,64 m</td><td class="num">2,69 mm²</td><td class="num">4 mm²</td><td class="num">0,61 V · 0,67 %</td></tr>
+        <tr><td>Y-1</td><td>SolarWorld SW 165</td><td class="num">3</td><td class="num">103,8 V</td><td class="num">6,83 A</td><td class="num">19,40 m</td><td class="num">1,59 mm²</td><td class="num">4 mm²</td><td class="num">0,41 V · 0,40 %</td></tr>
+        <tr><td>Y-2</td><td>SolarWorld SW 165</td><td class="num">3</td><td class="num">103,8 V</td><td class="num">6,83 A</td><td class="num">18,38 m</td><td class="num">1,51 mm²</td><td class="num">4 mm²</td><td class="num">0,39 V · 0,38 %</td></tr>
+        <tr><td>Y-3</td><td>Sunset AS 175</td><td class="num">6</td><td class="num">153,0 V</td><td class="num">9,56 A</td><td class="num">14,40 m</td><td class="num">1,15 mm²</td><td class="num">4 mm²</td><td class="num">0,44 V · 0,29 %</td></tr>
+        <tr><td>Y-4</td><td>SolarWorld SW 250</td><td class="num">3</td><td class="num">91,5 V</td><td class="num">11,01 A</td><td class="num">16,64 m</td><td class="num">2,69 mm²</td><td class="num">4 mm²</td><td class="num">0,61 V · 0,67 %</td></tr>
       </tbody>
     </table>
     </div>
 
     <div class="note-box" style="margin-top:20px">
-      <b>Ergebnis:</b> Rechnerisch reichen 1,15–2,69 mm² für alle vier Gruppen aus – die Strombelastbarkeit ist nie der limitierende Faktor (I<sub>B</sub> bleibt mit 6,8–11,0 A weit unter den ≥ 40 A eines 4 mm² Solarkabels). Gewählt wird einheitlich <b>4 mm² PV1-F / H1Z2Z2-K</b>, der praxisübliche Mindestquerschnitt für freiverlegte String-Kabel (mechanische Robustheit, gängige MC4-Verbinder). Damit liegt der reale Spannungsfall bei 0,29–0,67 % der String-Vmpp – deutlich innerhalb des 1 %-Ziels.
+      <b>Ergebnis:</b> Rechnerisch reichen 1,15–2,69 mm². Gewählt einheitlich <b>4 mm² PV1-F / H1Z2Z2-K</b> (praxisüblicher Mindestquerschnitt, gängige MC4-Verbinder). Realer Spannungsfall: 0,29–0,67 % – deutlich unter 1 %.
     </div>
   </div>
 
-  <!-- 05 SAMMELBOX -> TECHNIKRAUM -->
+  <!-- 05 Y-STECKER -> TECHNIKRAUM -->
   <div class="section">
-    <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Sammelbox → Technikraum (Storage)</h2></div>
-    <p class="section-desc">Von jeder Sammelbox führt ein gemeinsames Plus-/Minus-Trunkkabel (alle Strings der Gruppe bereits parallelgeschaltet) zum Technikraum mit MPPT-Reglern, Batterien und Wechselrichter. Als Technikraum ist <b>Storage</b> vorgesehen (Grundriss: x = 26.300–28.950 mm, y = 22.000–25.500 mm). Kabelweg: vom gemeinsamen Kanal der Sammelboxen (x = 17.000 mm) horizontal zur Ostwand des Gebäudes (x = 23.450 mm), dort an der Wand entlang bis zur Mitte der Office-Wand (y = 23.750 mm), von dort durch den Boden unter Office hindurch in den Storage-Raum (Wanddurchführung bei x = 26.300 mm). Zuschlag: + 1,0 m Verlegereserve im Raum bis zum Reglerschrank.</p>
+    <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Y-Stecker → Technikraum (Storage)</h2></div>
+    <p class="section-desc">Von jedem Y-Stecker führt ein gemeinsames Plus-/Minus-Trunkkabel (alle Strings der Gruppe bereits parallelgeschaltet) zum Technikraum mit MPPT-Reglern, Batterien und Wechselrichter. Als Technikraum ist <b>Storage</b> vorgesehen (Grundriss: x = 26.300–28.950 mm, y = 22.000–25.500 mm). Kabelweg: vom gemeinsamen Kanal der Y-Stecker (x = 17.000 mm) horizontal zur Ostwand des Gebäudes (x = 23.450 mm), dort an der Wand entlang bis zur Mitte der Office-Wand (y = 23.750 mm), von dort durch den Boden unter Office hindurch in den Storage-Raum (Wanddurchführung bei x = 26.300 mm). Zuschlag: + 1,0 m Verlegereserve im Raum bis zum Reglerschrank.</p>
 
-    <p class="section-desc" style="margin-top:-6px">Ausschnitt aus dem Grundriss (Ostflügel) – Sammelboxen als Vierecke auf dem gemeinsamen Kabelkanal, Kabelweg an der Wand entlang und durch den Boden in den Storage-Raum. Vollständiger Grundriss: siehe Seite „Grundriss".</p>
+    <p class="section-desc" style="margin-top:-6px">Ausschnitt aus dem Grundriss (Ostflügel) – Y-Stecker als Vierecke auf dem gemeinsamen Kabelkanal, Kabelweg an der Wand entlang und durch den Boden in den Storage-Raum. Vollständiger Grundriss: siehe Seite „Grundriss".</p>
 
     <div class="kp-diagram-wrap">
 <svg viewBox="4000 11300 27000 19200" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans,Arial,sans-serif">
@@ -2759,36 +2751,36 @@ img[data-lb]{cursor:zoom-in}
 <line x1="23450" y1="23660" x2="26300" y2="23660" stroke="#378ADD" stroke-width="45" stroke-dasharray="170 120"/>
 <line x1="26300" y1="23660" x2="27300" y2="23660" stroke="#378ADD" stroke-width="45"/>
 <circle cx="27300" cy="23660" r="70" fill="#fbf9f2" stroke="#378ADD" stroke-width="30"/>
-<text x="20225.0" y="14250.0" font-size="340" fill="#1d5fa3" text-anchor="middle">SB1 &#8594; 19,59 m</text>
+<text x="20225.0" y="14250.0" font-size="340" fill="#1d5fa3" text-anchor="middle">Y-1 &#8594; 19,59 m</text>
 <line x1="17000" y1="17518.2" x2="23450" y2="17518.2" stroke="#1D9E75" stroke-width="45"/>
 <line x1="23450" y1="17518.2" x2="23450" y2="23720" stroke="#1D9E75" stroke-width="45"/>
 <line x1="23450" y1="23720" x2="26300" y2="23720" stroke="#1D9E75" stroke-width="45" stroke-dasharray="170 120"/>
 <line x1="26300" y1="23720" x2="27300" y2="23720" stroke="#1D9E75" stroke-width="45"/>
 <circle cx="27300" cy="23720" r="70" fill="#fbf9f2" stroke="#1D9E75" stroke-width="30"/>
-<text x="20225.0" y="17313.0" font-size="340" fill="#147a56" text-anchor="middle">SB2 &#8594; 16,53 m</text>
+<text x="20225.0" y="17313.0" font-size="340" fill="#147a56" text-anchor="middle">Y-2 &#8594; 16,53 m</text>
 <line x1="17000" y1="21314.5" x2="23450" y2="21314.5" stroke="#EF9F27" stroke-width="45"/>
 <line x1="23450" y1="21314.5" x2="23450" y2="23780" stroke="#EF9F27" stroke-width="45"/>
 <line x1="23450" y1="23780" x2="26300" y2="23780" stroke="#EF9F27" stroke-width="45" stroke-dasharray="170 120"/>
 <line x1="26300" y1="23780" x2="27300" y2="23780" stroke="#EF9F27" stroke-width="45"/>
 <circle cx="27300" cy="23780" r="70" fill="#fbf9f2" stroke="#EF9F27" stroke-width="30"/>
-<text x="20225.0" y="21109.0" font-size="340" fill="#a86c12" text-anchor="middle">SB3 &#8594; 12,74 m</text>
+<text x="20225.0" y="21109.0" font-size="340" fill="#a86c12" text-anchor="middle">Y-3 &#8594; 12,74 m</text>
 <line x1="17000" y1="24177.5" x2="23450" y2="24177.5" stroke="#7E57C2" stroke-width="45"/>
 <line x1="23450" y1="24177.5" x2="23450" y2="23840" stroke="#7E57C2" stroke-width="45"/>
 <line x1="23450" y1="23840" x2="26300" y2="23840" stroke="#7E57C2" stroke-width="45" stroke-dasharray="170 120"/>
 <line x1="26300" y1="23840" x2="27300" y2="23840" stroke="#7E57C2" stroke-width="45"/>
 <circle cx="27300" cy="23840" r="70" fill="#fbf9f2" stroke="#7E57C2" stroke-width="30"/>
-<text x="20225.0" y="24632.0" font-size="340" fill="#5c3a96" text-anchor="middle">SB4 &#8594; 10,73 m</text>
+<text x="20225.0" y="24632.0" font-size="340" fill="#5c3a96" text-anchor="middle">Y-4 &#8594; 10,73 m</text>
 <rect x="17000" y="14005.8" width="1700" height="900" rx="70" fill="#D6E4F2" stroke="#378ADD" stroke-width="55"/>
-<text x="17850" y="14275.8" font-size="380" font-weight="700" fill="#1d5fa3" text-anchor="middle">SB1</text>
+<text x="17850" y="14275.8" font-size="380" font-weight="700" fill="#1d5fa3" text-anchor="middle">Y-1</text>
 <text x="17850" y="14655.8" font-size="230" fill="#3a3a34" text-anchor="middle">5 Strings</text>
 <rect x="17000" y="17068.2" width="1700" height="900" rx="70" fill="#D5E8DF" stroke="#1D9E75" stroke-width="55"/>
-<text x="17850" y="17338.2" font-size="380" font-weight="700" fill="#147a56" text-anchor="middle">SB2</text>
+<text x="17850" y="17338.2" font-size="380" font-weight="700" fill="#147a56" text-anchor="middle">Y-2</text>
 <text x="17850" y="17718.2" font-size="230" fill="#3a3a34" text-anchor="middle">5 Strings</text>
 <rect x="17000" y="20864.5" width="1700" height="900" rx="70" fill="#F6E6CC" stroke="#EF9F27" stroke-width="55"/>
-<text x="17850" y="21134.5" font-size="380" font-weight="700" fill="#a86c12" text-anchor="middle">SB3</text>
+<text x="17850" y="21134.5" font-size="380" font-weight="700" fill="#a86c12" text-anchor="middle">Y-3</text>
 <text x="17850" y="21514.5" font-size="230" fill="#3a3a34" text-anchor="middle">3 Strings</text>
 <rect x="17000" y="23727.5" width="1700" height="900" rx="70" fill="#E2DAEC" stroke="#7E57C2" stroke-width="55"/>
-<text x="17850" y="23997.5" font-size="380" font-weight="700" fill="#5c3a96" text-anchor="middle">SB4</text>
+<text x="17850" y="23997.5" font-size="380" font-weight="700" fill="#5c3a96" text-anchor="middle">Y-4</text>
 <text x="17850" y="24377.5" font-size="230" fill="#3a3a34" text-anchor="middle">2 Strings</text>
 <text x="26900" y="24750" font-size="260" fill="#6b6b63">&#8594; Reglerschrank</text>
 <text x="6700" y="29900" font-size="280" fill="#9a958a">Maße in mm &#183; entlang der Office-Wand und beim Wanddurchbruch (gestrichelt = unter dem Boden) werden die vier Trassen zugunsten der Lesbarkeit leicht versetzt dargestellt</text>
@@ -2801,55 +2793,40 @@ img[data-lb]{cursor:zoom-in}
         <th>Box</th><th>Gruppe</th><th class="num">Strings</th><th class="num">Route (einfach)</th>
       </tr></thead>
       <tbody>
-        <tr><td>SB1</td><td>SolarWorld SW 165</td><td class="num">5</td><td class="num">19,59 m</td></tr>
-        <tr><td>SB2</td><td>SolarWorld SW 165</td><td class="num">5</td><td class="num">16,53 m</td></tr>
-        <tr><td>SB3</td><td>Sunset AS 175</td><td class="num">3</td><td class="num">12,74 m</td></tr>
-        <tr><td>SB4</td><td>SolarWorld SW 250</td><td class="num">2</td><td class="num">10,73 m</td></tr>
+        <tr><td>Y-1</td><td>SolarWorld SW 165</td><td class="num">5</td><td class="num">19,59 m</td></tr>
+        <tr><td>Y-2</td><td>SolarWorld SW 165</td><td class="num">5</td><td class="num">16,53 m</td></tr>
+        <tr><td>Y-3</td><td>Sunset AS 175</td><td class="num">3</td><td class="num">12,74 m</td></tr>
+        <tr><td>Y-4</td><td>SolarWorld SW 250</td><td class="num">2</td><td class="num">10,73 m</td></tr>
       </tbody>
       <tfoot><tr><td colspan="3">Summe Trassenlänge (einfach)</td><td class="num">59,59 m</td></tr></tfoot>
     </table>
     </div>
 
     <div class="kp-sum-strip">
-      <div class="kpi"><div class="kpi-label"><span class="csa-chip c10">10 mm²</span> Trunkkabel</div><div class="kpi-value">72,3 <span style="font-size:15px">m</span></div><div class="kpi-unit">SB1 + SB2 · + und − je Box</div></div>
-      <div class="kpi"><div class="kpi-label"><span class="csa-chip c6">6 mm²</span> Trunkkabel</div><div class="kpi-value">46,9 <span style="font-size:15px">m</span></div><div class="kpi-unit">SB3 + SB4 · + und − je Box</div></div>
+      <div class="kpi"><div class="kpi-label"><span class="csa-chip c10">10 mm²</span> Trunkkabel</div><div class="kpi-value">72,3 <span style="font-size:15px">m</span></div><div class="kpi-unit">Y-1 + Y-2 · + und − je Stecker</div></div>
+      <div class="kpi"><div class="kpi-label"><span class="csa-chip c6">6 mm²</span> Trunkkabel</div><div class="kpi-value">46,9 <span style="font-size:15px">m</span></div><div class="kpi-unit">Y-3 + Y-4 · + und − je Stecker</div></div>
       <div class="kpi"><div class="kpi-label">Leiterbedarf gesamt</div><div class="kpi-value">119,2 <span style="font-size:15px">m</span></div><div class="kpi-unit">4 Trunkleitungen · 2-adrig</div></div>
     </div>
 
-    <h2 class="section-title" style="font-size:20px;margin:36px 0 14px">Trunkkabel-Querschnitt (Querschnittsrechner)</h2>
-    <p class="section-desc" style="margin-bottom:20px">Gleiche Methode wie in Abschnitt 04, jetzt für die vier Trunkleitungen Sammelbox → Storage. Zwei Kriterien, das strengere entscheidet:</p>
-
-    <div class="two-col">
-      <div class="card">
-        <div class="card-label">Kriterium A · Strombelastbarkeit</div>
-        <div class="card-body">
-          <p>Bemessungsstrom <b>I<sub>B</sub> = 1,25 × I<sub>mpp</sub> Trunk</b> (Summenstrom aller parallelen Strings der Gruppe). Verglichen mit der Strombelastbarkeit von PV1-F/H1Z2Z2-K Solarkabel frei in Luft (≥ 63 A bei 6 mm², ≥ 85 A bei 10 mm²).</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-label">Kriterium B · Spannungsfall</div>
-        <div class="card-body">
-          <p><b>ΔU = (I<sub>mpp</sub> Trunk × L) / (κ × A)</b> mit κ = 56 m/(Ω·mm²) (Kupfer). L = Trassenlänge Hin- und Rückleiter (2 × einfache Strecke aus der Tabelle oben). Zielwert hier: ΔU ≤ 2 % der String-Vmpp (Begründung siehe Hinweis unten).</p>
-        </div>
-      </div>
-    </div>
+    <h2 class="section-title" style="font-size:20px;margin:36px 0 14px">Trunkkabel-Querschnitt</h2>
+    <p class="section-desc" style="margin-bottom:20px">Berechnet mit dem <a href="https://www.omnicalculator.com/de/physik/dc-kabelquerschnitt-rechner" target="_blank" rel="noopener">DC-Kabelquerschnitt-Rechner &#8599;</a>. Summenstrom je Y-Stecker (I<sub>mpp</sub> × Stringanzahl), Ziel ΔU ≤ 2 % (Gesamtverlust Modul → Regler &lt; 3 %), L = Hin- und Rückleiter.</p>
 
     <div class="table-scroll">
     <table class="con-table">
       <thead><tr>
-        <th>Box</th><th>Gruppe</th><th class="num">I<sub>mpp</sub> Trunk</th><th class="num">I<sub>B</sub> Trunk</th><th class="num">ΔU @ <span class="csa-chip c6">6 mm²</span></th><th class="num">ΔU @ <span class="csa-chip c10">10 mm²</span></th><th class="num">Gewählt</th>
+        <th>Gruppe</th><th>Modul</th><th class="num">I<sub>mpp</sub> Trunk</th><th class="num">I<sub>B</sub></th><th class="num">ΔU @ <span class="csa-chip c6">6 mm²</span></th><th class="num">ΔU @ <span class="csa-chip c10">10 mm²</span></th><th class="num">Gewählt</th>
       </tr></thead>
       <tbody>
-        <tr><td>SB1</td><td>SolarWorld SW 165</td><td class="num">23,85 A</td><td class="num">34,12 A</td><td class="num">2,78 V · 2,68 %</td><td class="num">1,67 V · 1,61 %</td><td class="num"><span class="csa-chip c10">10 mm²</span></td></tr>
-        <tr><td>SB2</td><td>SolarWorld SW 165</td><td class="num">23,85 A</td><td class="num">34,12 A</td><td class="num">2,35 V · 2,26 %</td><td class="num">1,41 V · 1,36 %</td><td class="num"><span class="csa-chip c10">10 mm²</span></td></tr>
-        <tr><td>SB3</td><td>Sunset AS 175</td><td class="num">20,55 A</td><td class="num">28,69 A</td><td class="num">1,56 V · 1,02 %</td><td class="num">0,93 V · 0,61 %</td><td class="num"><span class="csa-chip c6">6 mm²</span></td></tr>
-        <tr><td>SB4</td><td>SolarWorld SW 250</td><td class="num">16,54 A</td><td class="num">22,03 A</td><td class="num">1,06 V · 1,15 %</td><td class="num">0,63 V · 0,69 %</td><td class="num"><span class="csa-chip c6">6 mm²</span></td></tr>
+        <tr><td>Y-1</td><td>SolarWorld SW 165</td><td class="num">23,85 A</td><td class="num">34,12 A</td><td class="num">2,78 V · 2,68 %</td><td class="num">1,67 V · 1,61 %</td><td class="num"><span class="csa-chip c10">10 mm²</span></td></tr>
+        <tr><td>Y-2</td><td>SolarWorld SW 165</td><td class="num">23,85 A</td><td class="num">34,12 A</td><td class="num">2,35 V · 2,26 %</td><td class="num">1,41 V · 1,36 %</td><td class="num"><span class="csa-chip c10">10 mm²</span></td></tr>
+        <tr><td>Y-3</td><td>Sunset AS 175</td><td class="num">20,55 A</td><td class="num">28,69 A</td><td class="num">1,56 V · 1,02 %</td><td class="num">0,93 V · 0,61 %</td><td class="num"><span class="csa-chip c6">6 mm²</span></td></tr>
+        <tr><td>Y-4</td><td>SolarWorld SW 250</td><td class="num">16,54 A</td><td class="num">22,03 A</td><td class="num">1,06 V · 1,15 %</td><td class="num">0,63 V · 0,69 %</td><td class="num"><span class="csa-chip c6">6 mm²</span></td></tr>
       </tbody>
     </table>
     </div>
 
     <div class="note-box info" style="margin-top:20px">
-      <b>Warum 2 % statt 1 % Zielwert?</b> Das Stringkabel (Abschnitt 04) verbraucht bereits 0,3–0,7 % Spannungsfall. Für die Trunkleitung wird hier ≤ 2 % je Abschnitt angesetzt, sodass der gesamte DC-seitige Spannungsfall Modul → Regler unter den in der PV-Praxis üblichen 3 % bleibt. Bei <span class="csa-chip c6">6 mm²</span> läge SB1/SB2 mit 2,26–2,68 % darüber – deshalb <span class="csa-chip c10">10 mm²</span> für die beiden Gruppen mit 5 parallelen SW-165-Strings (höchster Trunkstrom, längste Strecke über die Office-Wand). SB3 und SB4 erreichen ihr Ziel bereits mit <span class="csa-chip c6">6 mm²</span> (1,02 % bzw. 1,15 %). Die Strombelastbarkeit ist auch hier nie der limitierende Faktor (I<sub>B</sub> 22–34 A gegenüber ≥ 63 A bei 6 mm² bzw. ≥ 85 A bei 10 mm² Solarkabel).
+      <b>Ergebnis:</b> Y-1/Y-2 (5× SW-165, längste Strecke): <span class="csa-chip c10">10 mm²</span> – bei 6 mm² wären 2,26–2,68 % über Ziel. Y-3/Y-4: <span class="csa-chip c6">6 mm²</span> ausreichend (1,02–1,15 %). Strombelastbarkeit in keinem Fall limitierend (I<sub>B</sub> 22–34 A gegenüber ≥ 63 A bei 6 mm²).
     </div>
 
   </div>
