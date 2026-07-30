@@ -851,6 +851,9 @@ img[data-lb]{cursor:zoom-in}
   <button class="page-btn" onclick="switchPage('zusatzsystem',this,true)">
     <span class="pg-icon">🔌</span> Zusatzsystem
   </button>
+  <button class="page-btn" onclick="switchPage('aufgaben',this,true)">
+    <span class="pg-icon">✓</span> Aufgaben
+  </button>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════════════
@@ -1093,9 +1096,9 @@ img[data-lb]{cursor:zoom-in}
     </div>
     <p class="section-desc">Das Hauptsystem als bearbeitbare draw.io-Datei – Übersichtsschaltplan der gesamten PV-Anlage. Kann mit draw.io (diagrams.net) direkt geöffnet und weiterbearbeitet werden.</p>
 
-    <a href="draw io/PV-Gambia_Bsp.drawio" download="PV-Gambia_Schaltplan.drawio" style="display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--paper);text-decoration:none;padding:14px 24px;border-radius:var(--r);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.08em;transition:opacity .2s" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+    <a href="draw io/PV-Gambia_Übersichtsschaltbild.drawio" download="PV-Gambia_Übersichtsschaltbild.drawio" style="display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--paper);text-decoration:none;padding:14px 24px;border-radius:var(--r);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.08em;transition:opacity .2s" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      PV-Gambia_Schaltplan.drawio herunterladen
+      PV-Gambia_Übersichtsschaltbild.drawio herunterladen
     </a>
     <p style="margin-top:12px;font-size:12px;color:var(--ink3)">Öffnen mit <a href="https://app.diagrams.net/" target="_blank" rel="noopener" style="color:var(--sun)">diagrams.net (draw.io) ↗</a> – kostenlos, keine Installation nötig.</p>
   </div>
@@ -4272,6 +4275,281 @@ img[data-lb]{cursor:zoom-in}
 
   </main>
 </div><!-- /page-ladestation -->
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE — AUFGABEN (Sprint Backlog 5)
+═════════════════════════════════════════════════════════════════════════ -->
+<div id="page-aufgaben" class="page">
+<main>
+
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">00</span>
+      <h2 class="section-title">Sprint Backlog 5 — Offene Aufgaben</h2>
+    </div>
+    <p class="section-desc">Alle noch offenen Aufgaben bis zur Abreise und zum Aufbau vor Ort. Frist für den Großteil: <strong>06.08.2026</strong>. Container ist bereits verschickt — Komponenten müssen ins Gepäck.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi c-amber"><div class="kpi-label">Aufgaben gesamt</div><div class="kpi-value">8</div><div class="kpi-unit">Sprint-Ziele</div></div>
+      <div class="kpi c-sun"><div class="kpi-label">In Bearbeitung</div><div class="kpi-value">7</div><div class="kpi-unit">aktive Punkte</div></div>
+      <div class="kpi c-moon"><div class="kpi-label">Nächste Frist</div><div class="kpi-value" style="font-size:16px">06.08.</div><div class="kpi-unit">2026</div></div>
+      <div class="kpi"><div class="kpi-label">Verantwortlich</div><div class="kpi-value" style="font-size:14px">Paul &amp; Simon</div><div class="kpi-unit">+ Niklas, alle</div></div>
+    </div>
+  </div>
+
+  <!-- 1 KOMPONENTEN -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Weitere Komponenten planen und beschaffen</h2></div>
+    <p class="section-desc">Restliche Kleinteile und Verbindungselemente, die noch nicht beschafft wurden. Müssen ins Handgepäck, da Container bereits verschickt. Frist: 06.08.2026 · Paul &amp; Simon</p>
+
+    <div class="card" style="padding:0;overflow:hidden">
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.1</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Steckverbindungen (Y-Stecker)</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.5">Um von mehreren Kabeln auf ein Kabel zu reduzieren (zwischen String und Kabel zum Laderegler).<br>
+          Bestellen: <strong>2× 5-auf-1 · 1× 3-auf-1 · 1× 2-auf-1</strong></div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.2</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Kabelrohre</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.5">Zum Schutz der Außenkabel. Hier planen, aber vor Ort besorgen.<br>
+          Dimensionierung ausrechnen (Durchmesser und Länge).</div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.3</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Anschlüsse Hauptsystem <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.6">
+            54 Paar MC4 (Solardach) · 15 Paar MC4 (Stringkabel) · 8 Paar MC4 (6 mm² zum Storage Room)<br>
+            4 Paar Aderendhülsen 6 mm² (Eingang MPPT) · 4 Paar 10 mm² (MPPT alt.) · 4 Paar 25 mm² (Ausgang MPPT)<br>
+            4 Paar Kabelschuhe 25 mm² M8 (Eingang Lynx)<br>
+            1 Paar Kabelschuhe 70 mm² M8 (Ausgang Lynx→WR) · 1 Paar 70 mm² M8 (Eingang WR)<br>
+            2 Paar Kabelschuhe 35 mm² M8 (Ausgang Lynx→WR) · 2 Paar 35 mm² M8 (Eingang WR)<br>
+            1 Paar Kabelschuhe 70 mm² M8 (Ausgang Lynx→Batterie) · 1 Paar 70 mm² M8 (Eingang Batterie)<br>
+            2 Paar Kabelschuhe 25 mm² M8 (Ausgang Lynx→Batterie)<br>
+            2 Paar Kabelschuhe 25 mm² Amphenol (Eingang Batterie) — Kabellänge 2,00 m<br>
+            Aderendhülsen 16 mm² (für Erdung)
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.4</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Anschlüsse Zusatzsystem</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.6">
+            3 Paar MC4 (Solardach) · 1 Paar MC4 (4/6/10 mm²-Kabel)<br>
+            2 Paar Aderendhülsen Eingang/Ausgang Laderegler · 2 Paar Kabelschuhe Batterie 10 mm² M8<br>
+            1 Paar Aderendhülsen Wechselrichter 10 mm²
+          </div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.5</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Sicherungen dimensionieren</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.6">
+            Hauptsystem: Sicherung Laderegler→Batterie: <strong>80 A Mega</strong> (150/60) · <strong>100 A Mega</strong> (250/70)<br>
+            Sicherung Multiplus: 400 A bei 70 mm²-Kabel · 2× 200 A bei 35 mm²-Kabeln<br>
+            Sicherung Batterie (25 mm²): 100 A (je Batterie)<br>
+            Sicherungskasten nach WR: RCD + B16 + Steckdose (vor Ort besorgen) · 4× MEGA-Sicherungen<br>
+            <em style="color:var(--ink3)">Keine Sicherung zwischen PV und Laderegler</em>
+          </div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.6</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Kommunikationskabel / Interface <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.6">
+            VE.Direct Kabel, Nutzer-Interface (OPTIONAL) · DuPPa USB Quadport-Adapter für VE.Direct<br>
+            Wechselrichter↔Cerbo: VE.BUS · Batterie↔Cerbo: VE.BUS (prüfen) · Laderegler↔Cerbo: VE.Direct + Adapter<br>
+            <em style="color:var(--ink3)">Notiz: wird voraussichtlich von IQMA übernommen, Teil des Angebots</em>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.7</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Fehlende Kabel besorgen <span style="background:var(--moon-light);color:var(--moon);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">Sponsoring</span></div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.5">
+            35 mm²: mindestens 4 m<br>
+            25 mm²: 20 m (10 m Minimum, mehr nur wenn gesponsert) + mehr für Batterien je nach Lieferumfang
+          </div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.8</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Batterien besorgen <span style="background:var(--moon-light);color:var(--moon);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">Sponsoring</span></div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.5">
+            2× Pylontech US5000 LiFePO₄ (2× 750 € = 1.500 €) — Option auf dritte Batterie<br>
+            1× LiTime 12 V 50 Ah (170 €) — möglichst mit anderen mitbestellen<br>
+            Batteriekabel nur in 25 mm² verfügbar → jede Batterie einzeln anschließen
+          </div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.9</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Kabeltyp Batterie herausfinden</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.5">
+            Jede Batterie einzeln mit dem Lynx verbinden · Kabel sind dabei (Amphenol auf M8)<br>
+            Zwei Batterien jeweils einzeln an Lynx anschließen
+          </div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.10</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Erdung planen</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.5">
+            Erdung des Gesamtsystems erarbeiten.<br>
+            Klären: Kann der Erdungsspieß vor Ort besorgt werden?
+          </div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2 MONTAGE -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Montage- &amp; Aufbauplanung</h2></div>
+    <p class="section-desc">Planung der physischen Anordnung der Module. Windlasten, Befestigung, Diebstahlschutz, Kindersicherheit. Verantwortlich: Niklas</p>
+
+    <div class="card" style="padding:0;overflow:hidden">
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">2.1</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Belastungen berechnen <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
+          <div style="font-size:13px;color:var(--ink2)">Statik-Berechnungen für die Modulaufständerung</div>
+        </div>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">2.2</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Statik darstellen <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
+          <div style="font-size:13px;color:var(--ink2)">Windlast etc. berechnen und visuell darstellen</div>
+        </div>
+      </div>
+
+      <div style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">2.3</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Gesamten Aufbau skizzieren <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.5">Liste aller benötigten Teile · Aluschienen von Hense einplanen<br>Was kann vor Ort in Stahl/Befestigung besorgt werden? Was muss in den Container?</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3 GESAMTSYSTEM -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Gesamtsystem durchgehen und Fehlerquellen identifizieren</h2></div>
+    <p class="section-desc">Um mögliche Probleme vor Ort zu vermeiden, das Gesamtsystem einmal vollständig durchgehen. Frist: 06.08.2026 · Paul &amp; Simon, Maximilian Bauland</p>
+
+    <div class="card" style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
+      <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.1</span>
+      <div style="flex:1">
+        <div style="font-weight:600;margin-bottom:4px">Gesamtsystem visuell darstellen <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
+        <div style="font-size:13px;color:var(--ink2);line-height:1.5">Vereinfachte Darstellung des Gesamtsystems für bessere Kommunikation.<br>
+        Vorlage bereits von Maximilian Bauland erhalten — Überarbeitung/Ergänzung zeitnah geplant.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 EINARBEITUNG -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Einarbeitung in die Montage von PV-Inselsystemen</h2></div>
+    <p class="section-desc">Verständnis aufbauen, wie Komponenten anzuschließen sind und wie der Aufbau vor Ort abläuft. Frist: 30.09.2026 · Paul &amp; Simon</p>
+
+    <div class="card" style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
+      <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">4.1</span>
+      <div style="flex:1">
+        <div style="font-weight:600;margin-bottom:4px">Werkzeuge</div>
+        <div style="font-size:13px;color:var(--ink2)">Verständnis für benötigte Werkzeuge schaffen und Bedarf klären. Frist: 06.08.2026</div>
+      </div>
+      <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+    </div>
+  </div>
+
+  <!-- 5 PROBE -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Zusatzsystem zur Probe aufbauen und testen</h2></div>
+    <p class="section-desc">Um Probleme vor Ort zu vermeiden, das Zusatzsystem einmal komplett probeweise aufbauen. Frist: 30.09.2026 · Paul &amp; Simon</p>
+    <div class="card" style="padding:20px 24px">
+      <div style="font-size:13px;color:var(--ink2)">Schwierigkeit: Verfügbarkeit der Komponenten in Deutschland</div>
+    </div>
+  </div>
+
+  <!-- 6 PIKTOGRAMME -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">06</span><h2 class="section-title">Anleitungen für vor Ort (Piktogramme)</h2></div>
+    <p class="section-desc">Verständliche Anleitungen für Personen vor Ort zur Förderung von Selbstständigkeit. Frist: 30.09.2026</p>
+    <div class="card" style="padding:20px 24px">
+      <div style="font-size:13px;color:var(--ink2)">Herausforderung: Analphabetismus in The Gambia und Sprachbarriere → Bildsprache / Piktogramme notwendig</div>
+    </div>
+  </div>
+
+  <!-- 7 AUFBAU VOR ORT -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">07</span><h2 class="section-title">Aufbau vor Ort</h2></div>
+    <p class="section-desc">Gesamter Aufbau und Inbetriebnahme in The Gambia. Verantwortlich: alle Teams. Schwierigkeiten: fehlende Batterien, ggf. fehlendes weiteres Material</p>
+
+    <div class="card" style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
+      <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">7.1</span>
+      <div style="flex:1">
+        <div style="font-weight:600;margin-bottom:4px">Ablaufplanung</div>
+        <div style="font-size:13px;color:var(--ink2);line-height:1.5">
+          Planen, welche Schritte in welcher Reihenfolge zu tun sind und wer was macht.<br>
+          Idealen Ablauf definieren. Frist: 30.09.2026 · alle Teams
+        </div>
+      </div>
+      <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+    </div>
+  </div>
+
+  <!-- 8 KABEL VERLÄNGERN -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">08</span><h2 class="section-title">Verlängerung der Kabel von PV-Modulen</h2></div>
+    <p class="section-desc">Bei welchen Modulen müssen Kabel noch verlängert werden? Verantwortlich: Team 1</p>
+
+    <div class="card" style="padding:20px 24px">
+      <ul style="font-size:13px;color:var(--ink2);line-height:2;padding-left:20px">
+        <li>Rücksprache mit Matthias bzgl. welcher Module betroffen sind</li>
+        <li>Kabelschuhe entsprechend einplanen</li>
+        <li>Zange zum Quetschen der Kabelschuhe einplanen</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+</div><!-- /page-aufgaben -->
 
 <div class="lb-overlay" id="lb-overlay">
   <button class="lb-close" id="lb-close" aria-label="Schließen">✕</button>
