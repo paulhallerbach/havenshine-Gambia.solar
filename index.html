@@ -851,8 +851,8 @@ img[data-lb]{cursor:zoom-in}
   <button class="page-btn" onclick="switchPage('zusatzsystem',this,true)">
     <span class="pg-icon">🔌</span> Zusatzsystem
   </button>
-  <button class="page-btn" onclick="switchPage('aufgaben',this,true)">
-    <span class="pg-icon">✓</span> Aufgaben
+  <button class="page-btn" onclick="switchPage('packliste',this,true)">
+    <span class="pg-icon">📦</span> Materialien &amp; Packliste
   </button>
 </div>
 
@@ -4277,93 +4277,170 @@ img[data-lb]{cursor:zoom-in}
 </div><!-- /page-ladestation -->
 
 <!-- ════════════════════════════════════════════════════════════════════════
-     PAGE — AUFGABEN (Sprint Backlog 5)
+     PAGE — MATERIALIEN & PACKLISTE
 ═════════════════════════════════════════════════════════════════════════ -->
-<div id="page-aufgaben" class="page">
+<div id="page-packliste" class="page">
 <main>
 
   <div class="section">
     <div class="section-header">
       <span class="section-num">00</span>
-      <h2 class="section-title">Sprint Backlog 5 — Offene Aufgaben</h2>
+      <h2 class="section-title">Materialien &amp; Packliste</h2>
     </div>
-    <p class="section-desc">Alle noch offenen Aufgaben bis zur Abreise und zum Aufbau vor Ort. Frist für den Großteil: <strong>06.08.2026</strong>. Container ist bereits verschickt — Komponenten müssen ins Gepäck.</p>
+    <p class="section-desc">Überblick über das gesamte Material für den Aufbau vor Ort, aufgeteilt in drei Kategorien: was wir schon mitgenommen haben (Container + Wechselrichter), was schon besorgt ist und noch mitgenommen wird (IQMA-Angebot + Human Hope e. V.), und was bis zur Abreise noch besorgt werden muss.</p>
 
     <div class="kpi-strip">
-      <div class="kpi c-amber"><div class="kpi-label">Aufgaben gesamt</div><div class="kpi-value">8</div><div class="kpi-unit">Sprint-Ziele</div></div>
-      <div class="kpi c-sun"><div class="kpi-label">In Bearbeitung</div><div class="kpi-value">7</div><div class="kpi-unit">aktive Punkte</div></div>
-      <div class="kpi c-moon"><div class="kpi-label">Nächste Frist</div><div class="kpi-value" style="font-size:16px">06.08.</div><div class="kpi-unit">2026</div></div>
-      <div class="kpi"><div class="kpi-label">Verantwortlich</div><div class="kpi-value" style="font-size:14px">Paul &amp; Simon</div><div class="kpi-unit">+ Niklas, alle</div></div>
+      <div class="kpi c-green"><div class="kpi-label">1 · Bereits mitgenommen</div><div class="kpi-value">4</div><div class="kpi-unit">Kisten + MultiPlus-WR</div></div>
+      <div class="kpi c-moon"><div class="kpi-label">2 · Bereits besorgt</div><div class="kpi-value">13</div><div class="kpi-unit">Geräte · IQMA + Human Hope e. V.</div></div>
+      <div class="kpi c-amber"><div class="kpi-label">3 · Noch zu besorgen</div><div class="kpi-value">10</div><div class="kpi-unit">offene Positionen</div></div>
+      <div class="kpi"><div class="kpi-label">Frist</div><div class="kpi-value" style="font-size:16px">06.08.</div><div class="kpi-unit">2026 · vor Abreise</div></div>
     </div>
   </div>
 
-  <!-- 1 KOMPONENTEN -->
+  <!-- 01 BEREITS MITGENOMMEN -->
   <div class="section">
-    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Weitere Komponenten planen und beschaffen</h2></div>
-    <p class="section-desc">Restliche Kleinteile und Verbindungselemente, die noch nicht beschafft wurden. Müssen ins Handgepäck, da Container bereits verschickt. Frist: 06.08.2026 · Paul &amp; Simon</p>
+    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Bereits mitgenommen</h2></div>
+    <p class="section-desc">Der Container ist bereits verschickt und auf dem Seeweg nach Gambia — was darin steckt, kann nicht mehr ergänzt werden. Zusätzlich haben wir den großen Wechselrichter separat mitgenommen.</p>
+
+    <div class="table-scroll">
+    <table class="con-table">
+      <thead><tr>
+        <th>Kiste</th><th>Kabel</th><th>MC4-Steckverbinder</th><th>Sonstiges</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Kiste 1</td><td>78 m 6 mm² · 34 m 10 mm²</td><td>&mdash;</td><td rowspan="4" style="vertical-align:middle;color:var(--ink2);font-size:12.5px;line-height:1.6">Mittel- &amp; Endklemmen (Modulbefestigung) auf alle 4 Kisten verteilt<br>Aluschienen komplett mitverschickt<br>Alle PV-Module (Haupt- &amp; Zusatzsystem) auf die Kisten verteilt</td></tr>
+        <tr><td>Kiste 2</td><td>212 m 4 mm² · 100 m 10 mm²</td><td>&mdash;</td></tr>
+        <tr><td>Kiste 3</td><td>65 m 6 mm² · 64 m 10 mm²</td><td>17 Paar MC4 · 6 Paar Y-MC4</td></tr>
+        <tr><td>Kiste 4</td><td>272 m 6 mm² · 75 m 10 mm²</td><td>&mdash;</td></tr>
+      </tbody>
+      <tfoot><tr><td>Summe</td><td>212 m 4 mm² · 415 m 6 mm² · 273 m 10 mm² (= 900 m)</td><td>17 + 6 Paar</td><td></td></tr></tfoot>
+    </table>
+    </div>
+
+    <div class="card" style="margin-top:16px;padding:16px 24px">
+      <div style="font-size:13px;color:var(--ink2);line-height:1.6">
+        <strong>Module &amp; Montage im Container:</strong> 57 PV-Module gesamt (54 Hauptsystem: 30× SW 165-S · 18× Sunset AS 175 · 6× SW 250 POLY — plus 3× SW 250 POLY Zusatzsystem), dazu die zugehörigen Aluschienen (54 + 3) sowie Mittel- und Endklemmen zur Befestigung an den Schienen — alles auf die vier Kisten aufgeteilt verschickt.
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;padding:16px 24px;display:flex;align-items:center;gap:16px">
+      <img src="img/multiplus.png" alt="Victron MultiPlus-II 48/10000/140-100" data-lb class="thumb-ph" style="width:56px;height:42px;object-fit:cover">
+      <div style="flex:1">
+        <div style="font-weight:600;margin-bottom:2px">MultiPlus-II 48/10000/140-100 230 V</div>
+        <div style="font-size:13px;color:var(--ink2)">Großer Wechselrichter des Hauptsystems — separat mitgenommen, nicht im Container.</div>
+      </div>
+      <span style="flex-shrink:0;background:var(--green-light);color:var(--green);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">mitgenommen</span>
+    </div>
+  </div>
+
+  <!-- 02 BEREITS BESORGT -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Mitnehmen — bereits besorgt</h2></div>
+    <p class="section-desc">Alle Victron-Komponenten aus dem Angebot unseres Sponsors <strong>IQMA</strong> sowie die Batterien, organisiert über <strong>Human.Hope e. V.</strong> Diese Teile sind gesichert und werden zusätzlich zum Handgepäck mitgenommen.</p>
+
+    <div class="table-scroll">
+    <table class="con-table">
+      <thead><tr>
+        <th>Bild</th><th>Komponente / Modell</th><th>Hersteller</th><th class="num">Anzahl</th><th class="num">Status</th>
+      </tr></thead>
+      <tbody>
+        <tr class="cat-hdr"><td colspan="5">MPPT-Laderegler</td></tr>
+        <tr><td><img src="img/mppt150.png" alt="SmartSolar MPPT 150/60" data-lb class="thumb-ph" style="object-fit:cover"></td><td>SmartSolar MPPT 150/60 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-150-60-&amp;-150-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">4</td><td class="num">bestellt (IQMA)</td></tr>
+        <tr><td><img src="img/mppt250.png" alt="SmartSolar MPPT 250/70" data-lb class="thumb-ph" style="object-fit:cover"></td><td>SmartSolar MPPT 250/70 VE.Can <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-250-60-and-250-70-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">bestellt (IQMA)</td></tr>
+
+        <tr class="cat-hdr"><td colspan="5">Wechselrichter Zusatzsystem</td></tr>
+        <tr><td><img src="img/phoenix375.png" alt="Victron Phoenix 12/375" data-lb class="thumb-ph" style="object-fit:cover"></td><td>Phoenix 12/375 <a href="https://www.victronenergy.de/upload/documents/Datasheet-Inverter-VE.Direct-250VA-1600VA-DE.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">bestellt (IQMA)</td></tr>
+
+        <tr class="cat-hdr"><td colspan="5">DC-Bus &amp; Systemsteuerung</td></tr>
+        <tr><td><img src="img/lynx.png" alt="Victron Lynx Distributor" data-lb class="thumb-ph" style="object-fit:cover"></td><td>Lynx Distributor <a href="https://www.victronenergy.com/upload/documents/Lynx_Distributor/24531-Lynx_Distributor_Manual-pdf-en.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">2</td><td class="num">bestellt (IQMA)</td></tr>
+        <tr><td><img src="img/cerbo.png" alt="Victron Cerbo GX MK2" data-lb class="thumb-ph" style="object-fit:cover"></td><td>Cerbo GX MK2 <a href="https://www.victronenergy.com/upload/documents/Datasheet-Cerbo-GX-GX-Touch-EN.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Victron Energy</td><td class="num">1</td><td class="num">bestellt (IQMA)</td></tr>
+
+        <tr class="cat-hdr"><td colspan="5">Batterien</td></tr>
+        <tr><td><img src="img/pylontech.png" alt="Pylontech US5000" data-lb class="thumb-ph" style="object-fit:cover"></td><td>US5000 LiFePO&#8324; (4,8 kWh / 48 V) <a href="https://global-site.oss-eu-central-1.aliyuncs.com/upload/2024/09/26/US%20Series_20240926105858A040.pdf" target="_blank" rel="noopener">&#8599;</a></td><td>Pylontech</td><td class="num">3</td><td class="num">organisiert (Human.Hope e. V.)</td></tr>
+        <tr><td><img src="img/litime.png" alt="LiTime 12V 50Ah" data-lb class="thumb-ph" style="object-fit:cover"></td><td>12 V 50 Ah Deep Cycle Lithium (LiFePO&#8324;) <a href="https://www.litime.de/products/litime-12v-50ah-lithium-lifepo4-batterie" target="_blank" rel="noopener">&#8599;</a></td><td>LiTime</td><td class="num">1</td><td class="num">organisiert (Human.Hope e. V.)</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink3);margin-top:10px">Der MultiPlus-II (Hauptsystem-Wechselrichter) ist bereits mitgenommen — siehe Kategorie 1.</p>
+  </div>
+
+  <!-- 03 NOCH ZU BESORGEN -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Noch zu besorgen</h2></div>
+    <p class="section-desc">Alles, was noch fehlt und bis zur Abreise besorgt werden muss, um es mitzunehmen — vor allem Steckverbinder, Anschlüsse, Werkzeug und die restlichen Kabel. Frist: <strong>06.08.2026</strong> · Paul &amp; Simon</p>
 
     <div class="card" style="padding:0;overflow:hidden">
 
       <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.1</span>
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.1</span>
         <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Steckverbindungen (Y-Stecker)</div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.5">Um von mehreren Kabeln auf ein Kabel zu reduzieren (zwischen String und Kabel zum Laderegler).<br>
-          Bestellen: <strong>2× 5-auf-1 · 1× 3-auf-1 · 1× 2-auf-1</strong></div>
-        </div>
-        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
-      </div>
-
-      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.2</span>
-        <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Kabelrohre</div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.5">Zum Schutz der Außenkabel. Hier planen, aber vor Ort besorgen.<br>
-          Dimensionierung ausrechnen (Durchmesser und Länge).</div>
-        </div>
-        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
-      </div>
-
-      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.3</span>
-        <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Anschlüsse Hauptsystem <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
+          <div style="font-weight:600;margin-bottom:4px">MC4-Steckverbinder (Rest)</div>
           <div style="font-size:13px;color:var(--ink2);line-height:1.6">
-            54 Paar MC4 (Solardach) · 15 Paar MC4 (Stringkabel) · 8 Paar MC4 (6 mm² zum Storage Room)<br>
-            4 Paar Aderendhülsen 6 mm² (Eingang MPPT) · 4 Paar 10 mm² (MPPT alt.) · 4 Paar 25 mm² (Ausgang MPPT)<br>
-            4 Paar Kabelschuhe 25 mm² M8 (Eingang Lynx)<br>
-            1 Paar Kabelschuhe 70 mm² M8 (Ausgang Lynx→WR) · 1 Paar 70 mm² M8 (Eingang WR)<br>
-            2 Paar Kabelschuhe 35 mm² M8 (Ausgang Lynx→WR) · 2 Paar 35 mm² M8 (Eingang WR)<br>
-            1 Paar Kabelschuhe 70 mm² M8 (Ausgang Lynx→Batterie) · 1 Paar 70 mm² M8 (Eingang Batterie)<br>
-            2 Paar Kabelschuhe 25 mm² M8 (Ausgang Lynx→Batterie)<br>
-            2 Paar Kabelschuhe 25 mm² Amphenol (Eingang Batterie) — Kabellänge 2,00 m<br>
-            Aderendhülsen 16 mm² (für Erdung)
-          </div>
-        </div>
-      </div>
-
-      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.4</span>
-        <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Anschlüsse Zusatzsystem</div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.6">
-            3 Paar MC4 (Solardach) · 1 Paar MC4 (4/6/10 mm²-Kabel)<br>
-            2 Paar Aderendhülsen Eingang/Ausgang Laderegler · 2 Paar Kabelschuhe Batterie 10 mm² M8<br>
-            1 Paar Aderendhülsen Wechselrichter 10 mm²
+            Benötigt gesamt ca. <strong>81 Paar</strong> (54 Solardach + 15 Stringkabel + 8 Storage Room Hauptsystem, 3 Solardach + 1 Kabel Zusatzsystem).<br>
+            Davon bereits im Container: <strong>17 Paar + 6 Paar Y-MC4</strong> (Kiste 3) — <strong>Rest noch zu besorgen.</strong>
           </div>
         </div>
         <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
       </div>
 
       <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.5</span>
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.2</span>
         <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Sicherungen dimensionieren</div>
+          <div style="font-weight:600;margin-bottom:4px">Y-Stecker (MC4-Kombinatoren)</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.5">Um mehrere Strings auf ein Kabel zum Laderegler zu reduzieren.<br>Bestellen: <strong>2× 5-auf-1 · 1× 3-auf-1 · 1× 2-auf-1</strong></div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.3</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Aderendhülsen</div>
           <div style="font-size:13px;color:var(--ink2);line-height:1.6">
-            Hauptsystem: Sicherung Laderegler→Batterie: <strong>80 A Mega</strong> (150/60) · <strong>100 A Mega</strong> (250/70)<br>
-            Sicherung Multiplus: 400 A bei 70 mm²-Kabel · 2× 200 A bei 35 mm²-Kabeln<br>
-            Sicherung Batterie (25 mm²): 100 A (je Batterie)<br>
-            Sicherungskasten nach WR: RCD + B16 + Steckdose (vor Ort besorgen) · 4× MEGA-Sicherungen<br>
+            4 Paar 6 mm² (Eingang MPPT) · 4 Paar 10 mm² (MPPT alt.) · 4 Paar 25 mm² (Ausgang MPPT)<br>
+            2 Paar Eingang/Ausgang Laderegler Zusatzsystem · 1 Paar Wechselrichter Zusatzsystem 10 mm²<br>
+            Aderendhülsen 16 mm² (für Erdung) — nicht für 25/35 mm² geeignet, dort ausschließlich Rohrkabelschuhe
+          </div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.4</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Kabelschuhe (Ringkabelschuhe M8 / Amphenol)</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.6">
+            4 Paar 25 mm² M8 (Eingang Lynx)<br>
+            1 Paar 70 mm² M8 (Ausgang Lynx→WR) · 1 Paar 70 mm² M8 (Eingang WR)<br>
+            2 Paar 35 mm² M8 (Ausgang Lynx→WR) · 2 Paar 35 mm² M8 (Eingang WR)<br>
+            1 Paar 70 mm² M8 (Ausgang Lynx→Batterie) · 1 Paar 70 mm² M8 (Eingang Batterie)<br>
+            2 Paar 25 mm² M8 (Ausgang Lynx→Batterie) · 2 Paar 25 mm² Amphenol (Eingang Batterie, Kabellänge 2,00 m)<br>
+            2 Paar Batterie 10 mm² M8 (Zusatzsystem)
+          </div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.5</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Kabel großer Querschnitt (Schaltraum)</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.6">
+            Andere Querschnitte als das bereits verschickte PV-Kabel (4/6/10 mm²) — komplett neu zu besorgen.<br>
+            <strong>10 m 35 mm² · 20 m 25 mm²</strong> + ggf. mehr für Batterien je nach Lieferumfang
+          </div>
+        </div>
+        <span style="flex-shrink:0;background:var(--moon-light);color:var(--moon);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">Sponsoring</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.6</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Sicherungen</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.6">
+            Laderegler→Batterie: 80 A Mega (150/60) · 100 A Mega (250/70)<br>
+            MultiPlus: 400 A bei 70 mm²-Kabel · 2× 200 A bei 35 mm²-Kabeln<br>
+            Batterie (25 mm²): 100 A je Batterie · 4× Mega-Sicherungen für Sicherungskasten<br>
             <em style="color:var(--ink3)">Keine Sicherung zwischen PV und Laderegler</em>
           </div>
         </div>
@@ -4371,185 +4448,61 @@ img[data-lb]{cursor:zoom-in}
       </div>
 
       <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.6</span>
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.7</span>
         <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Kommunikationskabel / Interface <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
+          <div style="font-weight:600;margin-bottom:4px">Erdung</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.5">Erdungsspieß — klären, ob vor Ort erhältlich, sonst mitbringen. Aderendhülsen 16 mm² s. 3.3.</div>
+        </div>
+        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+      </div>
+
+      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.8</span>
+        <div style="flex:1">
+          <div style="font-weight:600;margin-bottom:4px">Werkzeug</div>
           <div style="font-size:13px;color:var(--ink2);line-height:1.6">
-            VE.Direct Kabel, Nutzer-Interface (OPTIONAL) · DuPPa USB Quadport-Adapter für VE.Direct<br>
-            Wechselrichter↔Cerbo: VE.BUS · Batterie↔Cerbo: VE.BUS (prüfen) · Laderegler↔Cerbo: VE.Direct + Adapter<br>
-            <em style="color:var(--ink3)">Notiz: wird voraussichtlich von IQMA übernommen, Teil des Angebots</em>
-          </div>
-        </div>
-      </div>
-
-      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.7</span>
-        <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Fehlende Kabel besorgen <span style="background:var(--moon-light);color:var(--moon);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">Sponsoring</span></div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.5">
-            35 mm²: mindestens 4 m<br>
-            25 mm²: 20 m (10 m Minimum, mehr nur wenn gesponsert) + mehr für Batterien je nach Lieferumfang
+            Crimpzange für Aderendhülsen · Crimpzange/Presswerkzeug für Rohrkabelschuhe (bis 70 mm²) · MC4-Crimpzange · Abisolierzange<br>
+            Zange zum Quetschen der Kabelschuhe (für Modulkabel-Verlängerungen, s. 3.10) · Multimeter · Standardwerkzeug (Schraubendreher, Seitenschneider)<br>
+            Bedarf im Detail noch klären
           </div>
         </div>
         <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
       </div>
 
       <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.8</span>
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.9</span>
         <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Batterien besorgen <span style="background:var(--moon-light);color:var(--moon);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">Sponsoring</span></div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.5">
-            2× Pylontech US5000 LiFePO₄ (2× 750 € = 1.500 €) — Option auf dritte Batterie<br>
-            1× LiTime 12 V 50 Ah (170 €) — möglichst mit anderen mitbestellen<br>
-            Batteriekabel nur in 25 mm² verfügbar → jede Batterie einzeln anschließen
+          <div style="font-weight:600;margin-bottom:4px">Kommunikationskabel / Interface</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.6">
+            VE.Direct-Kabel, DuPPa USB Quadport-Adapter, Nutzer-Interface (optional)<br>
+            <em style="color:var(--ink3)">Notiz: wird voraussichtlich von IQMA übernommen, Teil des Angebots — noch zu bestätigen</em>
           </div>
         </div>
-        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
-      </div>
-
-      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.9</span>
-        <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Kabeltyp Batterie herausfinden</div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.5">
-            Jede Batterie einzeln mit dem Lynx verbinden · Kabel sind dabei (Amphenol auf M8)<br>
-            Zwei Batterien jeweils einzeln an Lynx anschließen
-          </div>
-        </div>
-        <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
+        <span style="flex-shrink:0;background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">in Bearbeitung</span>
       </div>
 
       <div style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">1.10</span>
+        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.10</span>
         <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Erdung planen</div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.5">
-            Erdung des Gesamtsystems erarbeiten.<br>
-            Klären: Kann der Erdungsspieß vor Ort besorgt werden?
+          <div style="font-weight:600;margin-bottom:4px">Kabelverlängerung an Modulen</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.6">
+            Rücksprache mit Matthias, welche Module betroffen sind, dann Kabelschuhe + Crimpzange entsprechend einplanen (s. 3.4 / 3.8). Verantwortlich: Team 1
           </div>
         </div>
         <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
       </div>
 
     </div>
-  </div>
 
-  <!-- 2 MONTAGE -->
-  <div class="section">
-    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Montage- &amp; Aufbauplanung</h2></div>
-    <p class="section-desc">Planung der physischen Anordnung der Module. Windlasten, Befestigung, Diebstahlschutz, Kindersicherheit. Verantwortlich: Niklas</p>
-
-    <div class="card" style="padding:0;overflow:hidden">
-
-      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">2.1</span>
-        <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Belastungen berechnen <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
-          <div style="font-size:13px;color:var(--ink2)">Statik-Berechnungen für die Modulaufständerung</div>
-        </div>
+    <div class="card" style="margin-top:16px;padding:16px 24px">
+      <div style="font-size:12.5px;color:var(--ink3);line-height:1.6">
+        <strong>Nicht Teil der Packliste — vor Ort in Gambia zu besorgen:</strong> Kabelrohre zum Schutz der Außenkabel (Dimensionierung hier planen) · Sicherungskasten-Zubehör nach dem Wechselrichter (RCD + B16 + Steckdose).
       </div>
-
-      <div style="padding:20px 24px;border-bottom:1px solid var(--paper3);display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">2.2</span>
-        <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Statik darstellen <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
-          <div style="font-size:13px;color:var(--ink2)">Windlast etc. berechnen und visuell darstellen</div>
-        </div>
-      </div>
-
-      <div style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
-        <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">2.3</span>
-        <div style="flex:1">
-          <div style="font-weight:600;margin-bottom:4px">Gesamten Aufbau skizzieren <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.5">Liste aller benötigten Teile · Aluschienen von Hense einplanen<br>Was kann vor Ort in Stahl/Befestigung besorgt werden? Was muss in den Container?</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 3 GESAMTSYSTEM -->
-  <div class="section">
-    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Gesamtsystem durchgehen und Fehlerquellen identifizieren</h2></div>
-    <p class="section-desc">Um mögliche Probleme vor Ort zu vermeiden, das Gesamtsystem einmal vollständig durchgehen. Frist: 06.08.2026 · Paul &amp; Simon, Maximilian Bauland</p>
-
-    <div class="card" style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
-      <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">3.1</span>
-      <div style="flex:1">
-        <div style="font-weight:600;margin-bottom:4px">Gesamtsystem visuell darstellen <span style="background:var(--sun-light);color:var(--sun);font-size:11px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:4px;margin-left:6px">in Bearbeitung</span></div>
-        <div style="font-size:13px;color:var(--ink2);line-height:1.5">Vereinfachte Darstellung des Gesamtsystems für bessere Kommunikation.<br>
-        Vorlage bereits von Maximilian Bauland erhalten — Überarbeitung/Ergänzung zeitnah geplant.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4 EINARBEITUNG -->
-  <div class="section">
-    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Einarbeitung in die Montage von PV-Inselsystemen</h2></div>
-    <p class="section-desc">Verständnis aufbauen, wie Komponenten anzuschließen sind und wie der Aufbau vor Ort abläuft. Frist: 30.09.2026 · Paul &amp; Simon</p>
-
-    <div class="card" style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
-      <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">4.1</span>
-      <div style="flex:1">
-        <div style="font-weight:600;margin-bottom:4px">Werkzeuge</div>
-        <div style="font-size:13px;color:var(--ink2)">Verständnis für benötigte Werkzeuge schaffen und Bedarf klären. Frist: 06.08.2026</div>
-      </div>
-      <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
-    </div>
-  </div>
-
-  <!-- 5 PROBE -->
-  <div class="section">
-    <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Zusatzsystem zur Probe aufbauen und testen</h2></div>
-    <p class="section-desc">Um Probleme vor Ort zu vermeiden, das Zusatzsystem einmal komplett probeweise aufbauen. Frist: 30.09.2026 · Paul &amp; Simon</p>
-    <div class="card" style="padding:20px 24px">
-      <div style="font-size:13px;color:var(--ink2)">Schwierigkeit: Verfügbarkeit der Komponenten in Deutschland</div>
-    </div>
-  </div>
-
-  <!-- 6 PIKTOGRAMME -->
-  <div class="section">
-    <div class="section-header"><span class="section-num">06</span><h2 class="section-title">Anleitungen für vor Ort (Piktogramme)</h2></div>
-    <p class="section-desc">Verständliche Anleitungen für Personen vor Ort zur Förderung von Selbstständigkeit. Frist: 30.09.2026</p>
-    <div class="card" style="padding:20px 24px">
-      <div style="font-size:13px;color:var(--ink2)">Herausforderung: Analphabetismus in The Gambia und Sprachbarriere → Bildsprache / Piktogramme notwendig</div>
-    </div>
-  </div>
-
-  <!-- 7 AUFBAU VOR ORT -->
-  <div class="section">
-    <div class="section-header"><span class="section-num">07</span><h2 class="section-title">Aufbau vor Ort</h2></div>
-    <p class="section-desc">Gesamter Aufbau und Inbetriebnahme in The Gambia. Verantwortlich: alle Teams. Schwierigkeiten: fehlende Batterien, ggf. fehlendes weiteres Material</p>
-
-    <div class="card" style="padding:20px 24px;display:flex;align-items:flex-start;gap:16px">
-      <span style="flex-shrink:0;width:40px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding-top:2px">7.1</span>
-      <div style="flex:1">
-        <div style="font-weight:600;margin-bottom:4px">Ablaufplanung</div>
-        <div style="font-size:13px;color:var(--ink2);line-height:1.5">
-          Planen, welche Schritte in welcher Reihenfolge zu tun sind und wer was macht.<br>
-          Idealen Ablauf definieren. Frist: 30.09.2026 · alle Teams
-        </div>
-      </div>
-      <span style="flex-shrink:0;background:var(--amber-light);color:var(--amber);font-size:11px;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:4px;white-space:nowrap">offen</span>
-    </div>
-  </div>
-
-  <!-- 8 KABEL VERLÄNGERN -->
-  <div class="section">
-    <div class="section-header"><span class="section-num">08</span><h2 class="section-title">Verlängerung der Kabel von PV-Modulen</h2></div>
-    <p class="section-desc">Bei welchen Modulen müssen Kabel noch verlängert werden? Verantwortlich: Team 1</p>
-
-    <div class="card" style="padding:20px 24px">
-      <ul style="font-size:13px;color:var(--ink2);line-height:2;padding-left:20px">
-        <li>Rücksprache mit Matthias bzgl. welcher Module betroffen sind</li>
-        <li>Kabelschuhe entsprechend einplanen</li>
-        <li>Zange zum Quetschen der Kabelschuhe einplanen</li>
-      </ul>
     </div>
   </div>
 
 </main>
-</div><!-- /page-aufgaben -->
+</div><!-- /page-packliste -->
 
 <div class="lb-overlay" id="lb-overlay">
   <button class="lb-close" id="lb-close" aria-label="Schließen">✕</button>
